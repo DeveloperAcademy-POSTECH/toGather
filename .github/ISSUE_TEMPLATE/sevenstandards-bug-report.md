@@ -1,7 +1,7 @@
 ---
 name: SevenStandards Bug report
 about: SevenStandards 개발 중 생긴 버그를 작성합니다.
-title: ''
+title: "[BUG]"
 labels: ''
 assignees: ''
 
