@@ -51,6 +51,9 @@
 		767CAFF128502D2B00522C12 /* ToGather */ = {
 			isa = PBXGroup;
 			children = (
+				767CB00328503F5300522C12 /* Screens */,
+				767CB00228503F4E00522C12 /* Global */,
+				767CB00128503F3F00522C12 /* Models */,
 				767CAFF228502D2B00522C12 /* ToGatherApp.swift */,
 				767CAFF428502D2B00522C12 /* ContentView.swift */,
 				767CAFF628502D2C00522C12 /* Assets.xcassets */,
@@ -65,6 +68,67 @@
 				767CAFF928502D2C00522C12 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		767CB00128503F3F00522C12 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		767CB00228503F4E00522C12 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				767CB00828503F6E00522C12 /* Resource */,
+				767CB00728503F6800522C12 /* UIComponent */,
+				767CB00628503F6400522C12 /* Extension */,
+				767CB00528503F5D00522C12 /* Literal */,
+				767CB00428503F5900522C12 /* Service */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		767CB00328503F5300522C12 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		767CB00428503F5900522C12 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		767CB00528503F5D00522C12 /* Literal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Literal;
+			sourceTree = "<group>";
+		};
+		767CB00628503F6400522C12 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		767CB00728503F6800522C12 /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		767CB00828503F6E00522C12 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
