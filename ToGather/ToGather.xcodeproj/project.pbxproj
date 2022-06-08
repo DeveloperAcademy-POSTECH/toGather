@@ -11,6 +11,9 @@
 		767CAFF528502D2B00522C12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767CAFF428502D2B00522C12 /* ContentView.swift */; };
 		767CAFF728502D2C00522C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 767CAFF628502D2C00522C12 /* Assets.xcassets */; };
 		767CAFFA28502D2C00522C12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 767CAFF928502D2C00522C12 /* Preview Assets.xcassets */; };
+		767CB019285042E900522C12 /* SettingGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767CB018285042E900522C12 /* SettingGoal.swift */; };
+		767CB01F2850432900522C12 /* SettingPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767CB01E2850432900522C12 /* SettingPeriod.swift */; };
+		767CB0232850434B00522C12 /* AddingFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767CB0222850434B00522C12 /* AddingFriend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		767CAFF428502D2B00522C12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		767CAFF628502D2C00522C12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		767CAFF928502D2C00522C12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		767CB018285042E900522C12 /* SettingGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingGoal.swift; path = ToGather/Screens/SettingGoal/View/SettingGoal.swift; sourceTree = SOURCE_ROOT; };
+		767CB01E2850432900522C12 /* SettingPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPeriod.swift; sourceTree = "<group>"; };
+		767CB0222850434B00522C12 /* AddingFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingFriend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,9 @@
 		767CB00328503F5300522C12 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				767CB0202850433100522C12 /* AddingFriend */,
+				767CB01C2850431100522C12 /* SettingPeriod */,
+				767CB01A285042F400522C12 /* SettingGoal */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -129,6 +138,54 @@
 			children = (
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		767CB01A285042F400522C12 /* SettingGoal */ = {
+			isa = PBXGroup;
+			children = (
+				767CB01B2850430500522C12 /* View */,
+			);
+			path = SettingGoal;
+			sourceTree = "<group>";
+		};
+		767CB01B2850430500522C12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				767CB018285042E900522C12 /* SettingGoal.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		767CB01C2850431100522C12 /* SettingPeriod */ = {
+			isa = PBXGroup;
+			children = (
+				767CB01D2850432200522C12 /* View */,
+			);
+			path = SettingPeriod;
+			sourceTree = "<group>";
+		};
+		767CB01D2850432200522C12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				767CB01E2850432900522C12 /* SettingPeriod.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		767CB0202850433100522C12 /* AddingFriend */ = {
+			isa = PBXGroup;
+			children = (
+				767CB0212850433C00522C12 /* View */,
+			);
+			path = AddingFriend;
+			sourceTree = "<group>";
+		};
+		767CB0212850433C00522C12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				767CB0222850434B00522C12 /* AddingFriend.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,8 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				767CB019285042E900522C12 /* SettingGoal.swift in Sources */,
 				767CAFF528502D2B00522C12 /* ContentView.swift in Sources */,
 				767CAFF328502D2B00522C12 /* ToGatherApp.swift in Sources */,
+				767CB0232850434B00522C12 /* AddingFriend.swift in Sources */,
+				767CB01F2850432900522C12 /* SettingPeriod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
