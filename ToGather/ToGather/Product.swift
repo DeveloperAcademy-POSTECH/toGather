@@ -9,7 +9,7 @@ import Foundation
 
 struct Product {
     let productName: String
-    let productPrice: String
+    let productPrice: Double
     let imageUrl: String
 
 }
