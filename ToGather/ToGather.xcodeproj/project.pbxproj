@@ -10,13 +10,17 @@
 		3D4383A828519BD100AD1885 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4383A728519BD100AD1885 /* GoogleService-Info.plist */; };
 		3D4383AB28519DA700AD1885 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AA28519DA700AD1885 /* FirebaseAuth */; };
 		3D4383AD28519DA700AD1885 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AC28519DA700AD1885 /* FirebaseFirestore */; };
+		35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0728519C520089E1C3 /* ThisWeek.swift */; };
+		35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0828519C520089E1C3 /* Saving.swift */; };
+		35AD2D0D28519C520089E1C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0928519C520089E1C3 /* User.swift */; };
+		35AD2D0E28519C520089E1C3 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0A28519C520089E1C3 /* Product.swift */; };
 		764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72C28518CC8007A7415 /* ToGatherApp.swift */; };
 		764FC72F28518CC8007A7415 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72E28518CC8007A7415 /* ContentView.swift */; };
 		764FC73128518CC9007A7415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73028518CC9007A7415 /* Assets.xcassets */; };
 		764FC73428518CC9007A7415 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73328518CC9007A7415 /* Preview Assets.xcassets */; };
 		764FC73C28518D9D007A7415 /* ModelEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC73B28518D9D007A7415 /* ModelEmpty.swift */; };
 		764FC74628518E03007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74528518E03007A7415 /* SwiftUIView.swift */; };
-		764FC74828518E07007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74728518E07007A7415 /* SwiftUIView.swift */; };
+		764FC74828518E07007A7415 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74728518E07007A7415 /* ColorAsset.swift */; };
 		764FC74A28518E0B007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74928518E0B007A7415 /* SwiftUIView.swift */; };
 		764FC74C28518E0E007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74B28518E0E007A7415 /* SwiftUIView.swift */; };
 		764FC74E28518E12007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74D28518E12007A7415 /* SwiftUIView.swift */; };
@@ -24,6 +28,10 @@
 
 /* Begin PBXFileReference section */
 		3D4383A728519BD100AD1885 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		35AD2D0728519C520089E1C3 /* ThisWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThisWeek.swift; sourceTree = "<group>"; };
+		35AD2D0828519C520089E1C3 /* Saving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saving.swift; sourceTree = "<group>"; };
+		35AD2D0928519C520089E1C3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		35AD2D0A28519C520089E1C3 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		764FC72928518CC8007A7415 /* ToGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		764FC72C28518CC8007A7415 /* ToGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGatherApp.swift; sourceTree = "<group>"; };
 		764FC72E28518CC8007A7415 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -31,7 +39,7 @@
 		764FC73328518CC9007A7415 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		764FC73B28518D9D007A7415 /* ModelEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelEmpty.swift; sourceTree = "<group>"; };
 		764FC74528518E03007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
-		764FC74728518E07007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		764FC74728518E07007A7415 /* ColorAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
 		764FC74928518E0B007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		764FC74B28518E0E007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		764FC74D28518E12007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
@@ -90,6 +98,10 @@
 			isa = PBXGroup;
 			children = (
 				764FC73B28518D9D007A7415 /* ModelEmpty.swift */,
+				35AD2D0A28519C520089E1C3 /* Product.swift */,
+				35AD2D0828519C520089E1C3 /* Saving.swift */,
+				35AD2D0728519C520089E1C3 /* ThisWeek.swift */,
+				35AD2D0928519C520089E1C3 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -143,7 +155,7 @@
 		764FC74328518DF7007A7415 /* Literal */ = {
 			isa = PBXGroup;
 			children = (
-				764FC74728518E07007A7415 /* SwiftUIView.swift */,
+				764FC74728518E07007A7415 /* ColorAsset.swift */,
 			);
 			path = Literal;
 			sourceTree = "<group>";
@@ -257,12 +269,17 @@
 			files = (
 				764FC73C28518D9D007A7415 /* ModelEmpty.swift in Sources */,
 				764FC74C28518E0E007A7415 /* SwiftUIView.swift in Sources */,
+				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
 				764FC74E28518E12007A7415 /* SwiftUIView.swift in Sources */,
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
+				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
+				35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */,
 				764FC74A28518E0B007A7415 /* SwiftUIView.swift in Sources */,
 				764FC74628518E03007A7415 /* SwiftUIView.swift in Sources */,
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
+				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				764FC74828518E07007A7415 /* SwiftUIView.swift in Sources */,
+				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
