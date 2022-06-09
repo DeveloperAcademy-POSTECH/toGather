@@ -11,6 +11,12 @@
 		764FC72F28518CC8007A7415 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72E28518CC8007A7415 /* ContentView.swift */; };
 		764FC73128518CC9007A7415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73028518CC9007A7415 /* Assets.xcassets */; };
 		764FC73428518CC9007A7415 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73328518CC9007A7415 /* Preview Assets.xcassets */; };
+		764FC73C28518D9D007A7415 /* modelempty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC73B28518D9D007A7415 /* modelempty.swift */; };
+		764FC74628518E03007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74528518E03007A7415 /* SwiftUIView.swift */; };
+		764FC74828518E07007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74728518E07007A7415 /* SwiftUIView.swift */; };
+		764FC74A28518E0B007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74928518E0B007A7415 /* SwiftUIView.swift */; };
+		764FC74C28518E0E007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74B28518E0E007A7415 /* SwiftUIView.swift */; };
+		764FC74E28518E12007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74D28518E12007A7415 /* SwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		764FC72E28518CC8007A7415 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		764FC73028518CC9007A7415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		764FC73328518CC9007A7415 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		764FC73B28518D9D007A7415 /* modelempty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelempty.swift; sourceTree = "<group>"; };
+		764FC74528518E03007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		764FC74728518E07007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		764FC74928518E0B007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		764FC74B28518E0E007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		764FC74D28518E12007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +63,9 @@
 		764FC72B28518CC8007A7415 /* ToGather */ = {
 			isa = PBXGroup;
 			children = (
-				764FC72C28518CC8007A7415 /* ToGatherApp.swift */,
-				764FC72E28518CC8007A7415 /* ContentView.swift */,
-				764FC73028518CC9007A7415 /* Assets.xcassets */,
+				764FC73E28518DD5007A7415 /* Global */,
+				764FC73D28518DCE007A7415 /* Screens */,
+				764FC73A28518D82007A7415 /* Models */,
 				764FC73228518CC9007A7415 /* Preview Content */,
 			);
 			path = ToGather;
@@ -67,6 +79,76 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		764FC73A28518D82007A7415 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				764FC73B28518D9D007A7415 /* modelempty.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		764FC73D28518DCE007A7415 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				764FC72C28518CC8007A7415 /* ToGatherApp.swift */,
+				764FC72E28518CC8007A7415 /* ContentView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		764FC73E28518DD5007A7415 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				764FC74428518DFB007A7415 /* Service */,
+				764FC74328518DF7007A7415 /* Literal */,
+				764FC74228518DF2007A7415 /* Extension */,
+				764FC74128518DEC007A7415 /* UIComponent */,
+				764FC73F28518DE0007A7415 /* Resources */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		764FC73F28518DE0007A7415 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				764FC73028518CC9007A7415 /* Assets.xcassets */,
+				764FC74D28518E12007A7415 /* SwiftUIView.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		764FC74128518DEC007A7415 /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				764FC74B28518E0E007A7415 /* SwiftUIView.swift */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		764FC74228518DF2007A7415 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				764FC74928518E0B007A7415 /* SwiftUIView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		764FC74328518DF7007A7415 /* Literal */ = {
+			isa = PBXGroup;
+			children = (
+				764FC74728518E07007A7415 /* SwiftUIView.swift */,
+			);
+			path = Literal;
+			sourceTree = "<group>";
+		};
+		764FC74428518DFB007A7415 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				764FC74528518E03007A7415 /* SwiftUIView.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +159,7 @@
 				764FC72528518CC8007A7415 /* Sources */,
 				764FC72628518CC8007A7415 /* Frameworks */,
 				764FC72728518CC8007A7415 /* Resources */,
+				764FC75128518E77007A7415 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,13 +215,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		764FC75128518E77007A7415 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		764FC72528518CC8007A7415 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				764FC73C28518D9D007A7415 /* modelempty.swift in Sources */,
+				764FC74C28518E0E007A7415 /* SwiftUIView.swift in Sources */,
+				764FC74E28518E12007A7415 /* SwiftUIView.swift in Sources */,
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
+				764FC74A28518E0B007A7415 /* SwiftUIView.swift in Sources */,
+				764FC74628518E03007A7415 /* SwiftUIView.swift in Sources */,
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
+				764FC74828518E07007A7415 /* SwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
