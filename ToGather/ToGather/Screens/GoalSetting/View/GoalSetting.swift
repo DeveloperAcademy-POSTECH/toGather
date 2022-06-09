@@ -9,7 +9,32 @@ import SwiftUI
 
 struct GoalSetting: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack(spacing: 0) {
+                GoalItemRow(headline: "100만원",
+                            firstImageTitle: "goal-airpod",
+                            firstPrice: "300,000",
+                            secondImageTitle: "goal-applewatch",
+                            secondPrice: "500,000",
+                            thirdImageTitle: "goal-ipad",
+                            thirdPrice: "700,000")
+                GoalItemRow(headline: "100만원",
+                            firstImageTitle: "goal-airpod",
+                            firstPrice: "300,000",
+                            secondImageTitle: "goal-applewatch",
+                            secondPrice: "500,000",
+                            thirdImageTitle: "goal-ipad",
+                            thirdPrice: "700,000")
+                GoalItemRow(headline: "100만원",
+                            firstImageTitle: "goal-airpod",
+                            firstPrice: "300,000",
+                            secondImageTitle: "goal-applewatch",
+                            secondPrice: "500,000",
+                            thirdImageTitle: "goal-ipad",
+                            thirdPrice: "700,000")
+            } // VStack
+            .navigationTitle("저축목표를 골라주세요")
+        } // NavigationView
     }
 }
 
