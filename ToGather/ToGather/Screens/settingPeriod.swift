@@ -18,17 +18,17 @@ struct SettingPeriodView: View {
 
     var body: some View {
         VStack {
-            Spacer(minLength: 0)
+            Spacer(minLength: 90)
             title
             Spacer(minLength: 16)
             itemInfo
-            Spacer(minLength: 10)
+            Spacer(minLength: 50)
             slider
             Spacer(minLength: 15)
             selectDay
             Spacer(minLength: 70)
             nextButton
-        }
+        }.ignoresSafeArea()
     }
 
     private let title: some View = HStack {
@@ -89,7 +89,7 @@ struct SettingPeriodView: View {
 
         return VStack {
             priceAndPeriod
-            Spacer(minLength: 61)
+            Spacer(minLength: 30)
             Text("약 \(numWeek, specifier: "%2.f")개월")
                 .font(.system(size: 14, weight: .medium))
                 .foregroundColor(ColorStyle.blackSixty.color)
