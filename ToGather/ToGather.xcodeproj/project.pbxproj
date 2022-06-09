@@ -13,7 +13,7 @@
 		764FC73428518CC9007A7415 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73328518CC9007A7415 /* Preview Assets.xcassets */; };
 		764FC73C28518D9D007A7415 /* modelempty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC73B28518D9D007A7415 /* modelempty.swift */; };
 		764FC74628518E03007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74528518E03007A7415 /* SwiftUIView.swift */; };
-		764FC74828518E07007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74728518E07007A7415 /* SwiftUIView.swift */; };
+		764FC74828518E07007A7415 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74728518E07007A7415 /* ColorAsset.swift */; };
 		764FC74A28518E0B007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74928518E0B007A7415 /* SwiftUIView.swift */; };
 		764FC74C28518E0E007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74B28518E0E007A7415 /* SwiftUIView.swift */; };
 		764FC74E28518E12007A7415 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74D28518E12007A7415 /* SwiftUIView.swift */; };
@@ -27,7 +27,7 @@
 		764FC73328518CC9007A7415 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		764FC73B28518D9D007A7415 /* modelempty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelempty.swift; sourceTree = "<group>"; };
 		764FC74528518E03007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
-		764FC74728518E07007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		764FC74728518E07007A7415 /* ColorAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
 		764FC74928518E0B007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		764FC74B28518E0E007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		764FC74D28518E12007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		764FC74328518DF7007A7415 /* Literal */ = {
 			isa = PBXGroup;
 			children = (
-				764FC74728518E07007A7415 /* SwiftUIView.swift */,
+				764FC74728518E07007A7415 /* ColorAsset.swift */,
 			);
 			path = Literal;
 			sourceTree = "<group>";
@@ -247,7 +247,7 @@
 				764FC74A28518E0B007A7415 /* SwiftUIView.swift in Sources */,
 				764FC74628518E03007A7415 /* SwiftUIView.swift in Sources */,
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
-				764FC74828518E07007A7415 /* SwiftUIView.swift in Sources */,
+				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
