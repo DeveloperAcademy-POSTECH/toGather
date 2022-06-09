@@ -7,9 +7,7 @@
 
 import Foundation
 
-
 struct ThisWeek {
-    
     let presentWeek: Int
     let didSave: Bool
 }
