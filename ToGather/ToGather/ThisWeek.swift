@@ -8,8 +8,8 @@
 import Foundation
 
 
-struct Week {
+struct ThisWeek {
     
     let presentWeek: Int
-    let DidSave: Bool
+    let didSave: Bool
 }

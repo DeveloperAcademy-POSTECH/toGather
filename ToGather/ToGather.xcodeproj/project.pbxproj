@@ -11,7 +11,7 @@
 		35D1EE0F285063AB008768E0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1EE0E285063AB008768E0 /* User.swift */; };
 		35D1EE11285063CF008768E0 /* Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1EE10285063CF008768E0 /* Saving.swift */; };
 		35D1EE1328506D0B008768E0 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1EE1228506D0B008768E0 /* Product.swift */; };
-		35D1EE1528508382008768E0 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1EE1428508382008768E0 /* Week.swift */; };
+		35D1EE1528508382008768E0 /* ThisWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1EE1428508382008768E0 /* ThisWeek.swift */; };
 		767CAFF328502D2B00522C12 /* ToGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767CAFF228502D2B00522C12 /* ToGatherApp.swift */; };
 		767CAFF528502D2B00522C12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767CAFF428502D2B00522C12 /* ContentView.swift */; };
 		767CAFF728502D2C00522C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 767CAFF628502D2C00522C12 /* Assets.xcassets */; };
@@ -26,7 +26,7 @@
 		35D1EE0E285063AB008768E0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = ToGather/User.swift; sourceTree = SOURCE_ROOT; };
 		35D1EE10285063CF008768E0 /* Saving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Saving.swift; path = ToGather/Saving.swift; sourceTree = SOURCE_ROOT; };
 		35D1EE1228506D0B008768E0 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Product.swift; path = ToGather/Product.swift; sourceTree = SOURCE_ROOT; };
-		35D1EE1428508382008768E0 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Week.swift; path = ToGather/Week.swift; sourceTree = SOURCE_ROOT; };
+		35D1EE1428508382008768E0 /* ThisWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThisWeek.swift; path = ToGather/ThisWeek.swift; sourceTree = SOURCE_ROOT; };
 		767CAFEF28502D2B00522C12 /* ToGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		767CAFF228502D2B00522C12 /* ToGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGatherApp.swift; sourceTree = "<group>"; };
 		767CAFF428502D2B00522C12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 				35D1EE0E285063AB008768E0 /* User.swift */,
 				35D1EE10285063CF008768E0 /* Saving.swift */,
 				35D1EE1228506D0B008768E0 /* Product.swift */,
-				35D1EE1428508382008768E0 /* Week.swift */,
+				35D1EE1428508382008768E0 /* ThisWeek.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -325,7 +325,7 @@
 				767CAFF328502D2B00522C12 /* ToGatherApp.swift in Sources */,
 				767CB0232850434B00522C12 /* AddingFriend.swift in Sources */,
 				767CB01F2850432900522C12 /* SettingPeriod.swift in Sources */,
-				35D1EE1528508382008768E0 /* Week.swift in Sources */,
+				35D1EE1528508382008768E0 /* ThisWeek.swift in Sources */,
 				35D1EE0F285063AB008768E0 /* User.swift in Sources */,
 				35D1EE11285063CF008768E0 /* Saving.swift in Sources */,
 			);
