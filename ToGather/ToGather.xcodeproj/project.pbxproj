@@ -11,6 +11,7 @@
 		35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0828519C520089E1C3 /* Saving.swift */; };
 		35AD2D0D28519C520089E1C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0928519C520089E1C3 /* User.swift */; };
 		35AD2D0E28519C520089E1C3 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0A28519C520089E1C3 /* Product.swift */; };
+		3D4134572852EC44009E7953 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4134562852EC44009E7953 /* FirebaseFirestoreSwift */; };
 		35AD2D1D2851D4730089E1C3 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D1A2851D4730089E1C3 /* MainViewModel.swift */; };
 		35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D1C2851D4730089E1C3 /* MainView.swift */; };
 		35AD2D222851E1FB0089E1C3 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -620,6 +621,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3D4134552852EC44009E7953 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		3D4383A928519DA700AD1885 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
