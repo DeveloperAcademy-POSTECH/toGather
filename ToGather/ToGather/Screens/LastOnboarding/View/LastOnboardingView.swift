@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LastOnboardingView: View {
+    
+    @ObservedObject var model = LastOnboardingViewModel()
+    
     var body: some View {
         VStack(spacing: 0) {
             Text("최종 저축내용을 확인해주세요")
@@ -60,6 +63,7 @@ struct LastOnboardingView: View {
                 .font(.system(size: 14, weight: .regular))
                 .padding(.bottom, 41)
             Button {
+                model.getData()
             } label: {
                 Text("저축내용을 수정할게요")
                     .foregroundColor(ColorStyle.blackSixty.color)

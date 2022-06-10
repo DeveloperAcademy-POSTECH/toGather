@@ -12,10 +12,10 @@ import FirebaseCore
 struct ToGatherApp: App {
     init() {
         FirebaseApp.configure()
-    }    
+    }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LastOnboardingView()
         }
     }
 }
