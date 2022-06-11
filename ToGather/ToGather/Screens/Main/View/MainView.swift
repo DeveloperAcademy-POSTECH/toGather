@@ -17,11 +17,9 @@ struct MainView: View {
                 Divider()
                     .padding(.horizontal)
                     .padding(.bottom)
-                
                 mySavingsView
                 Spacer(minLength: 68)
                 bottomView
-               // Spacer()
         }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -87,19 +85,8 @@ extension MainView {
                                  backgroundColor: Color.basicGreen.opacity(0.05), unfillColor: Color.basicGreen.opacity(0.2), friendName: "Cook")
             }
             }
-//            VStack {
-//                Spacer()
-//                HStack {
-//                    Spacer()
-//                    Text("친구편집")
-//                        .font(.subheadline)
-//                        .foregroundColor(Color.baseBlack.opacity(0.8))
-//                        .padding()
-//                }
-//                }
         }
     }
-    
     var mySavingsView : some View {
         VStack {
             HStack {
@@ -121,7 +108,6 @@ extension MainView {
                         .font(.system(size: 60, weight: .bold))
                         .foregroundColor(Color(hex: "#468EF3"))
                         .padding(.bottom)
-                        
                     Text("저축 완료일")
                         .font(.system(size: 14))
                         .foregroundColor(.gray)
@@ -141,7 +127,6 @@ extension MainView {
                                 }
         }
     }
-    
     var bottomView : some View {
         VStack {
             HStack{
@@ -173,5 +158,4 @@ extension MainView {
         }
     }
 }
-
 

@@ -9,6 +9,5 @@ import SwiftUI
 
 
 class MainViewModel : ObservableObject {
-    
 
 }
