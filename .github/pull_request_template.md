@@ -1,3 +1,9 @@
+---
+assignees: yudonlee, limhyoseok
+reviewers: limhyoseok
+---
+
+
 ## 🍏 관련 이슈
 <!-- 해당 PR과 관련된 이슈를 링크해주세요. -->
 
