@@ -46,8 +46,8 @@ struct FriendSavingView_Previews: PreviewProvider {
             Color(red: 0.779, green: 0.097, blue: 0.248, opacity: 1),
               Color(red: 0.918, green: 0.298, blue: 0.435, opacity: 1)
                   ],
-                         backgroundColor: Color.lightRed2,
-                         unfillColor: Color.lightRed,
+                         backgroundColor: Color.basicRed.opacity(0.05),
+                         unfillColor: Color.basicRed.opacity(0.2),
                          friendName: "Tim")
     }
 }

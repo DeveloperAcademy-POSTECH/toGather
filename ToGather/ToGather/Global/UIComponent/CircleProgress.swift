@@ -46,8 +46,8 @@ struct CircleProgress_Previews: PreviewProvider {
                         Color(hex: "#0043A0"),
                         Color(hex: "#5199FF")
                        ],
-                       backgroundColor: Color.lightBlue2,
-                       unfillColor: Color.lightBlue)
+                       backgroundColor: Color.pointColor.opacity(0.05),
+                       unfillColor: Color.pointColor.opacity(0.2))
         
     }
 }

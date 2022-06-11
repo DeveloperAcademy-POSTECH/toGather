@@ -36,13 +36,13 @@ struct MainView: View {
                     } label: {
                         Image(systemName: "bell.badge.fill")
                     }
-                    .foregroundColor(.baseBlack.opacity(0.4))
+                    .foregroundColor(.basicBlack.opacity(0.4))
                     Button {
                         //
                     } label: {
                         Image(systemName: "gear")
                     }
-                    .foregroundColor(.baseBlack.opacity(0.4))
+                    .foregroundColor(.basicBlack.opacity(0.4))
 
                 }
             }
@@ -67,8 +67,8 @@ extension MainView {
                     Color(red: 0.779, green: 0.097, blue: 0.248, opacity: 1),
                       Color(red: 0.918, green: 0.298, blue: 0.435, opacity: 1)
                           ],
-                                 backgroundColor: Color.lightRed2,
-                                 unfillColor: Color.lightRed,
+                                 backgroundColor: Color.basicRed.opacity(0.05),
+                                 unfillColor: Color.basicRed.opacity(0.2),
                                  friendName: "Tim")
                 FriendSavingView(image: "Iphone",
                                  percentage: 0.23,
@@ -76,7 +76,7 @@ extension MainView {
                                     Color(red: 0.301, green: 0, blue: 0.642, opacity: 1),
                                       Color(red: 0.757, green: 0.576, blue: 0.961, opacity: 1)
                                           ] ,
-                                 backgroundColor: Color.lightPurple2, unfillColor: Color.lightPurple, friendName: "Steve")
+                                 backgroundColor: Color.basicPurple.opacity(0.05), unfillColor: Color.basicPurple.opacity(0.2), friendName: "Steve")
                 FriendSavingView(image: "Macbook",
                                  percentage: 0.8,
                                  colors: [
@@ -84,7 +84,7 @@ extension MainView {
 
                                       Color(red: 0.581, green: 0.829, blue: 0.176, opacity: 1)
                                           ] ,
-                                 backgroundColor: Color.lightGreen2, unfillColor: Color.lightGreen, friendName: "Cook")
+                                 backgroundColor: Color.basicGreen.opacity(0.05), unfillColor: Color.basicGreen.opacity(0.2), friendName: "Cook")
             }
             }
 //            VStack {
@@ -136,7 +136,7 @@ extension MainView {
                                 Color(hex: "#0043A0"),
                                 Color(hex: "#5199FF")
                                                 ],
-                               backgroundColor: Color.lightBlue2, unfillColor: Color.lightBlue)
+                               backgroundColor: Color.pointColor.opacity(0.05), unfillColor: Color.pointColor.opacity(0.2))
                 .padding(.horizontal)
                                 }
         }
@@ -151,7 +151,7 @@ extension MainView {
                     .bold()
                 Text("저축까지 남은 시간")
                     .font(.system(size: 14))
-                    .foregroundColor(.baseBlack.opacity(0.6))
+                    .foregroundColor(.basicBlack.opacity(0.6))
             }
                 Button {
                 //
@@ -167,7 +167,7 @@ extension MainView {
 
             }
             .frame(minWidth: 0, maxWidth: .infinity,minHeight: 46)
-            .background(Color.baseBlack.opacity(0.3))
+            .background(Color.basicBlack.opacity(0.3))
             .cornerRadius(30)
             .padding(.horizontal)
         }
