@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 <!-- reviewers 추가할 때 참고! -->
 비트 @yeongwooCho 랜스 @limhyoseok 밀러 @KimDaeSeong8721 닐 @yudonlee 맥스 @Sungwooo 이브@unuhqueen
-=======
----
-assignees: yudonlee, limhyoseok
-reviewers: limhyoseok
----
-
->>>>>>> b5f15ce (Update pull_request_template.md)
 
 ## 🍏 관련 이슈
 <!-- 해당 PR과 관련된 이슈를 링크해주세요. -->
