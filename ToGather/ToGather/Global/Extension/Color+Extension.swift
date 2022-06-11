@@ -13,6 +13,7 @@ extension Color{
     static let pointColor = Color("PointColor_blue")
     
     static let basicBlack = Color("BasicBlack")
+    // Background Color
     
     static let basicRed = Color(hex:"#E96E89")
     
