@@ -1,7 +1,4 @@
----
-assignees: yudonlee, limhyoseok
-reviewers: limhyoseok
----
+@limhyoseok
 
 
 ## 🍏 관련 이슈
