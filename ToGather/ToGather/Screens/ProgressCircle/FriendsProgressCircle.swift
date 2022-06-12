@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct FriendsProgressCircle: View {
+struct FriendsProgressCircle: View, Identifiable {
+    var id: Int
     var color: RGBColorInProgressCircle
     let progressPercent: Double
     let friendName: String
@@ -21,6 +22,7 @@ struct FriendsProgressCircle: View {
             Text(friendName)
                     .font(.system(size: 14))
         }
+       // .frame(height: 123)
     }
 }
 
@@ -42,7 +44,8 @@ extension FriendsProgressCircle {
 struct FriendsProgressCircle_Previews: PreviewProvider {
     static var previews: some View {
         HStack {
-            FriendsProgressCircle(color: RGBColorInProgressCircle.friendColor1,
+            FriendsProgressCircle(id: 1,
+                                  color: RGBColorInProgressCircle.friendColor1,
                                   progressPercent: 30,
                                   friendName: "Tim",
                                   friendProduct: Product.sampleData[1])
