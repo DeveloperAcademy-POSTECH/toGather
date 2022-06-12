@@ -17,22 +17,29 @@ struct GoalItemRow: View {
     var thirdPrice: String
     var body: some View {
         VStack(spacing: 0) {
-            HStack(alignment: .center, spacing: 4) {
+            HStack(alignment: .bottom, spacing: 4) {
                 Text(headline)
+                    .font(.system(size: 20))
                     .fontWeight(.heavy)
                     .foregroundColor(Color.blue)
+                    .padding(.leading, 20)
                 Text("미만")
+                    .foregroundColor(ColorStyle.blackHundred.color)
+                Spacer()
             } // HStack
             .padding(.bottom, 6)
             Divider()
                 .padding(.horizontal, 20)
-            HStack(alignment: .center, spacing: 25) {
+            HStack(alignment: .center, spacing: 0) {
                 GoalItem(imageTitle: firstImageTitle, price: firstPrice)
+                Spacer()
                 GoalItem(imageTitle: secondImageTitle, price: secondPrice)
+                Spacer()
                 GoalItem(imageTitle: thirdImageTitle, price: thirdPrice)
             } // HStack
-            .padding(.bottom, 8)
+            .padding(.horizontal, 20)
         } // VStack
+        .padding(.vertical, 22)
     }
 }
 
