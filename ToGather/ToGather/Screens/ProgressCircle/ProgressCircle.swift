@@ -24,8 +24,8 @@ let rotationDegree = (360 * (1 - length))/2 + 90
 struct ProgressCircle: View {
     let color: RGBColorInProgressCircle
     let frameSize: Double // 가장 큰 원의 Frame 사이즈
-    let weekInfo: [ThisWeek]
-
+    var weekInfo: [ThisWeek]
+    
     var body: some View {
         ZStack {
             let lineStyle = StrokeStyle(lineWidth: frameSize * 0.03, lineCap: .round, lineJoin: .round)
