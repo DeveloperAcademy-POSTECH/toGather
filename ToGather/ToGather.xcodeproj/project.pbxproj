@@ -23,8 +23,10 @@
 		764FC74828518E07007A7415 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74728518E07007A7415 /* ColorAsset.swift */; };
 		764FC74A28518E0B007A7415 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74928518E0B007A7415 /* Color+Extension.swift */; };
 		764FC74C28518E0E007A7415 /* SwiftUIView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74B28518E0E007A7415 /* SwiftUIView3.swift */; };
-		E20551852851CBA400C210DA /* settingPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551842851CBA400C210DA /* settingPeriod.swift */; };
 		E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551882851E80F00C210DA /* ProgressCircle.swift */; };
+		E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519428557E6D00C210DA /* MyProgressCircle.swift */; };
+		E205519728557EEB00C210DA /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519628557EEB00C210DA /* DummyData.swift */; };
+		E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551982855812B00C210DA /* FriendsProgressCircle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,8 +45,10 @@
 		764FC74728518E07007A7415 /* ColorAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
 		764FC74928518E0B007A7415 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		764FC74B28518E0E007A7415 /* SwiftUIView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView3.swift; sourceTree = "<group>"; };
-		E20551842851CBA400C210DA /* settingPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingPeriod.swift; sourceTree = "<group>"; };
 		E20551882851E80F00C210DA /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
+		E205519428557E6D00C210DA /* MyProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProgressCircle.swift; sourceTree = "<group>"; };
+		E205519628557EEB00C210DA /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		E20551982855812B00C210DA /* FriendsProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProgressCircle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +115,9 @@
 		764FC73D28518DCE007A7415 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E205519328557E4500C210DA /* ProgressCircle */,
 				764FC72C28518CC8007A7415 /* ToGatherApp.swift */,
 				764FC72E28518CC8007A7415 /* ContentView.swift */,
-				E20551842851CBA400C210DA /* settingPeriod.swift */,
-				E20551882851E80F00C210DA /* ProgressCircle.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -170,6 +173,17 @@
 				764FC74528518E03007A7415 /* SwiftUIView.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		E205519328557E4500C210DA /* ProgressCircle */ = {
+			isa = PBXGroup;
+			children = (
+				E20551882851E80F00C210DA /* ProgressCircle.swift */,
+				E205519428557E6D00C210DA /* MyProgressCircle.swift */,
+				E205519628557EEB00C210DA /* DummyData.swift */,
+				E20551982855812B00C210DA /* FriendsProgressCircle.swift */,
+			);
+			path = ProgressCircle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,15 +291,17 @@
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
+				E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */,
 				35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */,
 				764FC74A28518E0B007A7415 /* Color+Extension.swift in Sources */,
 				764FC74628518E03007A7415 /* SwiftUIView.swift in Sources */,
-				E20551852851CBA400C210DA /* settingPeriod.swift in Sources */,
 				E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */,
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
+				E205519728557EEB00C210DA /* DummyData.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
+				E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
