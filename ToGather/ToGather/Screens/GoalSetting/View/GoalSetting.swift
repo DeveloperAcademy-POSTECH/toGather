@@ -12,17 +12,7 @@ struct GoalSetting: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 0) {
-                HStack(spacing: 0) {
-                    Text("저축목표")
-                        .font(.system(size: 24))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.blue)
-                    Text("를 골라주세요")
-                        .font(.system(size: 24))
-                        .fontWeight(.bold)
-                } // HStack
-                .padding(.top, 36)
-                .padding(.horizontal, 20)
+                GoalSettingTitleView()
                 GoalItemRow(headline: "100만원",
                             firstImageTitle: "goal-airpod",
                             firstPrice: "300,000",
