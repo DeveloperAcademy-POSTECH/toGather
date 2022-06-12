@@ -15,14 +15,14 @@ struct RGBColorInProgressCircle {
 
     let multipleRed = 0.61
     let multipleGreen = 0.62
-    let multipleBue = 0.93
+    let multipleBlue = 0.93
 
     var start: Color {
         return Color(red: red, green: green, blue: blue)
     }
 
     var end: Color {
-        return Color(red: red * multipleRed, green: green * multipleGreen, blue: blue * multipleBue)
+        return Color(red: red * multipleRed, green: green * multipleGreen, blue: blue * multipleBlue)
     }
 
     var background: Color {
