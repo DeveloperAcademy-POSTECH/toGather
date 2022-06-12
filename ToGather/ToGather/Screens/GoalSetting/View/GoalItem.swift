@@ -20,7 +20,7 @@ struct GoalItem: View {
                     .overlay {
                         Circle()
                             .stroke(lineWidth: isSelected ? 1 : 0)
-                            .foregroundColor(.blue)
+                            .foregroundColor(Color.pointColor)
                     }
             } else {
                 Rectangle()
@@ -29,7 +29,7 @@ struct GoalItem: View {
             }
             Text(price ?? "")
                 .fontWeight(.medium)
-                .foregroundColor(isSelected ? Color.blue : Color.black)
+                .foregroundColor(isSelected ? Color.pointColor : Color.basicBlack)
         } // VStack
         .onTapGesture {
             isSelected.toggle()

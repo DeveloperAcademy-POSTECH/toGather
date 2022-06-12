@@ -21,10 +21,10 @@ struct GoalItemRow: View {
                 Text(headline)
                     .font(.system(size: 20))
                     .fontWeight(.heavy)
-                    .foregroundColor(Color.blue)
+                    .foregroundColor(Color.pointColor)
                     .padding(.leading, 20)
                 Text("미만")
-                    .foregroundColor(ColorStyle.blackHundred.color)
+                    .foregroundColor(Color.basicBlack)
                     .padding(.bottom, 2) // for same border line
                 Spacer()
             } // HStack
@@ -33,11 +33,11 @@ struct GoalItemRow: View {
                 .padding(.horizontal, 20)
                 .padding(.bottom, 8)
             HStack(alignment: .center, spacing: 0) {
-                GoalItem(isSelected: true, imageTitle: firstImageTitle, price: firstPrice)
+                GoalItem(isSelected: false, imageTitle: firstImageTitle, price: firstPrice)
                 Spacer()
-                GoalItem(isSelected: true, imageTitle: secondImageTitle, price: secondPrice)
+                GoalItem(isSelected: false, imageTitle: secondImageTitle, price: secondPrice)
                 Spacer()
-                GoalItem(isSelected: true, imageTitle: thirdImageTitle ?? nil, price: thirdPrice ?? nil)
+                GoalItem(isSelected: false, imageTitle: thirdImageTitle ?? nil, price: thirdPrice ?? nil)
             } // HStack
             .padding(.horizontal, 20)
         } // VStack

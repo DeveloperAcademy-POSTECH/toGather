@@ -17,7 +17,8 @@ struct ToGatherApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            GoalSetting()
         }
     }
 }
