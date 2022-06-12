@@ -15,6 +15,7 @@
 		35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D1C2851D4730089E1C3 /* MainView.swift */; };
 		35AD2D222851E1FB0089E1C3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D292854F8550089E1C3 /* Color+Extension.swift */; };
+		35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7789A2856091C0015122A /* AddedCircleView.swift */; };
 		3D4134572852EC44009E7953 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4134562852EC44009E7953 /* FirebaseFirestoreSwift */; };
 		3D4383A828519BD100AD1885 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4383A728519BD100AD1885 /* GoogleService-Info.plist */; };
 		3D4383AB28519DA700AD1885 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AA28519DA700AD1885 /* FirebaseAuth */; };
@@ -51,6 +52,7 @@
 		35AD2D1A2851D4730089E1C3 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		35AD2D1C2851D4730089E1C3 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		35AD2D292854F8550089E1C3 /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		35E7789A2856091C0015122A /* AddedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedCircleView.swift; sourceTree = "<group>"; };
 		3D4383A728519BD100AD1885 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		763212ED285801630016F8ED /* AlreadyAddedFriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlreadyAddedFriendView.swift; sourceTree = "<group>"; };
 		763212EE285801630016F8ED /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				E205519628557EEB00C210DA /* DummyData.swift */,
 				E20551982855812B00C210DA /* FriendsProgressCircle.swift */,
 				E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */,
+				35E7789A2856091C0015122A /* AddedCircleView.swift */,
 			);
 			path = ProgressCircle;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
 				35AD2D1D2851D4730089E1C3 /* MainViewModel.swift in Sources */,
+				35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */,
 				E20551AC2856C3CA00C210DA /* SettingPeriod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
