@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+let myColor = RGBColorInProgressCircle(red: 0.44, green: 0.66, blue: 0.97)
+
 struct MyProgressCircle: View {
     var body: some View {
         ZStack {

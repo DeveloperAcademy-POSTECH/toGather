@@ -27,6 +27,7 @@
 		E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519428557E6D00C210DA /* MyProgressCircle.swift */; };
 		E205519728557EEB00C210DA /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519628557EEB00C210DA /* DummyData.swift */; };
 		E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551982855812B00C210DA /* FriendsProgressCircle.swift */; };
+		E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		E205519428557E6D00C210DA /* MyProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProgressCircle.swift; sourceTree = "<group>"; };
 		E205519628557EEB00C210DA /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		E20551982855812B00C210DA /* FriendsProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProgressCircle.swift; sourceTree = "<group>"; };
+		E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColorInProgressCircle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				E205519428557E6D00C210DA /* MyProgressCircle.swift */,
 				E205519628557EEB00C210DA /* DummyData.swift */,
 				E20551982855812B00C210DA /* FriendsProgressCircle.swift */,
+				E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */,
 			);
 			path = ProgressCircle;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				764FC74C28518E0E007A7415 /* SwiftUIView3.swift in Sources */,
+				E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */,
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
