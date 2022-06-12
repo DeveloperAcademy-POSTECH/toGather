@@ -11,5 +11,4 @@ struct Product {
     let productName: String
     let productPrice: Double
     let imageUrl: String
-
 }

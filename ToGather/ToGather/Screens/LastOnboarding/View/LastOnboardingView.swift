@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LastOnboardingView: View {
     
-    @ObservedObject var model = LastOnboardingViewModel()
+    @EnvironmentObject var onboardingViewModel: OnboardingViewModel
     
     var body: some View {
         VStack(spacing: 0) {
@@ -24,7 +24,7 @@ struct LastOnboardingView: View {
             }
             .padding(.bottom, 16)
             HStack(spacing: 0) {
-                Text("28")
+                Text(String(onboardingViewModel.savingData.goalWeeks))
                     .font(.system(size: 20, weight: .bold))
                 Text("주간")
                     .font(.system(size: 20, weight: .regular))
@@ -53,6 +53,10 @@ struct LastOnboardingView: View {
             .font(.system(size: 16, weight: .regular))
             .padding(.bottom, 30)
             ZStack {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .foregroundColor(ColorStyle.blue.color)
+                    .frame(width: 29, height: 31)
                 Circle()
                     .stroke().fill(ColorStyle.blue.color)
                     .frame(width: 60, height: 60)
@@ -63,7 +67,6 @@ struct LastOnboardingView: View {
                 .font(.system(size: 14, weight: .regular))
                 .padding(.bottom, 41)
             Button {
-                model.getData()
             } label: {
                 Text("저축내용을 수정할게요")
                     .foregroundColor(ColorStyle.blackSixty.color)
@@ -71,6 +74,8 @@ struct LastOnboardingView: View {
             }
             .padding(.bottom, 18)
             Button {
+                onboardingViewModel.addUid()
+                onboardingViewModel.uploadSavingDataAndUserData()
             } label: {
                 Text("저축 시작하기")
                     .foregroundColor(.white)
