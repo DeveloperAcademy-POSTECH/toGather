@@ -7,6 +7,24 @@
 
 import SwiftUI
 
+struct LaterAddButtonView: View {
+    var body: some View {
+        Button {
+            print("나중에 추가!")
+        } label: {
+            ZStack {
+                Text("나중에 추가하기")
+                    .font(.system(size: 16))
+                    .frame(width: 102, height: 19)
+                    .foregroundColor(.basicBlack.opacity(0.6))
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(width: 122, height: 39)
+                    .foregroundColor(.basicBlack.opacity(0.05))
+            }
+        }
+    }
+}
+
 struct ApplyFriendIdTitle: View {
     var body: some View {
         Text("친구 ID를 적어주세요")
