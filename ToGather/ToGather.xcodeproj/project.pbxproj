@@ -13,16 +13,7 @@
 		35AD2D0E28519C520089E1C3 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0A28519C520089E1C3 /* Product.swift */; };
 		35AD2D1D2851D4730089E1C3 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D1A2851D4730089E1C3 /* MainViewModel.swift */; };
 		35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D1C2851D4730089E1C3 /* MainView.swift */; };
-		35AD2D202851DD4F0089E1C3 /* CircleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D1F2851DD4F0089E1C3 /* CircleProgress.swift */; };
-		35AD2D222851E1FB0089E1C3 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D212851E1FB0089E1C3 /* Color+Extension.swift */; };
-		35AD2D24285218BF0089E1C3 /* FriendSavingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D23285218BF0089E1C3 /* FriendSavingView.swift */; };
-		3D4383A828519BD100AD1885 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4383A728519BD100AD1885 /* GoogleService-Info.plist */; };
-		3D4383AB28519DA700AD1885 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AA28519DA700AD1885 /* FirebaseAuth */; };
-		3D4383AD28519DA700AD1885 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AC28519DA700AD1885 /* FirebaseFirestore */; };
-		3D87D9F62852046100C36346 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3D87D9F52852046100C36346 /* FirebaseStorage */; };
-		5958E44C2852C86400A6BD4F /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5958E44B2852C86400A6BD4F /* test.swift */; };
 		35AD2D222851E1FB0089E1C3 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		35AD2D24285218BF0089E1C3 /* FriendSavingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D23285218BF0089E1C3 /* FriendSavingView.swift */; };
 		35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D292854F8550089E1C3 /* Color+Extension.swift */; };
 		3D4383A828519BD100AD1885 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4383A728519BD100AD1885 /* GoogleService-Info.plist */; };
 		3D4383AB28519DA700AD1885 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AA28519DA700AD1885 /* FirebaseAuth */; };
@@ -50,8 +41,6 @@
 		35AD2D0A28519C520089E1C3 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		35AD2D1A2851D4730089E1C3 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		35AD2D1C2851D4730089E1C3 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		35AD2D1F2851DD4F0089E1C3 /* CircleProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgress.swift; sourceTree = "<group>"; };
-		35AD2D23285218BF0089E1C3 /* FriendSavingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSavingView.swift; sourceTree = "<group>"; };
 		35AD2D292854F8550089E1C3 /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		3D4383A728519BD100AD1885 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		764FC72928518CC8007A7415 /* ToGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				35AD2D1C2851D4730089E1C3 /* MainView.swift */,
-				35AD2D23285218BF0089E1C3 /* FriendSavingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				764FC74B28518E0E007A7415 /* SwiftUIView3.swift */,
-				35AD2D1F2851DD4F0089E1C3 /* CircleProgress.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -338,12 +325,10 @@
 			files = (
 				764FC74C28518E0E007A7415 /* SwiftUIView3.swift in Sources */,
 				E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */,
-				35AD2D222851E1FB0089E1C3 /* Color+Extension.swift in Sources */,
+				35AD2D222851E1FB0089E1C3 /* (null) in Sources */,
 				35AD2D222851E1FB0089E1C3 /* (null) in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
-				35AD2D202851DD4F0089E1C3 /* CircleProgress.swift in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
-				35AD2D202851DD4F0089E1C3 /* CircleProgress.swift in Sources */,
 				35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */,
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
@@ -358,7 +343,6 @@
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
 				E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */,
-				35AD2D24285218BF0089E1C3 /* FriendSavingView.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
 				35AD2D1D2851D4730089E1C3 /* MainViewModel.swift in Sources */,

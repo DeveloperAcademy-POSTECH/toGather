@@ -15,17 +15,16 @@ struct MainView: View {
                     .padding()
                 Divider()
                     .padding(.horizontal)
-                    .padding(.bottom,25)
+                    .padding(.bottom, 25)
                 mySavingsView
                 Spacer(minLength: 68)
                 bottomView
-        }
+            }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Text("친구 저축현황")
                         .font(.system(size: 22, weight: .bold))
-
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
@@ -33,7 +32,7 @@ struct MainView: View {
                     } label: {
                         Image(systemName: "bell.badge.fill")
                             .symbolRenderingMode(.palette)
-                            .foregroundStyle( .red ,Color.basicBlack.opacity(0.4))
+                            .foregroundStyle( .red, Color.basicBlack.opacity(0.4))
                     }
                     .foregroundColor(.basicBlack.opacity(0.4))
                     Button {
@@ -42,7 +41,6 @@ struct MainView: View {
                         Image(systemName: "gear")
                     }
                     .foregroundColor(.basicBlack.opacity(0.4))
-
                 }
             }
         }
@@ -56,42 +54,23 @@ struct MainView_Previews: PreviewProvider {
 }
 
 extension MainView {
-    var friendsSavingsView : some View {
+    var friendsSavingsView: some View {
         ZStack {
             VStack {
-            HStack(spacing:26) {
-                FriendSavingView(image: "Ipad",
-                                 percentage: 0.56,
-                                 colors: [
-                    Color(red: 0.779,
-                          green: 0.097,
-                          blue: 0.248,
-                          opacity: 1),
-                      Color(red: 0.918, green: 0.298, blue: 0.435, opacity: 1)
-                          ],
-                                 backgroundColor: Color.basicRed.opacity(0.05),
-                                 unfillColor: Color.basicRed.opacity(0.2),
-                                 friendName: "Tim")
-                FriendSavingView(image: "Iphone",
-                                 percentage: 0.23,
-                                 colors: [
-                                    Color(red: 0.301, green: 0, blue: 0.642, opacity: 1),
-                                      Color(red: 0.757, green: 0.576, blue: 0.961, opacity: 1)
-                                          ] ,
-                                 backgroundColor: Color.basicPurple.opacity(0.05), unfillColor: Color.basicPurple.opacity(0.2), friendName: "Steve")
-                FriendSavingView(image: "Macbook",
-                                 percentage: 0.8,
-                                 colors: [
-                                    Color(red: 0.056, green: 0.733, blue: 0.046, opacity: 1),
-
-                                      Color(red: 0.581, green: 0.829, blue: 0.176, opacity: 1)
-                                          ] ,
-                                 backgroundColor: Color.basicGreen.opacity(0.05), unfillColor: Color.basicGreen.opacity(0.2), friendName: "Cook")
-            }
+                HStack(spacing: 26) {
+                    FriendsProgressCircle(color: RGBColorInProgressCircle.friendColor1,
+                                          progressPercent: DummyData.sampleSavings[1].progressPercent,
+                                          friendName: "Tim", friendProduct: DummyData.sampleSavings[1].goalProduct)
+                    FriendsProgressCircle(color: RGBColorInProgressCircle.friendColor2,
+                                          progressPercent: DummyData.sampleSavings[2].progressPercent,
+                                          friendName: "Steve", friendProduct: DummyData.sampleSavings[2].goalProduct)
+                    FriendsProgressCircle(color: RGBColorInProgressCircle.friendColor3,
+                                          progressPercent: DummyData.sampleSavings[3].progressPercent,
+                                          friendName: "Cook", friendProduct: DummyData.sampleSavings[3].goalProduct)
+                }
             }
         }
     }
-    
     var mySavingsView: some View {
         VStack {
             HStack {
@@ -100,42 +79,13 @@ extension MainView {
                 Spacer()
             }
             .padding(.horizontal)
-            ZStack {
-                VStack {
-                    Image("Imac")
-                        .resizable()
-                        .frame(width: 86.57, height: 78)
-                        .padding(.top, 50)
-                    Text("180만원까지")
-                        .font(.callout)
-                        .foregroundColor(.gray)
-                    Text("30%")
-                        .font(.system(size: 60, weight: .bold))
-                        .foregroundColor(Color.pointColor)
-                        .padding(.bottom)
-                    Text("저축 완료일")
-                        .font(.system(size: 14))
-                        .foregroundColor(.gray)
-                    Text("2022.09.03")
-                        .font(.callout)
-                        .bold()
-                }
-
-                CircleProgress(percentage: 0.3,
-                               radius: 310,
-                               gradientColors: [
-                                Color(hex: "#0043A0"),
-                                Color(hex: "#5199FF")
-                                                ],
-                               backgroundColor: Color.pointColor.opacity(0.05), unfillColor: Color.pointColor.opacity(0.2))
+            MyProgressCircle()
                 .padding(.horizontal)
-                                }
         }
     }
-    
     var bottomView: some View {
         VStack {
-            HStack{
+            HStack {
                 Text("13회")
                     .font(.callout)
                     .foregroundColor(.pointColor)
@@ -144,7 +94,7 @@ extension MainView {
                     .font(.system(size: 14))
                     .foregroundColor(.basicBlack.opacity(0.6))
             }
-                Button {
+            Button {
                 //
             } label: {
                 Label {
@@ -155,13 +105,11 @@ extension MainView {
                     Image(systemName: "clock")
                         .foregroundColor(.white)
                 }
-
             }
-            .frame(minWidth: 0, maxWidth: .infinity,minHeight: 46)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
             .background(Color.basicBlack.opacity(0.3))
             .cornerRadius(30)
             .padding(.horizontal)
         }
     }
 }
-
