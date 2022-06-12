@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GoalSetting: View {
-    @State var isSelected: Bool
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 0) {
@@ -40,7 +39,7 @@ struct GoalSetting: View {
                         .fontWeight(.bold)
                         .frame(width: UIScreen.main.bounds.width - 40, height: 46)
                         .foregroundColor(.white)
-                        .background(isSelected == true ? ColorStyle.blue.color : ColorStyle.blue.color.opacity(30))
+                        .background(ColorStyle.blue.color)
                         .cornerRadius(30)
                         .padding(.horizontal, 20)
                 })
@@ -52,6 +51,6 @@ struct GoalSetting: View {
 
 struct GoalSetting_Previews: PreviewProvider {
     static var previews: some View {
-        GoalSetting(isSelected: false)
+        GoalSetting()
     }
 }

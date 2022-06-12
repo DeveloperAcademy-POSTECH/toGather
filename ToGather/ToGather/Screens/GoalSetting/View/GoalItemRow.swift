@@ -31,12 +31,13 @@ struct GoalItemRow: View {
             .padding(.bottom, 6)
             Divider()
                 .padding(.horizontal, 20)
+                .padding(.bottom, 8)
             HStack(alignment: .center, spacing: 0) {
-                GoalItem(imageTitle: firstImageTitle, price: firstPrice)
+                GoalItem(isSelected: true, imageTitle: firstImageTitle, price: firstPrice)
                 Spacer()
-                GoalItem(imageTitle: secondImageTitle, price: secondPrice)
+                GoalItem(isSelected: true, imageTitle: secondImageTitle, price: secondPrice)
                 Spacer()
-                GoalItem(imageTitle: thirdImageTitle ?? "", price: thirdPrice ?? "")
+                GoalItem(isSelected: true, imageTitle: thirdImageTitle ?? nil, price: thirdPrice ?? nil)
             } // HStack
             .padding(.horizontal, 20)
         } // VStack
