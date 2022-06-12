@@ -16,7 +16,20 @@ struct FriendsProgressCircle: View {
     
     var body: some View {
         ZStack {
-            ProgressCircle(color: color)
+            itemInfo
+        }
+    }
+    var itemInfo: some View {
+        VStack {
+//            Spacer(minLength: 250)
+            Image(product.imageUrl)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 45, height: 45)
+            Text("\(progressPercent, specifier: "%3.f")%")
+                .font(.system(size: 14, weight: .bold))
+                .foregroundColor(color.start)
+//            Spacer(minLength: 10)
         }
     }
 }
