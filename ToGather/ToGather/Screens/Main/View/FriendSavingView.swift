@@ -22,7 +22,8 @@ struct FriendSavingView: View {
             Image(image)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 53, height: 53)
+                .frame(width: 53,
+                       height: 53)
                 Text("\(Int(percentage*100))%")
                     .font(.caption)
             }

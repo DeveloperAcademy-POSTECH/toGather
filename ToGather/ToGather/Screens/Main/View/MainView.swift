@@ -13,10 +13,9 @@ struct MainView: View {
             VStack {
                 friendsSavingsView
                     .padding()
-                
                 Divider()
                     .padding(.horizontal)
-                    .padding(.bottom)
+                    .padding(.bottom,25)
                 mySavingsView
                 Spacer(minLength: 68)
                 bottomView
@@ -33,6 +32,8 @@ struct MainView: View {
                         //
                     } label: {
                         Image(systemName: "bell.badge.fill")
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle( .red ,Color.basicBlack.opacity(0.4))
                     }
                     .foregroundColor(.basicBlack.opacity(0.4))
                     Button {
@@ -58,11 +59,14 @@ extension MainView {
     var friendsSavingsView : some View {
         ZStack {
             VStack {
-            HStack(spacing:26){
+            HStack(spacing:26) {
                 FriendSavingView(image: "Ipad",
                                  percentage: 0.56,
                                  colors: [
-                    Color(red: 0.779, green: 0.097, blue: 0.248, opacity: 1),
+                    Color(red: 0.779,
+                          green: 0.097,
+                          blue: 0.248,
+                          opacity: 1),
                       Color(red: 0.918, green: 0.298, blue: 0.435, opacity: 1)
                           ],
                                  backgroundColor: Color.basicRed.opacity(0.05),
@@ -87,7 +91,8 @@ extension MainView {
             }
         }
     }
-    var mySavingsView : some View {
+    
+    var mySavingsView: some View {
         VStack {
             HStack {
                 Text("나의 저축현황")
@@ -106,7 +111,7 @@ extension MainView {
                         .foregroundColor(.gray)
                     Text("30%")
                         .font(.system(size: 60, weight: .bold))
-                        .foregroundColor(Color(hex: "#468EF3"))
+                        .foregroundColor(Color.pointColor)
                         .padding(.bottom)
                     Text("저축 완료일")
                         .font(.system(size: 14))
@@ -127,12 +132,13 @@ extension MainView {
                                 }
         }
     }
-    var bottomView : some View {
+    
+    var bottomView: some View {
         VStack {
             HStack{
                 Text("13회")
                     .font(.callout)
-                    .foregroundColor(Color(hex: "#468EF3"))
+                    .foregroundColor(.pointColor)
                     .bold()
                 Text("저축까지 남은 시간")
                     .font(.system(size: 14))
