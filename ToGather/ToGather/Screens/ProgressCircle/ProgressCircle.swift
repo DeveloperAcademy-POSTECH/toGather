@@ -53,7 +53,7 @@ let rotationDegree = (360 * (1 - length))/2 + 90
 
 struct ProgressCircle: View {
     let color: RGBColorInProgressCircle
-    let frameSize: Double // 가장 큰 원의 사이즈
+    let frameSize: Double // 가장 큰 원의 Frame 사이즈
 
     var body: some View {
         ZStack {
