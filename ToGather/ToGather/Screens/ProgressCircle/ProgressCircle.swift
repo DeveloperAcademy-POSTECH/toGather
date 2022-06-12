@@ -15,8 +15,6 @@ var interval: Double {
     return length/Double(savePeriod)
 }
 
-var progressPercent: Double = 30
-
 // lineCircle 각도 계산
 let start: Double = 0
 let end: Double = 0.8
@@ -47,7 +45,7 @@ struct ProgressCircle: View {
                     Circle()
                         .trim(from: interval * Double(week.id - 1), to: interval * Double(week.id))
                         .stroke(color.start, style: lineStyle)
-                        .rotationEffect(.init(degrees: rotationDegree))
+                        .rotationEffect(.init(degrees: rotationDegree))                       
                 }
             }.frame(width: frameSize * 0.9, height: frameSize * 0.9, alignment: .center)
         }
@@ -57,7 +55,7 @@ struct ProgressCircle: View {
 struct TestCode_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            ProgressCircle(color: myColor, frameSize: 330)
+            ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 330)
             Spacer()
             Text("전체 주차 \(saveList.count)")
             Text("현재 주차 \(currentWeek)")
