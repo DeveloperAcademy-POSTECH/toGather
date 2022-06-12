@@ -55,8 +55,6 @@ struct MainView_Previews: PreviewProvider {
 
 extension MainView {
     var friendsSavingsView: some View {
-        ZStack {
-            VStack {
                 HStack(spacing: 26) {
                     FriendsProgressCircle(color: RGBColorInProgressCircle.friendColor1,
                                           progressPercent: DummyData.sampleSavings[1].progressPercent,
@@ -68,8 +66,6 @@ extension MainView {
                                           progressPercent: DummyData.sampleSavings[3].progressPercent,
                                           friendName: "Cook", friendProduct: DummyData.sampleSavings[3].goalProduct)
                 }
-            }
-        }
     }
     var mySavingsView: some View {
         VStack {
