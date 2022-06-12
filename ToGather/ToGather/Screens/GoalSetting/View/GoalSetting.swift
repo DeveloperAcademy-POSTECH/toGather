@@ -42,6 +42,7 @@ struct GoalSetting: View {
                         .foregroundColor(.white)
                         .background(isSelected == true ? ColorStyle.blue.color : ColorStyle.blue.color.opacity(30))
                         .cornerRadius(30)
+                        .padding(.horizontal, 20)
                 })
             } // VStack
             .navigationBarHidden(true)
