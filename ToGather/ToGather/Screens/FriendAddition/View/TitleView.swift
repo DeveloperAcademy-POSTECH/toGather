@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUI
-
 
 struct MainTitleView: View {
     var body: some View {
