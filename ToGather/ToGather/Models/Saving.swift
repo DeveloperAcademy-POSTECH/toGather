@@ -10,7 +10,7 @@ import Firebase
 struct Saving {
     var goalProduct: Product
     let uid: String
-    let totalWeeks: Int
+    let goalWeeks: Int
     let startDate: Timestamp
     let savingDayOfTheWeek: String
     var progressPercent : Double
