@@ -10,14 +10,18 @@ import Foundation
 // 더미데이터
 struct Week: Identifiable {
     let id: Int
-    let check: Int
+    let didSave: Int
 }
 
-let saveList: [Week] = [Week(id: 1, check: 1), Week(id: 2, check: 1), Week(id: 3, check: 1), Week(id: 4, check: 0), Week(id: 5, check: 1),
-                        Week(id: 6, check: 1), Week(id: 7, check: 1), Week(id: 8, check: 1), Week(id: 9, check: 0), Week(id: 10, check: 1),
-                        Week(id: 11, check: 1), Week(id: 12, check: 0), Week(id: 13, check: 0), Week(id: 14, check: 0), Week(id: 15, check: 1),
-                        Week(id: 16, check: 1), Week(id: 17, check: 0), Week(id: 18, check: 1), Week(id: 19, check: 0), Week(id: 20, check: 1),
-                        Week(id: 21, check: 1), Week(id: 22, check: 1), Week(id: 23, check: 1), Week(id: 24, check: 0), Week(id: 25, check: 1)]
+let saveList: [ThisWeek] = [ThisWeek(presentWeek: 1, didSave: true), ThisWeek(presentWeek: 2, didSave: true), ThisWeek(presentWeek: 3, didSave: true)
+                            , ThisWeek(presentWeek: 4, didSave: false), ThisWeek(presentWeek: 5, didSave: true),ThisWeek(presentWeek: 6, didSave: true)
+                            , ThisWeek(presentWeek: 7, didSave: true), ThisWeek(presentWeek: 8, didSave: true), ThisWeek(presentWeek: 9, didSave: false)
+                            , ThisWeek(presentWeek: 10, didSave: true), ThisWeek(presentWeek: 11, didSave: true), ThisWeek(presentWeek: 12, didSave: false)
+                            , ThisWeek(presentWeek: 13, didSave: false), ThisWeek(presentWeek: 14, didSave: false), ThisWeek(presentWeek: 15, didSave: true)
+                            , ThisWeek(presentWeek: 16, didSave: true), ThisWeek(presentWeek: 17, didSave: false), ThisWeek(presentWeek: 18, didSave: true)
+                             , ThisWeek(presentWeek: 19, didSave: false), ThisWeek(presentWeek: 20, didSave: true), ThisWeek(presentWeek: 21, didSave: true)
+                             , ThisWeek(presentWeek: 22, didSave: true), ThisWeek(presentWeek: 23, didSave: true), ThisWeek(presentWeek: 24, didSave: false)
+                             , ThisWeek(presentWeek: 25, didSave: true)]
 
 let product = Product(productName: "imac", productPrice: 180, imageUrl: "imac")
 

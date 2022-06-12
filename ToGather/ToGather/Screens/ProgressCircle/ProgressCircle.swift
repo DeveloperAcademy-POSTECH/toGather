@@ -71,7 +71,7 @@ struct ProgressCircle: View {
 
             // progress line
             ForEach(saveList[0..<currentWeek]) { week in
-                if week.check == 1 {
+                if week.didSave == true {
                     Circle()
                         .trim(from: interval * Double(week.id - 1), to: interval * Double(week.id))
                         .stroke(color.start, style: lineStyle)
