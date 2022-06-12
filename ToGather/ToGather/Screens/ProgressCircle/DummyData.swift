@@ -7,12 +7,6 @@
 
 import Foundation
 
-// 더미데이터
-struct Week: Identifiable {
-    let id: Int
-    let didSave: Int
-}
-
 let saveList: [ThisWeek] = [ThisWeek(presentWeek: 1, didSave: true), ThisWeek(presentWeek: 2, didSave: true), ThisWeek(presentWeek: 3, didSave: true)
                             , ThisWeek(presentWeek: 4, didSave: false), ThisWeek(presentWeek: 5, didSave: true),ThisWeek(presentWeek: 6, didSave: true)
                             , ThisWeek(presentWeek: 7, didSave: true), ThisWeek(presentWeek: 8, didSave: true), ThisWeek(presentWeek: 9, didSave: false)
