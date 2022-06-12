@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @State var friendsCount  = 0
+    
+    @StateObject var viewModel = MainViewModel()
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -55,17 +60,61 @@ struct MainView_Previews: PreviewProvider {
 
 extension MainView {
     var friendsSavingsView: some View {
-                HStack(spacing: 26) {
-                    FriendsProgressCircle(color: RGBColorInProgressCircle.friendColor1,
-                                          progressPercent: DummyData.sampleSavings[1].progressPercent,
-                                          friendName: "Tim", friendProduct: DummyData.sampleSavings[1].goalProduct)
-                    FriendsProgressCircle(color: RGBColorInProgressCircle.friendColor2,
-                                          progressPercent: DummyData.sampleSavings[2].progressPercent,
-                                          friendName: "Steve", friendProduct: DummyData.sampleSavings[2].goalProduct)
-                    FriendsProgressCircle(color: RGBColorInProgressCircle.friendColor3,
-                                          progressPercent: DummyData.sampleSavings[3].progressPercent,
-                                          friendName: "Cook", friendProduct: DummyData.sampleSavings[3].goalProduct)
+        HStack(alignment: .bottom ,spacing: 26) {
+            ForEach(viewModel.friendsList) { friendSaving in
+                friendSaving
+            }
+            // MARK: - 추후 코드변경이 필요.
+            if viewModel.friendsList.count == 0 {
+                VStack(spacing: 14) {
+                    Button {
+                        viewModel.friendsList.append(
+                            FriendsProgressCircle(id: 1,
+                                                  color: RGBColorInProgressCircle.friendColor1,
+                                                  progressPercent: DummyData.sampleSavings[1].progressPercent,
+                                                  friendName: "Tim", friendProduct: DummyData.sampleSavings[1].goalProduct)
+                        )
+                    } label: {
+                        AddedCircleView(color: .basicRed)
+                    }
+                    Text("친구랑 같이 저축하기")
+                        .font(.callout) // 16px
+                        .fontWeight(.semibold)
                 }
+            } else if viewModel.friendsList.count == 1 {
+                VStack(spacing: 14) {
+                    Button {
+                        viewModel.friendsList.append(
+                            FriendsProgressCircle(id: 2,
+                                                  color: RGBColorInProgressCircle.friendColor2,
+                                                  progressPercent: DummyData.sampleSavings[2].progressPercent,
+                                                  friendName: "Steve",
+                                                  friendProduct: DummyData.sampleSavings[2].goalProduct)
+                        )
+                    } label: {
+                        AddedCircleView(color: .basicPurple)
+                    }
+                    Text("친구 추가")
+                        .font(.callout) // 16px
+                        .fontWeight(.semibold)
+                }
+            } else if viewModel.friendsList.count == 2 {
+                VStack(spacing: 14) {
+                    Button {
+                        viewModel.friendsList.append(
+                            FriendsProgressCircle(id: 3,
+                                                  color: RGBColorInProgressCircle.friendColor3,
+                                                  progressPercent: DummyData.sampleSavings[3].progressPercent,
+                                                  friendName: "Cook",
+                                                  friendProduct: DummyData.sampleSavings[3].goalProduct)                    )} label: {
+                                                      AddedCircleView(color: .basicGreen)
+                                                  }
+                    Text("친구 추가")
+                        .font(.callout) // 16px
+                        .fontWeight(.semibold)
+                }
+            }
+        }
     }
     var mySavingsView: some View {
         VStack {
