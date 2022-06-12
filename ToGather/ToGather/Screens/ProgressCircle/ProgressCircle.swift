@@ -31,6 +31,13 @@ struct ProgressCircle: View {
     let currentWeek = 14
 
     // 나중에 제거, saving으로부터 가져오기
+    func getTotalSavedNum(saveList: [ThisWeek], currentWeek: Int) -> Int {
+        var totalSavedNum = 0
+        for week in saveList[0..<currentWeek] {
+            totalSavedNum += week.didSave ? 1 : 0
+        }
+        return totalSavedNum
+    }
     var totalSavedNum: Int {
         getTotalSavedNum(saveList: weekInfo, currentWeek: currentWeek)
     }
@@ -63,7 +70,7 @@ struct ProgressCircle: View {
                     let startBlue: Double = color.blue + gradientIntervalBlue * Double(week.id - 1)
                     let endBlue: Double = startBlue + gradientIntervalBlue
                     let startColor = Color(red: startRed, green: startGreen, blue: startBlue)
-                    let endColor = Color(red: endRed , green: endGreen, blue: endBlue)
+                    let endColor = Color(red: endRed, green: endGreen, blue: endBlue)
 
                     let gradientColor = LinearGradient(gradient: Gradient(colors: [startColor, endColor]), startPoint: .bottom, endPoint: .top)
 
@@ -83,7 +90,7 @@ struct TestCode_Previews: PreviewProvider {
             ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 330, weekInfo: saveList)
             Spacer()
             Text("전체 주차 \(saveList.count)")
-            Text("현재 주차 \(currentWeek)")
+//            Text("현재 주차 \(currentWeek)")
         }
     }
 }
