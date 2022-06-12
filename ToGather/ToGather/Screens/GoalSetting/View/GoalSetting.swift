@@ -11,7 +11,18 @@ struct GoalSetting: View {
     @State var isSelected: Bool
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 0) {
+                HStack(spacing: 0) {
+                    Text("저축목표")
+                        .font(.system(size: 24))
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.blue)
+                    Text("를 골라주세요")
+                        .font(.system(size: 24))
+                        .fontWeight(.bold)
+                } // HStack
+                .padding(.top, 36)
+                .padding(.horizontal, 20)
                 GoalItemRow(headline: "100만원",
                             firstImageTitle: "goal-airpod",
                             firstPrice: "300,000",
@@ -43,7 +54,7 @@ struct GoalSetting: View {
                         .cornerRadius(30)
                 })
             } // VStack
-            .navigationTitle("저축목표를 골라주세요")
+            .navigationBarHidden(true)
         } // NavigationView
     }
 }
