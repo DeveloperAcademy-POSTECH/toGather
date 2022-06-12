@@ -13,12 +13,14 @@ let friendColor3 = RGBColorInProgressCircle(red: 0.44, green: 0.66, blue: 0.97)
 
 struct FriendsProgressCircle: View {
     var color: RGBColorInProgressCircle
-    
+
     var body: some View {
         ZStack {
+            ProgressCircle(color: color, frameSize: 100)
             itemInfo
         }
     }
+    
     var itemInfo: some View {
         VStack {
 //            Spacer(minLength: 250)
@@ -36,6 +38,8 @@ struct FriendsProgressCircle: View {
 
 struct FriendsProgressCircle_Previews: PreviewProvider {
     static var previews: some View {
-        FriendsProgressCircle(color: friendColor1)
+        HStack {
+            FriendsProgressCircle(color: friendColor1)
+        }
     }
 }

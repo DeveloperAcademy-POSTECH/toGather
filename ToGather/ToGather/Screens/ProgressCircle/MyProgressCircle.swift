@@ -10,7 +10,7 @@ import SwiftUI
 struct MyProgressCircle: View {
     var body: some View {
         ZStack {
-            ProgressCircle(color: myColor)
+            ProgressCircle(color: myColor, frameSize: 330)
             itemInfo
         }
     }
