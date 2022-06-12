@@ -23,6 +23,7 @@
 		764FC74828518E07007A7415 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74728518E07007A7415 /* ColorAsset.swift */; };
 		764FC74A28518E0B007A7415 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74928518E0B007A7415 /* Color+Extension.swift */; };
 		764FC74C28518E0E007A7415 /* SwiftUIView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74B28518E0E007A7415 /* SwiftUIView3.swift */; };
+		764FC79328544F17007A7415 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 764FC79228544F17007A7415 /* Introspect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D4383AB28519DA700AD1885 /* FirebaseAuth in Frameworks */,
+				764FC79328544F17007A7415 /* Introspect in Frameworks */,
 				3D4383AD28519DA700AD1885 /* FirebaseFirestore in Frameworks */,
 				3D87D9F62852046100C36346 /* FirebaseStorage in Frameworks */,
 			);
@@ -187,6 +189,7 @@
 				3D4383AA28519DA700AD1885 /* FirebaseAuth */,
 				3D4383AC28519DA700AD1885 /* FirebaseFirestore */,
 				3D87D9F52852046100C36346 /* FirebaseStorage */,
+				764FC79228544F17007A7415 /* Introspect */,
 			);
 			productName = ToGather;
 			productReference = 764FC72928518CC8007A7415 /* ToGather.app */;
@@ -219,6 +222,7 @@
 			packageReferences = (
 				3D4383A928519DA700AD1885 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				3D87D9F42852046100C36346 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				764FC79128544F17007A7415 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 764FC72A28518CC8007A7415 /* Products */;
 			projectDirPath = "";
@@ -268,7 +272,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				764FC74C28518E0E007A7415 /* SwiftUIView3.swift in Sources */,
-				5958E44C2852C86400A6BD4F /* test.swift in Sources */,
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
@@ -495,6 +498,14 @@
 				kind = branch;
 			};
 		};
+		764FC79128544F17007A7415 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -512,6 +523,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3D4383A928519DA700AD1885 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		764FC79228544F17007A7415 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 764FC79128544F17007A7415 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
