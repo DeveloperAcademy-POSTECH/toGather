@@ -8,8 +8,9 @@
 import Foundation
 
 
-struct ThisWeek {
+struct ThisWeek: Identifiable {
     
     let presentWeek: Int
     let didSave: Bool
+    var id: Int {presentWeek}
 }
