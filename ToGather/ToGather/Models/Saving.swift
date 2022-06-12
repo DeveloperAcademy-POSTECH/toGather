@@ -13,7 +13,6 @@ struct Saving {
     let goalWeeks: Int
     let startDate: Timestamp
     let savingDayOfTheWeek: String
-    
     // 파이어베이스에 docoument만들어서 그 안에 Week객체 넣으면 될거같습니다.
     var weekInfo: [ThisWeek]
     
