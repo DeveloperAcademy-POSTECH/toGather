@@ -13,8 +13,8 @@ struct GoalItemRow: View {
     var firstPrice: String
     var secondImageTitle: String
     var secondPrice: String
-    var thirdImageTitle: String
-    var thirdPrice: String
+    var thirdImageTitle: String?
+    var thirdPrice: String?
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .bottom, spacing: 4) {
@@ -25,6 +25,7 @@ struct GoalItemRow: View {
                     .padding(.leading, 20)
                 Text("미만")
                     .foregroundColor(ColorStyle.blackHundred.color)
+                    .padding(.bottom, 2) // for same border line
                 Spacer()
             } // HStack
             .padding(.bottom, 6)
@@ -35,7 +36,7 @@ struct GoalItemRow: View {
                 Spacer()
                 GoalItem(imageTitle: secondImageTitle, price: secondPrice)
                 Spacer()
-                GoalItem(imageTitle: thirdImageTitle, price: thirdPrice)
+                GoalItem(imageTitle: thirdImageTitle ?? "", price: thirdPrice ?? "")
             } // HStack
             .padding(.horizontal, 20)
         } // VStack
@@ -50,7 +51,7 @@ struct GoalItemRow_Previews: PreviewProvider {
                     firstPrice: "300,000",
                     secondImageTitle: "goal-applewatch",
                     secondPrice: "500,000",
-                    thirdImageTitle: "goal-ipad",
-                    thirdPrice: "700,000")
+                    thirdImageTitle: nil,
+                    thirdPrice: nil)
     }
 }

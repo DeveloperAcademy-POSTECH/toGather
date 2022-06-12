@@ -32,8 +32,8 @@ struct GoalSetting: View {
                             firstPrice: "2,500,000",
                             secondImageTitle: "goal-macmini",
                             secondPrice: "3,500,000",
-                            thirdImageTitle: "goal-ipad",
-                            thirdPrice: "5,000,000")
+                            thirdImageTitle: nil,
+                            thirdPrice: nil)
                 Spacer()
                 NavigationLink(destination: Text("다음뷰"), label: {
                     Text("다음")
