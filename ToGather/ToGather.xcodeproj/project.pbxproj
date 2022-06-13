@@ -11,12 +11,12 @@
 		35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0828519C520089E1C3 /* Saving.swift */; };
 		35AD2D0D28519C520089E1C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0928519C520089E1C3 /* User.swift */; };
 		35AD2D0E28519C520089E1C3 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0A28519C520089E1C3 /* Product.swift */; };
-		3D4134572852EC44009E7953 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4134562852EC44009E7953 /* FirebaseFirestoreSwift */; };
 		35AD2D1D2851D4730089E1C3 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D1A2851D4730089E1C3 /* MainViewModel.swift */; };
 		35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D1C2851D4730089E1C3 /* MainView.swift */; };
 		35AD2D222851E1FB0089E1C3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D292854F8550089E1C3 /* Color+Extension.swift */; };
 		35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7789A2856091C0015122A /* AddedCircleView.swift */; };
+		35E7789C285705730015122A /* SettingPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551AB2856C3CA00C210DA /* SettingPeriod.swift */; };
 		3D4134572852EC44009E7953 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4134562852EC44009E7953 /* FirebaseFirestoreSwift */; };
 		3D4383A828519BD100AD1885 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4383A728519BD100AD1885 /* GoogleService-Info.plist */; };
 		3D4383AB28519DA700AD1885 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AA28519DA700AD1885 /* FirebaseAuth */; };
@@ -51,7 +51,6 @@
 		E205519728557EEB00C210DA /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519628557EEB00C210DA /* DummyData.swift */; };
 		E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551982855812B00C210DA /* FriendsProgressCircle.swift */; };
 		E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */; };
-		E20551AC2856C3CA00C210DA /* SettingPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551AB2856C3CA00C210DA /* SettingPeriod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
