@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
-    
     @State var friendsCount  = 0
-    
     @StateObject var viewModel = MainViewModel()
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -27,27 +24,27 @@ struct MainView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Text("친구 저축현황")
-                        .font(.system(size: 22, weight: .bold))
-                }
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button {
-                        //
-                    } label: {
-                        Image(systemName: "bell.badge.fill")
-                            .symbolRenderingMode(.palette)
-                            .foregroundStyle( .red, Color.basicBlack.opacity(0.4))
+                    ToolbarItemGroup(placement: .navigationBarLeading) {
+                        Text("친구 저축현황")
+                            .font(.system(size: 22, weight: .bold))
                     }
-                    .foregroundColor(.basicBlack.opacity(0.4))
-                    Button {
-                        //
-                    } label: {
-                        Image(systemName: "gear")
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        Button {
+                            //
+                        } label: {
+                            Image(systemName: "bell.badge.fill")
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle( .red, Color.basicBlack.opacity(0.4))
+                        }
+                        .foregroundColor(.basicBlack.opacity(0.4))
+                        Button {
+                            //
+                        } label: {
+                            Image(systemName: "gear")
+                        }
+                        .foregroundColor(.basicBlack.opacity(0.4))
                     }
-                    .foregroundColor(.basicBlack.opacity(0.4))
                 }
-            }
         }
     }
 }
@@ -60,19 +57,20 @@ struct MainView_Previews: PreviewProvider {
 
 extension MainView {
     var friendsSavingsView: some View {
-        HStack(alignment: .bottom ,spacing: 26) {
+        HStack(spacing: 26) {
             ForEach(viewModel.friendsList) { friendSaving in
                 friendSaving
             }
             // MARK: - 추후 코드변경이 필요.
             if viewModel.friendsList.count == 0 {
-                VStack(spacing: 14) {
+                VStack(spacing: 4) { // 하드코딩 수정필요
                     Button {
                         viewModel.friendsList.append(
                             FriendsProgressCircle(id: 1,
                                                   color: RGBColorInProgressCircle.friendColor1,
                                                   progressPercent: DummyData.sampleSavings[1].progressPercent,
-                                                  friendName: "Tim", friendProduct: DummyData.sampleSavings[1].goalProduct)
+                                                  friendName: "Tim",
+                                                  friendProduct: DummyData.sampleSavings[1].goalProduct)
                         )
                     } label: {
                         AddedCircleView(color: .basicRed)
@@ -82,7 +80,7 @@ extension MainView {
                         .fontWeight(.semibold)
                 }
             } else if viewModel.friendsList.count == 1 {
-                VStack(spacing: 14) {
+                VStack(spacing: 4) {
                     Button {
                         viewModel.friendsList.append(
                             FriendsProgressCircle(id: 2,
@@ -99,7 +97,7 @@ extension MainView {
                         .fontWeight(.semibold)
                 }
             } else if viewModel.friendsList.count == 2 {
-                VStack(spacing: 14) {
+                VStack(spacing: 4) {
                     Button {
                         viewModel.friendsList.append(
                             FriendsProgressCircle(id: 3,
