@@ -11,7 +11,7 @@ import Firebase
  let saveList: [ThisWeek] = [ThisWeek(presentWeek: 1, didSave: true),
                             ThisWeek(presentWeek: 2, didSave: true),
                             ThisWeek(presentWeek: 3, didSave: true),
-                            ThisWeek(presentWeek: 4, didSave: false),
+                            ThisWeek(presentWeek: 4, didSave: true),
                             ThisWeek(presentWeek: 5, didSave: true),
                             ThisWeek(presentWeek: 6, didSave: true),
                             ThisWeek(presentWeek: 7, didSave: true),
@@ -21,7 +21,7 @@ import Firebase
                             ThisWeek(presentWeek: 11, didSave: true),
                             ThisWeek(presentWeek: 12, didSave: false),
                             ThisWeek(presentWeek: 13, didSave: false),
-                            ThisWeek(presentWeek: 14, didSave: false),
+                            ThisWeek(presentWeek: 14, didSave: true),
                             ThisWeek(presentWeek: 15, didSave: true),
                             ThisWeek(presentWeek: 16, didSave: true),
                             ThisWeek(presentWeek: 17, didSave: false),
@@ -31,38 +31,37 @@ import Firebase
                             ThisWeek(presentWeek: 21, didSave: true),
                             ThisWeek(presentWeek: 22, didSave: true),
                             ThisWeek(presentWeek: 23, didSave: true),
-                            ThisWeek(presentWeek: 24, didSave: false), 
+                            ThisWeek(presentWeek: 24, didSave: false),
                             ThisWeek(presentWeek: 25, didSave: true)]
 
-
-let currentWeek = 14
-
+// 14주까지 성공한 개수구하기
+// percentage 구하기
 struct DummyData {
     static let sampleSavings : [Saving] = [
         Saving(goalProduct: Product.sampleData[0],
                uid: "0",
-               totalWeeks: 25,
+               goalWeeks: 25,
                startDate: Timestamp(date: Date()),
                savingDayOfTheWeek: "Monday",
-               progressPercent: 30),
+              weekInfo: saveList),
         Saving(goalProduct: Product.sampleData[1],
                uid: "1",
-               totalWeeks: 25,
+               goalWeeks: 25,
                startDate: Timestamp(date: Date()),
                savingDayOfTheWeek: "Sunday",
-               progressPercent: 56),
+               weekInfo: saveList),
         Saving(goalProduct: Product.sampleData[2],
                uid: "2",
-               totalWeeks: 25,
+               goalWeeks: 25,
                startDate: Timestamp(date: Date()),
                savingDayOfTheWeek: "Tuesday",
-               progressPercent: 23),
+               weekInfo: saveList),
         Saving(goalProduct: Product.sampleData[3],
                uid: "3",
-               totalWeeks: 25,
+               goalWeeks: 25,
                startDate: Timestamp(date: Date()),
                savingDayOfTheWeek: "Thursday",
-               progressPercent: 80)      
+               weekInfo: saveList)
     ]
 //    static let sampleUsers: [User] = [
 //        User(id: "0", nickname: "Miller", creationDate: Date(), isAlarmOn: false),
