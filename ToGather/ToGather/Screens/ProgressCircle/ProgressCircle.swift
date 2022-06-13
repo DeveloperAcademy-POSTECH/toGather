@@ -23,8 +23,7 @@ let rotationDegree = (360 * (1 - length))/2 + 90
 
 struct ProgressCircle: View {
     let color: RGBColorInProgressCircle
-    let frameSize: Double // 가장 큰 원의 Frame 사이즈
-    
+    let frameSize: Double // 가장 큰 원의 Frame 사이즈    
     let weekInfo: [ThisWeek]
 
     // 나중에 제거, saving으로부터 가져오기
@@ -45,7 +44,6 @@ struct ProgressCircle: View {
     var gradientIntervalRed: Double {(color.endRed - color.red)/Double(totalSavedNum)}
     var gradientIntervalGreen: Double {(color.endGreen - color.green)/Double(totalSavedNum)}
     var gradientIntervalBlue: Double {(color.endBlue - color.blue)/Double(totalSavedNum)}
-
     var body: some View {
         ZStack {
             let lineStyle = StrokeStyle(lineWidth: frameSize * 0.03, lineCap: .round, lineJoin: .round)
