@@ -11,7 +11,7 @@ struct MyProgressCircle: View {
     var body: some View {
         ZStack {
             ProgressCircle(color: RGBColorInProgressCircle.myColor,
-                           frameSize: 330)
+                           frameSize: 330, weekInfo: saveList)
             itemInfo
         }
     }

@@ -24,7 +24,8 @@ let rotationDegree = (360 * (1 - length))/2 + 90
 struct ProgressCircle: View {
     let color: RGBColorInProgressCircle
     let frameSize: Double // 가장 큰 원의 Frame 사이즈
-
+    var weekInfo: [ThisWeek]
+    
     var body: some View {
         ZStack {
             let lineStyle = StrokeStyle(lineWidth: frameSize * 0.03, lineCap: .round, lineJoin: .round)
@@ -40,7 +41,7 @@ struct ProgressCircle: View {
                 .frame(width: frameSize * 0.9, height: frameSize * 0.9, alignment: .center)
 
             // progress line
-            ForEach(saveList[0..<currentWeek]) { week in
+            ForEach(weekInfo[0..<currentWeek]) { week in
                 if week.didSave == true {
                     Circle()
                         .trim(from: interval * Double(week.id - 1), to: interval * Double(week.id))
@@ -55,7 +56,7 @@ struct ProgressCircle: View {
 struct TestCode_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 330)
+            ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 330, weekInfo: saveList)
             Spacer()
             Text("전체 주차 \(saveList.count)")
             Text("현재 주차 \(currentWeek)")

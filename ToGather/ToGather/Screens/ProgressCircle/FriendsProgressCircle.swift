@@ -16,7 +16,7 @@ struct FriendsProgressCircle: View {
         VStack(spacing: 6) {
             ZStack {
                 itemInfo
-                ProgressCircle(color: color, frameSize: 100)
+                ProgressCircle(color: color, frameSize: 100, weekInfo: saveList)
             }
             Text(friendName)
                     .font(.system(size: 14))
