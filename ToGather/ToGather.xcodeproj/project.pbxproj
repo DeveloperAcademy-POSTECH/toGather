@@ -476,6 +476,7 @@
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
 				35AD2D1D2851D4730089E1C3 /* MainViewModel.swift in Sources */,
+				35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */,
 				E20551AC2856C3CA00C210DA /* SettingPeriod.swift in Sources */,
 				35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */,
 				E20551AC2856C3CA00C210DA /* SettingPeriod.swift in Sources */,
