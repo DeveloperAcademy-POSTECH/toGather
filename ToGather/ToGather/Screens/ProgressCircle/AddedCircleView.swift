@@ -7,8 +7,9 @@
 
 import SwiftUI
 
+
+
 struct AddedCircleView: View {
-    
     let color: Color
     var body: some View {
         ZStack {
@@ -19,9 +20,9 @@ struct AddedCircleView: View {
                 .resizable()
                 .frame(width: 28, height: 28)
                 .foregroundColor(.basicRed)
-        
+            
         }
-       // .frame(width: <#T##CGFloat?#>, height: <#T##CGFloat?#>, alignment: <#T##Alignment#>)
+        .frame(width : 100, height : 100)
 
     }
 }
