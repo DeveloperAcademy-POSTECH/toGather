@@ -11,8 +11,6 @@ struct FriendNavigationViewTest: View {
     var body: some View {
         NavigationView {
             
-
-            
             FriendAdditionView()
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
