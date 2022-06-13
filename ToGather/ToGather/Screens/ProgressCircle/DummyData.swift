@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
- 
+
  let saveList: [ThisWeek] = [ThisWeek(presentWeek: 1, didSave: true),
                             ThisWeek(presentWeek: 2, didSave: true),
                             ThisWeek(presentWeek: 3, didSave: true),
@@ -46,14 +46,12 @@ struct DummyData {
                savingDayOfTheWeek: "Monday",
               weekInfo: saveList),
         Saving(goalProduct: Product.sampleData[1],
-              weekInfo: saveList),
                uid: "1",
                goalWeeks: 25,
                startDate: Timestamp(date: Date()),
                savingDayOfTheWeek: "Sunday",
                weekInfo: saveList),
         Saving(goalProduct: Product.sampleData[2],
-               weekInfo: saveList),
                uid: "2",
                goalWeeks: 25,
                startDate: Timestamp(date: Date()),
