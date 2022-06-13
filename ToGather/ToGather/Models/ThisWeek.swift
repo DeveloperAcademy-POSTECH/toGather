@@ -9,7 +9,6 @@ import Foundation
 
 
 struct ThisWeek: Identifiable {
-    
     let presentWeek: Int
     let didSave: Bool
     var id: Int {presentWeek}

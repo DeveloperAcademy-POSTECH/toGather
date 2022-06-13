@@ -9,10 +9,10 @@ import Foundation
 import Firebase
 struct Saving {
     var goalProduct: Product
-    let uid: String
-    let goalWeeks: Int
+    var uid: String
+    var goalWeeks: Int
     let startDate: Timestamp
-    let savingDayOfTheWeek: String
+    var savingDayOfTheWeek: String
     
     // 파이어베이스에 docoument만들어서 그 안에 Week객체 넣으면 될거같습니다.
     var weekInfo: [ThisWeek]

@@ -10,11 +10,13 @@ import Firebase
 import UIKit
 
 class OnboardingViewModel: ObservableObject {
-    @Published var savingData = Saving(goalProduct: "", uid: "", goalWeeks: 0, startDate: Date(), savingDayOfTheWeek: "")
+    @Published var savingData = Saving(goalProduct: Product(productName: "",productPrice: 0, imageUrl: ""),
+                                       uid: "", goalWeeks: 0, startDate: Timestamp(), savingDayOfTheWeek: "",
+                                       weekInfo: [ThisWeek(presentWeek: 0, didSave: false)])
     @Published var userData = User(id: "", nickname: "", creationDate: Date(), isAlarmOn: true, friends: [])
     
     // savingData 인스턴스에 목표 product 추가
-    func addProduct(product: String) {
+    func addProduct(product: Product) {
         savingData.goalProduct = product
     }
     
