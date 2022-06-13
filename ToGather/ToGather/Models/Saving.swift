@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+
 struct Saving {
     var goalProduct: Product
     var uid: String

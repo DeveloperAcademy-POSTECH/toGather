@@ -12,6 +12,6 @@ struct User {
     let nickname: String
     let creationDate: Date
     var isAlarmOn: Bool? = false
-    var friends: [String]
+    var friends: [User]
     // 친구목록은 파이어베이스에 docoument 만들어서 그안에 친구uid넣으면 될거 같습니다.
 }

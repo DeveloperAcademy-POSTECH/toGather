@@ -11,7 +11,7 @@ import UIKit
 
 class OnboardingViewModel: ObservableObject {
     @Published var savingData = Saving(goalProduct: Product(productName: "",productPrice: 0, imageUrl: ""),
-                                       uid: "", goalWeeks: 0, startDate: Timestamp(), savingDayOfTheWeek: "",
+                                       uid: "", goalWeeks: 0, startDate: Timestamp(date: Date()), savingDayOfTheWeek: "",
                                        weekInfo: [ThisWeek(presentWeek: 0, didSave: false)])
     @Published var userData = User(id: "", nickname: "", creationDate: Date(), isAlarmOn: true, friends: [])
     
@@ -26,9 +26,31 @@ class OnboardingViewModel: ObservableObject {
         savingData.savingDayOfTheWeek = dayOfTheWeek
     }
     
-    // userData 인스턴스에 친구 추가
-    func addFriend(friendUid: String) {
-        userData.friends.append(friendUid)
+    // user 컬렉션에서 friend의 uid로 검색하여 친구 정보 가져오기
+    func getFriendInfo(friendUids: [String]){
+        let db = Firestore.firestore()
+        for friendUid in friendUids {
+            let docRef = db.collection("user").document(friendUid)
+            
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    userData.friends = document.data() // 밀러한테 코드 물어보기
+                } else {
+                    print("User document does not exist")
+                }
+            }
+        }
+    }
+    
+    // savingData의 friend 인스턴스의 uid만 추출하여 array 만들기 (firebase 업로드용)
+    func makeFriendUidArray(friends: [User]) -> [String] {
+        var friendUidArray: [String]
+        
+        for friend in friends {
+            friendUidArray.append(friend.id ?? "")
+        }
+        
+        return friendUidArray
     }
     
     // 장비의 uuid를 userData 인스턴스와 savingData 인스턴스에 각각 추가
@@ -48,7 +70,7 @@ class OnboardingViewModel: ObservableObject {
             "id": userData.id ?? "",
             "creationDate": Date(),
             "isAlarmOn": true,
-            "friends": userData.friends
+            "friends": makeFriendUidArray(friends: userData.friends)
         ]) { err in
             if let err = err {
                 print("Error writing user document: \(err)")
@@ -62,7 +84,8 @@ class OnboardingViewModel: ObservableObject {
             "uid": savingData.uid,
             "goalWeeks": savingData.goalWeeks,
             "startDate": Date(), // startDate 계산법 현재 미구현
-            "savingDayOfTheWeek": savingData.savingDayOfTheWeek
+            "savingDayOfTheWeek": savingData.savingDayOfTheWeek,
+            "product": savingData.goalProduct.productName
         ]) { err in
             if let err = err {
                 print("Error writing saving document: \(err)")
