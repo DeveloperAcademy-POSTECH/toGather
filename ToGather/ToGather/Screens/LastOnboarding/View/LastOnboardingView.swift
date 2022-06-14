@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct LastOnboardingView: View {
     
     @EnvironmentObject var onboardingViewModel: OnboardingViewModel
     @ObservedObject var lastOnboardingViewModel: LastOnboardingViewModel
-    
+
     var friendUids: [String]? = ["friend1", "friend2"] // dummy data
     
     var body: some View {
@@ -53,9 +54,9 @@ struct LastOnboardingView: View {
             .padding(.bottom, 8)
             
             HStack {
-                Text("") // 나중에 timestamp -> string 변환 함수 추가
+                Text(lastOnboardingViewModel.changeDateFormat(date: onboardingViewModel.savingData.startDate.dateValue()))
                 Text("-")
-                Text("2022.09.03")
+                Text(lastOnboardingViewModel.calculateDate(date: onboardingViewModel.savingData.startDate.dateValue(), goalWeeks: onboardingViewModel.savingData.goalWeeks))
             }
             .foregroundColor(ColorStyle.blackSixty.color)
             .font(.system(size: 16, weight: .regular))
