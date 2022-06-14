@@ -6,20 +6,12 @@
 //
 
 import Foundation
+import Firebase
 
-struct User: Codable {
+struct User {
     var id: String? // uuid인데 이후 Identifiable프로토콜 구현을 위해 id로 명명
     let nickname: String
-    let creationDate: Date
+    let creationDate: Timestamp
     var isAlarmOn: Bool? = false
-    var friends: [User]?
     // 친구목록은 파이어베이스에 docoument 만들어서 그안에 친구uid넣으면 될거 같습니다.
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case nickname
-        case creationDate
-        case isAlarmOn
-        case friends
-    }
 }

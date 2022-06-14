@@ -7,14 +7,12 @@
 
 import Foundation
 
-func changeDateFormat() {
-    
-}
+class LastOnboardingViewModel: ObservableObject {
+    func changeDateFormat() {
+        
+    }
 
-func calculateDate() {
-    
-}
-
-func showFriendOrNot() {
-    
+    func calculateDate() {
+        
+    }
 }

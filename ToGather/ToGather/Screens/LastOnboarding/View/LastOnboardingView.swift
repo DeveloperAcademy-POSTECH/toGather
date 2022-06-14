@@ -10,6 +10,9 @@ import SwiftUI
 struct LastOnboardingView: View {
     
     @EnvironmentObject var onboardingViewModel: OnboardingViewModel
+    @ObservedObject var lastOnboardingViewModel: LastOnboardingViewModel
+    
+    var friendUids: [String]? = ["friend1", "friend2"] // dummy data
     
     var body: some View {
         VStack(spacing: 0) {
@@ -22,6 +25,7 @@ struct LastOnboardingView: View {
                 Circle()
                     .stroke().fill(ColorStyle.blue.color)
                     .frame(width: 230, height: 230)
+                Image(onboardingViewModel.savingData.goalProduct.imageUrl)
             }
             .padding(.bottom, 16)
             
@@ -49,7 +53,7 @@ struct LastOnboardingView: View {
             .padding(.bottom, 8)
             
             HStack {
-                Text("")
+                Text("") // 나중에 timestamp -> string 변환 함수 추가
                 Text("-")
                 Text("2022.09.03")
             }
@@ -57,24 +61,34 @@ struct LastOnboardingView: View {
             .font(.system(size: 16, weight: .regular))
             .padding(.bottom, 30)
             
-            ZStack {
-                Image(systemName: "person.fill")
-                    .resizable()
-                    .foregroundColor(ColorStyle.blue.color)
-                    .frame(width: 29, height: 31)
-                Circle()
-                    .stroke().fill(ColorStyle.blue.color)
-                    .frame(width: 60, height: 60)
+            if friendUids != nil {
+                HStack(spacing: 10) {
+                    ForEach(friendUids ?? [], id:\.self) { friendUid in
+                        VStack(spacing: 0) {
+                            ZStack {
+                                Image(systemName: "person.fill")
+                                    .resizable()
+                                    .foregroundColor(ColorStyle.blue.color)
+                                    .frame(width: 29, height: 31)
+                                Circle()
+                                    .stroke().fill(ColorStyle.blue.color)
+                                    .frame(width: 60, height: 60)
+                            }
+                            .padding(.bottom, 2)
+                            
+                            Text(String(friendUid))
+                                .foregroundColor(ColorStyle.blackHundred.color)
+                                .font(.system(size: 14, weight: .regular))
+                        }
+                    }
+                }
+                .padding(.bottom, 45)
+            } else {
+                HStack {}
+                    .padding(.bottom, 124)
             }
-            .padding(.bottom, 2)
-            
-            Text("Steve")
-                .foregroundColor(ColorStyle.blackHundred.color)
-                .font(.system(size: 14, weight: .regular))
-                .padding(.bottom, 41)
             
             Button {
-                onboardingViewModel.getFriendInfo(friendUids: ["DYYGUP", "pCcyIS"])
                 // 나중에 onboarding 첫페이지로 이동하는 코드 추가
             } label: {
                 Text("저축내용을 수정할게요")
@@ -103,6 +117,6 @@ struct LastOnboardingView: View {
 
 struct LastOnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        LastOnboardingView()
+        LastOnboardingView(lastOnboardingViewModel: LastOnboardingViewModel())
     }
 }
