@@ -30,7 +30,7 @@ struct GoalItem: View {
                 }
             Text(price)
                 .fontWeight(.medium)
-                .foregroundColor(isSelectedItem == imageTitle ? Color.pointColor : Color.basicBlack)
+                .foregroundColor(isSelectedItem == imageTitle ? Color.pointColor : Color.black)
         } // VStack
         .onTapGesture {
             guard let isSelectedItem = isSelectedItem else {

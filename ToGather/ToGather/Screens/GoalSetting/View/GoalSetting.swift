@@ -21,7 +21,7 @@ struct GoalSetting: View {
                             .foregroundColor(Color.pointColor)
                             .padding(.leading, 20)
                         Text("미만")
-                            .foregroundColor(Color.basicBlack)
+                            .foregroundColor(Color.black)
                             .padding(.bottom, 2) // for same border line
                         Spacer()
                     } // HStack
@@ -53,7 +53,7 @@ struct GoalSetting: View {
                             .foregroundColor(Color.pointColor)
                             .padding(.leading, 20)
                         Text("미만")
-                            .foregroundColor(Color.basicBlack)
+                            .foregroundColor(Color.black)
                             .padding(.bottom, 2) // for same border line
                         Spacer()
                     } // HStack
@@ -85,7 +85,7 @@ struct GoalSetting: View {
                             .foregroundColor(Color.pointColor)
                             .padding(.leading, 20)
                         Text("미만")
-                            .foregroundColor(Color.basicBlack)
+                            .foregroundColor(Color.black)
                             .padding(.bottom, 2) // for same border line
                         Spacer()
                     } // HStack
@@ -118,7 +118,7 @@ struct GoalSetting: View {
                         .fontWeight(.bold)
                         .frame(width: UIScreen.main.bounds.width - 40, height: 46)
                         .foregroundColor(.white)
-                        .background(isSelectedItem != nil ? Color.pointColor : Color.basicBlack.opacity(0.3))
+                        .background(isSelectedItem != nil ? Color.pointColor : Color.black.opacity(0.3))
                         .cornerRadius(30)
                         .padding(.horizontal, 20)
                 })

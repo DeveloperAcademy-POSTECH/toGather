@@ -17,7 +17,7 @@ struct GoalSettingTitleView: View {
             Text("를 골라주세요")
                 .font(.system(size: 24))
                 .fontWeight(.bold)
-                .foregroundColor(Color.basicBlack)
+                .foregroundColor(Color.black)
         } // HStack
         .padding(.top, 36)
         .padding(.leading, 20)
