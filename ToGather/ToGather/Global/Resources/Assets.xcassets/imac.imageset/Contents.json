@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Iphone.png",
+      "filename" : "imac.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "imac@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "imac@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

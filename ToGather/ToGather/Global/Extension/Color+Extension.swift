@@ -14,6 +14,12 @@ extension Color{
     static let basicBlack = Color("BasicBlack")
     // Background Color
     
+    
+    
+    
+    
+    
+    
     static let basicRed = Color(hex:"#E96E89")
     static let basicPurple = Color(hex:"#BC93E9")
     static let basicGreen = Color(hex:"#77D451")
