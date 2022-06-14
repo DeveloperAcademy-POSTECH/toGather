@@ -20,10 +20,16 @@
 		3D4383AB28519DA700AD1885 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AA28519DA700AD1885 /* FirebaseAuth */; };
 		3D4383AD28519DA700AD1885 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AC28519DA700AD1885 /* FirebaseFirestore */; };
 		3D48A6E3285782E500FE6BE8 /* LastOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D48A6E2285782E500FE6BE8 /* LastOnboardingViewModel.swift */; };
+		3D48A6E1285774CD00FE6BE8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3D48A6E0285774CD00FE6BE8 /* .swiftlint.yml */; };
 		3D87D9F62852046100C36346 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3D87D9F52852046100C36346 /* FirebaseStorage */; };
-		3D87D9F928520B6100C36346 /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D9F828520B6100C36346 /* LastOnboardingView.swift */; };
 		3D87D9FD285234E200C36346 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D9FC285234E200C36346 /* OnboardingViewModel.swift */; };
-		763882812856C9FA0023507E /* FriendAddition in Resources */ = {isa = PBXBuildFile; fileRef = 763882802856C9FA0023507E /* FriendAddition */; };
+		3D87D9F928520B6100C36346 /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D9F828520B6100C36346 /* LastOnboardingView.swift */; };
+		763212F2285801630016F8ED /* AlreadyAddedFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212ED285801630016F8ED /* AlreadyAddedFriendView.swift */; };
+		763212F3285801630016F8ED /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212EE285801630016F8ED /* TitleView.swift */; };
+		763212F4285801630016F8ED /* PinStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212EF285801630016F8ED /* PinStackView.swift */; };
+		763212F5285801630016F8ED /* ApplyFriendIdTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212F0285801630016F8ED /* ApplyFriendIdTextView.swift */; };
+		763212F6285801630016F8ED /* FriendAdditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212F1285801630016F8ED /* FriendAdditionView.swift */; };
+		763212F82858016C0016F8ED /* TestLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212F72858016C0016F8ED /* TestLogic.swift */; };
 		764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72C28518CC8007A7415 /* ToGatherApp.swift */; };
 		764FC72F28518CC8007A7415 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72E28518CC8007A7415 /* ContentView.swift */; };
 		764FC73128518CC9007A7415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73028518CC9007A7415 /* Assets.xcassets */; };
@@ -48,6 +54,13 @@
 		35AD2D1C2851D4730089E1C3 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		35AD2D292854F8550089E1C3 /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		3D4383A728519BD100AD1885 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		763212ED285801630016F8ED /* AlreadyAddedFriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlreadyAddedFriendView.swift; sourceTree = "<group>"; };
+		763212EE285801630016F8ED /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		763212EF285801630016F8ED /* PinStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinStackView.swift; sourceTree = "<group>"; };
+		763212F0285801630016F8ED /* ApplyFriendIdTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyFriendIdTextView.swift; sourceTree = "<group>"; };
+		763212F1285801630016F8ED /* FriendAdditionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAdditionView.swift; sourceTree = "<group>"; };
+		763212F72858016C0016F8ED /* TestLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLogic.swift; sourceTree = "<group>"; };
+		3D48A6E0285774CD00FE6BE8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3D48A6E2285782E500FE6BE8 /* LastOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingViewModel.swift; sourceTree = "<group>"; };
 		3D87D9F828520B6100C36346 /* LastOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingView.swift; sourceTree = "<group>"; };
 		3D87D9FC285234E200C36346 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
@@ -133,9 +146,39 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		763212EA2858014A0016F8ED /* FriendAddition */ = {
+			isa = PBXGroup;
+			children = (
+				763212EB285801560016F8ED /* View */,
+				763212EC2858015A0016F8ED /* VIewModel */,
+			);
+			path = FriendAddition;
+			sourceTree = "<group>";
+		};
+		763212EB285801560016F8ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				763212ED285801630016F8ED /* AlreadyAddedFriendView.swift */,
+				763212F0285801630016F8ED /* ApplyFriendIdTextView.swift */,
+				763212F1285801630016F8ED /* FriendAdditionView.swift */,
+				763212EF285801630016F8ED /* PinStackView.swift */,
+				763212EE285801630016F8ED /* TitleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		763212EC2858015A0016F8ED /* VIewModel */ = {
+			isa = PBXGroup;
+			children = (
+				763212F72858016C0016F8ED /* TestLogic.swift */,
+			);
+			path = VIewModel;
+			sourceTree = "<group>";
+		};
 		764FC72028518CC8007A7415 = {
 			isa = PBXGroup;
 			children = (
+				3D48A6E0285774CD00FE6BE8 /* .swiftlint.yml */,
 				764FC72B28518CC8007A7415 /* ToGather */,
 				764FC72A28518CC8007A7415 /* Products */,
 			);
@@ -185,7 +228,7 @@
 			children = (
 				3D87D9F728520B2700C36346 /* LastOnboarding */,
 				E20551AA2856C3AF00C210DA /* SettingPeriod */,
-				763882802856C9FA0023507E /* FriendAddition */,
+				763212EA2858014A0016F8ED /* FriendAddition */,
 				E205519328557E4500C210DA /* ProgressCircle */,
 				35AD2D182851D4730089E1C3 /* Main */,
 				764FC72C28518CC8007A7415 /* ToGatherApp.swift */,
@@ -336,9 +379,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D48A6E1285774CD00FE6BE8 /* .swiftlint.yml in Resources */,
 				764FC73428518CC9007A7415 /* Preview Assets.xcassets in Resources */,
 				764FC73128518CC9007A7415 /* Assets.xcassets in Resources */,
-				763882812856C9FA0023507E /* FriendAddition in Resources */,
 				3D4383A828519BD100AD1885 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +415,7 @@
 			files = (
 				3D87D9FD285234E200C36346 /* OnboardingViewModel.swift in Sources */,
 				764FC74C28518E0E007A7415 /* SwiftUIView3.swift in Sources */,
+				763212F5285801630016F8ED /* ApplyFriendIdTextView.swift in Sources */,
 				E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */,
 				35AD2D222851E1FB0089E1C3 /* (null) in Sources */,
 				35AD2D222851E1FB0089E1C3 /* (null) in Sources */,
@@ -379,18 +423,23 @@
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
 				35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */,
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
+				763212F6285801630016F8ED /* FriendAdditionView.swift in Sources */,
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
+				763212F2285801630016F8ED /* AlreadyAddedFriendView.swift in Sources */,
+				763212F3285801630016F8ED /* TitleView.swift in Sources */,
 				E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */,
 				35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */,
 				3D48A6E3285782E500FE6BE8 /* LastOnboardingViewModel.swift in Sources */,
 				3D87D9F928520B6100C36346 /* LastOnboardingView.swift in Sources */,
 				E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */,
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
+				763212F4285801630016F8ED /* PinStackView.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				E205519728557EEB00C210DA /* DummyData.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
+				763212F82858016C0016F8ED /* TestLogic.swift in Sources */,
 				E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
