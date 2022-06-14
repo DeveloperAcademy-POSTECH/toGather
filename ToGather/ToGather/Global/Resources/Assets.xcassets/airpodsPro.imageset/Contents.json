@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Ipad.png",
+      "filename" : "airpods pro.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "airpods pro@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "airpods pro@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
