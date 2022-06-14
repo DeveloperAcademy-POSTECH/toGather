@@ -10,5 +10,14 @@ import SwiftUI
 
 class MainViewModel: ObservableObject {
    
-   @Published var friendsList = [FriendsProgressCircle]()
+   @Published private var friendsList = [FriendsProgressCircle]()
+ 
+    func addFriend(friend : FriendsProgressCircle) {
+        
+        friendsList.append(friend)
+    }
+    
+    func getFriendList() -> [FriendsProgressCircle] {
+        return friendsList
+    }
 }

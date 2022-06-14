@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-
+    
 struct FriendsProgressCircle: View, Identifiable {
     var id: Int
     var color: RGBColorInProgressCircle
-    let progressPercent: Double
+    var progressPercent: Double
     let friendName: String
     var friendProduct: Product
     var body: some View {

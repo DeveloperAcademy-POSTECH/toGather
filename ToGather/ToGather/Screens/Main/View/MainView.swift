@@ -29,20 +29,7 @@ struct MainView: View {
                             .font(.system(size: 22, weight: .bold))
                     }
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button {
-                            //
-                        } label: {
-                            Image(systemName: "bell.badge.fill")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle( .red, Color.basicBlack.opacity(0.4))
-                        }
-                        .foregroundColor(.basicBlack.opacity(0.4))
-                        Button {
-                            //
-                        } label: {
-                            Image(systemName: "gear")
-                        }
-                        .foregroundColor(.basicBlack.opacity(0.4))
+                      toolbarButtonsView
                     }
                 }
         }
@@ -56,16 +43,36 @@ struct MainView_Previews: PreviewProvider {
 }
 
 extension MainView {
+    
+    var toolbarButtonsView: some View {
+        HStack {
+            Button {
+                //
+            } label: {
+                Image(systemName: "bell.badge.fill")
+                    .symbolRenderingMode(.palette)
+                    .foregroundStyle( .red, Color.basicBlack.opacity(0.4))
+            }
+            .foregroundColor(.basicBlack.opacity(0.4))
+            Button {
+                //
+            } label: {
+                Image(systemName: "gear")
+            }
+            .foregroundColor(.basicBlack.opacity(0.4))
+        }
+    }
+    
     var friendsSavingsView: some View {
         HStack(spacing: 26) {
-            ForEach(viewModel.friendsList) { friendSaving in
+            ForEach(viewModel.getFriendList()) { friendSaving in
                 friendSaving
             }
             // MARK: - 추후 코드변경이 필요.
-            if viewModel.friendsList.count == 0 {
+            if viewModel.getFriendList().isEmpty {
                 VStack(spacing: 4) { // 하드코딩 수정필요
                     Button {
-                        viewModel.friendsList.append(
+                        viewModel.addFriend(friend:
                             FriendsProgressCircle(id: 1,
                                                   color: RGBColorInProgressCircle.friendColor1,
                                                   progressPercent: DummyData.sampleSavings[1].progressPercent,
@@ -79,10 +86,10 @@ extension MainView {
                         .font(.callout) // 16px
                         .fontWeight(.semibold)
                 }
-            } else if viewModel.friendsList.count == 1 {
+            } else if viewModel.getFriendList().count == 1 {
                 VStack(spacing: 4) {
                     Button {
-                        viewModel.friendsList.append(
+                        viewModel.addFriend(friend:
                             FriendsProgressCircle(id: 2,
                                                   color: RGBColorInProgressCircle.friendColor2,
                                                   progressPercent: DummyData.sampleSavings[2].progressPercent,
@@ -96,10 +103,10 @@ extension MainView {
                         .font(.callout) // 16px
                         .fontWeight(.semibold)
                 }
-            } else if viewModel.friendsList.count == 2 {
+            } else if viewModel.getFriendList().count == 2 {
                 VStack(spacing: 4) {
                     Button {
-                        viewModel.friendsList.append(
+                        viewModel.addFriend(friend:
                             FriendsProgressCircle(id: 3,
                                                   color: RGBColorInProgressCircle.friendColor3,
                                                   progressPercent: DummyData.sampleSavings[3].progressPercent,
