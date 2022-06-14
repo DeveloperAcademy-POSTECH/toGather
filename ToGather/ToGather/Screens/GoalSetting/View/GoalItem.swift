@@ -8,37 +8,47 @@
 import SwiftUI
 
 struct GoalItem: View {
-    @State var isSelected: Bool
-    var imageTitle: String?
-    var price: String?
+    var imageTitle: String
+    var price: String
+    @Binding var isSelectedItem: String?
+    init(imageTitle: String,
+         price: String,
+         isSelectedItem: Binding<String?> = .constant("")) {
+        self.imageTitle = imageTitle
+        self.price = price
+        _isSelectedItem = isSelectedItem
+    }
     var body: some View {
         VStack(spacing: 4) {
-            if let imageTitle = imageTitle {
-                Image(imageTitle)
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .clipShape(Circle())
-                    .overlay {
-                        Circle()
-                            .stroke(lineWidth: isSelected ? 1 : 0)
-                            .foregroundColor(Color.pointColor)
-                    }
-            } else {
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 100, height: 100, alignment: .center)
-            }
-            Text(price ?? "")
+            Image(imageTitle)
+                .frame(width: 100, height: 100, alignment: .center)
+                .clipShape(Circle())
+                .overlay {
+                    Circle()
+                        .stroke(lineWidth: isSelectedItem == imageTitle ? 1 : 0)
+                        .foregroundColor(Color.pointColor)
+                }
+            Text(price)
                 .fontWeight(.medium)
-                .foregroundColor(isSelected ? Color.pointColor : Color.basicBlack)
+                .foregroundColor(isSelectedItem == imageTitle ? Color.pointColor : Color.basicBlack)
         } // VStack
         .onTapGesture {
-            isSelected.toggle()
+            guard let isSelectedItem = isSelectedItem else {
+                self.isSelectedItem = imageTitle
+                return
+            }
+            if isSelectedItem == imageTitle {
+                self.isSelectedItem = nil
+            } else {
+                self.isSelectedItem = imageTitle
+            }
         }
     }
 }
 
 struct GoalItem_Previews: PreviewProvider {
     static var previews: some View {
-        GoalItem(isSelected: true, imageTitle: "goal-ipad", price: "700,000")
+//        GoalItem(imageTitle: "goal-ipad", price: "700,000", isSelected: true)
+        GoalItem(imageTitle: "goal-ipad", price: "700,000", isSelectedItem: .constant(""))
     }
 }

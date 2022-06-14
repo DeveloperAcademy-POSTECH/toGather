@@ -8,42 +8,117 @@
 import SwiftUI
 
 struct GoalSetting: View {
-    @State var isSelected: Bool = false
-    init(_ isSelected: Bool = false) {
-        self.isSelected = isSelected
-    }
+    @State var isSelectedItem: String?
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 0) {
                 GoalSettingTitleView()
-                GoalItemRow(headline: "100만원",
-                            firstImageTitle: "goal-airpod",
-                            firstPrice: "300,000",
-                            secondImageTitle: "goal-applewatch",
-                            secondPrice: "500,000",
-                            thirdImageTitle: "goal-ipad",
-                            thirdPrice: "700,000")
-                GoalItemRow(headline: "200만원",
-                            firstImageTitle: "goal-iphone",
-                            firstPrice: "1,000,000",
-                            secondImageTitle: "goal-macbook-air",
-                            secondPrice: "1,300,000",
-                            thirdImageTitle: "goal-imac",
-                            thirdPrice: "1,800,000")
-                GoalItemRow(headline: "300만원",
-                            firstImageTitle: "goal-macbook-pro",
-                            firstPrice: "2,500,000",
-                            secondImageTitle: "goal-macmini",
-                            secondPrice: "3,500,000",
-                            thirdImageTitle: nil,
-                            thirdPrice: nil)
+                VStack(spacing: 0) {
+                    HStack(alignment: .bottom, spacing: 4) {
+                        Text(ItemData.firstHeadline.title())
+                            .font(.system(size: 20))
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color.pointColor)
+                            .padding(.leading, 20)
+                        Text("미만")
+                            .foregroundColor(Color.basicBlack)
+                            .padding(.bottom, 2) // for same border line
+                        Spacer()
+                    } // HStack
+                    .padding(.bottom, 6)
+                    Divider()
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 8)
+                    HStack(alignment: .center, spacing: 0) {
+                        GoalItem(imageTitle: ItemData.firstItem.title(),
+                                 price: ItemData.firstItem.price(),
+                                 isSelectedItem: $isSelectedItem)
+                        Spacer()
+                        GoalItem(imageTitle: ItemData.secondItem.title(),
+                                 price: ItemData.secondItem.price(),
+                                 isSelectedItem: $isSelectedItem)
+                        Spacer()
+                        GoalItem(imageTitle: ItemData.thirdItem.title(),
+                                 price: ItemData.thirdItem.price(),
+                                 isSelectedItem: $isSelectedItem)
+                    } // HStack
+                    .padding(.horizontal, 20)
+                } // VStack
+                .padding(.vertical, 22)
+                VStack(spacing: 0) {
+                    HStack(alignment: .bottom, spacing: 4) {
+                        Text(ItemData.secondHeadline.title())
+                            .font(.system(size: 20))
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color.pointColor)
+                            .padding(.leading, 20)
+                        Text("미만")
+                            .foregroundColor(Color.basicBlack)
+                            .padding(.bottom, 2) // for same border line
+                        Spacer()
+                    } // HStack
+                    .padding(.bottom, 6)
+                    Divider()
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 8)
+                    HStack(alignment: .center, spacing: 0) {
+                        GoalItem(imageTitle: ItemData.fourthItem.title(),
+                                 price: ItemData.fourthItem.price(),
+                                 isSelectedItem: $isSelectedItem)
+                        Spacer()
+                        GoalItem(imageTitle: ItemData.fifthItem.title(),
+                                 price: ItemData.fifthItem.price(),
+                                 isSelectedItem: $isSelectedItem)
+                        Spacer()
+                        GoalItem(imageTitle: ItemData.sixthItem.title(),
+                                 price: ItemData.sixthItem.price(),
+                                 isSelectedItem: $isSelectedItem)
+                    } // HStack
+                    .padding(.horizontal, 20)
+                } // VStack
+                .padding(.vertical, 22)
+                VStack(spacing: 0) {
+                    HStack(alignment: .bottom, spacing: 4) {
+                        Text(ItemData.thirdHeadline.title())
+                            .font(.system(size: 20))
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color.pointColor)
+                            .padding(.leading, 20)
+                        Text("미만")
+                            .foregroundColor(Color.basicBlack)
+                            .padding(.bottom, 2) // for same border line
+                        Spacer()
+                    } // HStack
+                    .padding(.bottom, 6)
+                    Divider()
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 8)
+                    HStack(alignment: .center, spacing: 0) {
+                        GoalItem(imageTitle: ItemData.seventhItem.title(),
+                                 price: ItemData.seventhItem.price(),
+                                 isSelectedItem: $isSelectedItem)
+                        Spacer()
+                        GoalItem(imageTitle: ItemData.eighthItem.title(),
+                                 price: ItemData.eighthItem.price(),
+                                 isSelectedItem: $isSelectedItem)
+                        Spacer()
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 100, height: 100, alignment: .center)
+                    } // HStack
+                    .padding(.horizontal, 20)
+                } // VStack
+                .onTapGesture {
+                    isSelectedItem = nil
+                }
+                .padding(.vertical, 22)
                 Spacer()
                 NavigationLink(destination: Text("다음뷰"), label: {
                     Text("다음")
                         .fontWeight(.bold)
                         .frame(width: UIScreen.main.bounds.width - 40, height: 46)
                         .foregroundColor(.white)
-                        .background(isSelected ? Color.pointColor : Color.basicBlack.opacity(0.3))
+                        .background(isSelectedItem != nil ? Color.pointColor : Color.basicBlack.opacity(0.3))
                         .cornerRadius(30)
                         .padding(.horizontal, 20)
                 })
@@ -55,6 +130,6 @@ struct GoalSetting: View {
 
 struct GoalSetting_Previews: PreviewProvider {
     static var previews: some View {
-        GoalSetting(false)
+        GoalSetting()
     }
 }
