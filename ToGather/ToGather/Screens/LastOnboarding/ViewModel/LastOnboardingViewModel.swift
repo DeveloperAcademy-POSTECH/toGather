@@ -11,6 +11,10 @@ func changeDateFormat() {
     
 }
 
+func calculateDate() {
+    
+}
+
 func showFriendOrNot() {
     
 }

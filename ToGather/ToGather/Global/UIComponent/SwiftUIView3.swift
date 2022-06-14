@@ -15,6 +15,6 @@ struct SwiftUIView3: View {
 
 struct SwiftUIView3_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView()
+        SwiftUIView3()
     }
 }

@@ -42,7 +42,7 @@ struct LastOnboardingView: View {
                     .foregroundColor(ColorStyle.blackHundred.color)
                     .font(.system(size: 22, weight: .bold))
                     .padding(.trailing, 10)
-                Text("10만원") // 나중에 settringPeriod에서 받은 값으로 고치기
+                Text("\(String(onboardingViewModel.savingData.goalProduct.productPrice))만원")
                     .foregroundColor(ColorStyle.blue.color)
                     .font(.system(size: 32, weight: .bold))
             }
@@ -74,6 +74,8 @@ struct LastOnboardingView: View {
                 .padding(.bottom, 41)
             
             Button {
+                onboardingViewModel.getFriendInfo(friendUids: ["DYYGUP", "pCcyIS"])
+                // 나중에 onboarding 첫페이지로 이동하는 코드 추가
             } label: {
                 Text("저축내용을 수정할게요")
                     .foregroundColor(ColorStyle.blackSixty.color)

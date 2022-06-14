@@ -10,17 +10,17 @@ import Firebase
 import UIKit
 
 class OnboardingViewModel: ObservableObject {
-    @Published var savingData = Saving(goalProduct: Product(productName: "",productPrice: 0, imageUrl: ""),
+    @Published var savingData = Saving(goalProduct: Product(productName: "", productPrice: 0, imageUrl: ""),
                                        uid: "", goalWeeks: 0, startDate: Timestamp(date: Date()), savingDayOfTheWeek: "",
                                        weekInfo: [ThisWeek(presentWeek: 0, didSave: false)])
-    @Published var userData = User(id: "", nickname: "", creationDate: Date(), isAlarmOn: true, friends: [])
+    @Published var userData = User(id: "", nickname: "", creationDate: Date(), isAlarmOn: true, friends: [User]())
     
-    // savingData 인스턴스에 목표 product 추가
+    // goal-setting 뷰에서 사용, savingData 인스턴스에 목표 product 추가
     func addProduct(product: Product) {
         savingData.goalProduct = product
     }
     
-    // savingData 인스턴스에 총 주차, 요일 추가
+    // setting-period 뷰에서 사용, savingData 인스턴스에 총 주차, 요일 추가
     func addGoalWeekAndDayOfTheWeek(goalWeeks: Int, dayOfTheWeek: String) {
         savingData.goalWeeks = goalWeeks
         savingData.savingDayOfTheWeek = dayOfTheWeek
@@ -34,7 +34,8 @@ class OnboardingViewModel: ObservableObject {
             
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
-                    userData.friends = document.data() // 밀러한테 코드 물어보기
+                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                        print(dataDescription)
                 } else {
                     print("User document does not exist")
                 }
@@ -43,15 +44,15 @@ class OnboardingViewModel: ObservableObject {
     }
     
     // savingData의 friend 인스턴스의 uid만 추출하여 array 만들기 (firebase 업로드용)
-    func makeFriendUidArray(friends: [User]) -> [String] {
-        var friendUidArray: [String]
-        
-        for friend in friends {
-            friendUidArray.append(friend.id ?? "")
-        }
-        
-        return friendUidArray
-    }
+//    func makeFriendUidArray(friends: [User]) -> [String] {
+//        var friendUidArray: [String]
+//
+//        for friend in friends {
+//            friendUidArray.append(friend.id ?? "")
+//        }
+//
+//        return friendUidArray
+//    }
     
     // 장비의 uuid를 userData 인스턴스와 savingData 인스턴스에 각각 추가
     func addUid() {
@@ -70,7 +71,7 @@ class OnboardingViewModel: ObservableObject {
             "id": userData.id ?? "",
             "creationDate": Date(),
             "isAlarmOn": true,
-            "friends": makeFriendUidArray(friends: userData.friends)
+//            "friends": makeFriendUidArray(friends: userData.friends ?? [])
         ]) { err in
             if let err = err {
                 print("Error writing user document: \(err)")
@@ -85,7 +86,7 @@ class OnboardingViewModel: ObservableObject {
             "goalWeeks": savingData.goalWeeks,
             "startDate": Date(), // startDate 계산법 현재 미구현
             "savingDayOfTheWeek": savingData.savingDayOfTheWeek,
-            "product": savingData.goalProduct.productName
+//            "productId": savingData.goalProduct.id
         ]) { err in
             if let err = err {
                 print("Error writing saving document: \(err)")
