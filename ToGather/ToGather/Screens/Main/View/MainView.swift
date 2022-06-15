@@ -46,13 +46,17 @@ extension MainView {
     
     var toolbarButtonsView: some View {
         HStack {
-            Button {
-                //
-            } label: {
-                Image(systemName: "bell.badge.fill")
-                    .symbolRenderingMode(.palette)
-                    .foregroundStyle( .red, Color.basicBlack.opacity(0.4))
-            }
+                NavigationLink {
+                    NotificationsView()
+                        .navigationTitle("알림")
+                        .navigationBarHidden(true)
+                     
+
+                } label: {
+                    Image(systemName: "bell.badge.fill")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle( .red, Color.basicBlack.opacity(0.4))
+                }
             .foregroundColor(.basicBlack.opacity(0.4))
             Button {
                 //
@@ -160,6 +164,7 @@ extension MainView {
             .background(Color.basicBlack.opacity(0.3))
             .cornerRadius(30)
             .padding(.horizontal)
+           // .padding(.bottom, 40)
         }
     }
 }

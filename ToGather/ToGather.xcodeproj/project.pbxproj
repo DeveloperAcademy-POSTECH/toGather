@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		354ED94628583158001C726D /* TestLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94528583158001C726D /* TestLogic.swift */; };
+		354ED94B2858471B001C726D /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94A2858471B001C726D /* NotificationsView.swift */; };
+		354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94C2858488C001C726D /* NotificaionCell.swift */; };
+		354ED94F285849E9001C726D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94E285849E9001C726D /* Notification.swift */; };
+		354ED95128587BC8001C726D /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED95028587BC8001C726D /* CustomProgressBar.swift */; };
 		35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0728519C520089E1C3 /* ThisWeek.swift */; };
 		35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0828519C520089E1C3 /* Saving.swift */; };
 		35AD2D0D28519C520089E1C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0928519C520089E1C3 /* User.swift */; };
@@ -54,6 +58,10 @@
 
 /* Begin PBXFileReference section */
 		354ED94528583158001C726D /* TestLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestLogic.swift; path = ToGather/Screens/FriendAddition/ViewModel/TestLogic.swift; sourceTree = SOURCE_ROOT; };
+		354ED94A2858471B001C726D /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		354ED94C2858488C001C726D /* NotificaionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificaionCell.swift; sourceTree = "<group>"; };
+		354ED94E285849E9001C726D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		354ED95028587BC8001C726D /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
 		35AD2D0728519C520089E1C3 /* ThisWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThisWeek.swift; sourceTree = "<group>"; };
 		35AD2D0828519C520089E1C3 /* Saving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saving.swift; sourceTree = "<group>"; };
 		35AD2D0928519C520089E1C3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -110,6 +118,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		354ED947285846E6001C726D /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				354ED94828584700001C726D /* ViewModel */,
+				354ED94928584709001C726D /* View */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		354ED94828584700001C726D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		354ED94928584709001C726D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				354ED94A2858471B001C726D /* NotificationsView.swift */,
+				354ED94C2858488C001C726D /* NotificaionCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		35AD2D182851D4730089E1C3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +241,7 @@
 				35AD2D0828519C520089E1C3 /* Saving.swift */,
 				35AD2D0728519C520089E1C3 /* ThisWeek.swift */,
 				35AD2D0928519C520089E1C3 /* User.swift */,
+				354ED94E285849E9001C726D /* Notification.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -215,6 +249,7 @@
 		764FC73D28518DCE007A7415 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				354ED947285846E6001C726D /* Notifications */,
 				7669F5EE2855A2ED001DDA0D /* FriendAddition */,
 				E20551AA2856C3AF00C210DA /* SettingPeriod */,
 				763212EA2858014A0016F8ED /* FriendAddition */,
@@ -250,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				764FC74B28518E0E007A7415 /* SwiftUIView3.swift */,
+				354ED95028587BC8001C726D /* CustomProgressBar.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -443,6 +479,7 @@
 				35AD2D222851E1FB0089E1C3 /* (null) in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
+				354ED95128587BC8001C726D /* CustomProgressBar.swift in Sources */,
 				35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */,
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
 				763212F6285801630016F8ED /* FriendAdditionView.swift in Sources */,
@@ -459,6 +496,7 @@
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
 				763212F4285801630016F8ED /* PinStackView.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
+				354ED94B2858471B001C726D /* NotificationsView.swift in Sources */,
 				E205519728557EEB00C210DA /* DummyData.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				7669F5F62855A33F001DDA0D /* FriendAdditionView.swift in Sources */,
@@ -468,8 +506,10 @@
 				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
 				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
 				E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */,
+				354ED94F285849E9001C726D /* Notification.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
+				354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */,
 				35AD2D1D2851D4730089E1C3 /* MainViewModel.swift in Sources */,
 				35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */,
 				354ED94628583158001C726D /* TestLogic.swift in Sources */,
@@ -602,7 +642,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToGather/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J85NQ6YL4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -631,7 +671,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToGather/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J85NQ6YL4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
