@@ -8,16 +8,17 @@
 import FirebaseFirestoreSwift
 import Firebase
 
+    // MARK: - Notification Model
 struct Notification : Identifiable, Decodable {
     
-    @DocumentID var id: String?
+    @DocumentID var id: String? // 유저 id
     let username: String
-    let profileImageUrl: String
+    let authPicUrl: String
     let timestamp: Timestamp
     let type: NotificationType
-    let uid: String
+    let uid: String  // 유저 id
 }
-
+    // MARK: - NotificationType enumeration
 enum NotificationType: Int, Decodable {
     case newFriend
     case mySavingDay
@@ -31,3 +32,4 @@ enum NotificationType: Int, Decodable {
         }
     }
 }
+

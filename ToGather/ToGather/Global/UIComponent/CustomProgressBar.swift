@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CustomProgressBar: View {
+    // MARK: - Properties
     @State var currentProgress: CGFloat = 0.5
     let color : Color
     var body: some View {
@@ -23,11 +24,11 @@ struct CustomProgressBar: View {
         }
     }
 }
-
+// MARK: - Preview
 struct CustomProgressBar_Previews: PreviewProvider {
     static var previews: some View {
         CustomProgressBar(currentProgress: 0.5,
-                          color: .basicGreen)
+                          color: .friendGreen01)
             .previewLayout(.sizeThatFits)
     }
 }

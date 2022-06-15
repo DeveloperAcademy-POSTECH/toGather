@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct ThisWeek: Identifiable {
     
     let presentWeek: Int
