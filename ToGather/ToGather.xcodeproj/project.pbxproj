@@ -188,7 +188,6 @@
 		4377C1C528597DD7007DF255 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4377C1C628597DD7007DF255 /* ItemData.swift */,
 				4377C1C728597DD7007DF255 /* GoalSettingTitleView.swift */,
 				4377C1C828597DD7007DF255 /* GoalItem.swift */,
 				4377C1C928597DD7007DF255 /* GoalSetting.swift */,
@@ -265,6 +264,7 @@
 		764FC73A28518D82007A7415 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4377C1C628597DD7007DF255 /* ItemData.swift */,
 				35AD2D0A28519C520089E1C3 /* Product.swift */,
 				35AD2D0828519C520089E1C3 /* Saving.swift */,
 				35AD2D0728519C520089E1C3 /* ThisWeek.swift */,
