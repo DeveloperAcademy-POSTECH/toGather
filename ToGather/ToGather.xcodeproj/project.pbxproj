@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		354ED94628583158001C726D /* TestLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94528583158001C726D /* TestLogic.swift */; };
+		354ED94B2858471B001C726D /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94A2858471B001C726D /* NotificationsView.swift */; };
+		354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94C2858488C001C726D /* NotificaionCell.swift */; };
+		354ED94F285849E9001C726D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94E285849E9001C726D /* Notification.swift */; };
+		354ED95128587BC8001C726D /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED95028587BC8001C726D /* CustomProgressBar.swift */; };
 		35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0728519C520089E1C3 /* ThisWeek.swift */; };
 		35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0828519C520089E1C3 /* Saving.swift */; };
 		35AD2D0D28519C520089E1C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0928519C520089E1C3 /* User.swift */; };
@@ -15,6 +20,7 @@
 		35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D1C2851D4730089E1C3 /* MainView.swift */; };
 		35AD2D222851E1FB0089E1C3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D292854F8550089E1C3 /* Color+Extension.swift */; };
+		35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7789A2856091C0015122A /* AddedCircleView.swift */; };
 		3D4134572852EC44009E7953 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4134562852EC44009E7953 /* FirebaseFirestoreSwift */; };
 		3D4383A828519BD100AD1885 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4383A728519BD100AD1885 /* GoogleService-Info.plist */; };
 		3D4383AB28519DA700AD1885 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AA28519DA700AD1885 /* FirebaseAuth */; };
@@ -30,7 +36,6 @@
 		763212F4285801630016F8ED /* PinStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212EF285801630016F8ED /* PinStackView.swift */; };
 		763212F5285801630016F8ED /* ApplyFriendIdTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212F0285801630016F8ED /* ApplyFriendIdTextView.swift */; };
 		763212F6285801630016F8ED /* FriendAdditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212F1285801630016F8ED /* FriendAdditionView.swift */; };
-		763212F82858016C0016F8ED /* TestLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212F72858016C0016F8ED /* TestLogic.swift */; };
 		764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72C28518CC8007A7415 /* ToGatherApp.swift */; };
 		764FC72F28518CC8007A7415 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72E28518CC8007A7415 /* ContentView.swift */; };
 		764FC73128518CC9007A7415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73028518CC9007A7415 /* Assets.xcassets */; };
@@ -39,15 +44,28 @@
 		764FC74828518E07007A7415 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74728518E07007A7415 /* ColorAsset.swift */; };
 		764FC74C28518E0E007A7415 /* SwiftUIView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74B28518E0E007A7415 /* SwiftUIView3.swift */; };
 		764FC79328544F17007A7415 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 764FC79228544F17007A7415 /* Introspect */; };
+		7669F5F52855A33F001DDA0D /* PinStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7669F5F02855A33F001DDA0D /* PinStackView.swift */; };
+		7669F5F62855A33F001DDA0D /* FriendAdditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7669F5F12855A33F001DDA0D /* FriendAdditionView.swift */; };
+		7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7669F5F22855A33F001DDA0D /* ApplyFriendIdTextView.swift */; };
+		7669F5F82855A33F001DDA0D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7669F5F32855A33F001DDA0D /* TitleView.swift */; };
+		7669F5F92855A33F001DDA0D /* AlreadyAddedFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7669F5F42855A33F001DDA0D /* AlreadyAddedFriendView.swift */; };
+		7669F5FC2855A46C001DDA0D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7669F5FB2855A46C001DDA0D /* FirebaseAuth */; };
+		7669F5FE2855A46C001DDA0D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7669F5FD2855A46C001DDA0D /* FirebaseFirestore */; };
+		7669F6002855A46C001DDA0D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7669F5FF2855A46C001DDA0D /* FirebaseStorage */; };
+		7669F6032855A7CD001DDA0D /* TestLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7669F6022855A7CD001DDA0D /* TestLogic.swift */; };
 		E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551882851E80F00C210DA /* ProgressCircle.swift */; };
 		E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519428557E6D00C210DA /* MyProgressCircle.swift */; };
 		E205519728557EEB00C210DA /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519628557EEB00C210DA /* DummyData.swift */; };
 		E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551982855812B00C210DA /* FriendsProgressCircle.swift */; };
 		E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */; };
-		E20551AC2856C3CA00C210DA /* SettingPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551AB2856C3CA00C210DA /* SettingPeriod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		354ED94528583158001C726D /* TestLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestLogic.swift; path = ToGather/Screens/FriendAddition/ViewModel/TestLogic.swift; sourceTree = SOURCE_ROOT; };
+		354ED94A2858471B001C726D /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		354ED94C2858488C001C726D /* NotificaionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificaionCell.swift; sourceTree = "<group>"; };
+		354ED94E285849E9001C726D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		354ED95028587BC8001C726D /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
 		35AD2D0728519C520089E1C3 /* ThisWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThisWeek.swift; sourceTree = "<group>"; };
 		35AD2D0828519C520089E1C3 /* Saving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saving.swift; sourceTree = "<group>"; };
 		35AD2D0928519C520089E1C3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -55,18 +73,14 @@
 		35AD2D1A2851D4730089E1C3 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		35AD2D1C2851D4730089E1C3 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		35AD2D292854F8550089E1C3 /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		35E7789A2856091C0015122A /* AddedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedCircleView.swift; sourceTree = "<group>"; };
 		3D4383A728519BD100AD1885 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D48A6E0285774CD00FE6BE8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		43C21ED32858D17F0022B49C /* ItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
-		43C21ED42858D17F0022B49C /* GoalSettingTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSettingTitleView.swift; sourceTree = "<group>"; };
-		43C21ED52858D17F0022B49C /* GoalItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalItem.swift; sourceTree = "<group>"; };
-		43C21ED62858D17F0022B49C /* GoalSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSetting.swift; sourceTree = "<group>"; };
 		763212ED285801630016F8ED /* AlreadyAddedFriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlreadyAddedFriendView.swift; sourceTree = "<group>"; };
 		763212EE285801630016F8ED /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		763212EF285801630016F8ED /* PinStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinStackView.swift; sourceTree = "<group>"; };
 		763212F0285801630016F8ED /* ApplyFriendIdTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyFriendIdTextView.swift; sourceTree = "<group>"; };
 		763212F1285801630016F8ED /* FriendAdditionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAdditionView.swift; sourceTree = "<group>"; };
-		763212F72858016C0016F8ED /* TestLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLogic.swift; sourceTree = "<group>"; };
 		764FC72928518CC8007A7415 /* ToGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		764FC72C28518CC8007A7415 /* ToGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGatherApp.swift; sourceTree = "<group>"; };
 		764FC72E28518CC8007A7415 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +89,12 @@
 		764FC74528518E03007A7415 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		764FC74728518E07007A7415 /* ColorAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
 		764FC74B28518E0E007A7415 /* SwiftUIView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView3.swift; sourceTree = "<group>"; };
+		7669F5F02855A33F001DDA0D /* PinStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinStackView.swift; sourceTree = "<group>"; };
+		7669F5F12855A33F001DDA0D /* FriendAdditionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAdditionView.swift; sourceTree = "<group>"; };
+		7669F5F22855A33F001DDA0D /* ApplyFriendIdTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyFriendIdTextView.swift; sourceTree = "<group>"; };
+		7669F5F32855A33F001DDA0D /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		7669F5F42855A33F001DDA0D /* AlreadyAddedFriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlreadyAddedFriendView.swift; sourceTree = "<group>"; };
+		7669F6022855A7CD001DDA0D /* TestLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLogic.swift; sourceTree = "<group>"; };
 		E20551882851E80F00C210DA /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		E205519428557E6D00C210DA /* MyProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProgressCircle.swift; sourceTree = "<group>"; };
 		E205519628557EEB00C210DA /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
@@ -89,9 +109,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D4383AB28519DA700AD1885 /* FirebaseAuth in Frameworks */,
+				7669F5FC2855A46C001DDA0D /* FirebaseAuth in Frameworks */,
 				764FC79328544F17007A7415 /* Introspect in Frameworks */,
 				3D4383AD28519DA700AD1885 /* FirebaseFirestore in Frameworks */,
+				7669F6002855A46C001DDA0D /* FirebaseStorage in Frameworks */,
 				3D87D9F62852046100C36346 /* FirebaseStorage in Frameworks */,
+				7669F5FE2855A46C001DDA0D /* FirebaseFirestore in Frameworks */,
 				3D4134572852EC44009E7953 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +122,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		354ED947285846E6001C726D /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				354ED94828584700001C726D /* ViewModel */,
+				354ED94928584709001C726D /* View */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		354ED94828584700001C726D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		354ED94928584709001C726D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				354ED94A2858471B001C726D /* NotificationsView.swift */,
+				354ED94C2858488C001C726D /* NotificaionCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		35AD2D182851D4730089E1C3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +215,7 @@
 		763212EC2858015A0016F8ED /* VIewModel */ = {
 			isa = PBXGroup;
 			children = (
-				763212F72858016C0016F8ED /* TestLogic.swift */,
+				354ED94528583158001C726D /* TestLogic.swift */,
 			);
 			path = VIewModel;
 			sourceTree = "<group>";
@@ -216,6 +264,7 @@
 				35AD2D0828519C520089E1C3 /* Saving.swift */,
 				35AD2D0728519C520089E1C3 /* ThisWeek.swift */,
 				35AD2D0928519C520089E1C3 /* User.swift */,
+				354ED94E285849E9001C726D /* Notification.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,7 +272,8 @@
 		764FC73D28518DCE007A7415 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				43C21ED12858D17F0022B49C /* GoalSetting */,
+				354ED947285846E6001C726D /* Notifications */,
+				7669F5EE2855A2ED001DDA0D /* FriendAddition */,
 				E20551AA2856C3AF00C210DA /* SettingPeriod */,
 				763212EA2858014A0016F8ED /* FriendAddition */,
 				E205519328557E4500C210DA /* ProgressCircle */,
@@ -258,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				764FC74B28518E0E007A7415 /* SwiftUIView3.swift */,
+				354ED95028587BC8001C726D /* CustomProgressBar.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -286,6 +337,35 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		7669F5EE2855A2ED001DDA0D /* FriendAddition */ = {
+			isa = PBXGroup;
+			children = (
+				7669F6012855A7B3001DDA0D /* ViewModel */,
+				7669F5EF2855A310001DDA0D /* View */,
+			);
+			path = FriendAddition;
+			sourceTree = "<group>";
+		};
+		7669F5EF2855A310001DDA0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7669F5F12855A33F001DDA0D /* FriendAdditionView.swift */,
+				7669F5F42855A33F001DDA0D /* AlreadyAddedFriendView.swift */,
+				7669F5F02855A33F001DDA0D /* PinStackView.swift */,
+				7669F5F22855A33F001DDA0D /* ApplyFriendIdTextView.swift */,
+				7669F5F32855A33F001DDA0D /* TitleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7669F6012855A7B3001DDA0D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7669F6022855A7CD001DDA0D /* TestLogic.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E205519328557E4500C210DA /* ProgressCircle */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +374,7 @@
 				E205519628557EEB00C210DA /* DummyData.swift */,
 				E20551982855812B00C210DA /* FriendsProgressCircle.swift */,
 				E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */,
+				35E7789A2856091C0015122A /* AddedCircleView.swift */,
 			);
 			path = ProgressCircle;
 			sourceTree = "<group>";
@@ -329,6 +410,9 @@
 				3D87D9F52852046100C36346 /* FirebaseStorage */,
 				3D4134562852EC44009E7953 /* FirebaseFirestoreSwift */,
 				764FC79228544F17007A7415 /* Introspect */,
+				7669F5FB2855A46C001DDA0D /* FirebaseAuth */,
+				7669F5FD2855A46C001DDA0D /* FirebaseFirestore */,
+				7669F5FF2855A46C001DDA0D /* FirebaseStorage */,
 			);
 			productName = ToGather;
 			productReference = 764FC72928518CC8007A7415 /* ToGather.app */;
@@ -361,6 +445,7 @@
 			packageReferences = (
 				3D4383A928519DA700AD1885 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				764FC79128544F17007A7415 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				7669F5FA2855A46C001DDA0D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 764FC72A28518CC8007A7415 /* Products */;
 			projectDirPath = "";
@@ -417,6 +502,7 @@
 				35AD2D222851E1FB0089E1C3 /* (null) in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
+				354ED95128587BC8001C726D /* CustomProgressBar.swift in Sources */,
 				35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */,
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
 				763212F6285801630016F8ED /* FriendAdditionView.swift in Sources */,
@@ -427,23 +513,31 @@
 				43C21ED72858D17F0022B49C /* ItemData.swift in Sources */,
 				E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */,
 				35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */,
+				7669F5F52855A33F001DDA0D /* PinStackView.swift in Sources */,
+				7669F6032855A7CD001DDA0D /* TestLogic.swift in Sources */,
 				764FC74628518E03007A7415 /* SwiftUIView.swift in Sources */,
 				E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */,
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
 				763212F4285801630016F8ED /* PinStackView.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
+				354ED94B2858471B001C726D /* NotificationsView.swift in Sources */,
 				E205519728557EEB00C210DA /* DummyData.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
-				43C21ED92858D17F0022B49C /* GoalItem.swift in Sources */,
+				7669F5F62855A33F001DDA0D /* FriendAdditionView.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
-				43C21EDA2858D17F0022B49C /* GoalSetting.swift in Sources */,
-				763212F82858016C0016F8ED /* TestLogic.swift in Sources */,
+				7669F5F82855A33F001DDA0D /* TitleView.swift in Sources */,
+				7669F5F92855A33F001DDA0D /* AlreadyAddedFriendView.swift in Sources */,
+				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
+				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
 				E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */,
+				354ED94F285849E9001C726D /* Notification.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
+				354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */,
 				35AD2D1D2851D4730089E1C3 /* MainViewModel.swift in Sources */,
-				E20551AC2856C3CA00C210DA /* SettingPeriod.swift in Sources */,
-				43C21ED82858D17F0022B49C /* GoalSettingTitleView.swift in Sources */,
+				35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */,
+				354ED94628583158001C726D /* TestLogic.swift in Sources */,
+				35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +666,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToGather/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J85NQ6YL4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -601,7 +695,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToGather/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J85NQ6YL4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -662,6 +756,14 @@
 				kind = branch;
 			};
 		};
+		7669F5FA2855A46C001DDA0D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -689,6 +791,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 764FC79128544F17007A7415 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = Introspect;
+		};
+		7669F5FB2855A46C001DDA0D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D4383A928519DA700AD1885 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		7669F5FD2855A46C001DDA0D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D4383A928519DA700AD1885 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		7669F5FF2855A46C001DDA0D /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D4383A928519DA700AD1885 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
