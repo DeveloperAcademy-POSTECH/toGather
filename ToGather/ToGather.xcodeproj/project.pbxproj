@@ -55,7 +55,7 @@
 		7669F6002855A46C001DDA0D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7669F5FF2855A46C001DDA0D /* FirebaseStorage */; };
 		7669F6032855A7CD001DDA0D /* (null) in Sources */ = {isa = PBXBuildFile; };
 		76A03893285A1191009C9A02 /* SavingStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A03892285A1191009C9A02 /* SavingStatusView.swift */; };
-		76A03899285A12E7009C9A02 /* TestLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A03898285A12E7009C9A02 /* TestLogic.swift */; };
+		76A0389F285A1462009C9A02 /* TestLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A0389E285A1462009C9A02 /* TestLogic.swift */; };
 		E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551882851E80F00C210DA /* ProgressCircle.swift */; };
 		E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519428557E6D00C210DA /* MyProgressCircle.swift */; };
 		E205519728557EEB00C210DA /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519628557EEB00C210DA /* DummyData.swift */; };
@@ -102,7 +102,7 @@
 		7669F5F32855A33F001DDA0D /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		7669F5F42855A33F001DDA0D /* AlreadyAddedFriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlreadyAddedFriendView.swift; sourceTree = "<group>"; };
 		76A03892285A1191009C9A02 /* SavingStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingStatusView.swift; sourceTree = "<group>"; };
-		76A03898285A12E7009C9A02 /* TestLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLogic.swift; sourceTree = "<group>"; };
+		76A0389E285A1462009C9A02 /* TestLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLogic.swift; sourceTree = "<group>"; };
 		E20551882851E80F00C210DA /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		E205519428557E6D00C210DA /* MyProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProgressCircle.swift; sourceTree = "<group>"; };
 		E205519628557EEB00C210DA /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
@@ -343,6 +343,7 @@
 		7669F5EE2855A2ED001DDA0D /* FriendAddition */ = {
 			isa = PBXGroup;
 			children = (
+				76A0389D285A1462009C9A02 /* ViewModel */,
 				7669F5EF2855A310001DDA0D /* View */,
 			);
 			path = FriendAddition;
@@ -356,7 +357,6 @@
 				7669F5F02855A33F001DDA0D /* PinStackView.swift */,
 				7669F5F22855A33F001DDA0D /* ApplyFriendIdTextView.swift */,
 				7669F5F32855A33F001DDA0D /* TitleView.swift */,
-				76A03897285A12E7009C9A02 /* ViewModel */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -392,10 +392,10 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		76A03897285A12E7009C9A02 /* ViewModel */ = {
+		76A0389D285A1462009C9A02 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				76A03898285A12E7009C9A02 /* TestLogic.swift */,
+				76A0389E285A1462009C9A02 /* TestLogic.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -479,7 +479,6 @@
 			packageReferences = (
 				3D4383A928519DA700AD1885 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				764FC79128544F17007A7415 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
-				7669F5FA2855A46C001DDA0D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 764FC72A28518CC8007A7415 /* Products */;
 			projectDirPath = "";
@@ -566,7 +565,7 @@
 				7669F5F82855A33F001DDA0D /* TitleView.swift in Sources */,
 				7669F5F92855A33F001DDA0D /* AlreadyAddedFriendView.swift in Sources */,
 				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
-				76A03899285A12E7009C9A02 /* TestLogic.swift in Sources */,
+				76A0389F285A1462009C9A02 /* TestLogic.swift in Sources */,
 				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
 				E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */,
 				354ED94F285849E9001C726D /* Notification.swift in Sources */,
@@ -791,14 +790,6 @@
 		764FC79128544F17007A7415 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		7669F5FA2855A46C001DDA0D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				branch = master;
 				kind = branch;

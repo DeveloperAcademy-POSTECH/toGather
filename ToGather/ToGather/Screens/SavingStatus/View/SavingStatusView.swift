@@ -41,32 +41,8 @@ struct SavingStatusView: View {
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 4, trailing: 20))
                 SuccessPictureGrid
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                HStack {
-                    Button {
-                        print("친구를 삭제합니다")
-                    } label: {
-                        Text("친구 삭제")
-                            .foregroundColor(.red)
-                            .fontWeight(.semibold)
-                            .font(.system(size: 16))
-                            .padding(10)
-                            .background(.red.opacity(0.05))
-                            .cornerRadius(10)
-                    }
-                    Spacer()
-                    Button {
-                        print("친구를 삭제합니다")
-                    } label: {
-                        Text("􀋝Tim 알림 끄기")
-                            .foregroundColor(.basicBlack)
-                            .fontWeight(.semibold)
-                            .font(.system(size: 16))
-                            .padding(10)
-                            .background(.black.opacity(0.05))
-                            .cornerRadius(10)
-                    }
-                    
-                }.padding(EdgeInsets(top: 80, leading: 64, bottom: 64, trailing: 40))
+                twoButtons
+                    .padding(EdgeInsets(top: 80, leading: 64, bottom: 64, trailing: 40))
             }
         }
     }
@@ -115,7 +91,8 @@ extension SavingStatusView {
             VStack(alignment: .leading, spacing: 6) {
                 Text("저금 성공").font(.system(size: 16)).foregroundColor(.basicBlack.opacity(0.6))
                 Text("13회").font(.system(size: 24)).foregroundColor(.basicBlack).fontWeight(.bold)
-                + Text(" / 35").font(.system(size: 20)).foregroundColor(.basicBlack.opacity(0.6)).fontWeight(.bold)
+                + Text(" / 35").font(.system(size: 20))
+                    .foregroundColor(.basicBlack.opacity(0.6)).fontWeight(.bold)
             }
             Spacer()
         }
@@ -132,7 +109,8 @@ extension SavingStatusView {
                         .fontWeight(.semibold)
                     Text("| ").font(.system(size: 15))
                     if isDueExtended {
-                        Text("28+ ").font(.system(size: 16)) + Text("1주").font(.system(size: 16)).foregroundColor(.red).fontWeight(.bold)
+                        Text("28+ ").font(.system(size: 16))
+                        + Text("1주").font(.system(size: 16)).foregroundColor(.red).fontWeight(.bold)
                     } else {
                         Text("28주")
                     }
@@ -174,8 +152,37 @@ extension SavingStatusView {
             }
         }
     }
+    
+    
+    var twoButtons: some View {
+        HStack {
+            Button {
+                print("친구를 삭제합니다")
+            } label: {
+                Text("친구 삭제")
+                    .foregroundColor(.red)
+                    .fontWeight(.semibold)
+                    .font(.system(size: 16))
+                    .padding(10)
+                    .background(.red.opacity(0.05))
+                    .cornerRadius(10)
+            }
+            Spacer()
+            Button {
+                print("친구를 삭제합니다")
+            } label: {
+                Text("Tim 알림 끄기")
+                    .foregroundColor(.basicBlack)
+                    .fontWeight(.semibold)
+                    .font(.system(size: 16))
+                    .padding(10)
+                    .background(.black.opacity(0.05))
+                    .cornerRadius(10)
+            }
+            
+        }
+    }
 }
-
 
 struct SavingStatusView_Previews: PreviewProvider {
     static var previews: some View {
