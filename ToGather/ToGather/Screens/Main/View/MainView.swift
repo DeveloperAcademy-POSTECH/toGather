@@ -77,11 +77,7 @@ extension MainView {
                 VStack(spacing: 4) { // 하드코딩 수정필요
                     Button {
                         viewModel.addFriend(friend:
-                            FriendsProgressCircle(id: 1,
-                                                  color: RGBColorInProgressCircle.friendColor1,
-                                                  progressPercent: DummyData.sampleSavings[1].progressPercent,
-                                                  friendName: "Tim",
-                                                  friendProduct: DummyData.sampleSavings[1].goalProduct)
+                            FriendsProgressCircle(id: 1, user: dummyFriend1, color: RGBColorInProgressCircle.friendColor1)
                         )
                     } label: {
                         AddedCircleView(color: .basicRed)
@@ -93,12 +89,8 @@ extension MainView {
             } else if viewModel.getFriendList().count == 1 {
                 VStack(spacing: 4) {
                     Button {
-                        viewModel.addFriend(friend:
-                            FriendsProgressCircle(id: 2,
-                                                  color: RGBColorInProgressCircle.friendColor2,
-                                                  progressPercent: DummyData.sampleSavings[2].progressPercent,
-                                                  friendName: "Steve",
-                                                  friendProduct: DummyData.sampleSavings[2].goalProduct)
+                         viewModel.addFriend(friend:
+                            FriendsProgressCircle(id: 2, user: dummyFriend2, color: RGBColorInProgressCircle.friendColor2)
                         )
                     } label: {
                         AddedCircleView(color: .basicPurple)
@@ -111,13 +103,11 @@ extension MainView {
                 VStack(spacing: 4) {
                     Button {
                         viewModel.addFriend(friend:
-                            FriendsProgressCircle(id: 3,
-                                                  color: RGBColorInProgressCircle.friendColor3,
-                                                  progressPercent: DummyData.sampleSavings[3].progressPercent,
-                                                  friendName: "Cook",
-                                                  friendProduct: DummyData.sampleSavings[3].goalProduct)                    )} label: {
-                                                      AddedCircleView(color: .basicGreen)
-                                                  }
+                            FriendsProgressCircle(id: 3, user: dummyFriend3, color: RGBColorInProgressCircle.friendColor3)
+                        )    
+                    } label: {
+                        AddedCircleView(color: .basicGreen)
+                    }
                     Text("친구 추가")
                         .font(.callout) // 16px
                         .fontWeight(.semibold)
@@ -133,11 +123,14 @@ extension MainView {
                 Spacer()
             }
             .padding(.horizontal)
-            MyProgressCircle()
+            MyProgressCircle(user: dummyMy)
                 .padding(.horizontal)
         }
     }
     var bottomView: some View {
+        
+//        @State var
+    
         VStack {
             HStack {
                 Text("13회")
