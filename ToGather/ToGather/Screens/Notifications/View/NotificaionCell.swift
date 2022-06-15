@@ -44,20 +44,21 @@ struct NotificaionCell: View {
 
 struct NotificaionCell_Previews: PreviewProvider {
     static var previews: some View {
-        NotificaionCell(notification: Notification(username: "Max", profileImageUrl: "", timestamp: Timestamp(date:Date()) , type: .friendSavigState, uid: ""))
+        NotificaionCell(notification: Notification(username: "Max",
+                                                   profileImageUrl: "",
+                                                   timestamp: Timestamp(date:Date()),
+                                                   type: .friendSavigState,
+                                                   uid: ""))
     }
 }
-
 
 extension NotificaionCell {
     
     var newFriendCell: some View {
-        VStack(alignment: .leading, spacing: 14){
+        VStack(alignment: .leading, spacing: 14) {
             HStack {
                 Group {
-                    Text(notification.username).bold()
-                    
-                    +
+                    Text(notification.username).bold() +
                     Text("님 친구가 되었어요!")
                 }
                 .font(.system(size: 14))
@@ -69,9 +70,8 @@ extension NotificaionCell {
             }
             HStack {
                 Group {
-                    Text("이제 ")
-                    Text(notification.username).bold()
-                    +
+                    Text("이제 ") +
+                    Text(notification.username).bold() +
                     Text("님과 저축현황을 함께 공유해요")
                 }
                 .font(.system(size: 14))
@@ -120,7 +120,6 @@ extension NotificaionCell {
                             .foregroundColor(.basicBlack.opacity(0.6))
                         
                     }
-                    
                     HStack {
                         Text("지금까지 모은 돈")
                             .font(.system(size: 14))

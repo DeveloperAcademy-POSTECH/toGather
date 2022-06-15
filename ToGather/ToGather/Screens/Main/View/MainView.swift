@@ -49,7 +49,8 @@ extension MainView {
                 NavigationLink {
                     NotificationsView()
                         .navigationTitle("알림")
-                        .navigationBarTitleDisplayMode(.large)
+                        .navigationBarHidden(true)
+                     
 
                 } label: {
                     Image(systemName: "bell.badge.fill")
