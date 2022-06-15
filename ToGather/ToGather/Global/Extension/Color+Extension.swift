@@ -42,7 +42,7 @@ extension Color{
     static let alertBg = Color("alertBg")
     
     // Background Color
-    
+    static let backGround = Color("backGround")
     
     
     
