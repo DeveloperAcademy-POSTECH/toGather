@@ -32,4 +32,3 @@ enum NotificationType: Int, Decodable {
         }
     }
 }
-
