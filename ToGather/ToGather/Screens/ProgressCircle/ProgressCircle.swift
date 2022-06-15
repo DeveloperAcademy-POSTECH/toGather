@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-var savePeriod: Int {
-    return saveList.count
-}
-
-var interval: Double {
-    return length/Double(savePeriod)
-}
-
 // lineCircle 각도 계산
 let start: Double = 0
 let end: Double = 0.8
@@ -24,22 +16,16 @@ let rotationDegree = (360 * (1 - length))/2 + 90
 struct ProgressCircle: View {
     let color: RGBColorInProgressCircle
     let frameSize: Double // 가장 큰 원의 Frame 사이즈    
-    let weekInfo: [ThisWeek]
-
-    // 나중에 제거, saving으로부터 가져오기
-    let currentWeek = 14
-
-    // 나중에 제거, saving으로부터 가져오기
-    func getTotalSavedNum(saveList: [ThisWeek], currentWeek: Int) -> Int {
-        var totalSavedNum = 0
-        for week in saveList[0..<currentWeek] {
-            totalSavedNum += week.didSave ? 1 : 0
-        }
-        return totalSavedNum
-    }
-    var totalSavedNum: Int {
-        getTotalSavedNum(saveList: weekInfo, currentWeek: currentWeek)
-    }
+    let saving: Saving
+    
+    var weekInfo: [ThisWeek] {saving.weekInfo}
+    
+    // 전체 길이 = 기존 goal + 추가 포함
+    var savePeriod: Int { saving.weekInfo.count }
+    var interval: Double { length/Double(savePeriod) }
+    
+    var currentWeek: Int {saving.currentWeek}
+    var totalSavedNum: Int {saving.totalSavedNum}
 
     var gradientIntervalRed: Double {(color.endRed - color.red)/Double(totalSavedNum)}
     var gradientIntervalGreen: Double {(color.endGreen - color.green)/Double(totalSavedNum)}
@@ -85,9 +71,8 @@ struct ProgressCircle: View {
 struct TestCode_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 330, weekInfo: saveList)
+            ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 330, saving: mySaving)
             Spacer()
-            Text("전체 주차 \(saveList.count)")
 //            Text("현재 주차 \(currentWeek)")
         }
     }
