@@ -16,7 +16,7 @@ struct Saving {
 
     let savingDayOfTheWeek: String
 
-    var savingAmountOfWeek: Int {Int(Product.productPrice / Double(goalWeeks))}
+    var savingAmountOfWeek: Int {Int(goalProduct.productPrice / Double(goalWeeks))}
 
     var weekInfo: [ThisWeek]
     
