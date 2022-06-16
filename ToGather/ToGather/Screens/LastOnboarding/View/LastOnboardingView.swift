@@ -12,15 +12,6 @@ struct LastOnboardingView: View {
     
     @EnvironmentObject var userViewModel: UserViewModel
     @ObservedObject var lastOnboardingViewModel: LastOnboardingViewModel = LastOnboardingViewModel()
-
-    var friendUids: [String]? = ["AcBafb", "DYYGUP"] // dummy data
-    
-    init() {
-        
-        if let friendUids = friendUids {
-            FirebaseManager.shared.fetchFriendNickname(friendUids: friendUids)
-        }
-    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -60,17 +51,18 @@ struct LastOnboardingView: View {
             .padding(.bottom, 8)
             
             HStack {
-                Text(userViewModel.userData.saveInfo.startDate)
+                Text(lastOnboardingViewModel.changeDateFormat(date: stringToDate(date: userViewModel.userData.saveInfo.startDate)))
                 Text("-")
-                Text("2022.10.31") // 추후 계산, 현재 하드 코딩
+                Text(lastOnboardingViewModel.calculateDate(date: stringToDate(date: userViewModel.userData.saveInfo.startDate),
+                                                           goalWeeks: userViewModel.userData.saveInfo.goalWeeks))
             }
             .foregroundColor(ColorStyle.blackSixty.color)
             .font(.system(size: 16, weight: .regular))
             .padding(.bottom, 30)
             
-            if friendUids != nil {
+            if userViewModel.friendUids != [] {
                 HStack(spacing: 10) {
-                    ForEach(FirebaseManager.shared.nicknameArray, id:\.self) { nickName in
+                    ForEach(FirebaseManager.shared.nicknameArray, id:\.self) { nickname in
                         VStack(spacing: 0) {
                             ZStack {
                                 Image(systemName: "person.fill")
@@ -83,7 +75,7 @@ struct LastOnboardingView: View {
                             }
                             .padding(.bottom, 2)
                             
-                            Text(String(nickName))
+                            Text(String(nickname))
                                 .foregroundColor(ColorStyle.blackHundred.color)
                                 .font(.system(size: 14, weight: .regular))
                         }

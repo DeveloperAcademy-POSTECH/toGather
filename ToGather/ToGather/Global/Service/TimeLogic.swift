@@ -42,7 +42,7 @@ func getDay(date: Date = Date()) -> String {
 }
 
 /// 저축 요일을 정한 후 첫번째 저축 날짜 구하기
-func GetFirstSavingDate(setDay: String, appStartDate: String) -> String {
+func getFirstSavingDate(setDay: String, appStartDate: String) -> String {
     let dayOfWeek = ["월" : 0, "화" : 1, "수" : 2, "목" : 3, "금" : 4, "토" : 5, "일" : 6]
     let firstSavingDate: Date
     

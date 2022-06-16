@@ -9,7 +9,7 @@ import Firebase
 import SwiftUI
 
 final class FirebaseManager: ObservableObject {
-    @EnvironmentObject var onboardingViewModel: UserViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
     @Published var nicknameArray: [String] = []
     @Published var notification = [Notification]()
 
@@ -25,6 +25,7 @@ final class FirebaseManager: ObservableObject {
             docRef.getDocument { (document, _) in
                 if let document = document, document.exists {
                     let nickName: String = document.get("nickName") as? String ?? friendUid
+                    print(nickName)
                     self.nicknameArray.append(nickName)
                 } else {
                     print("User document does not exist (failed to get freind's nickname)")
@@ -38,11 +39,11 @@ final class FirebaseManager: ObservableObject {
         let firestore = Firestore.firestore()
 
         // user 컬렉션에 userData 인스턴스 업로드
-        firestore.collection("user").document(onboardingViewModel.userData.id ?? "").setData([
-            "id": onboardingViewModel.userData.id ?? "",
-            "creationDate": Date(),
+        firestore.collection("user").document(userViewModel.userData.id ?? "").setData([
+            "id": userViewModel.userData.id ?? "",
+            "creationDate": dateToString(date: Date()),
             "isAlarmOn": true,
-            "friends": onboardingViewModel.friendUids
+            "friends": userViewModel.friendUids
         ]) { err in
             if let err = err {
                 print("Error writing user document: \(err)")
@@ -53,10 +54,10 @@ final class FirebaseManager: ObservableObject {
 
         // saving 컬렉션에 savingData 인스턴스 업로드
         firestore.collection("saving").addDocument(data: [
-            "goalProductName": onboardingViewModel.userData.saveInfo.goalProduct.productName,
-            "goalWeeks": onboardingViewModel.userData.saveInfo.goalWeeks,
-            "startDate": "", // startDate 계산법 현재 미구현
-            "savingDayOfTheWeek": onboardingViewModel.userData.saveInfo.savingDayOfTheWeek,
+            "goalProductName": userViewModel.userData.saveInfo.goalProduct.productName,
+            "goalWeeks": userViewModel.userData.saveInfo.goalWeeks,
+            "startDate": userViewModel.userData.saveInfo.startDate,
+            "savingDayOfTheWeek": userViewModel.userData.saveInfo.savingDayOfTheWeek
         ]) { err in
             if let err = err {
                 print("Error writing saving document: \(err)")
@@ -109,7 +110,7 @@ final class FirebaseManager: ObservableObject {
         
     }
     
-    // 서버에서 데이터 가져오기
+    /// 서버에서 데이터 가져오기
     func fetchUser(withUid uid : String, completion: @escaping (User) -> Void){
         Firestore.firestore().collection("users")
             .document(uid)
