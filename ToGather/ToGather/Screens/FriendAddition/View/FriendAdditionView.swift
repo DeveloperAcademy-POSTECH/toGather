@@ -38,7 +38,6 @@ struct NoFriendTextView: View {
     }
 }
 
-
 struct FriendAdditionView: View {
     @State var text = ""
     @State var noFriendId: Bool = false
@@ -51,8 +50,7 @@ struct FriendAdditionView: View {
                 .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
             ApplyFriendIdTextView()
                 .padding(EdgeInsets(top: 40, leading: 21, bottom: 0, trailing: 0))
-            PinStackView(attempts: $attemps, pin: $text, wrongFriendInput: $noFriendId, handler: {
-                result, status in
+            PinStackView(attempts: $attemps, pin: $text, wrongFriendInput: $noFriendId, handler: { result, status in
                 if status {
                     if isPinExist(inputString: result) {
                         pinFriendAdd()
@@ -70,8 +68,7 @@ struct FriendAdditionView: View {
                     LaterAddButtonView()
                     Spacer()
                 }.padding(EdgeInsets(top: 31, leading: 20, bottom: 0, trailing: 0))
-            }
-            else {
+            } else {
                 AlreadyAddedFriendView(addedFriendList: $addedFriendList)
             }
             Spacer()
@@ -81,7 +78,7 @@ struct FriendAdditionView: View {
 }
 
 extension FriendAdditionView {
-    func isPinExist(inputString: String) -> Bool{
+    func isPinExist(inputString: String) -> Bool {
         guard let value = testPin[inputString] else {
             return false
         }
