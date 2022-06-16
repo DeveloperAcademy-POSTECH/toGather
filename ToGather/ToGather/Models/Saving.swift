@@ -47,7 +47,13 @@ struct Saving : Codable {
         
     /// 매주 저축해야하는 금액
     var savingAmountOfWeek: Double {getSaveAmountOfWeek(productPrice: goalProduct.productPrice, goalWeek: goalWeek)}
-
+    
+    /// 목표 저축 금액(전체)
+    var goalSavingAmount: Double {savingAmountOfWeek * Double(goalWeeks)}
+    
+    /// 현재까지 전체 저축 금액
+    var totalSavingAmount: Double {savingAmountOfWeek * Double(totalSavedNum)}
+    
     //    var currentWeek: Int = 14 // 저축 회차 << 핵심 변수.
     var currentWeek: Int { getCurrentWeek(from: startDate) }
     
