@@ -49,10 +49,9 @@ struct SavingRecordView: View {
                     .frame(width: 180, height: 260)
                     .clipShape(Rectangle())
                     .overlay {
-                        Rectangle()
+                        RoundedRectangle(cornerRadius: 10)
                             .strokeBorder(lineWidth: 1)
                             .foregroundColor(.pointColor)
-                            .cornerRadius(10)
                     }
                     .background(.clear)
                     .cornerRadius(10)
@@ -67,15 +66,13 @@ struct SavingRecordView: View {
                     .cornerRadius(10)
                     .background(.clear)
                     .overlay {
-                        Rectangle()
+                        RoundedRectangle(cornerRadius: 10)
                             .strokeBorder(lineWidth: 1)
                             .foregroundColor(.pointColor)
-                            .cornerRadius(10)
                         VStack(alignment: .center, spacing: 8) {
                             Image(systemName: "plus")
                                 .font(.system(size: 30))
                                 .foregroundColor(.pointColor)
-                            
                             Text("저축 계좌로\n송금한 사진")
                         }
                     }
