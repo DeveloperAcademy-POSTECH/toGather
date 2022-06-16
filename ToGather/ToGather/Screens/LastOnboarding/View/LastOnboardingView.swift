@@ -11,9 +11,16 @@ import Firebase
 struct LastOnboardingView: View {
     
     @EnvironmentObject var onboardingViewModel: OnboardingViewModel
-    @ObservedObject var lastOnboardingViewModel: LastOnboardingViewModel
+    @ObservedObject var lastOnboardingViewModel: LastOnboardingViewModel = LastOnboardingViewModel()
 
-    var friendUids: [String]? = ["friend1", "friend2"] // dummy data
+    var friendUids: [String]? = ["AcBafb", "DYYGUP"] // dummy data
+    
+    init() {
+        
+        if let friendUids = friendUids {
+            lastOnboardingViewModel.fetchFriendNickname(friendUids: friendUids)
+        }
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -64,7 +71,7 @@ struct LastOnboardingView: View {
             
             if friendUids != nil {
                 HStack(spacing: 10) {
-                    ForEach(friendUids ?? [], id:\.self) { friendUid in
+                    ForEach(lastOnboardingViewModel.nicknameArray, id:\.self) { nickName in
                         VStack(spacing: 0) {
                             ZStack {
                                 Image(systemName: "person.fill")
@@ -77,7 +84,7 @@ struct LastOnboardingView: View {
                             }
                             .padding(.bottom, 2)
                             
-                            Text(String(friendUid))
+                            Text(String(nickName))
                                 .foregroundColor(ColorStyle.blackHundred.color)
                                 .font(.system(size: 14, weight: .regular))
                         }
@@ -118,6 +125,6 @@ struct LastOnboardingView: View {
 
 struct LastOnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        LastOnboardingView(lastOnboardingViewModel: LastOnboardingViewModel())
+        LastOnboardingView()
     }
 }
