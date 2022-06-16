@@ -40,7 +40,7 @@ class NotificationsViewModel : ObservableObject {
     }
     
     // 알림 업로드하기
-    static func uploadNotification(toUid uid: String,type : NotificationType) {
+    static func uploadNotification(/**toUid uid: String,**/type : NotificationType) {
         do {
             let user  = try UserDefaults.standard.getObject(forKey: "User", castTo: User.self)
             
@@ -50,7 +50,7 @@ class NotificationsViewModel : ObservableObject {
                                        "type": type.rawValue,
                                        "uid" : user.id ?? ""]
             COLLECTION_NOTIFICATIONS
-                .document(uid)
+                .document()
                 .collection("user-notifications")
                 .addDocument(data: data)
             

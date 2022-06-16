@@ -87,7 +87,8 @@ extension MainView {
             } else if viewModel.getFriendList().count == 1 {
                 VStack(spacing: 4) {
                     Button {
-                        NotificationsViewModel.uploadNotification(toUid: <#String#>, type: .mySavingDay)
+                        // TODO: - 인자에 toUid 업데이트 예정
+                        NotificationsViewModel.uploadNotification(type: .mySavingDay)
                          viewModel.addFriend(friend:
                             FriendsProgressCircle(id: 2, user: dummyFriend2, color: RGBColorInProgressCircle.friendColor2)
                         )
@@ -105,7 +106,7 @@ extension MainView {
                             FriendsProgressCircle(id: 3, user: dummyFriend3, color: RGBColorInProgressCircle.friendColor3)
                         )    
                     } label: {
-                        AddedCircleView(color: .basicGreen)
+                        AddedCircleView(color: .friendGreen01)
                     }
                     Text("친구 추가")
                         .font(.callout) // 16px
