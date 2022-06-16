@@ -6,18 +6,24 @@
 //
 
 import SwiftUI
-    
+
 struct FriendsProgressCircle: View, Identifiable {
-    var id: Int
+    let id: Int
+    let user: User
     var color: RGBColorInProgressCircle
-    var progressPercent: Double
-    let friendName: String
-    var friendProduct: Product
+
+    var saving: Saving {user.saveInfo}
+    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
+    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    var progressPercent: Double {user.saveInfo.progressPercent}
+    var friendProduct: Product {user.saveInfo.goalProduct}
+    var friendName: String {user.nickname}
+
     var body: some View {
         VStack(spacing: 6) {
             ZStack {
                 itemInfo
-                ProgressCircle(color: color, frameSize: 100, weekInfo: saveList)
+                ProgressCircle(color: color, frameSize: 100, saving: saving)
             }
             Text(friendName)
                     .font(.system(size: 14))
@@ -44,11 +50,7 @@ extension FriendsProgressCircle {
 struct FriendsProgressCircle_Previews: PreviewProvider {
     static var previews: some View {
         HStack {
-            FriendsProgressCircle(id: 1,
-                                  color: RGBColorInProgressCircle.friendColor1,
-                                  progressPercent: 30,
-                                  friendName: "Tim",
-                                  friendProduct: Product.sampleData[1])
+            FriendsProgressCircle(id: 1, user: dummyFriend1, color: RGBColorInProgressCircle.friendColor1)
         }
     }
 }
