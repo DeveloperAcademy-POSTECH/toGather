@@ -10,7 +10,7 @@ import Firebase
 
 struct LastOnboardingView: View {
     
-    @EnvironmentObject var onboardingViewModel: OnboardingViewModel
+//    @EnvironmentObject var onboardingViewModel: OnboardingViewModel
     @ObservedObject var lastOnboardingViewModel: LastOnboardingViewModel = LastOnboardingViewModel()
 
     var friendUids: [String]? = ["AcBafb", "DYYGUP"] // dummy data
@@ -33,37 +33,36 @@ struct LastOnboardingView: View {
                 Circle()
                     .stroke().fill(ColorStyle.blue.color)
                     .frame(width: 230, height: 230)
-                Image(onboardingViewModel.savingData.goalProduct.imageUrl)
+                Image("")
             }
             .padding(.bottom, 16)
             
             HStack(spacing: 0) {
-                Text(String(onboardingViewModel.savingData.goalWeeks))
+                Text("10")
                     .font(.system(size: 20, weight: .bold))
                 Text("주간")
                     .font(.system(size: 20, weight: .regular))
                     .padding(.trailing, 4)
-                Text(String(onboardingViewModel.savingData.goalProduct.productPrice))
-                    .font(.system(size: 20, weight: .bold))
+                Text("1800000")
             }
             .foregroundColor(ColorStyle.blackHundred.color)
             .padding(.bottom, 50)
             
             HStack(alignment: .bottom, spacing: 0) {
-                Text("매주 \(String(onboardingViewModel.savingData.savingDayOfTheWeek))요일")
+                Text("매주 목요일")
                     .foregroundColor(ColorStyle.blackHundred.color)
                     .font(.system(size: 22, weight: .bold))
                     .padding(.trailing, 10)
-                Text("\(String(onboardingViewModel.savingData.goalProduct.productPrice))만원")
+                Text("10만원")
                     .foregroundColor(ColorStyle.blue.color)
                     .font(.system(size: 32, weight: .bold))
             }
             .padding(.bottom, 8)
             
             HStack {
-                Text(lastOnboardingViewModel.changeDateFormat(date: onboardingViewModel.savingData.startDate.dateValue()))
+                Text("2022.10.01")
                 Text("-")
-                Text(lastOnboardingViewModel.calculateDate(date: onboardingViewModel.savingData.startDate.dateValue(), goalWeeks: onboardingViewModel.savingData.goalWeeks))
+                Text("2022.10.31")
             }
             .foregroundColor(ColorStyle.blackSixty.color)
             .font(.system(size: 16, weight: .regular))
@@ -106,8 +105,8 @@ struct LastOnboardingView: View {
             .padding(.bottom, 18)
             
             Button {
-                onboardingViewModel.addUid()
-                onboardingViewModel.uploadSavingDataAndUserData()
+//                onboardingViewModel.addUid()
+//                onboardingViewModel.uploadSavingDataAndUserData()
             } label: {
                 Text("저축 시작하기")
                     .foregroundColor(.white)

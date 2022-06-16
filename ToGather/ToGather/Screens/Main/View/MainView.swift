@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @State var friendsCount  = 0
+    @StateObject var viewModel = MainViewModel()
     var body: some View {
         NavigationView {
             VStack {
@@ -22,27 +24,14 @@ struct MainView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Text("친구 저축현황")
-                        .font(.system(size: 22, weight: .bold))
-                }
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button {
-                        //
-                    } label: {
-                        Image(systemName: "bell.badge.fill")
-                            .symbolRenderingMode(.palette)
-                            .foregroundStyle( .red, Color.basicBlack.opacity(0.4))
+                    ToolbarItemGroup(placement: .navigationBarLeading) {
+                        Text("친구 저축현황")
+                            .font(.system(size: 22, weight: .bold))
                     }
-                    .foregroundColor(.basicBlack.opacity(0.4))
-                    Button {
-                        //
-                    } label: {
-                        Image(systemName: "gear")
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                      toolbarButtonsView
                     }
-                    .foregroundColor(.basicBlack.opacity(0.4))
                 }
-            }
         }
     }
 }
@@ -54,18 +43,77 @@ struct MainView_Previews: PreviewProvider {
 }
 
 extension MainView {
-    var friendsSavingsView: some View {
-                HStack(spacing: 26) {
-                    FriendsProgressCircle(color: RGBColorInProgressCircle.friendColor1,
-                                          progressPercent: DummyData.sampleSavings[1].progressPercent,
-                                          friendName: "Tim", friendProduct: DummyData.sampleSavings[1].goalProduct)
-                    FriendsProgressCircle(color: RGBColorInProgressCircle.friendColor2,
-                                          progressPercent: DummyData.sampleSavings[2].progressPercent,
-                                          friendName: "Steve", friendProduct: DummyData.sampleSavings[2].goalProduct)
-                    FriendsProgressCircle(color: RGBColorInProgressCircle.friendColor3,
-                                          progressPercent: DummyData.sampleSavings[3].progressPercent,
-                                          friendName: "Cook", friendProduct: DummyData.sampleSavings[3].goalProduct)
+    
+    var toolbarButtonsView: some View {
+        HStack {
+                NavigationLink {
+                    NotificationsView()
+                        .navigationTitle("알림")
+                        .navigationBarHidden(true)
+                     
+
+                } label: {
+                    Image(systemName: "bell.badge.fill")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle( .red, Color.basicBlack.opacity(0.4))
                 }
+            .foregroundColor(.basicBlack.opacity(0.4))
+            Button {
+                //
+            } label: {
+                Image(systemName: "gear")
+            }
+            .foregroundColor(.basicBlack.opacity(0.4))
+        }
+    }
+    
+    var friendsSavingsView: some View {
+        HStack(spacing: 26) {
+            ForEach(viewModel.getFriendList()) { friendSaving in
+                friendSaving
+            }
+            // MARK: - 추후 코드변경이 필요.
+            if viewModel.getFriendList().isEmpty {
+                VStack(spacing: 4) { // 하드코딩 수정필요
+                    Button {
+                        viewModel.addFriend(friend:
+                            FriendsProgressCircle(id: 1, user: dummyFriend1, color: RGBColorInProgressCircle.friendColor1)
+                        )
+                    } label: {
+                        AddedCircleView(color: .basicRed)
+                    }
+                    Text("친구랑 같이 저축하기")
+                        .font(.callout) // 16px
+                        .fontWeight(.semibold)
+                }
+            } else if viewModel.getFriendList().count == 1 {
+                VStack(spacing: 4) {
+                    Button {
+                         viewModel.addFriend(friend:
+                            FriendsProgressCircle(id: 2, user: dummyFriend2, color: RGBColorInProgressCircle.friendColor2)
+                        )
+                    } label: {
+                        AddedCircleView(color: .basicPurple)
+                    }
+                    Text("친구 추가")
+                        .font(.callout) // 16px
+                        .fontWeight(.semibold)
+                }
+            } else if viewModel.getFriendList().count == 2 {
+                VStack(spacing: 4) {
+                    Button {
+                        viewModel.addFriend(friend:
+                            FriendsProgressCircle(id: 3, user: dummyFriend3, color: RGBColorInProgressCircle.friendColor3)
+                        )    
+                    } label: {
+                        AddedCircleView(color: .basicGreen)
+                    }
+                    Text("친구 추가")
+                        .font(.callout) // 16px
+                        .fontWeight(.semibold)
+                }
+            }
+        }
     }
     var mySavingsView: some View {
         VStack {
@@ -75,11 +123,14 @@ extension MainView {
                 Spacer()
             }
             .padding(.horizontal)
-            MyProgressCircle()
+            MyProgressCircle(user: dummyMy)
                 .padding(.horizontal)
         }
     }
     var bottomView: some View {
+        
+//        @State var
+    
         VStack {
             HStack {
                 Text("13회")
@@ -106,6 +157,7 @@ extension MainView {
             .background(Color.basicBlack.opacity(0.3))
             .cornerRadius(30)
             .padding(.horizontal)
+           // .padding(.bottom, 40)
         }
     }
 }

@@ -10,16 +10,19 @@ import Firebase
 
 struct Saving {
     var goalProduct: Product
-    var uid: String
-    var goalWeeks: Int
-    let startDate: Timestamp
-    var savingDayOfTheWeek: String
-    
-    // 파이어베이스에 docoument만들어서 그 안에 Week객체 넣으면 될거같습니다.
+    let uid: String
+    let goalWeeks: Int
+    let startDate: String // 일단은 더미데이터로 넣고 나중에는 앱 작동하면 현재 날짜로 넣어줘야함.
+
+    let savingDayOfTheWeek: String
+
+    var savingAmountOfWeek: Int {Int(goalProduct.productPrice / Double(goalWeeks))}
+
     var weekInfo: [ThisWeek]
     
-    // ToDo 현재시간과 startDate를 고려해서 계산해야함.
-    var currentWeek = 14
+//    var startDate: String {getFirstSavingDate()}
+    
+    var currentWeek: Int = 14 // { getCurrentWeek(from: startDate) }
     
     var totalSavedNum: Int {
         var currentTotal = 0
