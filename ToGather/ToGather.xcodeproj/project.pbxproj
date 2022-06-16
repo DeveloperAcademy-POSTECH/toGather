@@ -59,8 +59,9 @@
 		E205519728557EEB00C210DA /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519628557EEB00C210DA /* DummyData.swift */; };
 		E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551982855812B00C210DA /* FriendsProgressCircle.swift */; };
 		E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */; };
-		E20551AC2856C3CA00C210DA /* SettingPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551AB2856C3CA00C210DA /* SettingPeriod.swift */; };
 		E2239AFB28596E6500839197 /* TimeLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2239AFA28596E6400839197 /* TimeLogic.swift */; };
+		E2239AFD285A810500839197 /* SettingPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2239AFC285A810500839197 /* SettingPeriod.swift */; };
+		E2DDBABB285AA95600E376D0 /* MoneyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,7 +89,6 @@
 		763212EF285801630016F8ED /* PinStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinStackView.swift; sourceTree = "<group>"; };
 		763212F0285801630016F8ED /* ApplyFriendIdTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyFriendIdTextView.swift; sourceTree = "<group>"; };
 		763212F1285801630016F8ED /* FriendAdditionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAdditionView.swift; sourceTree = "<group>"; };
-		763212F72858016C0016F8ED /* TestLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLogic.swift; sourceTree = "<group>"; };
 		764FC72928518CC8007A7415 /* ToGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		764FC72C28518CC8007A7415 /* ToGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGatherApp.swift; sourceTree = "<group>"; };
 		764FC72E28518CC8007A7415 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,8 +108,9 @@
 		E205519628557EEB00C210DA /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		E20551982855812B00C210DA /* FriendsProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProgressCircle.swift; sourceTree = "<group>"; };
 		E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColorInProgressCircle.swift; sourceTree = "<group>"; };
-		E20551AB2856C3CA00C210DA /* SettingPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPeriod.swift; sourceTree = "<group>"; };
 		E2239AFA28596E6400839197 /* TimeLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLogic.swift; sourceTree = "<group>"; };
+		E2239AFC285A810500839197 /* SettingPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPeriod.swift; sourceTree = "<group>"; };
+		E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +345,7 @@
 			children = (
 				764FC74528518E03007A7415 /* SwiftUIView.swift */,
 				E2239AFA28596E6400839197 /* TimeLogic.swift */,
+				E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -393,7 +395,7 @@
 		E20551AA2856C3AF00C210DA /* SettingPeriod */ = {
 			isa = PBXGroup;
 			children = (
-				E20551AB2856C3CA00C210DA /* SettingPeriod.swift */,
+				E2239AFC285A810500839197 /* SettingPeriod.swift */,
 			);
 			path = SettingPeriod;
 			sourceTree = "<group>";
@@ -518,6 +520,7 @@
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
 				4377C1CA28597DD7007DF255 /* ItemData.swift in Sources */,
 				763212F6285801630016F8ED /* FriendAdditionView.swift in Sources */,
+				E2239AFD285A810500839197 /* SettingPeriod.swift in Sources */,
 				E2239AFB28596E6500839197 /* TimeLogic.swift in Sources */,
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
@@ -528,6 +531,7 @@
 				E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */,
 				35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */,
 				7669F5F52855A33F001DDA0D /* PinStackView.swift in Sources */,
+				E2DDBABB285AA95600E376D0 /* MoneyLogic.swift in Sources */,
 				7669F6032855A7CD001DDA0D /* TestLogic.swift in Sources */,
 				764FC74628518E03007A7415 /* SwiftUIView.swift in Sources */,
 				E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */,
