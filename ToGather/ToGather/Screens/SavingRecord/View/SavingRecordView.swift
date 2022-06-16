@@ -101,13 +101,17 @@ struct SavingRecordView: View {
             }
             .padding(.bottom, 16)
             Button(action: {
+                guard let _ = image else {
+                    return
+                }
+                // image 파일이 존재할 때 Firebase에 쓰는 기능
                 print("이번주 저축 완료하기")
             }, label: {
                 Text("이번주 저축 완료하기")
                     .fontWeight(.bold)
                     .frame(width: UIScreen.main.bounds.width - 40, height: 46)
                     .foregroundColor(.white)
-                    .background(Color.pointColor)
+                    .background(image != nil ? Color.pointColor : Color.black03)
                     .cornerRadius(30)
                     .padding(.horizontal, 20)
             })
