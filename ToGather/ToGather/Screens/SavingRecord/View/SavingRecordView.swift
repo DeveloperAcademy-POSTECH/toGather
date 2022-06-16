@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SavingRecordView: View {
-    @State var imageTitle: String?
+    @State var showImagePicker: Bool = false
+    @State var image: Image? = nil
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             HStack(alignment: .center, spacing: 0) {
@@ -30,9 +31,8 @@ struct SavingRecordView: View {
                         .font(.system(size: 20))
                     Text("13회차")
                         .font(.system(size: 24))
-                        .fontWeight(.medium)
+                        .fontWeight(.bold)
                         .foregroundColor(.pointColor)
-                        
                 }
                 Spacer()
                     .frame(height: 50)
@@ -41,9 +41,8 @@ struct SavingRecordView: View {
                     .font(.system(size: 40))
                     .fontWeight(.bold)
             }
-            
-            if let imageTitle = imageTitle {
-                Image(imageTitle)
+            if let image = image {
+                image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 180, height: 260)
@@ -57,7 +56,7 @@ struct SavingRecordView: View {
                     .cornerRadius(10)
                     .padding(20)
                     .onTapGesture {
-                        self.imageTitle = nil
+                        self.image = nil
                     }
             } else {
                 Rectangle()
@@ -78,7 +77,12 @@ struct SavingRecordView: View {
                     }
                     .padding(20)
                     .onTapGesture {
-                        self.imageTitle = "imac"
+                        self.showImagePicker.toggle()
+                    }
+                    .sheet(isPresented: $showImagePicker) {
+                        ImagePicker(sourceType: .photoLibrary) { image in
+                            self.image = Image(uiImage: image)
+                        }
                     }
             }
             HStack(alignment: .center, spacing: 6) {
@@ -113,6 +117,6 @@ struct SavingRecordView: View {
 
 struct SavingRecordView_Previews: PreviewProvider {
     static var previews: some View {
-        SavingRecordView(imageTitle: nil)
+        SavingRecordView(showImagePicker: false, image: nil)
     }
 }
