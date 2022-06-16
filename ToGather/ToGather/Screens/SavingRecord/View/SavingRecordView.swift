@@ -42,7 +42,7 @@ struct SavingRecordView: View {
                     .fontWeight(.bold)
             }
             
-            if imageTitle != nil {
+            if let imageTitle = imageTitle {
                 Image(imageTitle)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -57,6 +57,9 @@ struct SavingRecordView: View {
                     .background(.clear)
                     .cornerRadius(10)
                     .padding(20)
+                    .onTapGesture {
+                        self.imageTitle = nil
+                    }
             } else {
                 Rectangle()
                     .frame(width: 180, height: 260)
@@ -77,6 +80,9 @@ struct SavingRecordView: View {
                         }
                     }
                     .padding(20)
+                    .onTapGesture {
+                        self.imageTitle = "imac"
+                    }
             }
             HStack(alignment: .center, spacing: 6) {
                 Image(systemName: "checkmark.circle.fill")
