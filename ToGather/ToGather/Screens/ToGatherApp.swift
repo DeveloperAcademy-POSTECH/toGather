@@ -16,7 +16,7 @@ struct ToGatherApp: App {
     var body: some Scene {
         WindowGroup {
             LastOnboardingView()
-//                .environmentObject(OnboardingViewModel())
+                .environmentObject(UserViewModel())
         }
     }
 }

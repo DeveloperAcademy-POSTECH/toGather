@@ -8,9 +8,11 @@
 import Firebase
 import SwiftUI
 
-class FirebaseManager: ObservableObject {
-    @EnvironmentObject var onboardingViewModel: OnboardingViewModel
+final class FirebaseManager: ObservableObject {
+    @EnvironmentObject var onboardingViewModel: UserViewModel
     @Published var nicknameArray: [String] = []
+    
+    static let shared = FirebaseManager()
     
     /// user 컬렉션에서 friend의 uid로 검색하여 친구 닉네임 가져오기
     func fetchFriendNickname(friendUids: [String]) {
