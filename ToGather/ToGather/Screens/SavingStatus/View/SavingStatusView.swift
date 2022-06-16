@@ -46,12 +46,7 @@ struct SavingStatusView: View {
     var isDueExtended: Bool {totalFailedNum != 0 ? true : false}
     
     
-    func numberFormat(value: Int) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        return numberFormatter.string(from: NSNumber(value: value)) ?? "error"
-    }
-    
+   
     var body: some View {
         ScrollView {
             VStack {
@@ -105,8 +100,8 @@ extension SavingStatusView {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
                 Text("지금까지 모은돈").foregroundColor(.basicBlack.opacity(0.6)).font(.system(size: 16))
-                Text("\(numberFormat(value: Int(totalSavingAmount * 10000)))").font(.system(size: 24)).fontWeight(.bold).foregroundColor(.basicBlack)
-                + Text(" / \(numberFormat(value: Int(goalSavingAmount * 10000)))").font(.system(size: 24)).fontWeight(.medium).foregroundColor(.basicBlack.opacity(0.6))
+                Text("\(numberFormatUnitOfManwon(value: totalSavingAmount))").font(.system(size: 24)).fontWeight(.bold).foregroundColor(.basicBlack)
+                + Text(" / \(numberFormatUnitOfManwon(value: goalSavingAmount))").font(.system(size: 24)).fontWeight(.medium).foregroundColor(.basicBlack.opacity(0.6))
             }
             Spacer()
         }
