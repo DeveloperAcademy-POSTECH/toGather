@@ -24,8 +24,34 @@ struct SavingStatusNavigationView: View {
         }
     }
 }
+
 struct SavingStatusView: View {
-    @State var isDueExtended: Bool = true
+    
+    @EnvironmentObject var userViewModel: UserViewModel
+    var user: User {userViewModel.dummyUserData}
+
+    var saving: Saving {user.saveInfo}
+    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
+    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    var progressPercent: Double {user.saveInfo.progressPercent}
+    var lastDate: String {user.saveInfo.lastDate}
+    var startDate: String {user.saveInfo.startDate}
+    var savingDay: String {user.saveInfo.savingDayOfTheWeek}
+    var savingAmountOfWeek: Double {user.saveInfo.savingAmountOfWeek}
+    var totalSavingAmount: Double {user.saveInfo.totalSavingAmount}
+    var goalSavingAmount: Double {user.saveInfo.goalSavingAmount}
+    var currentWeek: Int {user.saveInfo.currentWeek}
+    var totalFailedNum: Int {user.saveInfo.totalFailedNum}
+    var totalSavedNum: Int {user.saveInfo.totalSavedNum}
+    var isDueExtended: Bool {totalFailedNum != 0 ? true : false}
+    
+    
+    func numberFormat(value: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(from: NSNumber(value: value)) ?? "error"
+    }
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -64,13 +90,13 @@ extension SavingStatusView {
             Text("저축완료일")
                 .foregroundColor(.basicBlack.opacity(0.6))
                 .font(.system(size: 14))
-            Text("50%")
+            Text("\(progressPercent, specifier: "%.f")%")
                 .foregroundColor(.pointColor)
                 .font(.system(size: 40))
                 .fontWeight(.bold)
             Spacer(minLength: 5)
-            Text("매주 목요일 ").font(.system(size: 18)).fontWeight(.bold) +
-            Text("20만원").foregroundColor(.pointColor)
+            Text("매주 \(savingDay)요일 ").font(.system(size: 18)).fontWeight(.bold) +
+            Text("\(savingAmountOfWeek, specifier: "%3.1f")만원").foregroundColor(.pointColor)
                 .font(.system(size: 18))
         }
     }
@@ -79,8 +105,8 @@ extension SavingStatusView {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
                 Text("지금까지 모은돈").foregroundColor(.basicBlack.opacity(0.6)).font(.system(size: 16))
-                Text("18000000").font(.system(size: 24)).fontWeight(.bold).foregroundColor(.basicBlack)
-                + Text("/ 3500000").font(.system(size: 24)).fontWeight(.medium).foregroundColor(.basicBlack.opacity(0.6))
+                Text("\(numberFormat(value: Int(totalSavingAmount * 10000)))").font(.system(size: 24)).fontWeight(.bold).foregroundColor(.basicBlack)
+                + Text(" / \(numberFormat(value: Int(goalSavingAmount * 10000)))").font(.system(size: 24)).fontWeight(.medium).foregroundColor(.basicBlack.opacity(0.6))
             }
             Spacer()
         }
@@ -90,8 +116,8 @@ extension SavingStatusView {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
                 Text("저금 성공").font(.system(size: 16)).foregroundColor(.basicBlack.opacity(0.6))
-                Text("13회").font(.system(size: 24)).foregroundColor(.basicBlack).fontWeight(.bold)
-                + Text(" / 35").font(.system(size: 20))
+                Text("\(currentWeek)회 ").font(.system(size: 24)).foregroundColor(.basicBlack).fontWeight(.bold)
+                + Text("/ \(goalWeek)").font(.system(size: 20))
                     .foregroundColor(.basicBlack.opacity(0.6)).fontWeight(.bold)
             }
             Spacer()
@@ -103,16 +129,16 @@ extension SavingStatusView {
             VStack(alignment: .leading, spacing: 6) {
                 Text("저축 기간").font(.system(size: 16)).foregroundColor(.basicBlack.opacity(0.6))
                 HStack(alignment: .center, spacing: 6) {
-                    Text("2022.02.08 - 2022.09.03 ")
+                    Text("\(startDate) - \(lastDate) ")
                         .font(.system(size: 18))
                         .foregroundColor(.basicBlack)
                         .fontWeight(.semibold)
                     Text("| ").font(.system(size: 15))
                     if isDueExtended {
-                        Text("28+ ").font(.system(size: 16))
-                        + Text("1주").font(.system(size: 16)).foregroundColor(.red).fontWeight(.bold)
+                        Text("\(goalWeek)+ ").font(.system(size: 16))
+                        + Text("\(totalFailedNum)주").font(.system(size: 16)).foregroundColor(.red).fontWeight(.bold)
                     } else {
-                        Text("28주")
+                        Text("\(goalWeek)주")
                     }
                 }
                 
@@ -186,6 +212,6 @@ extension SavingStatusView {
 
 struct SavingStatusView_Previews: PreviewProvider {
     static var previews: some View {
-        SavingStatusNavigationView()
+        SavingStatusNavigationView().environmentObject(userViewModel)
     }
 }
