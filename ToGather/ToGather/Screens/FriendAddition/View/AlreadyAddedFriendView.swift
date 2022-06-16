@@ -43,7 +43,7 @@ struct PersonView: View {
     var body: some View {
         VStack {
             ZStack {
-                ZStack(alignment: .topTrailing){
+                ZStack(alignment: .topTrailing) {
                     Circle()
                         .strokeBorder(lineWidth: 1)
                         .foregroundColor(ColorStyle.blue.color)

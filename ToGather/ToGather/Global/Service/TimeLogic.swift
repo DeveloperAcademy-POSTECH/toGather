@@ -132,3 +132,4 @@ struct TimeLogicTest_Previews: PreviewProvider {
         TimeLogicTest()
     }
 }
+

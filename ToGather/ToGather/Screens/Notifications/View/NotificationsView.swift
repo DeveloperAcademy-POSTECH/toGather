@@ -9,48 +9,23 @@ import SwiftUI
 import Firebase
 
 struct NotificationsView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    // MARK: - Properties
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @StateObject var viewModel = NotificationsViewModel()
     var body: some View {
-        
         NavigationView {
             ScrollView {
                 LazyVStack(alignment:.leading,spacing: 0) {
-                    
-                    
-                    
-                    NotificaionCell(notification: Notification(username: "Max",
-                                                                   profileImageUrl: "",
-                                                                   timestamp: Timestamp(date:Date()) ,
-                                                                   type: .newFriend,
-                                                                   uid: ""))
-                    NotificaionCell(notification: Notification(username: "Max",
-                                                               profileImageUrl: "",
-                                                               timestamp: Timestamp(date:Date()) ,
-                                                               type: .mySavingDay,
-                                                               uid: ""))
-                    NotificaionCell(notification: Notification(username: "Max",
-                                                               profileImageUrl: "",
-                                                               timestamp: Timestamp(date:Date()) ,
-                                                               type: .friendSavigState,
-                                                               uid: ""))
-                    
-                    NotificaionCell(notification: Notification(username: "Max",
-                                                               profileImageUrl: "",
-                                                               timestamp: Timestamp(date:Date()) ,
-                                                               type: .mySavingDay,
-                                                               uid: ""))
-                    
-                    NotificaionCell(notification: Notification(username: "Max",
-                                                               profileImageUrl: "",
-                                                               timestamp: Timestamp(date:Date()) ,
-                                                               type: .friendSavigState,
-                                                               uid: ""))
-                    
+                    ForEach(viewModel.notification,id: \.id) { notification in
+                        // FIXME: - 친구에 따른 컬러부분 수정필요
+                        NotificaionCell(notification: notification, friendColor: .friendGreen01)
+                    }
                 }
                 .navigationTitle("알림")
                 .navigationBarTitleDisplayMode(.large)
                 .toolbar {
+                    // back button
                     ToolbarItemGroup(placement: .navigationBarLeading) {
                         Button {
                             presentationMode.wrappedValue.dismiss()
@@ -70,19 +45,20 @@ struct NotificationsView: View {
     }
 }
 
+// MARK: - Preview
 struct NotificationsView_Previews: PreviewProvider {
     static var previews: some View {
         NotificationsView()
     }
 }
 
-// 커스텀네비게이션 백버튼 스와이프 가능하게 하는 코드
+// MARK: - 커스텀네비게이션 백버튼 스와이프 가능하게 하는 코드
 extension UINavigationController: ObservableObject, UIGestureRecognizerDelegate {
     override open func viewDidLoad() {
         super.viewDidLoad()
         interactivePopGestureRecognizer?.delegate = self
     }
-
+    
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return viewControllers.count > 1
     }

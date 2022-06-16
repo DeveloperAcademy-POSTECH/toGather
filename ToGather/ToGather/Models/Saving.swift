@@ -8,8 +8,8 @@
 import Foundation
 import Firebase
 
-struct Saving {
-    let goalProduct: Product // 목표 제품
+struct Saving : Codable {
+    var goalProduct: Product
     let uid: String
     let goalWeeks: Int // 처음 설정한 목표 저축 기간. ~주
     
