@@ -10,7 +10,7 @@ import Firebase
 
 struct LastOnboardingView: View {
     
-//    @EnvironmentObject var onboardingViewModel: OnboardingViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
     @ObservedObject var lastOnboardingViewModel: LastOnboardingViewModel = LastOnboardingViewModel()
 
     var friendUids: [String]? = ["AcBafb", "DYYGUP"] // dummy data
@@ -18,7 +18,7 @@ struct LastOnboardingView: View {
     init() {
         
         if let friendUids = friendUids {
-            lastOnboardingViewModel.fetchFriendNickname(friendUids: friendUids)
+            FirebaseManager.shared.fetchFriendNickname(friendUids: friendUids)
         }
     }
     
@@ -33,36 +33,36 @@ struct LastOnboardingView: View {
                 Circle()
                     .stroke().fill(ColorStyle.blue.color)
                     .frame(width: 230, height: 230)
-                Image("")
+                Image(userViewModel.userData.saveInfo.goalProduct.imageUrl)
             }
             .padding(.bottom, 16)
             
             HStack(spacing: 0) {
-                Text("10")
+                Text(String(userViewModel.userData.saveInfo.goalWeeks))
                     .font(.system(size: 20, weight: .bold))
                 Text("주간")
                     .font(.system(size: 20, weight: .regular))
                     .padding(.trailing, 4)
-                Text("1800000")
+                Text(String(userViewModel.userData.saveInfo.goalProduct.productPrice))
             }
             .foregroundColor(ColorStyle.blackHundred.color)
             .padding(.bottom, 50)
             
             HStack(alignment: .bottom, spacing: 0) {
-                Text("매주 목요일")
+                Text("매주 \(String(userViewModel.userData.saveInfo.savingDayOfTheWeek))요일")
                     .foregroundColor(ColorStyle.blackHundred.color)
                     .font(.system(size: 22, weight: .bold))
                     .padding(.trailing, 10)
-                Text("10만원")
+                Text("\(String(userViewModel.userData.saveInfo.savingAmountOfWeek))만원")
                     .foregroundColor(ColorStyle.blue.color)
                     .font(.system(size: 32, weight: .bold))
             }
             .padding(.bottom, 8)
             
             HStack {
-                Text("2022.10.01")
+                Text(userViewModel.userData.saveInfo.startDate)
                 Text("-")
-                Text("2022.10.31")
+                Text("2022.10.31") // 추후 계산, 현재 하드 코딩
             }
             .foregroundColor(ColorStyle.blackSixty.color)
             .font(.system(size: 16, weight: .regular))
@@ -70,7 +70,7 @@ struct LastOnboardingView: View {
             
             if friendUids != nil {
                 HStack(spacing: 10) {
-                    ForEach(lastOnboardingViewModel.nicknameArray, id:\.self) { nickName in
+                    ForEach(FirebaseManager.shared.nicknameArray, id:\.self) { nickName in
                         VStack(spacing: 0) {
                             ZStack {
                                 Image(systemName: "person.fill")
@@ -105,8 +105,8 @@ struct LastOnboardingView: View {
             .padding(.bottom, 18)
             
             Button {
-//                onboardingViewModel.addUid()
-//                onboardingViewModel.uploadSavingDataAndUserData()
+                userViewModel.addUid()
+                FirebaseManager.shared.uploadSavingDataAndUserData()
             } label: {
                 Text("저축 시작하기")
                     .foregroundColor(.white)

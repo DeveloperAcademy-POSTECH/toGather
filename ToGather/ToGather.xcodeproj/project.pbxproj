@@ -531,6 +531,8 @@
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				E251367D285B322C008DD9C3 /* NotificationsViewModel.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
+				4377C1CC28597DD7007DF255 /* GoalItem.swift in Sources */,
+				43C21ED72858D17F0022B49C /* (null) in Sources */,
 				E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */,
 				35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */,
 				3D48A6E3285782E500FE6BE8 /* LastOnboardingViewModel.swift in Sources */,

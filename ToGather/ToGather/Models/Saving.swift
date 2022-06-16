@@ -11,13 +11,13 @@ import Firebase
 struct Saving : Codable {
     var goalProduct: Product
     let uid: String
-    let goalWeeks: Int // 처음 설정한 목표 저축 기간. ~주
+    var goalWeeks: Int // 처음 설정한 목표 저축 기간. ~주
     
     // MARK: 일단 테스트 용으로 값을 입력 받음. 나중에는 자동으로 계산.
     let startDate: String // 첫번째 저축 시작 날짜.
     // var startDate: String {getFirstSavingDate()}
 
-    let savingDayOfTheWeek: String // 저축 요일
+    var savingDayOfTheWeek: String // 저축 요일
 
     var savingAmountOfWeek: Int {Int(goalProduct.productPrice / Double(goalWeeks))} // 매주 저축해야하는 금액
 
