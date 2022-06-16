@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-struct Saving {
+struct Saving : Codable {
     var goalProduct: Product
     let uid: String
     let goalWeeks: Int

@@ -12,6 +12,9 @@
 		354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94C2858488C001C726D /* NotificaionCell.swift */; };
 		354ED94F285849E9001C726D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94E285849E9001C726D /* Notification.swift */; };
 		354ED95128587BC8001C726D /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED95028587BC8001C726D /* CustomProgressBar.swift */; };
+		354ED9532859B561001C726D /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED9522859B561001C726D /* NotificationsViewModel.swift */; };
+		354ED9552859D4DE001C726D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED9542859D4DE001C726D /* Constants.swift */; };
+		354ED957285A396B001C726D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED956285A396B001C726D /* UserDefaults+Extension.swift */; };
 		35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0728519C520089E1C3 /* ThisWeek.swift */; };
 		35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0828519C520089E1C3 /* Saving.swift */; };
 		35AD2D0D28519C520089E1C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0928519C520089E1C3 /* User.swift */; };
@@ -45,7 +48,6 @@
 		764FC73128518CC9007A7415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73028518CC9007A7415 /* Assets.xcassets */; };
 		764FC73428518CC9007A7415 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73328518CC9007A7415 /* Preview Assets.xcassets */; };
 		764FC74828518E07007A7415 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74728518E07007A7415 /* ColorAsset.swift */; };
-		764FC74C28518E0E007A7415 /* SwiftUIView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74B28518E0E007A7415 /* SwiftUIView3.swift */; };
 		764FC79328544F17007A7415 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 764FC79228544F17007A7415 /* Introspect */; };
 		766228F9285AD71B00BCBCF6 /* SavingStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766228F8285AD71B00BCBCF6 /* SavingStatusView.swift */; };
 		7669F5F52855A33F001DDA0D /* PinStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7669F5F02855A33F001DDA0D /* PinStackView.swift */; };
@@ -72,6 +74,9 @@
 		354ED94C2858488C001C726D /* NotificaionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificaionCell.swift; sourceTree = "<group>"; };
 		354ED94E285849E9001C726D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		354ED95028587BC8001C726D /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
+		354ED9522859B561001C726D /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
+		354ED9542859D4DE001C726D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		354ED956285A396B001C726D /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		35AD2D0728519C520089E1C3 /* ThisWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThisWeek.swift; sourceTree = "<group>"; };
 		35AD2D0828519C520089E1C3 /* Saving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saving.swift; sourceTree = "<group>"; };
 		35AD2D0928519C520089E1C3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -100,7 +105,6 @@
 		764FC73028518CC9007A7415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		764FC73328518CC9007A7415 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		764FC74728518E07007A7415 /* ColorAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
-		764FC74B28518E0E007A7415 /* SwiftUIView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView3.swift; sourceTree = "<group>"; };
 		766228F8285AD71B00BCBCF6 /* SavingStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingStatusView.swift; sourceTree = "<group>"; };
 		7669F5F02855A33F001DDA0D /* PinStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinStackView.swift; sourceTree = "<group>"; };
 		7669F5F12855A33F001DDA0D /* FriendAdditionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAdditionView.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 		354ED94828584700001C726D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				354ED9522859B561001C726D /* NotificationsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -342,7 +347,6 @@
 		764FC74128518DEC007A7415 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
-				764FC74B28518E0E007A7415 /* SwiftUIView3.swift */,
 				354ED95028587BC8001C726D /* CustomProgressBar.swift */,
 			);
 			path = UIComponent;
@@ -352,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				35AD2D292854F8550089E1C3 /* Color+Extension.swift */,
+				354ED956285A396B001C726D /* UserDefaults+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				764FC74728518E07007A7415 /* ColorAsset.swift */,
+				354ED9542859D4DE001C726D /* Constants.swift */,
 			);
 			path = Literal;
 			sourceTree = "<group>";
@@ -562,7 +568,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D87D9FD285234E200C36346 /* OnboardingViewModel.swift in Sources */,
-				764FC74C28518E0E007A7415 /* SwiftUIView3.swift in Sources */,
+				354ED9532859B561001C726D /* NotificationsViewModel.swift in Sources */,
 				763212F5285801630016F8ED /* ApplyFriendIdTextView.swift in Sources */,
 				E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */,
 				35AD2D222851E1FB0089E1C3 /* (null) in Sources */,
@@ -589,6 +595,7 @@
 				7669F6032855A7CD001DDA0D /* (null) in Sources */,
 				E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */,
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
+				354ED9552859D4DE001C726D /* Constants.swift in Sources */,
 				763212F4285801630016F8ED /* PinStackView.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				4377C1CB28597DD7007DF255 /* GoalSettingTitleView.swift in Sources */,
@@ -597,6 +604,7 @@
 				E205519728557EEB00C210DA /* DummyData.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				7669F5F62855A33F001DDA0D /* FriendAdditionView.swift in Sources */,
+				354ED957285A396B001C726D /* UserDefaults+Extension.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
 				7669F5F82855A33F001DDA0D /* TitleView.swift in Sources */,
 				7669F5F92855A33F001DDA0D /* AlreadyAddedFriendView.swift in Sources */,
