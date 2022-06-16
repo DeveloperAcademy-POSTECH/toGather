@@ -11,10 +11,17 @@ import SwiftUI
 let product = Product(productName: "imac", productPrice: 180, imageUrl: "imac")
 
 struct SettingPeriodView: View {
+    
     @State private var selectedDay: String?
-    @State private var numWeek: Double = 1.0
-    private var savePeriod: Double { numWeek * 4}
-    private var saveMoney: Double { product.productPrice/(numWeek)/4}
+    
+    /// 슬라이더에의해 값이 변화함, 목표 저축기간을 개월수로 나타낸 값
+    @State private var savePeriodMonth: Double = 1.0
+    
+    /// 목표 저축 기간
+    private var goalWeek: Int { Int(savePeriodMonth) * 4}
+    
+    /// 매주 넣어야할 저축금액
+    private var saveAmountOfWeek: Double {getSaveAmountOfWeek(productPrice: product.productPrice, goalWeek: goalWeek)}
 
     var body: some View {
         VStack {
@@ -33,6 +40,7 @@ struct SettingPeriodView: View {
 
     private let title: some View = HStack {
         VStack(alignment: .leading) {
+
             HStack {
                 Text("매주 저축할 금액").foregroundColor(ColorStyle.blue.color) + Text("과 ")
                 Text("요일").foregroundColor(ColorStyle.blue.color) + Text("을")
@@ -57,15 +65,15 @@ struct SettingPeriodView: View {
     }
 
     private var slider: some View {
-        let priceAndPeriod: some View = Text("매주 ")
-                                        + Text("\(saveMoney, specifier: "%4.f")")
+        let priceAndPeriod: some View = Text("매주   ")
+                                        + Text("\(saveAmountOfWeek, specifier: "%4.f")")
                                             .foregroundColor(ColorStyle.blue.color)
                                             .font(.system(size: 26, weight: .bold))
                                         + Text("만원")
                                             .foregroundColor(ColorStyle.blue.color)
                                             .font(.system(size: 26, weight: .bold))
                                         + Text("    기간 ")
-                                        + Text("\(savePeriod, specifier: "%3.f")")
+                                        + Text("\(goalWeek, specifier: "%2.d")")
                                             .foregroundColor(ColorStyle.blue.color)
                                             .font(.system(size: 26, weight: .bold))
                                         + Text("주").foregroundColor(ColorStyle.blue.color)
@@ -90,10 +98,10 @@ struct SettingPeriodView: View {
         return VStack {
             priceAndPeriod
             Spacer(minLength: 30)
-            Text("약 \(numWeek, specifier: "%2.f")개월")
+            Text("약 \(savePeriodMonth, specifier: "%2.f")개월")
                 .font(.system(size: 14, weight: .medium))
                 .foregroundColor(ColorStyle.blackSixty.color)
-            Slider(value: $numWeek, in: 1...12, step: 1)
+            Slider(value: $savePeriodMonth, in: 1...12, step: 1)
                 .padding(.horizontal, 17)
                 .accentColor(ColorStyle.blue.color)
             sliderInfo
@@ -166,11 +174,11 @@ var temp : some View = ZStack {
 
 struct SettingPeriodView_Previews: PreviewProvider {
     static var previews: some View {
-        // temp
-        NavigationView {
-            NavigationLink(destination: temp) {
-                Text("링크 확인")
-            }
-        }
+         temp
+//        NavigationView {
+//            NavigationLink(destination: temp) {
+//                Text("링크 확인")
+//            }
+//        }
     }
 }
