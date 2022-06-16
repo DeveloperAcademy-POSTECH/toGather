@@ -11,6 +11,10 @@ import SwiftUI
 let product = Product(productName: "imac", productPrice: 180, imageUrl: "imac")
 
 struct SettingPeriodView: View {
+    /// onboarding시 사용할 View
+    @StateObject var onboardingViewModel: OnBoardingViewModel
+
+    @EnvironmentObject var userViewModel: UserViewModel
     
     @State private var selectedDay: String?
     
@@ -21,7 +25,8 @@ struct SettingPeriodView: View {
     private var goalWeek: Int { Int(savePeriodMonth) * 4}
     
     /// 매주 넣어야할 저축금액
-    private var saveAmountOfWeek: Double {getSaveAmountOfWeek(productPrice: product.productPrice, goalWeek: goalWeek)}
+    private var saveAmountOfWeek: Double {getSaveAmountOfWeek(productPrice: userViewModel.userData.saveInfo.goalProduct.productPrice
+                    , goalWeek: goalWeek)}
 
     var body: some View {
         VStack {
@@ -49,19 +54,23 @@ struct SettingPeriodView: View {
         }.font(.system(size: 24, weight: .bold))
         .padding(.horizontal, 20)
         Spacer()
+        
     }
 
-    private let itemInfo: some View = VStack {
-        ZStack {
-            // 바닥부터 시작
-            Image(product.imageUrl).resizable()
-                .scaledToFit()
-                .frame(width: 101, height: 91)
-            Circle().stroke().fill(ColorStyle.blue.color)
-                .frame(width: 170, height: 170, alignment: .center)
-
-        }.padding(EdgeInsets(top: 0, leading: 0, bottom: 13, trailing: 0))
-        Text("총 \(product.productPrice, specifier: "%3.f")만원").font(.system(size: 16, weight: .medium))
+    private var itemInfo: some View {
+        return
+        VStack {
+            ZStack {
+                // 바닥부터 시작
+                Image(userViewModel.userData.saveInfo.goalProduct.imageUrl).resizable()
+                    .scaledToFit()
+                    .frame(width: 101, height: 91)
+                Circle().stroke().fill(ColorStyle.blue.color)
+                    .frame(width: 170, height: 170, alignment: .center)
+                
+            }.padding(EdgeInsets(top: 0, leading: 0, bottom: 13, trailing: 0))
+            Text("총 \(userViewModel.userData.saveInfo.goalProduct.productPrice, specifier: "%3.f")만원").font(.system(size: 16, weight: .medium))
+        }
     }
 
     private var slider: some View {
@@ -145,7 +154,12 @@ struct SettingPeriodView: View {
 
     private var nextButton: some View {
             return VStack {
-            NavigationLink(destination: EmptyView()) {
+                NavigationLink(destination: FriendAdditionView(onboardingViewModel: onboardingViewModel).onAppear(perform: {
+                    guard let selectedDay = selectedDay else {
+                        return
+                    }
+                    userViewModel.addGoalWeekAndDayOfTheWeek(goalWeeks: goalWeek, dayOfTheWeek: selectedDay)
+                })) {
                 ZStack {
                     if selectedDay != nil {
                         RoundedRectangle(cornerRadius: 30)
@@ -167,18 +181,19 @@ struct SettingPeriodView: View {
     }
 }
 
-var temp : some View = ZStack {
-        SettingPeriodView()
-//        Image("저축기간").opacity(0.9)
-}
+// commit주의
+//var temp : some View = ZStack {
+//        SettingPeriodView()
+////        Image("저축기간").opacity(0.9)
+//}
 
-struct SettingPeriodView_Previews: PreviewProvider {
-    static var previews: some View {
-         temp
-//        NavigationView {
-//            NavigationLink(destination: temp) {
-//                Text("링크 확인")
-//            }
-//        }
-    }
-}
+//struct SettingPeriodView_Previews: PreviewProvider {
+//    static var previews: some View {
+//         temp
+////        NavigationView {
+////            NavigationLink(destination: temp) {
+////                Text("링크 확인")
+////            }
+////        }
+//    }
+//}

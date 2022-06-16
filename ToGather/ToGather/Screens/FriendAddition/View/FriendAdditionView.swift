@@ -11,7 +11,7 @@ struct FriendNavigationViewTest: View {
     var body: some View {
         NavigationView {
             
-            FriendAdditionView()
+            FriendAdditionView(onboardingViewModel: OnBoardingViewModel())
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
@@ -38,11 +38,13 @@ struct NoFriendTextView: View {
     }
 }
 
+/// 친구추가 페이지 뷰
 struct FriendAdditionView: View {
     @State var text = ""
     @State var noFriendId: Bool = false
     @State var attemps: Int = 0
     @State var addedFriendList: [String] = []
+    @StateObject var onboardingViewModel: OnBoardingViewModel
     
     var body: some View {
         VStack {
@@ -72,6 +74,16 @@ struct FriendAdditionView: View {
                 AlreadyAddedFriendView(addedFriendList: $addedFriendList)
             }
             Spacer()
+            NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel), label: {
+                Text("다음")
+                    .fontWeight(.bold)
+                    .frame(width: UIScreen.main.bounds.width - 40, height: 46)
+                    .foregroundColor(.white)
+                    .background(Color.pointColor)
+                    .cornerRadius(30)
+                    .padding(.horizontal, 20)
+            })
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
         }
     }
 
@@ -89,7 +101,7 @@ extension FriendAdditionView {
 
 struct AddingFriend_Previews: PreviewProvider {
     static var previews: some View {
-        FriendAdditionView()
+        FriendAdditionView(onboardingViewModel: OnBoardingViewModel())
             .previewInterfaceOrientation(.portrait)
     }
 }

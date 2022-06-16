@@ -12,14 +12,16 @@ struct LastOnboardingView: View {
     
     @EnvironmentObject var userViewModel: UserViewModel
     @ObservedObject var lastOnboardingViewModel: LastOnboardingViewModel = LastOnboardingViewModel()
+    @StateObject var onboardingViewModel: OnBoardingViewModel
 
     var friendUids: [String]? = ["AcBafb", "DYYGUP"] // dummy data
     
-    init() {
+    init(onboardingViewModel: OnBoardingViewModel) {
         
         if let friendUids = friendUids {
             FirebaseManager.shared.fetchFriendNickname(friendUids: friendUids)
         }
+        self._onboardingViewModel = StateObject(wrappedValue: onboardingViewModel)
     }
     
     var body: some View {
@@ -106,7 +108,9 @@ struct LastOnboardingView: View {
             
             Button {
                 userViewModel.addUid()
+                FirebaseManager.shared.changeViewModel(userViewModel: userViewModel)
                 FirebaseManager.shared.uploadSavingDataAndUserData()
+                onboardingViewModel.setNotFirstOn()
             } label: {
                 Text("저축 시작하기")
                     .foregroundColor(.white)
@@ -121,9 +125,9 @@ struct LastOnboardingView: View {
         .padding(.horizontal, 20)
     }
 }
-
-struct LastOnboardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        LastOnboardingView()
-    }
-}
+// committ시 주의
+//struct LastOnboardingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LastOnboardingView()
+//    }
+//}

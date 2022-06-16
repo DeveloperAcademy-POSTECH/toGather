@@ -46,6 +46,8 @@
 		7669F5FE2855A46C001DDA0D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7669F5FD2855A46C001DDA0D /* FirebaseFirestore */; };
 		7669F6002855A46C001DDA0D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7669F5FF2855A46C001DDA0D /* FirebaseStorage */; };
 		76A0389F285A1462009C9A02 /* TestLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A0389E285A1462009C9A02 /* TestLogic.swift */; };
+		76DF8BBD285B4E230051F97A /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF8BBC285B4E230051F97A /* StartView.swift */; };
+		76DF8BC0285B549E0051F97A /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF8BBF285B549E0051F97A /* OnboardingViewModel.swift */; };
 		E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551882851E80F00C210DA /* ProgressCircle.swift */; };
 		E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519428557E6D00C210DA /* MyProgressCircle.swift */; };
 		E205519728557EEB00C210DA /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519628557EEB00C210DA /* DummyData.swift */; };
@@ -95,6 +97,8 @@
 		7669F5F32855A33F001DDA0D /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		7669F5F42855A33F001DDA0D /* AlreadyAddedFriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlreadyAddedFriendView.swift; sourceTree = "<group>"; };
 		76A0389E285A1462009C9A02 /* TestLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLogic.swift; sourceTree = "<group>"; };
+		76DF8BBC285B4E230051F97A /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		76DF8BBF285B549E0051F97A /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		E20551882851E80F00C210DA /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		E205519428557E6D00C210DA /* MyProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProgressCircle.swift; sourceTree = "<group>"; };
 		E205519628557EEB00C210DA /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 		764FC73D28518DCE007A7415 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				76DF8BBA285B4E090051F97A /* Start */,
 				E2513673285B3217008DD9C3 /* GoalSetting */,
 				3DC6AEF5285B165E004FA4DB /* SavingStatus */,
 				3D87D9F728520B2700C36346 /* LastOnboarding */,
@@ -363,6 +368,31 @@
 			isa = PBXGroup;
 			children = (
 				76A0389E285A1462009C9A02 /* TestLogic.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		76DF8BBA285B4E090051F97A /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				76DF8BBB285B4E170051F97A /* View */,
+				76DF8BBE285B4E2D0051F97A /* ViewModel */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		76DF8BBB285B4E170051F97A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				76DF8BBC285B4E230051F97A /* StartView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		76DF8BBE285B4E2D0051F97A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				76DF8BBF285B549E0051F97A /* OnboardingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -524,7 +554,9 @@
 				E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
+				76DF8BBD285B4E230051F97A /* StartView.swift in Sources */,
 				354ED95128587BC8001C726D /* CustomProgressBar.swift in Sources */,
+				76DF8BC0285B549E0051F97A /* OnboardingViewModel.swift in Sources */,
 				35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */,
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
 				4377C1CA28597DD7007DF255 /* ItemData.swift in Sources */,
@@ -696,7 +728,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToGather/Preview Content\"";
-				DEVELOPMENT_TEAM = 3GJ7T3N35Y;
+				DEVELOPMENT_TEAM = 2RG6A633V9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

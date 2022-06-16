@@ -9,9 +9,9 @@ import Firebase
 import SwiftUI
 
 final class FirebaseManager: ObservableObject {
-    @EnvironmentObject var onboardingViewModel: UserViewModel
+//    @EnvironmentObject var onboardingViewModel: UserViewModel
     @Published var nicknameArray: [String] = []
-    
+    @Published var onboardingViewModel = UserViewModel()
     static let shared = FirebaseManager()
     
     /// user 컬렉션에서 friend의 uid로 검색하여 친구 닉네임 가져오기
@@ -63,5 +63,9 @@ final class FirebaseManager: ObservableObject {
                 print("Saving document successfully written!")
             }
         }
+    }
+    
+    func changeViewModel(userViewModel: UserViewModel) {
+        onboardingViewModel = userViewModel
     }
 }
