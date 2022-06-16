@@ -23,11 +23,11 @@ class NotificationsViewModel : ObservableObject {
     func fetchNotifications() {
         do {
             let user  = try UserDefaults.standard.getObject(forKey: "User", castTo: User.self)
-            let query = COLLECTION_NOTIFICATIONS
+            let notificationQuery = COLLECTION_NOTIFICATIONS
                 .document(user.id!).collection("user-notifications")
                 .order(by: "timestamp", descending: true)
             
-            query.getDocuments { snapshot, _ in
+            notificationQuery.getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else {return}
                 
                 self.notification = documents.compactMap({ try? $0.data(as: Notification.self)})
@@ -39,12 +39,13 @@ class NotificationsViewModel : ObservableObject {
         
     }
     
+    // TODO: - 매개변수 수정 필요
     // 알림 업로드하기
     static func uploadNotification(/**toUid uid: String,**/type : NotificationType) {
         do {
             let user  = try UserDefaults.standard.getObject(forKey: "User", castTo: User.self)
             
-            let data: [String: Any] = ["username" : user.nickname,
+            let notificationData: [String: Any] = ["username" : user.nickname,
                                        "authPicUrl" : "",
                                        "timestamp" : Timestamp(date: Date()),
                                        "type": type.rawValue,
@@ -52,7 +53,7 @@ class NotificationsViewModel : ObservableObject {
             COLLECTION_NOTIFICATIONS
                 .document()
                 .collection("user-notifications")
-                .addDocument(data: data)
+                .addDocument(data: notificationData)
             
         } catch {
             print(error.localizedDescription)
