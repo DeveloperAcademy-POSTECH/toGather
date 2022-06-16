@@ -11,7 +11,6 @@
 		354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94C2858488C001C726D /* NotificaionCell.swift */; };
 		354ED94F285849E9001C726D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94E285849E9001C726D /* Notification.swift */; };
 		354ED95128587BC8001C726D /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED95028587BC8001C726D /* CustomProgressBar.swift */; };
-		354ED9532859B561001C726D /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED9522859B561001C726D /* NotificationsViewModel.swift */; };
 		354ED9552859D4DE001C726D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED9542859D4DE001C726D /* Constants.swift */; };
 		354ED957285A396B001C726D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED956285A396B001C726D /* UserDefaults+Extension.swift */; };
 		35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0728519C520089E1C3 /* ThisWeek.swift */; };
@@ -20,7 +19,6 @@
 		35AD2D0E28519C520089E1C3 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0A28519C520089E1C3 /* Product.swift */; };
 		35AD2D1D2851D4730089E1C3 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D1A2851D4730089E1C3 /* MainViewModel.swift */; };
 		35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D1C2851D4730089E1C3 /* MainView.swift */; };
-		35AD2D222851E1FB0089E1C3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D292854F8550089E1C3 /* Color+Extension.swift */; };
 		35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7789A2856091C0015122A /* AddedCircleView.swift */; };
 		3D4134572852EC44009E7953 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4134562852EC44009E7953 /* FirebaseFirestoreSwift */; };
@@ -34,10 +32,6 @@
 		3D87D9FD285234E200C36346 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D9FC285234E200C36346 /* OnboardingViewModel.swift */; };
 		3DC6AEF8285B165F004FA4DB /* SavingStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6AEF7285B165F004FA4DB /* SavingStatusView.swift */; };
 		4377C1CA28597DD7007DF255 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377C1C628597DD7007DF255 /* ItemData.swift */; };
-		4377C1CB28597DD7007DF255 /* GoalSettingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377C1C728597DD7007DF255 /* GoalSettingTitleView.swift */; };
-		4377C1CC28597DD7007DF255 /* GoalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377C1C828597DD7007DF255 /* GoalItem.swift */; };
-		4377C1CD28597DD7007DF255 /* GoalSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377C1C928597DD7007DF255 /* GoalSetting.swift */; };
-		43C21ED72858D17F0022B49C /* (null) in Sources */ = {isa = PBXBuildFile; };
 		764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72C28518CC8007A7415 /* ToGatherApp.swift */; };
 		764FC72F28518CC8007A7415 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72E28518CC8007A7415 /* ContentView.swift */; };
 		764FC73128518CC9007A7415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73028518CC9007A7415 /* Assets.xcassets */; };
@@ -52,14 +46,19 @@
 		7669F5FC2855A46C001DDA0D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7669F5FB2855A46C001DDA0D /* FirebaseAuth */; };
 		7669F5FE2855A46C001DDA0D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7669F5FD2855A46C001DDA0D /* FirebaseFirestore */; };
 		7669F6002855A46C001DDA0D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7669F5FF2855A46C001DDA0D /* FirebaseStorage */; };
-		7669F6032855A7CD001DDA0D /* (null) in Sources */ = {isa = PBXBuildFile; };
 		76A0389F285A1462009C9A02 /* TestLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A0389E285A1462009C9A02 /* TestLogic.swift */; };
 		E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551882851E80F00C210DA /* ProgressCircle.swift */; };
 		E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519428557E6D00C210DA /* MyProgressCircle.swift */; };
 		E205519728557EEB00C210DA /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519628557EEB00C210DA /* DummyData.swift */; };
 		E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551982855812B00C210DA /* FriendsProgressCircle.swift */; };
 		E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */; };
-		E2513668285B1F02008DD9C3 /* TimeLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2513667285B1F02008DD9C3 /* TimeLogic.swift */; };
+		E2239AFB28596E6500839197 /* TimeLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2239AFA28596E6400839197 /* TimeLogic.swift */; };
+		E2239AFD285A810500839197 /* SettingPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2239AFC285A810500839197 /* SettingPeriod.swift */; };
+		E2513678285B3217008DD9C3 /* GoalSettingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2513675285B3217008DD9C3 /* GoalSettingTitleView.swift */; };
+		E2513679285B3217008DD9C3 /* GoalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2513676285B3217008DD9C3 /* GoalItem.swift */; };
+		E251367A285B3217008DD9C3 /* GoalSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2513677285B3217008DD9C3 /* GoalSetting.swift */; };
+		E251367D285B322C008DD9C3 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251367C285B322C008DD9C3 /* NotificationsViewModel.swift */; };
+		E2DDBABB285AA95600E376D0 /* MoneyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +66,6 @@
 		354ED94C2858488C001C726D /* NotificaionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificaionCell.swift; sourceTree = "<group>"; };
 		354ED94E285849E9001C726D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		354ED95028587BC8001C726D /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
-		354ED9522859B561001C726D /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		354ED9542859D4DE001C726D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		354ED956285A396B001C726D /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		35AD2D0728519C520089E1C3 /* ThisWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThisWeek.swift; sourceTree = "<group>"; };
@@ -85,9 +83,6 @@
 		3D87D9FC285234E200C36346 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		3DC6AEF7285B165F004FA4DB /* SavingStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingStatusView.swift; sourceTree = "<group>"; };
 		4377C1C628597DD7007DF255 /* ItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
-		4377C1C728597DD7007DF255 /* GoalSettingTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSettingTitleView.swift; sourceTree = "<group>"; };
-		4377C1C828597DD7007DF255 /* GoalItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalItem.swift; sourceTree = "<group>"; };
-		4377C1C928597DD7007DF255 /* GoalSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSetting.swift; sourceTree = "<group>"; };
 		764FC72928518CC8007A7415 /* ToGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		764FC72C28518CC8007A7415 /* ToGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGatherApp.swift; sourceTree = "<group>"; };
 		764FC72E28518CC8007A7415 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,8 +100,13 @@
 		E205519628557EEB00C210DA /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		E20551982855812B00C210DA /* FriendsProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProgressCircle.swift; sourceTree = "<group>"; };
 		E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColorInProgressCircle.swift; sourceTree = "<group>"; };
-		E20551AB2856C3CA00C210DA /* SettingPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPeriod.swift; sourceTree = "<group>"; };
-		E2513667285B1F02008DD9C3 /* TimeLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLogic.swift; sourceTree = "<group>"; };
+		E2239AFA28596E6400839197 /* TimeLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLogic.swift; sourceTree = "<group>"; };
+		E2239AFC285A810500839197 /* SettingPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPeriod.swift; sourceTree = "<group>"; };
+		E2513675285B3217008DD9C3 /* GoalSettingTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSettingTitleView.swift; sourceTree = "<group>"; };
+		E2513676285B3217008DD9C3 /* GoalItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalItem.swift; sourceTree = "<group>"; };
+		E2513677285B3217008DD9C3 /* GoalSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSetting.swift; sourceTree = "<group>"; };
+		E251367C285B322C008DD9C3 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
+		E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,18 +131,10 @@
 		354ED947285846E6001C726D /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				354ED94828584700001C726D /* ViewModel */,
+				E251367B285B322C008DD9C3 /* ViewModel */,
 				354ED94928584709001C726D /* View */,
 			);
 			path = Notifications;
-			sourceTree = "<group>";
-		};
-		354ED94828584700001C726D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				354ED9522859B561001C726D /* NotificationsViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		354ED94928584709001C726D /* View */ = {
@@ -220,24 +212,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		4377C1C428597DD7007DF255 /* GoalSetting */ = {
-			isa = PBXGroup;
-			children = (
-				4377C1C528597DD7007DF255 /* View */,
-			);
-			path = GoalSetting;
-			sourceTree = "<group>";
-		};
-		4377C1C528597DD7007DF255 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				4377C1C728597DD7007DF255 /* GoalSettingTitleView.swift */,
-				4377C1C828597DD7007DF255 /* GoalItem.swift */,
-				4377C1C928597DD7007DF255 /* GoalSetting.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		764FC72028518CC8007A7415 = {
 			isa = PBXGroup;
 			children = (
@@ -291,9 +265,9 @@
 		764FC73D28518DCE007A7415 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E2513673285B3217008DD9C3 /* GoalSetting */,
 				3DC6AEF5285B165E004FA4DB /* SavingStatus */,
 				3D87D9F728520B2700C36346 /* LastOnboarding */,
-				4377C1C428597DD7007DF255 /* GoalSetting */,
 				354ED947285846E6001C726D /* Notifications */,
 				7669F5EE2855A2ED001DDA0D /* FriendAddition */,
 				E20551AA2856C3AF00C210DA /* SettingPeriod */,
@@ -354,8 +328,9 @@
 		764FC74428518DFB007A7415 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				E2239AFA28596E6400839197 /* TimeLogic.swift */,
+				E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */,
 				3D87D9FC285234E200C36346 /* OnboardingViewModel.swift */,
-				E2513667285B1F02008DD9C3 /* TimeLogic.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -405,9 +380,35 @@
 		E20551AA2856C3AF00C210DA /* SettingPeriod */ = {
 			isa = PBXGroup;
 			children = (
-				E20551AB2856C3CA00C210DA /* SettingPeriod.swift */,
+				E2239AFC285A810500839197 /* SettingPeriod.swift */,
 			);
 			path = SettingPeriod;
+			sourceTree = "<group>";
+		};
+		E2513673285B3217008DD9C3 /* GoalSetting */ = {
+			isa = PBXGroup;
+			children = (
+				E2513674285B3217008DD9C3 /* View */,
+			);
+			path = GoalSetting;
+			sourceTree = "<group>";
+		};
+		E2513674285B3217008DD9C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E2513675285B3217008DD9C3 /* GoalSettingTitleView.swift */,
+				E2513676285B3217008DD9C3 /* GoalItem.swift */,
+				E2513677285B3217008DD9C3 /* GoalSetting.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E251367B285B322C008DD9C3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E251367C285B322C008DD9C3 /* NotificationsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,35 +519,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D87D9FD285234E200C36346 /* OnboardingViewModel.swift in Sources */,
-				354ED9532859B561001C726D /* NotificationsViewModel.swift in Sources */,
 				E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */,
-				35AD2D222851E1FB0089E1C3 /* (null) in Sources */,
-				35AD2D222851E1FB0089E1C3 /* (null) in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
-				E2513668285B1F02008DD9C3 /* TimeLogic.swift in Sources */,
 				354ED95128587BC8001C726D /* CustomProgressBar.swift in Sources */,
 				35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */,
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
 				4377C1CA28597DD7007DF255 /* ItemData.swift in Sources */,
+				E2239AFD285A810500839197 /* SettingPeriod.swift in Sources */,
+				E2239AFB28596E6500839197 /* TimeLogic.swift in Sources */,
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
+				E251367D285B322C008DD9C3 /* NotificationsViewModel.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
-				4377C1CC28597DD7007DF255 /* GoalItem.swift in Sources */,
-				43C21ED72858D17F0022B49C /* (null) in Sources */,
 				E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */,
 				35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */,
 				3D48A6E3285782E500FE6BE8 /* LastOnboardingViewModel.swift in Sources */,
 				3D87D9F928520B6100C36346 /* LastOnboardingView.swift in Sources */,
 				7669F5F52855A33F001DDA0D /* PinStackView.swift in Sources */,
-				7669F6032855A7CD001DDA0D /* (null) in Sources */,
+				76A0389F285A1462009C9A02 /* TestLogic.swift in Sources */,
+				E2DDBABB285AA95600E376D0 /* MoneyLogic.swift in Sources */,
 				E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */,
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
 				354ED9552859D4DE001C726D /* Constants.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				3DC6AEF8285B165F004FA4DB /* SavingStatusView.swift in Sources */,
-				4377C1CB28597DD7007DF255 /* GoalSettingTitleView.swift in Sources */,
 				354ED94B2858471B001C726D /* NotificationsView.swift in Sources */,
-				4377C1CD28597DD7007DF255 /* GoalSetting.swift in Sources */,
 				E205519728557EEB00C210DA /* DummyData.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				7669F5F62855A33F001DDA0D /* FriendAdditionView.swift in Sources */,
@@ -555,16 +552,18 @@
 				7669F5F82855A33F001DDA0D /* TitleView.swift in Sources */,
 				7669F5F92855A33F001DDA0D /* AlreadyAddedFriendView.swift in Sources */,
 				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
-				76A0389F285A1462009C9A02 /* TestLogic.swift in Sources */,
 				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
 				E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */,
 				354ED94F285849E9001C726D /* Notification.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
 				354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */,
+				E2513678285B3217008DD9C3 /* GoalSettingTitleView.swift in Sources */,
 				35AD2D1D2851D4730089E1C3 /* MainViewModel.swift in Sources */,
 				35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */,
 				35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */,
+				E251367A285B3217008DD9C3 /* GoalSetting.swift in Sources */,
+				E2513679285B3217008DD9C3 /* GoalItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
