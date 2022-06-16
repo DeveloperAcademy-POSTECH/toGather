@@ -10,11 +10,10 @@ import Firebase
 
 struct Saving {
     var goalProduct: Product
-    let uid: String
-    let goalWeeks: Int
+    var goalWeeks: Int
     let startDate: String // 일단은 더미데이터로 넣고 나중에는 앱 작동하면 현재 날짜로 넣어줘야함.
 
-    let savingDayOfTheWeek: String
+    var savingDayOfTheWeek: String
 
     var savingAmountOfWeek: Int {Int(goalProduct.productPrice / Double(goalWeeks))}
 

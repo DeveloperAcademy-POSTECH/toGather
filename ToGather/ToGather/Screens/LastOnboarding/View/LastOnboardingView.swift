@@ -10,15 +10,16 @@ import Firebase
 
 struct LastOnboardingView: View {
     
-//    @EnvironmentObject var onboardingViewModel: OnboardingViewModel
+    @EnvironmentObject var onboardingViewModel: OnboardingViewModel
     @ObservedObject var lastOnboardingViewModel: LastOnboardingViewModel = LastOnboardingViewModel()
+    @ObservedObject var firebaseManager: FirebaseManager = FirebaseManager()
 
     var friendUids: [String]? = ["AcBafb", "DYYGUP"] // dummy data
     
     init() {
         
         if let friendUids = friendUids {
-            lastOnboardingViewModel.fetchFriendNickname(friendUids: friendUids)
+            firebaseManager.fetchFriendNickname(friendUids: friendUids)
         }
     }
     
@@ -70,7 +71,7 @@ struct LastOnboardingView: View {
             
             if friendUids != nil {
                 HStack(spacing: 10) {
-                    ForEach(lastOnboardingViewModel.nicknameArray, id:\.self) { nickName in
+                    ForEach(firebaseManager.nicknameArray, id:\.self) { nickName in
                         VStack(spacing: 0) {
                             ZStack {
                                 Image(systemName: "person.fill")

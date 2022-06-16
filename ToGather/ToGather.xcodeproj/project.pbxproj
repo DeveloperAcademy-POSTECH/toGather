@@ -25,11 +25,12 @@
 		3D4383A828519BD100AD1885 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4383A728519BD100AD1885 /* GoogleService-Info.plist */; };
 		3D4383AB28519DA700AD1885 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AA28519DA700AD1885 /* FirebaseAuth */; };
 		3D4383AD28519DA700AD1885 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AC28519DA700AD1885 /* FirebaseFirestore */; };
-		3D48A6E3285782E500FE6BE8 /* LastOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D48A6E2285782E500FE6BE8 /* LastOnboardingViewModel.swift */; };
 		3D48A6E1285774CD00FE6BE8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3D48A6E0285774CD00FE6BE8 /* .swiftlint.yml */; };
+		3D48A6E3285782E500FE6BE8 /* LastOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D48A6E2285782E500FE6BE8 /* LastOnboardingViewModel.swift */; };
+		3D48A6E5285B008900FE6BE8 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D48A6E4285B008800FE6BE8 /* FirebaseManager.swift */; };
 		3D87D9F62852046100C36346 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3D87D9F52852046100C36346 /* FirebaseStorage */; };
-		3D87D9FD285234E200C36346 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D9FC285234E200C36346 /* OnboardingViewModel.swift */; };
 		3D87D9F928520B6100C36346 /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D9F828520B6100C36346 /* LastOnboardingView.swift */; };
+		3D87D9FD285234E200C36346 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D9FC285234E200C36346 /* OnboardingViewModel.swift */; };
 		4377C1CA28597DD7007DF255 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377C1C628597DD7007DF255 /* ItemData.swift */; };
 		4377C1CB28597DD7007DF255 /* GoalSettingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377C1C728597DD7007DF255 /* GoalSettingTitleView.swift */; };
 		4377C1CC28597DD7007DF255 /* GoalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377C1C828597DD7007DF255 /* GoalItem.swift */; };
@@ -79,6 +80,10 @@
 		35E7789A2856091C0015122A /* AddedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedCircleView.swift; sourceTree = "<group>"; };
 		3D4383A728519BD100AD1885 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D48A6E0285774CD00FE6BE8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		3D48A6E2285782E500FE6BE8 /* LastOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingViewModel.swift; sourceTree = "<group>"; };
+		3D48A6E4285B008800FE6BE8 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		3D87D9F828520B6100C36346 /* LastOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingView.swift; sourceTree = "<group>"; };
+		3D87D9FC285234E200C36346 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		4377C1C628597DD7007DF255 /* ItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		4377C1C728597DD7007DF255 /* GoalSettingTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSettingTitleView.swift; sourceTree = "<group>"; };
 		4377C1C828597DD7007DF255 /* GoalItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalItem.swift; sourceTree = "<group>"; };
@@ -88,9 +93,6 @@
 		763212EF285801630016F8ED /* PinStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinStackView.swift; sourceTree = "<group>"; };
 		763212F0285801630016F8ED /* ApplyFriendIdTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyFriendIdTextView.swift; sourceTree = "<group>"; };
 		763212F1285801630016F8ED /* FriendAdditionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAdditionView.swift; sourceTree = "<group>"; };
-		3D48A6E2285782E500FE6BE8 /* LastOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingViewModel.swift; sourceTree = "<group>"; };
-		3D87D9F828520B6100C36346 /* LastOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingView.swift; sourceTree = "<group>"; };
-		3D87D9FC285234E200C36346 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		764FC72928518CC8007A7415 /* ToGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		764FC72C28518CC8007A7415 /* ToGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGatherApp.swift; sourceTree = "<group>"; };
 		764FC72E28518CC8007A7415 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -181,24 +183,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		4377C1C428597DD7007DF255 /* GoalSetting */ = {
-			isa = PBXGroup;
-			children = (
-				4377C1C528597DD7007DF255 /* View */,
-			);
-			path = GoalSetting;
-			sourceTree = "<group>";
-		};
-		4377C1C528597DD7007DF255 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				4377C1C728597DD7007DF255 /* GoalSettingTitleView.swift */,
-				4377C1C828597DD7007DF255 /* GoalItem.swift */,
-				4377C1C928597DD7007DF255 /* GoalSetting.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		3D87D9F728520B2700C36346 /* LastOnboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +206,24 @@
 				3D48A6E2285782E500FE6BE8 /* LastOnboardingViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4377C1C428597DD7007DF255 /* GoalSetting */ = {
+			isa = PBXGroup;
+			children = (
+				4377C1C528597DD7007DF255 /* View */,
+			);
+			path = GoalSetting;
+			sourceTree = "<group>";
+		};
+		4377C1C528597DD7007DF255 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4377C1C728597DD7007DF255 /* GoalSettingTitleView.swift */,
+				4377C1C828597DD7007DF255 /* GoalItem.swift */,
+				4377C1C928597DD7007DF255 /* GoalSetting.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		763212EA2858014A0016F8ED /* FriendAddition */ = {
@@ -369,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				3D87D9FC285234E200C36346 /* OnboardingViewModel.swift */,
+				3D48A6E4285B008800FE6BE8 /* FirebaseManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -556,7 +559,6 @@
 				3D87D9F928520B6100C36346 /* LastOnboardingView.swift in Sources */,
 				7669F5F52855A33F001DDA0D /* PinStackView.swift in Sources */,
 				7669F6032855A7CD001DDA0D /* TestLogic.swift in Sources */,
-				764FC74628518E03007A7415 /* SwiftUIView.swift in Sources */,
 				E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */,
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
 				763212F4285801630016F8ED /* PinStackView.swift in Sources */,
@@ -574,6 +576,7 @@
 				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
 				E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */,
 				354ED94F285849E9001C726D /* Notification.swift in Sources */,
+				3D48A6E5285B008900FE6BE8 /* FirebaseManager.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
 				354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */,
