@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+let userViewModel = UserViewModel()
+
 struct MainView: View {
     @State var friendsCount  = 0
     @StateObject var viewModel = MainViewModel()
@@ -68,7 +70,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        let userViewModel = UserViewModel()
         MainView().environmentObject(userViewModel)
     }
 }
