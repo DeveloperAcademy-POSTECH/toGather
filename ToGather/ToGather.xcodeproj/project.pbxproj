@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		354ED94628583158001C726D /* TestLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94528583158001C726D /* TestLogic.swift */; };
 		354ED94B2858471B001C726D /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94A2858471B001C726D /* NotificationsView.swift */; };
 		354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94C2858488C001C726D /* NotificaionCell.swift */; };
 		354ED94F285849E9001C726D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94E285849E9001C726D /* Notification.swift */; };
@@ -38,11 +37,6 @@
 		4377C1CC28597DD7007DF255 /* GoalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377C1C828597DD7007DF255 /* GoalItem.swift */; };
 		4377C1CD28597DD7007DF255 /* GoalSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377C1C928597DD7007DF255 /* GoalSetting.swift */; };
 		43C21ED72858D17F0022B49C /* (null) in Sources */ = {isa = PBXBuildFile; };
-		763212F2285801630016F8ED /* AlreadyAddedFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212ED285801630016F8ED /* AlreadyAddedFriendView.swift */; };
-		763212F3285801630016F8ED /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212EE285801630016F8ED /* TitleView.swift */; };
-		763212F4285801630016F8ED /* PinStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212EF285801630016F8ED /* PinStackView.swift */; };
-		763212F5285801630016F8ED /* ApplyFriendIdTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212F0285801630016F8ED /* ApplyFriendIdTextView.swift */; };
-		763212F6285801630016F8ED /* FriendAdditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763212F1285801630016F8ED /* FriendAdditionView.swift */; };
 		764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72C28518CC8007A7415 /* ToGatherApp.swift */; };
 		764FC72F28518CC8007A7415 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72E28518CC8007A7415 /* ContentView.swift */; };
 		764FC73128518CC9007A7415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73028518CC9007A7415 /* Assets.xcassets */; };
@@ -59,7 +53,6 @@
 		7669F5FE2855A46C001DDA0D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7669F5FD2855A46C001DDA0D /* FirebaseFirestore */; };
 		7669F6002855A46C001DDA0D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7669F5FF2855A46C001DDA0D /* FirebaseStorage */; };
 		7669F6032855A7CD001DDA0D /* (null) in Sources */ = {isa = PBXBuildFile; };
-		76A03893285A1191009C9A02 /* SavingStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A03892285A1191009C9A02 /* SavingStatusView.swift */; };
 		76A0389F285A1462009C9A02 /* TestLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A0389E285A1462009C9A02 /* TestLogic.swift */; };
 		E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551882851E80F00C210DA /* ProgressCircle.swift */; };
 		E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519428557E6D00C210DA /* MyProgressCircle.swift */; };
@@ -69,7 +62,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		354ED94528583158001C726D /* TestLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestLogic.swift; path = ToGather/Screens/FriendAddition/ViewModel/TestLogic.swift; sourceTree = SOURCE_ROOT; };
 		354ED94A2858471B001C726D /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		354ED94C2858488C001C726D /* NotificaionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificaionCell.swift; sourceTree = "<group>"; };
 		354ED94E285849E9001C726D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -94,11 +86,6 @@
 		4377C1C728597DD7007DF255 /* GoalSettingTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSettingTitleView.swift; sourceTree = "<group>"; };
 		4377C1C828597DD7007DF255 /* GoalItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalItem.swift; sourceTree = "<group>"; };
 		4377C1C928597DD7007DF255 /* GoalSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSetting.swift; sourceTree = "<group>"; };
-		763212ED285801630016F8ED /* AlreadyAddedFriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlreadyAddedFriendView.swift; sourceTree = "<group>"; };
-		763212EE285801630016F8ED /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
-		763212EF285801630016F8ED /* PinStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinStackView.swift; sourceTree = "<group>"; };
-		763212F0285801630016F8ED /* ApplyFriendIdTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyFriendIdTextView.swift; sourceTree = "<group>"; };
-		763212F1285801630016F8ED /* FriendAdditionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAdditionView.swift; sourceTree = "<group>"; };
 		764FC72928518CC8007A7415 /* ToGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		764FC72C28518CC8007A7415 /* ToGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGatherApp.swift; sourceTree = "<group>"; };
 		764FC72E28518CC8007A7415 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,7 +98,6 @@
 		7669F5F22855A33F001DDA0D /* ApplyFriendIdTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyFriendIdTextView.swift; sourceTree = "<group>"; };
 		7669F5F32855A33F001DDA0D /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		7669F5F42855A33F001DDA0D /* AlreadyAddedFriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlreadyAddedFriendView.swift; sourceTree = "<group>"; };
-		76A03892285A1191009C9A02 /* SavingStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingStatusView.swift; sourceTree = "<group>"; };
 		76A0389E285A1462009C9A02 /* TestLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLogic.swift; sourceTree = "<group>"; };
 		E20551882851E80F00C210DA /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		E205519428557E6D00C210DA /* MyProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProgressCircle.swift; sourceTree = "<group>"; };
@@ -234,34 +220,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		763212EA2858014A0016F8ED /* FriendAddition */ = {
-			isa = PBXGroup;
-			children = (
-				763212EB285801560016F8ED /* View */,
-				76A0388C285A0D8C009C9A02 /* ViewModel */,
-			);
-			path = FriendAddition;
-			sourceTree = "<group>";
-		};
-		763212EB285801560016F8ED /* View */ = {
-			isa = PBXGroup;
-			children = (
-				763212ED285801630016F8ED /* AlreadyAddedFriendView.swift */,
-				763212F0285801630016F8ED /* ApplyFriendIdTextView.swift */,
-				763212F1285801630016F8ED /* FriendAdditionView.swift */,
-				763212EF285801630016F8ED /* PinStackView.swift */,
-				763212EE285801630016F8ED /* TitleView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		764FC72028518CC8007A7415 = {
 			isa = PBXGroup;
 			children = (
 				3D48A6E0285774CD00FE6BE8 /* .swiftlint.yml */,
 				764FC72B28518CC8007A7415 /* ToGather */,
 				764FC72A28518CC8007A7415 /* Products */,
-				76A0388F285A114E009C9A02 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -315,7 +279,6 @@
 				354ED947285846E6001C726D /* Notifications */,
 				7669F5EE2855A2ED001DDA0D /* FriendAddition */,
 				E20551AA2856C3AF00C210DA /* SettingPeriod */,
-				763212EA2858014A0016F8ED /* FriendAddition */,
 				E205519328557E4500C210DA /* ProgressCircle */,
 				35AD2D182851D4730089E1C3 /* Main */,
 				764FC72C28518CC8007A7415 /* ToGatherApp.swift */,
@@ -413,22 +376,6 @@
 				7669F5F32855A33F001DDA0D /* TitleView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		76A0388C285A0D8C009C9A02 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		76A0388F285A114E009C9A02 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				354ED94528583158001C726D /* TestLogic.swift */,
-				76A03892285A1191009C9A02 /* SavingStatusView.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		76A0389D285A1462009C9A02 /* ViewModel */ = {
@@ -569,7 +516,6 @@
 			files = (
 				3D87D9FD285234E200C36346 /* OnboardingViewModel.swift in Sources */,
 				354ED9532859B561001C726D /* NotificationsViewModel.swift in Sources */,
-				763212F5285801630016F8ED /* ApplyFriendIdTextView.swift in Sources */,
 				E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */,
 				35AD2D222851E1FB0089E1C3 /* (null) in Sources */,
 				35AD2D222851E1FB0089E1C3 /* (null) in Sources */,
@@ -579,12 +525,9 @@
 				35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */,
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
 				4377C1CA28597DD7007DF255 /* ItemData.swift in Sources */,
-				763212F6285801630016F8ED /* FriendAdditionView.swift in Sources */,
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
-				763212F2285801630016F8ED /* AlreadyAddedFriendView.swift in Sources */,
 				4377C1CC28597DD7007DF255 /* GoalItem.swift in Sources */,
-				763212F3285801630016F8ED /* TitleView.swift in Sources */,
 				43C21ED72858D17F0022B49C /* (null) in Sources */,
 				E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */,
 				35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */,
@@ -596,7 +539,6 @@
 				E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */,
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
 				354ED9552859D4DE001C726D /* Constants.swift in Sources */,
-				763212F4285801630016F8ED /* PinStackView.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				4377C1CB28597DD7007DF255 /* GoalSettingTitleView.swift in Sources */,
 				354ED94B2858471B001C726D /* NotificationsView.swift in Sources */,
@@ -613,13 +555,11 @@
 				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
 				E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */,
 				354ED94F285849E9001C726D /* Notification.swift in Sources */,
-				76A03893285A1191009C9A02 /* SavingStatusView.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
 				354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */,
 				35AD2D1D2851D4730089E1C3 /* MainViewModel.swift in Sources */,
 				35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */,
-				354ED94628583158001C726D /* TestLogic.swift in Sources */,
 				35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
