@@ -59,7 +59,7 @@
 		E205519728557EEB00C210DA /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519628557EEB00C210DA /* DummyData.swift */; };
 		E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551982855812B00C210DA /* FriendsProgressCircle.swift */; };
 		E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */; };
-		E25FCD24285B1B60002EC9C0 /* TimeLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25FCD23285B1B60002EC9C0 /* TimeLogic.swift */; };
+		E2513668285B1F02008DD9C3 /* TimeLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2513667285B1F02008DD9C3 /* TimeLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,7 +106,7 @@
 		E20551982855812B00C210DA /* FriendsProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProgressCircle.swift; sourceTree = "<group>"; };
 		E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColorInProgressCircle.swift; sourceTree = "<group>"; };
 		E20551AB2856C3CA00C210DA /* SettingPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPeriod.swift; sourceTree = "<group>"; };
-		E25FCD23285B1B60002EC9C0 /* TimeLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLogic.swift; sourceTree = "<group>"; };
+		E2513667285B1F02008DD9C3 /* TimeLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,7 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				3D87D9FC285234E200C36346 /* OnboardingViewModel.swift */,
-				E25FCD23285B1B60002EC9C0 /* TimeLogic.swift */,
+				E2513667285B1F02008DD9C3 /* TimeLogic.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -524,7 +524,7 @@
 				35AD2D222851E1FB0089E1C3 /* (null) in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
-				E25FCD24285B1B60002EC9C0 /* TimeLogic.swift in Sources */,
+				E2513668285B1F02008DD9C3 /* TimeLogic.swift in Sources */,
 				354ED95128587BC8001C726D /* CustomProgressBar.swift in Sources */,
 				35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */,
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
