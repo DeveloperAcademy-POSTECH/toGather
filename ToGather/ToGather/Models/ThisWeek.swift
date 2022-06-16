@@ -7,8 +7,7 @@
 
 import Foundation
 
-
-struct ThisWeek: Identifiable {
+struct ThisWeek: Identifiable, Codable {
     
     let presentWeek: Int
     let didSave: Bool
