@@ -59,8 +59,7 @@
 		E205519728557EEB00C210DA /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519628557EEB00C210DA /* DummyData.swift */; };
 		E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551982855812B00C210DA /* FriendsProgressCircle.swift */; };
 		E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */; };
-		E20551AC2856C3CA00C210DA /* SettingPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551AB2856C3CA00C210DA /* SettingPeriod.swift */; };
-		E2239AFB28596E6500839197 /* TimeLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2239AFA28596E6400839197 /* TimeLogic.swift */; };
+		E2513668285B1F02008DD9C3 /* TimeLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2513667285B1F02008DD9C3 /* TimeLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,7 +106,7 @@
 		E20551982855812B00C210DA /* FriendsProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProgressCircle.swift; sourceTree = "<group>"; };
 		E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColorInProgressCircle.swift; sourceTree = "<group>"; };
 		E20551AB2856C3CA00C210DA /* SettingPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPeriod.swift; sourceTree = "<group>"; };
-		E2239AFA28596E6400839197 /* TimeLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLogic.swift; sourceTree = "<group>"; };
+		E2513667285B1F02008DD9C3 /* TimeLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,8 +354,8 @@
 		764FC74428518DFB007A7415 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				E2239AFA28596E6400839197 /* TimeLogic.swift */,
 				3D87D9FC285234E200C36346 /* OnboardingViewModel.swift */,
+				E2513667285B1F02008DD9C3 /* TimeLogic.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -525,11 +524,11 @@
 				35AD2D222851E1FB0089E1C3 /* (null) in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
+				E2513668285B1F02008DD9C3 /* TimeLogic.swift in Sources */,
 				354ED95128587BC8001C726D /* CustomProgressBar.swift in Sources */,
 				35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */,
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
 				4377C1CA28597DD7007DF255 /* ItemData.swift in Sources */,
-				E2239AFB28596E6500839197 /* TimeLogic.swift in Sources */,
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
 				4377C1CC28597DD7007DF255 /* GoalItem.swift in Sources */,
