@@ -66,7 +66,7 @@ struct SettingPeriodView: View {
 
     private var slider: some View {
         let priceAndPeriod: some View = Text("매주   ")
-                                        + Text("\(saveAmountOfWeek, specifier: "%4.f")")
+                                        + Text("\(saveAmountOfWeek, specifier: "%4.1f")")
                                             .foregroundColor(ColorStyle.blue.color)
                                             .font(.system(size: 26, weight: .bold))
                                         + Text("만원")
