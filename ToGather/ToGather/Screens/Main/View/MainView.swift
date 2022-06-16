@@ -92,7 +92,7 @@ extension MainView {
                 VStack(spacing: 4) {
                     Button {
                         
-                        NotificationsViewModel.uploadNotification(type: .mySavingDay)
+                        NotificationsViewModel.uploadNotification(toUid: <#String#>, type: .mySavingDay)
                         viewModel.addFriend(friend:
                                                 FriendsProgressCircle(id: 2,
                                                                       color: RGBColorInProgressCircle.friendColor2,
