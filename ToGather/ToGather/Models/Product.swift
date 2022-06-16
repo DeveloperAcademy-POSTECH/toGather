@@ -8,6 +8,8 @@
 import Foundation
 
 struct Product {
+// TODO: 추후에 사용 예정
+//    let id: String
     let productName: String
     let productPrice: Double
     let imageUrl: String
@@ -15,9 +17,9 @@ struct Product {
 
 extension Product {
     static let sampleData: [Product] = [
-      Product(productName: "imac", productPrice: 180, imageUrl: "imac"),
-      Product(productName: "iPadmini", productPrice: 70, imageUrl: "iPadmini"),
-      Product(productName: "iphone13", productPrice: 100, imageUrl: "iphone13"),
-     Product(productName: "macbook", productPrice: 200, imageUrl: "macbook")
+        Product(productName: "imac", productPrice: 180, imageUrl: "imac"),
+        Product(productName: "ipad", productPrice: 70, imageUrl: "ipad"),
+        Product(productName: "iphone", productPrice: 100, imageUrl: "iphone"),
+        Product(productName: "macbook", productPrice: 200, imageUrl: "macbook")
     ]
 }
