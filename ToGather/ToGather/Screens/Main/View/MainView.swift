@@ -88,7 +88,7 @@ extension MainView {
                 VStack(spacing: 4) {
                     Button {
                         // TODO: - 인자에 toUid 업데이트 예정
-                        NotificationsViewModel.uploadNotification(type: .mySavingDay)
+                        FirebaseManager.shared.uploadNotification(type: .mySavingDay)
                          viewModel.addFriend(friend:
                             FriendsProgressCircle(id: 2, user: dummyFriend2, color: RGBColorInProgressCircle.friendColor2)
                         )

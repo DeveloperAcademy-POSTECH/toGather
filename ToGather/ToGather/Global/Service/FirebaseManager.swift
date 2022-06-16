@@ -11,7 +11,8 @@ import SwiftUI
 final class FirebaseManager: ObservableObject {
     @EnvironmentObject var onboardingViewModel: UserViewModel
     @Published var nicknameArray: [String] = []
-    
+    @Published var notification = [Notification]()
+
     static let shared = FirebaseManager()
     
     /// user 컬렉션에서 friend의 uid로 검색하여 친구 닉네임 가져오기
@@ -64,4 +65,62 @@ final class FirebaseManager: ObservableObject {
             }
         }
     }
+    
+    
+    /// 알림들 가져오기
+    func fetchNotifications() {
+        do {
+            let user  = try UserDefaults.standard.getObject(forKey: "User", castTo: User.self)
+            let notificationQuery = COLLECTION_NOTIFICATIONS
+                .document(user.id!).collection("user-notifications")
+                .order(by: "timestamp", descending: true)
+            
+            notificationQuery.getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else {return}
+                
+                self.notification = documents.compactMap({ try? $0.data(as: Notification.self)})
+                
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    // TODO: - 매개변수 수정 필요
+    /// 알림 업로드하기
+     func uploadNotification(/**toUid uid: String,**/type : NotificationType) {
+        do {
+            let user  = try UserDefaults.standard.getObject(forKey: "User", castTo: User.self)
+            
+            let notificationData: [String: Any] = ["username" : user.nickname,
+                                       "authPicUrl" : "",
+                                       "timestamp" : Timestamp(date: Date()),
+                                       "type": type.rawValue,
+                                       "uid" : user.id ?? ""]
+            COLLECTION_NOTIFICATIONS
+                .document()
+                .collection("user-notifications")
+                .addDocument(data: notificationData)
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    // 서버에서 데이터 가져오기
+    func fetchUser(withUid uid : String, completion: @escaping (User) -> Void){
+        Firestore.firestore().collection("users")
+            .document(uid)
+            .getDocument { snapshot, _ in
+                guard let snapshot = snapshot else {return}
+                
+                guard let user = try? snapshot.data(as: User.self) else {return}
+                completion(user)
+
+            }
+    }
+    
+    
 }

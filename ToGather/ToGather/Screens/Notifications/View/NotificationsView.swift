@@ -13,11 +13,15 @@ struct NotificationsView: View {
     // MARK: - Properties
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewModel = NotificationsViewModel()
+    
+    init() {
+        FirebaseManager.shared.fetchNotifications()
+    }
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVStack(alignment:.leading,spacing: 0) {
-                    ForEach(viewModel.notification,id: \.id) { notification in
+                    ForEach(FirebaseManager.shared.notification,id: \.id) { notification in
                         // FIXME: - 친구에 따른 컬러부분 수정필요
                         NotificaionCell(notification: notification, friendColor: .friendGreen01)
                     }

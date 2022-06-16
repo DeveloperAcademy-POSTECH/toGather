@@ -36,5 +36,15 @@ final class UserViewModel: ObservableObject {
         let uuid = UIDevice.current.identifierForVendor!.uuidString
         let uidIndex = uuid.index(uuid.startIndex, offsetBy: 5)
         userData.id = String(uuid[...uidIndex])
+        
+        UserDefaults.standard.set(uidIndex,forKey: "User")
+    }
+    // 유저의 정보
+    func fetchUser() {
+        guard let uid = UserDefaults.standard.string(forKey: "User") else { return}
+        FirebaseManager.shared.fetchUser(withUid: uid) { user in
+            self.userData = user
+        }
+
     }
 }
