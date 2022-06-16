@@ -9,11 +9,13 @@ import SwiftUI
 import Firebase
 struct NotificaionCell: View {
     
+    // MARK: - Properties
     let notification : Notification
-    let color : Color? = .clear
+    let friendColor : Color
+    
     var body: some View {
-        
         switch notification.type {
+        
         case .newFriend:
             newFriendCell
                 .frame(minWidth:0,
@@ -42,18 +44,20 @@ struct NotificaionCell: View {
     }
 }
 
+// MARK: - Preview
 struct NotificaionCell_Previews: PreviewProvider {
     static var previews: some View {
         NotificaionCell(notification: Notification(username: "Max",
-                                                   profileImageUrl: "",
+                                                   authPicUrl: "",
                                                    timestamp: Timestamp(date:Date()),
                                                    type: .friendSavigState,
-                                                   uid: ""))
+                                                   uid: ""), friendColor: .friendGreen01)
     }
 }
 
+// MARK: - Extension for subviews
 extension NotificaionCell {
-    
+    // 새로운 친구 알림
     var newFriendCell: some View {
         VStack(alignment: .leading, spacing: 14) {
             HStack {
@@ -80,10 +84,10 @@ extension NotificaionCell {
         }
         
     }
-    
+    // 저축일 알림
     var mySavingDayCell: some View {
         
-        VStack(alignment: .leading,spacing: 10){
+        VStack(alignment: .leading,spacing: 10) {
             HStack {
                 Text("오늘은 저축하는 날이에요!")
                     .font(.system(size: 14))
@@ -95,19 +99,19 @@ extension NotificaionCell {
                 Text("13회차")
                     .font(.system(size: 14,weight: .bold))
                     .foregroundColor(.pointColor)
-                HStack(spacing: 2){
+                HStack(spacing: 2) {
                     Text("100,000").font(.callout).bold()
                     Text("을 저축해주세요").font(.system(size: 14))
                 }
             }
         }
     }
-    
+    // 친구저축상태 알림
     var friendSavigStateCell: some View {
-        HStack(spacing: 46){
-            VStack(alignment: .leading,spacing:14){
-                //알림글
-                VStack(alignment: .leading,spacing: 8){
+        HStack(spacing: 46) {
+            VStack(alignment: .leading,spacing:14) {
+                // 알림글
+                VStack(alignment: .leading,spacing: 8) {
                     HStack {
                         Group {
                             Text("Cook") +
@@ -125,7 +129,7 @@ extension NotificaionCell {
                             .font(.system(size: 14))
                         Text("2,300,000")
                             .font(.callout)
-                            .foregroundColor(.basicGreen)
+                            .foregroundColor(self.friendColor)
                             .bold()
                     }
                 }
@@ -134,9 +138,9 @@ extension NotificaionCell {
                     Text("저축 완료율")
                         .font(.system(size: 12))
                         .foregroundColor(.basicBlack.opacity(0.6))
-                    HStack{
-                        //수정필요
-                        CustomProgressBar(currentProgress: 0.5, color: .basicGreen)
+                    HStack {
+                        // FIXME: - 수정필요
+                        CustomProgressBar(currentProgress: 0.5, color: self.friendColor)
                             .frame(width: 200,height: 10)
                         
                         Text("83%")
@@ -145,9 +149,8 @@ extension NotificaionCell {
                     
                 }
                 
-                
             }
-            //인증 사진
+            // TODO: - 친구 인증 사진 연동해야함.
             Image("test")
                 .resizable()
                 .frame(width: 60, height: 80)

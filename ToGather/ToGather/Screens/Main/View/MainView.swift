@@ -24,14 +24,14 @@ struct MainView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarLeading) {
-                        Text("친구 저축현황")
-                            .font(.system(size: 22, weight: .bold))
-                    }
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                      toolbarButtonsView
-                    }
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    Text("친구 저축현황")
+                        .font(.system(size: 22, weight: .bold))
                 }
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    toolbarButtonsView
+                }
+            }
         }
     }
 }
@@ -46,17 +46,15 @@ extension MainView {
     
     var toolbarButtonsView: some View {
         HStack {
-                NavigationLink {
-                    NotificationsView()
-                        .navigationTitle("알림")
-                        .navigationBarHidden(true)
-                     
-
-                } label: {
-                    Image(systemName: "bell.badge.fill")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle( .red, Color.basicBlack.opacity(0.4))
-                }
+            NavigationLink {
+                NotificationsView()
+                    .navigationTitle("알림")
+                    .navigationBarHidden(true)
+            } label: {
+                Image(systemName: "bell.badge.fill")
+                    .symbolRenderingMode(.palette)
+                    .foregroundStyle( .red, Color.basicBlack.opacity(0.4))
+            }
             .foregroundColor(.basicBlack.opacity(0.4))
             Button {
                 //
@@ -77,14 +75,10 @@ extension MainView {
                 VStack(spacing: 4) { // 하드코딩 수정필요
                     Button {
                         viewModel.addFriend(friend:
-                            FriendsProgressCircle(id: 1,
-                                                  color: RGBColorInProgressCircle.friendColor1,
-                                                  progressPercent: DummyData.sampleSavings[1].progressPercent,
-                                                  friendName: "Tim",
-                                                  friendProduct: DummyData.sampleSavings[1].goalProduct)
+                            FriendsProgressCircle(id: 1, user: dummyFriend1, color: RGBColorInProgressCircle.friendColor1)
                         )
                     } label: {
-                        AddedCircleView(color: .basicRed)
+                        AddedCircleView(color: .friendRed01)
                     }
                     Text("친구랑 같이 저축하기")
                         .font(.callout) // 16px
@@ -93,15 +87,13 @@ extension MainView {
             } else if viewModel.getFriendList().count == 1 {
                 VStack(spacing: 4) {
                     Button {
-                        viewModel.addFriend(friend:
-                            FriendsProgressCircle(id: 2,
-                                                  color: RGBColorInProgressCircle.friendColor2,
-                                                  progressPercent: DummyData.sampleSavings[2].progressPercent,
-                                                  friendName: "Steve",
-                                                  friendProduct: DummyData.sampleSavings[2].goalProduct)
+                        // TODO: - 인자에 toUid 업데이트 예정
+                        NotificationsViewModel.uploadNotification(type: .mySavingDay)
+                         viewModel.addFriend(friend:
+                            FriendsProgressCircle(id: 2, user: dummyFriend2, color: RGBColorInProgressCircle.friendColor2)
                         )
                     } label: {
-                        AddedCircleView(color: .basicPurple)
+                        AddedCircleView(color: .friendPurple01)
                     }
                     Text("친구 추가")
                         .font(.callout) // 16px
@@ -111,13 +103,11 @@ extension MainView {
                 VStack(spacing: 4) {
                     Button {
                         viewModel.addFriend(friend:
-                            FriendsProgressCircle(id: 3,
-                                                  color: RGBColorInProgressCircle.friendColor3,
-                                                  progressPercent: DummyData.sampleSavings[3].progressPercent,
-                                                  friendName: "Cook",
-                                                  friendProduct: DummyData.sampleSavings[3].goalProduct)                    )} label: {
-                                                      AddedCircleView(color: .basicGreen)
-                                                  }
+                            FriendsProgressCircle(id: 3, user: dummyFriend3, color: RGBColorInProgressCircle.friendColor3)
+                        )    
+                    } label: {
+                        AddedCircleView(color: .friendGreen01)
+                    }
                     Text("친구 추가")
                         .font(.callout) // 16px
                         .fontWeight(.semibold)
@@ -133,11 +123,14 @@ extension MainView {
                 Spacer()
             }
             .padding(.horizontal)
-            MyProgressCircle()
+            MyProgressCircle(user: dummyMy)
                 .padding(.horizontal)
         }
     }
     var bottomView: some View {
+        
+//        @State var
+    
         VStack {
             HStack {
                 Text("13회")
@@ -164,7 +157,7 @@ extension MainView {
             .background(Color.basicBlack.opacity(0.3))
             .cornerRadius(30)
             .padding(.horizontal)
-           // .padding(.bottom, 40)
+            // .padding(.bottom, 40)
         }
     }
 }
