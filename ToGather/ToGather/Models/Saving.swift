@@ -10,7 +10,7 @@ import Firebase
 
 struct Saving : Codable {
     var goalProduct: Product
-    let uid: String
+//    let uid: String
     var goalWeeks: Int // 처음 설정한 목표 저축 기간. ~주
     
     // MARK: 일단 테스트 용으로 값을 입력 받음. 나중에는 자동으로 계산.
