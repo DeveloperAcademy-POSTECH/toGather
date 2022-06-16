@@ -50,21 +50,21 @@ enum ItemData: CaseIterable {
         case .thirdHeadline:
             return "300만원"
         case .firstItem:
-            return "goal-airpod"
+            return "airpodsPro"
         case .secondItem:
-            return "goal-applewatch"
+            return "appleWatch"
         case .thirdItem:
-            return "goal-ipad"
+            return "iPadmini"
         case .fourthItem:
-            return "goal-iphone"
+            return "iphone13"
         case .fifthItem:
-            return "goal-macbook-air"
+            return "macbook"
         case .sixthItem:
-            return "goal-imac"
+            return "imac"
         case .seventhItem:
-            return "goal-macbook-pro"
+            return "macbookPro"
         case .eighthItem:
-            return "goal-macmini"
+            return "macStudio"
         }
     }
     func price() -> String {

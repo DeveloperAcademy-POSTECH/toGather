@@ -7,9 +7,7 @@
 
 import Foundation
 
-struct Product {
-// TODO: 추후에 사용 예정
-//    let id: String
+struct Product : Codable {
     let productName: String
     let productPrice: Double
     let imageUrl: String

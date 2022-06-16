@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 class MainViewModel: ObservableObject {
    
    @Published private var friendsList = [FriendsProgressCircle]()
