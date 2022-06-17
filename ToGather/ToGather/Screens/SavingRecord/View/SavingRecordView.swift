@@ -42,22 +42,35 @@ struct SavingRecordView: View {
                     .fontWeight(.bold)
             }
             if let image = image {
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 180, height: 260)
-                    .clipShape(Rectangle())
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 10)
-                            .strokeBorder(lineWidth: 1)
-                            .foregroundColor(.pointColor)
-                    }
-                    .background(.clear)
-                    .cornerRadius(10)
-                    .padding(20)
-                    .onTapGesture {
+                ZStack(alignment: .topTrailing) {
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 180, height: 260)
+                        .clipShape(Rectangle())
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 10)
+                                .strokeBorder(lineWidth: 1)
+                                .foregroundColor(.clear)
+                        }
+                        .background(.clear)
+                        .cornerRadius(10)
+                        .padding(20)
+                    Circle()
+                        .fill(.white)
+                        .frame(width: 20, height: 20)
+                        .padding(10)
+                    Button {
                         self.image = nil
+                    } label: {
+                        Image(systemName: "minus.circle.fill")
+                            .frame(width: 20, height: 20)
+                            .clipShape(Circle())
+                            .foregroundColor(.alertRed)
                     }
+                    .padding(10)
+                    
+                }
             } else {
                 Rectangle()
                     .frame(width: 180, height: 260)
