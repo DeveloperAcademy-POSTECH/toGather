@@ -13,6 +13,7 @@
 		354ED95128587BC8001C726D /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED95028587BC8001C726D /* CustomProgressBar.swift */; };
 		354ED9552859D4DE001C726D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED9542859D4DE001C726D /* Constants.swift */; };
 		354ED957285A396B001C726D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED956285A396B001C726D /* UserDefaults+Extension.swift */; };
+		354ED95A285C449B001C726D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED959285C449B001C726D /* SettingView.swift */; };
 		35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0728519C520089E1C3 /* ThisWeek.swift */; };
 		35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0828519C520089E1C3 /* Saving.swift */; };
 		35AD2D0D28519C520089E1C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0928519C520089E1C3 /* User.swift */; };
@@ -69,6 +70,7 @@
 		354ED95028587BC8001C726D /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
 		354ED9542859D4DE001C726D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		354ED956285A396B001C726D /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		354ED959285C449B001C726D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		35AD2D0728519C520089E1C3 /* ThisWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThisWeek.swift; sourceTree = "<group>"; };
 		35AD2D0828519C520089E1C3 /* Saving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saving.swift; sourceTree = "<group>"; };
 		35AD2D0928519C520089E1C3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -144,6 +146,22 @@
 			children = (
 				354ED94A2858471B001C726D /* NotificationsView.swift */,
 				354ED94C2858488C001C726D /* NotificaionCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		354ED958285C4489001C726D /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				354ED95B285C44A5001C726D /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		354ED95B285C44A5001C726D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				354ED959285C449B001C726D /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,6 +295,7 @@
 				35AD2D182851D4730089E1C3 /* Main */,
 				764FC72C28518CC8007A7415 /* ToGatherApp.swift */,
 				764FC72E28518CC8007A7415 /* ContentView.swift */,
+				354ED958285C4489001C726D /* Setting */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -542,6 +561,7 @@
 				E2DDBABB285AA95600E376D0 /* MoneyLogic.swift in Sources */,
 				E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */,
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
+				354ED95A285C449B001C726D /* SettingView.swift in Sources */,
 				354ED9552859D4DE001C726D /* Constants.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				3DC6AEF8285B165F004FA4DB /* SavingStatusView.swift in Sources */,
