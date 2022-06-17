@@ -7,14 +7,17 @@
 
 import SwiftUI
 
+
 struct SavingStatusNavigationView: View {
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         NavigationView {
             SavingStatusView()
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
-                            print("Edit button was tapped")
+                            presentationMode.wrappedValue.dismiss()
                         } label: {
                             Image(systemName: "arrow.backward")
                         }
