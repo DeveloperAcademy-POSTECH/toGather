@@ -9,9 +9,10 @@ import Firebase
 import SwiftUI
 
 final class FirebaseManager: ObservableObject {
-    @EnvironmentObject var userViewModel: UserViewModel
+//    @EnvironmentObject var userViewModel: UserViewModel
     @Published var nicknameArray: [String] = []
     @Published var notification = [Notification]()
+    @Published var userViewModel = UserViewModel()
 
     static let shared = FirebaseManager()
     
