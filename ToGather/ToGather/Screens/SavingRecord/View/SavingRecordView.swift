@@ -128,6 +128,7 @@ struct SavingRecordView: View {
                     .cornerRadius(30)
                     .padding(.horizontal, 20)
             })
+            .disabled(image == nil ? true : false)
         } // VStack
     }
 }
