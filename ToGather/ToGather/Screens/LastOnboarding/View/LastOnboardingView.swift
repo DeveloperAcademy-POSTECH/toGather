@@ -16,13 +16,13 @@ struct LastOnboardingView: View {
 
     var friendUids: [String]? = ["AcBafb", "DYYGUP"] // dummy data
     
-    init(onboardingViewModel: OnBoardingViewModel) {
-        
-        if let friendUids = friendUids {
-            FirebaseManager.shared.fetchFriendNickname(friendUids: friendUids)
-        }
-        self._onboardingViewModel = StateObject(wrappedValue: onboardingViewModel)
-    }
+//    init(onboardingViewModel: OnBoardingViewModel) {
+//
+////        if !userViewModel.friendUids.isEmpty {
+////            FirebaseManager.shared.fetchFriendNickname(friendUids: userViewModel.friendUids)
+////        }
+//        self._onboardingViewModel = StateObject(wrappedValue: onboardingViewModel)
+//    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -70,9 +70,10 @@ struct LastOnboardingView: View {
             .font(.system(size: 16, weight: .regular))
             .padding(.bottom, 30)
             
-            if friendUids != nil {
+            if !userViewModel.friendNickname.isEmpty {
                 HStack(spacing: 10) {
                     ForEach(FirebaseManager.shared.nicknameArray, id:\.self) { nickName in
+//                    ForEach(userViewModel.friendNickname, id:\.self) { nickName in
                         VStack(spacing: 0) {
                             ZStack {
                                 Image(systemName: "person.fill")

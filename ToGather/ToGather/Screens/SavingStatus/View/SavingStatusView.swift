@@ -144,7 +144,7 @@ extension SavingStatusView {
                                 .frame(width: 149, height: 239)
                                 .foregroundColor(.pointColor)
                                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 10))
-                            Badge(name: .constant("오늘"), addedFriendList: .constant(["name", "cafe"]))
+                            Badge(name: .constant("오늘"), addedFriendDic: .constant(["ss":"ss", "aa":"aa"]), addedFriendList: .constant(["name", "cafe"]))
                         }
                         Text("오늘").foregroundColor(.basicBlack.opacity(0.6)).padding(EdgeInsets(top: 6, leading: 0, bottom: 0, trailing: 10))
                     }

@@ -15,6 +15,8 @@ final class UserViewModel: ObservableObject {
                                                     goalWeeks: 1, startDate: "", savingDayOfTheWeek: "", weekInfo: [ThisWeek]()))
     @Published var friendUids: [String] = []
     
+    @Published var friendNickname: [String]  = []
+    
     /// goal-setting 뷰에서 사용, savingData 인스턴스에 목표 product 추가
     func addProduct(product: Product) {
         userData.saveInfo.goalProduct = product
@@ -40,5 +42,11 @@ final class UserViewModel: ObservableObject {
         let uuid = UIDevice.current.identifierForVendor!.uuidString
         let uidIndex = uuid.index(uuid.startIndex, offsetBy: 5)
         userData.id = String(uuid[...uidIndex])
+    }
+    
+    func nicknameUpgrade(str : [String]) {
+        if !str.isEmpty {
+            friendNickname = str
+        }
     }
 }
