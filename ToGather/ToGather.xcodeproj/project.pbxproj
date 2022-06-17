@@ -14,6 +14,7 @@
 		354ED9552859D4DE001C726D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED9542859D4DE001C726D /* Constants.swift */; };
 		354ED957285A396B001C726D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED956285A396B001C726D /* UserDefaults+Extension.swift */; };
 		354ED95A285C449B001C726D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED959285C449B001C726D /* SettingView.swift */; };
+		354ED95D285C73AF001C726D /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED95C285C73AE001C726D /* CheckboxToggleStyle.swift */; };
 		35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0728519C520089E1C3 /* ThisWeek.swift */; };
 		35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0828519C520089E1C3 /* Saving.swift */; };
 		35AD2D0D28519C520089E1C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0928519C520089E1C3 /* User.swift */; };
@@ -71,6 +72,7 @@
 		354ED9542859D4DE001C726D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		354ED956285A396B001C726D /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		354ED959285C449B001C726D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		354ED95C285C73AE001C726D /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		35AD2D0728519C520089E1C3 /* ThisWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThisWeek.swift; sourceTree = "<group>"; };
 		35AD2D0828519C520089E1C3 /* Saving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saving.swift; sourceTree = "<group>"; };
 		35AD2D0928519C520089E1C3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				354ED95028587BC8001C726D /* CustomProgressBar.swift */,
+				354ED95C285C73AE001C726D /* CheckboxToggleStyle.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				76A0389F285A1462009C9A02 /* TestLogic.swift in Sources */,
 				E2DDBABB285AA95600E376D0 /* MoneyLogic.swift in Sources */,
 				E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */,
+				354ED95D285C73AF001C726D /* CheckboxToggleStyle.swift in Sources */,
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
 				354ED95A285C449B001C726D /* SettingView.swift in Sources */,
 				354ED9552859D4DE001C726D /* Constants.swift in Sources */,
@@ -716,7 +720,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToGather/Preview Content\"";
-				DEVELOPMENT_TEAM = 3GJ7T3N35Y;
+				DEVELOPMENT_TEAM = J85NQ6YL4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -745,7 +749,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToGather/Preview Content\"";
-				DEVELOPMENT_TEAM = 3GJ7T3N35Y;
+				DEVELOPMENT_TEAM = J85NQ6YL4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
