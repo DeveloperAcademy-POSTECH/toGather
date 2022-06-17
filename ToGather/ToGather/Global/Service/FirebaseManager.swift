@@ -67,7 +67,6 @@ final class FirebaseManager: ObservableObject {
         }
     }
     
-    
     /// 알림들 가져오기
     func fetchNotifications() {
         do {
@@ -122,6 +121,4 @@ final class FirebaseManager: ObservableObject {
 
             }
     }
-    
-    
 }

@@ -28,10 +28,9 @@ final class UserViewModel: ObservableObject {
     }
     
     /// friend-addition 뷰에서 사용, friendUids array에 친구 uid 추가
-    func getFriendUid(friendUids: [String]) {
-        self.friendUids = friendUids
-        FirebaseManager.shared.fetchFriendNickname(friendUids: friendUids)
-    }
+//    func getFriendUid(friendUids: [String]) {
+//        self.friendUids = friendUids
+//    }
     
     /// 장비의 uuid를 userData 인스턴스와 savingData 인스턴스에 각각 추가
     func addUid() {
@@ -39,7 +38,7 @@ final class UserViewModel: ObservableObject {
         let uidIndex = uuid.index(uuid.startIndex, offsetBy: 5)
         userData.id = String(uuid[...uidIndex])
         
-//        UserDefaults.standard.set(uidIndex,forKey: "User")
+        UserDefaults.standard.set(userData.id,forKey: "User")
     }
     /// 유저의 정보
     func fetchUser() {
