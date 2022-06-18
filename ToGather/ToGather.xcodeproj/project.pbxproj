@@ -15,6 +15,7 @@
 		354ED957285A396B001C726D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED956285A396B001C726D /* UserDefaults+Extension.swift */; };
 		354ED95A285C449B001C726D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED959285C449B001C726D /* SettingView.swift */; };
 		354ED95D285C73AF001C726D /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED95C285C73AE001C726D /* CheckboxToggleStyle.swift */; };
+		354ED968285D91AB001C726D /* DisplayModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED967285D91AB001C726D /* DisplayModeView.swift */; };
 		35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0728519C520089E1C3 /* ThisWeek.swift */; };
 		35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0828519C520089E1C3 /* Saving.swift */; };
 		35AD2D0D28519C520089E1C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D0928519C520089E1C3 /* User.swift */; };
@@ -74,6 +75,7 @@
 		354ED956285A396B001C726D /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		354ED959285C449B001C726D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		354ED95C285C73AE001C726D /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
+		354ED967285D91AB001C726D /* DisplayModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModeView.swift; sourceTree = "<group>"; };
 		35AD2D0728519C520089E1C3 /* ThisWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThisWeek.swift; sourceTree = "<group>"; };
 		35AD2D0828519C520089E1C3 /* Saving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saving.swift; sourceTree = "<group>"; };
 		35AD2D0928519C520089E1C3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				354ED959285C449B001C726D /* SettingView.swift */,
+				354ED967285D91AB001C726D /* DisplayModeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				354ED957285A396B001C726D /* UserDefaults+Extension.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
 				7669F5F82855A33F001DDA0D /* TitleView.swift in Sources */,
+				354ED968285D91AB001C726D /* DisplayModeView.swift in Sources */,
 				7669F5F92855A33F001DDA0D /* AlreadyAddedFriendView.swift in Sources */,
 				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
 				E2513680285B3796008DD9C3 /* UserViewModel.swift in Sources */,

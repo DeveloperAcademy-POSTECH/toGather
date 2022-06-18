@@ -13,7 +13,7 @@ struct MainView: View {
     
     init() {
         // 네비게이션 타이틀 사이즈 조절
-            UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 24)!]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont.systemFont(ofSize: 24,weight: .bold)]
         }
     var body: some View {
         NavigationView {
