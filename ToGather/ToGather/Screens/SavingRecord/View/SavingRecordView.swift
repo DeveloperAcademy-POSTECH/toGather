@@ -122,7 +122,7 @@ struct SavingRecordView: View {
             }, label: {
                 Text("이번주 저축 완료하기")
                     .fontWeight(.bold)
-                    .frame(width: UIScreen.main.bounds.width - 40, height: 46)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
                     .foregroundColor(.white)
                     .background(image != nil ? Color.pointColor : Color.black03)
                     .cornerRadius(30)
