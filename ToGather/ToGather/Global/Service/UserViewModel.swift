@@ -15,6 +15,7 @@ final class UserViewModel: ObservableObject {
                                                     goalWeeks: 1, startDate: "", savingDayOfTheWeek: "월", weekInfo: [ThisWeek]()))
     @Published var friendUids: [String] = []
     
+    
     /// goal-setting 뷰에서 사용, savingData 인스턴스에 목표 product 추가
     func addProduct(product: Product) {
         userData.saveInfo.goalProduct = product
