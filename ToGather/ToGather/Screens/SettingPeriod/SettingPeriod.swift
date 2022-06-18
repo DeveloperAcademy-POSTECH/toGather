@@ -143,19 +143,12 @@ struct SettingPeriodView: View {
     }
 
     private var nextButton: some View {
-            return VStack {
+        VStack {
             NavigationLink(destination: EmptyView()) {
                 ZStack {
-                    if selectedDay != nil {
-                        RoundedRectangle(cornerRadius: 30)
-                                .foregroundColor(ColorStyle.blue.color)
-                                .frame(width: 350, height: 46, alignment: .center)
-                        
-                    } else {
-                        RoundedRectangle(cornerRadius: 30)
-                                .foregroundColor(ColorStyle.blackTen.color)
-                                .frame(width: 350, height: 46, alignment: .center)
-                    }
+                    RoundedRectangle(cornerRadius: 30)
+                        .foregroundColor(selectedDay != nil ? Color.pointColor : Color.black03)
+                            .frame(width: 350, height: 46, alignment: .center)
                     Text("다음").foregroundColor(.white)
                         .fontWeight(.semibold)
                 }
