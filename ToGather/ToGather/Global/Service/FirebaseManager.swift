@@ -15,7 +15,7 @@ final class FirebaseManager: ObservableObject {
     @Published var userViewModel = UserViewModel()
 
     static let shared = FirebaseManager()
-    
+    private init() {}
     /// user 컬렉션에서 friend의 uid로 검색하여 친구 닉네임 가져오기
     func fetchFriendNickname(friendUids: [String]) {
         let db = Firestore.firestore()
