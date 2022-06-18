@@ -30,6 +30,7 @@ struct ToGatherApp: App {
 //                .environmentObject(UserViewModel())
             let userViewModel = UserViewModel()
             MainView().environmentObject(userViewModel)
+
         }
     }
 }
