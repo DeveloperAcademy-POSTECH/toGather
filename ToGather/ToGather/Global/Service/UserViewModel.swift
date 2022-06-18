@@ -10,7 +10,9 @@ import SwiftUI
 import UIKit
 
 final class UserViewModel: ObservableObject {
-    @Published var userData = User(id: "", nickname: "", creationDate: "", isAlarmOn: true,
+    @Published var mode : DisplayMode = .light
+
+    @Published var userData = User(id: "31SF29", nickname: "miller", creationDate: "", isAlarmOn: true,
                                    saveInfo: Saving(goalProduct: Product(productName: "", productPrice: 0, imageUrl: ""),
                                                     goalWeeks: 1, savingDayOfTheWeek: "", weekInfo: [ThisWeek]()))
     @Published var friendUids: [String] = []

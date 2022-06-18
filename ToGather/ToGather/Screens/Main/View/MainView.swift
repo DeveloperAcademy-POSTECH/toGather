@@ -10,6 +10,11 @@ import SwiftUI
 struct MainView: View {
     @State var friendsCount  = 0
     @StateObject var viewModel = MainViewModel()
+    
+    init() {
+        // 네비게이션 타이틀 사이즈 조절
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont.systemFont(ofSize: 24,weight: .bold)]
+        }
     var body: some View {
         NavigationView {
             VStack {
@@ -56,8 +61,10 @@ extension MainView {
                     .foregroundStyle( .red, Color.basicBlack.opacity(0.4))
             }
             .foregroundColor(.basicBlack.opacity(0.4))
-            Button {
-                //
+         
+            NavigationLink {
+                SettingView()
+                    .navigationBarHidden(true)
             } label: {
                 Image(systemName: "gear")
             }
