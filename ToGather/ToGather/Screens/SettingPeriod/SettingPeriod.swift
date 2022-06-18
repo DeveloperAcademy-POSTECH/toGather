@@ -65,14 +65,14 @@ struct SettingPeriodView: View {
     }
 
     private var slider: some View {
-        let priceAndPeriod: some View = Text("매주   ")
+        let priceAndPeriod: some View = Text("매주  ")
                                         + Text("\(saveAmountOfWeek, specifier: "%4.1f")")
                                             .foregroundColor(ColorStyle.blue.color)
                                             .font(.system(size: 26, weight: .bold))
                                         + Text("만원")
                                             .foregroundColor(ColorStyle.blue.color)
                                             .font(.system(size: 26, weight: .bold))
-                                        + Text("    기간 ")
+                                        + Text("   기간 ")
                                         + Text("\(goalWeek, specifier: "%2.d")")
                                             .foregroundColor(ColorStyle.blue.color)
                                             .font(.system(size: 26, weight: .bold))
@@ -151,16 +151,15 @@ struct SettingPeriodView: View {
                         RoundedRectangle(cornerRadius: 30)
                                 .foregroundColor(ColorStyle.blue.color)
                                 .frame(width: 350, height: 46, alignment: .center)
-                        Text("다음").foregroundColor(.white)
-                            .fontWeight(.semibold)
+                        
                     } else {
                         RoundedRectangle(cornerRadius: 30)
                                 .foregroundColor(ColorStyle.blackTen.color)
                                 .frame(width: 350, height: 46, alignment: .center)
-                        Text("다음").foregroundColor(.white)
-                            .fontWeight(.semibold)
                     }
-                }
+                    Text("다음").foregroundColor(.white)
+                        .fontWeight(.semibold)
+                }.offset(y: -20)
             }
             Spacer(minLength: 36)
         }
