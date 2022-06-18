@@ -33,7 +33,7 @@ struct SettingPeriodView: View {
             slider
             Spacer(minLength: 15)
             selectDay
-            Spacer(minLength: 70)
+            Spacer(minLength: 57)
             nextButton
         }.ignoresSafeArea()
     }
@@ -115,8 +115,7 @@ struct SettingPeriodView: View {
             HStack {
                 Text("저축할 요일").font(.system(size: 24, weight: .bold))
                 Spacer()
-            }.padding(.horizontal, 20)
-            Spacer(minLength: 34)
+            }.padding(.horizontal, 26)
             HStack {
                 ForEach(days, id: \.self) { day in
                     if day == selectedDay {
@@ -139,7 +138,7 @@ struct SettingPeriodView: View {
                         }
                     }
                 }
-            }.padding(.horizontal, 10)
+            }
         }
     }
 
@@ -159,7 +158,7 @@ struct SettingPeriodView: View {
                     }
                     Text("다음").foregroundColor(.white)
                         .fontWeight(.semibold)
-                }.offset(y: -20)
+                }
             }
             Spacer(minLength: 36)
         }
