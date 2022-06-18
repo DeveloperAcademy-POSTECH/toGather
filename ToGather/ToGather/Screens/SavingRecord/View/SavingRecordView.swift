@@ -35,8 +35,9 @@ struct SavingRecordView: View {
     var totalSavedNum: Int {user.saveInfo.totalSavedNum}
     var progressPercent: Double {user.saveInfo.progressPercent}
 
-
-    @State var imageTitle: String?
+    @State var showImagePicker: Bool = false
+    @State var uiImage: UIImage? = nil
+    
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             HStack(alignment: .center, spacing: 0) {
@@ -68,7 +69,8 @@ struct SavingRecordView: View {
                     .font(.system(size: 40))
                     .fontWeight(.bold)
             }
-            if let image = image {
+            if let uiImage = uiImage, let image = Image(uiImage: uiImage){
+                
                 ZStack(alignment: .topTrailing) {
                     image
                         .resizable()
@@ -88,7 +90,7 @@ struct SavingRecordView: View {
                         .frame(width: 20, height: 20)
                         .padding(10)
                     Button {
-                        self.image = nil
+                        self.uiImage = nil
                     } label: {
                         Image(systemName: "minus.circle.fill")
                             .frame(width: 20, height: 20)
@@ -121,7 +123,7 @@ struct SavingRecordView: View {
                     }
                     .sheet(isPresented: $showImagePicker) {
                         ImagePicker(sourceType: .photoLibrary) { image in
-                            self.image = Image(uiImage: image)
+                            self.uiImage = image
                         }
                     }
             }
@@ -141,7 +143,7 @@ struct SavingRecordView: View {
             }
             .padding(.bottom, 16)
             Button(action: {
-                guard let _ = image else {
+                guard let _ = uiImage else {
                     return
                 }
                 // image 파일이 존재할 때 Firebase에 쓰는 기능
@@ -151,17 +153,17 @@ struct SavingRecordView: View {
                     .fontWeight(.bold)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
                     .foregroundColor(.white)
-                    .background(image != nil ? Color.pointColor : Color.black03)
+                    .background(uiImage != nil ? Color.pointColor : Color.black03)
                     .cornerRadius(30)
                     .padding(.horizontal, 20)
             })
-            .disabled(image == nil ? true : false)
+            .disabled(uiImage == nil ? true : false)
         } // VStack
     }
 }
 
 struct SavingRecordView_Previews: PreviewProvider {
     static var previews: some View {
-        SavingRecordView(imageTitle: nil).environmentObject(userViewModel)
+        SavingRecordView(showImagePicker: false, uiImage: nil).environmentObject(userViewModel)
     }
 }
