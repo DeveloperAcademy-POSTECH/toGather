@@ -8,8 +8,35 @@
 import SwiftUI
 
 struct SavingRecordView: View {
-    @State var showImagePicker: Bool = false
-    @State var image: Image? = nil
+    
+    @EnvironmentObject var userViewModel: UserViewModel
+    var user: User {userViewModel.dummyUserData}
+    
+    var saving: Saving {user.saveInfo}
+   
+    // product
+    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
+    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    
+    // time
+    var lastDate: String {user.saveInfo.lastDate}
+    var startDate: String {user.saveInfo.startDate}
+    var savingDay: String {user.saveInfo.savingDayOfTheWeek}
+    var currentWeek: Int {user.saveInfo.currentWeek}
+    @State var deadLine = ""
+    
+    // money
+    var savingAmountOfWeek: Double {user.saveInfo.savingAmountOfWeek}
+    var totalSavingAmount: Double {user.saveInfo.totalSavingAmount}
+    var goalSavingAmount: Double {user.saveInfo.goalSavingAmount}
+    
+    // progress
+    var totalFailedNum: Int {user.saveInfo.totalFailedNum}
+    var totalSavedNum: Int {user.saveInfo.totalSavedNum}
+    var progressPercent: Double {user.saveInfo.progressPercent}
+
+
+    @State var imageTitle: String?
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             HStack(alignment: .center, spacing: 0) {
@@ -27,9 +54,9 @@ struct SavingRecordView: View {
                 .frame(height: 44)
             VStack(alignment: .center, spacing: 0) {
                 HStack(alignment: .center, spacing: 6) {
-                    Text("7월 31일 목요일")
+                    Text("\(getToday()) \(savingDay)요일")
                         .font(.system(size: 20))
-                    Text("13회차")
+                    Text("\(currentWeek)회차")
                         .font(.system(size: 24))
                         .fontWeight(.bold)
                         .foregroundColor(.pointColor)
@@ -37,7 +64,7 @@ struct SavingRecordView: View {
                 Spacer()
                     .frame(height: 50)
                 Text("이번주 저축할 돈")
-                Text("100,000")
+                Text("\(numberFormatUnitOfManwon(value : savingAmountOfWeek))")
                     .font(.system(size: 40))
                     .fontWeight(.bold)
             }
@@ -107,7 +134,7 @@ struct SavingRecordView: View {
             HStack(alignment: .bottom, spacing: 6) {
                 Text("지금까지 모은 돈")
                     .font(.system(size: 14))
-                Text("1,300,000")
+                Text("\(numberFormatUnitOfManwon(value : totalSavingAmount))")
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                     .foregroundColor(.pointColor)
@@ -135,6 +162,6 @@ struct SavingRecordView: View {
 
 struct SavingRecordView_Previews: PreviewProvider {
     static var previews: some View {
-        SavingRecordView(showImagePicker: false, image: nil)
+        SavingRecordView(imageTitle: nil).environmentObject(userViewModel)
     }
 }

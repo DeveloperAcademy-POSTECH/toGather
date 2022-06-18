@@ -34,6 +34,14 @@ func stringToDate(date: String) -> Date {
 }
 
 /// 요일 구하기
+func getToday(date: Date = Date()) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MMM dd일"
+    formatter.locale = Locale(identifier: "ko_KR")
+    return formatter.string(from: Date())
+}
+
+/// ~월 ~일 형식 ex) 7월 31일
 func getDay(date: Date = Date()) -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "E"
