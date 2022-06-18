@@ -26,10 +26,9 @@ struct ToGatherApp: App {
         }
     var body: some Scene {
         WindowGroup {
-//            LastOnboardingView()
-//                .environmentObject(UserViewModel())
+            LastOnboardingView()
+                .environmentObject(UserViewModel())
             //MainView()
-            SavingRecordView()
         }
     }
 }
