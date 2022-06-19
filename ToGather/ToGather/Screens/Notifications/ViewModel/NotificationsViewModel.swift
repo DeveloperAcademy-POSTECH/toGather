@@ -15,6 +15,10 @@ class NotificationsViewModel : ObservableObject {
     
     init() {
         fetchNotifications()
+        notification.append(Notification(id: "0", username: "Miller", authPicUrl: "", timestamp: Timestamp(date: Date()), type: .newFriend, uid: "d"))
+        notification.append(Notification(id: "1", username: "Miller", authPicUrl: "", timestamp: Timestamp(date: Date()), type: .friendSavigState, uid: "d"))
+        notification.append(Notification(id: "2", username: "Miller", authPicUrl: "", timestamp: Timestamp(date: Date()), type: .mySavingDay, uid: "d"))
+        
     }
     
     // MARK: - function related to firebase 
