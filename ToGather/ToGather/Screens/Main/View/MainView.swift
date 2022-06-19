@@ -190,9 +190,8 @@ extension MainView {
                     .font(.system(size: 14))
                     .foregroundColor(.basicBlack.opacity(0.6))
             }
-            Button {
-                //
-            } label: {
+            
+            NavigationLink(destination: SavingRecordView().navigationBarBackButtonHidden(true).navigationBarHidden(true)) {
                 Label {
                     Text("\(deadLine)")
                         .font(.callout)
@@ -203,12 +202,11 @@ extension MainView {
                     Image(systemName: "clock")
                         .foregroundColor(.white)
                 }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
+                .background(Color.basicBlack.opacity(0.3))
+                .cornerRadius(30)
+                .padding(.horizontal)
             }
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
-            .background(Color.basicBlack.opacity(0.3))
-            .cornerRadius(30)
-            .padding(.horizontal)
-            // .padding(.bottom, 40)
         }
     }
 }

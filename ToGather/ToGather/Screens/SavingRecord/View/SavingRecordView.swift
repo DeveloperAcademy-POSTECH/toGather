@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SavingRecordView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @EnvironmentObject var userViewModel: UserViewModel
     var user: User {userViewModel.dummyUserData}
@@ -35,14 +36,13 @@ struct SavingRecordView: View {
     var totalSavedNum: Int {user.saveInfo.totalSavedNum}
     var progressPercent: Double {user.saveInfo.progressPercent}
 
-
     @State var imageTitle: String?
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             HStack(alignment: .center, spacing: 0) {
                 Spacer()
                 Button(action: {
-                    print("x mark")
+                    presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Image(systemName: "xmark")
                         .font(.system(size: 24))
