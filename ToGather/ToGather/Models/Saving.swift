@@ -14,7 +14,7 @@ struct Saving : Codable {
     var goalWeeks: Int // 처음 설정한 목표 저축 기간. ~주
     
     // MARK: 일단 테스트 용으로 값을 입력 받음. 나중에는 자동으로 계산.
-    let startDate: String // 첫번째 저축 시작 날짜.
+    var startDate: String // 첫번째 저축 시작 날짜.
 
     var savingDayOfTheWeek: String // 저축 요일
 

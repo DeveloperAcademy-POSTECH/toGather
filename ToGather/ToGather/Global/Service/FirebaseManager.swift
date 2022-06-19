@@ -9,10 +9,11 @@ import Firebase
 import SwiftUI
 
 final class FirebaseManager: ObservableObject {
-//    @EnvironmentObject var onboardingViewModel: UserViewModel
     @Published var nicknameArray: [String] = []
     @Published var onboardingViewModel = UserViewModel()
     static let shared = FirebaseManager()
+    
+    private init() {}
     
     /// user 컬렉션에서 friend의 uid로 검색하여 친구 닉네임 가져오기
     func fetchFriendNickname(friendUids: [String]) {
@@ -92,7 +93,7 @@ final class FirebaseManager: ObservableObject {
         firestore.collection("saving").addDocument(data: [
             "goalProductName": onboardingViewModel.userData.saveInfo.goalProduct.productName,
             "goalWeeks": onboardingViewModel.userData.saveInfo.goalWeeks,
-            "startDate": "", // startDate 계산법 현재 미구현
+            "startDate": onboardingViewModel.userData.saveInfo.startDate, // startDate 계산법 현재 미구현
             "savingDayOfTheWeek": onboardingViewModel.userData.saveInfo.savingDayOfTheWeek,
         ]) { err in
             if let err = err {
