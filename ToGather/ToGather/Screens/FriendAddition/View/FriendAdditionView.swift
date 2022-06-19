@@ -77,7 +77,18 @@ struct FriendAdditionView: View {
             NoFriendTextView(isFriendWrong: $noFriendId)
             if addedFriendDic.isEmpty {
                 HStack {
-                    LaterAddButtonView()
+                    NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel), label: {
+                        ZStack {
+                            Text("나중에 추가하기")
+                                .font(.system(size: 16))
+                                .frame(width: 102, height: 19)
+                                .foregroundColor(.basicBlack.opacity(0.6))
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 122, height: 39)
+                                .foregroundColor(.basicBlack.opacity(0.05))
+                            
+                        }
+                    })
                     Spacer()
                 }.padding(EdgeInsets(top: 31, leading: 20, bottom: 0, trailing: 0))
             } else {
