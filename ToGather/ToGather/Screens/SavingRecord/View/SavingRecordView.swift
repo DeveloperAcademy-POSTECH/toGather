@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SavingRecordView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @EnvironmentObject var userViewModel: UserViewModel
     var user: User {userViewModel.dummyUserData}
@@ -37,13 +38,13 @@ struct SavingRecordView: View {
 
     @State var showImagePicker: Bool = false
     @State var uiImage: UIImage? = nil
-    
+  
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             HStack(alignment: .center, spacing: 0) {
                 Spacer()
                 Button(action: {
-                    print("x mark")
+                    presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Image(systemName: "xmark")
                         .font(.system(size: 24))
