@@ -34,6 +34,14 @@ func stringToDate(date: String) -> Date {
 }
 
 /// 요일 구하기
+func getToday(date: Date = Date()) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MMM dd일"
+    formatter.locale = Locale(identifier: "ko_KR")
+    return formatter.string(from: Date())
+}
+
+/// ~월 ~일 형식 ex) 7월 31일
 func getDay(date: Date = Date()) -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "E"
@@ -41,8 +49,8 @@ func getDay(date: Date = Date()) -> String {
     return formatter.string(from: date)
 }
 
-/// 저축 요일을 정한 후 첫번째 저축 날짜 구하기
-func GetFirstSavingDate(setDay: String, appStartDate: String) -> String {
+/// 저축 요일을 정한 후 appStartDate기반으로 첫번째 저축 날짜 구하기
+func getFirstSavingDate(setDay: String, appStartDate: String) -> String {
     let dayOfWeek = ["월" : 0, "화" : 1, "수" : 2, "목" : 3, "금" : 4, "토" : 5, "일" : 6]
     let firstSavingDate: Date
     
@@ -60,7 +68,7 @@ func GetFirstSavingDate(setDay: String, appStartDate: String) -> String {
     return "error"
 }
 
-/// 현재 주차 구하기
+/// 현재 주차 구하기, firstSavingDate, 현재시간 기반으로 계산
 func getCurrentWeek(from firstSavingDate: String) -> Int {
     let firstSavingDate: Date = stringToDate(date: firstSavingDate)
     
@@ -99,7 +107,7 @@ func getLastSavingDate(firstSavingDate: String, totalWeek: Int) -> String {
     return dateToString(date: lastSavingDate)
 }
 
-/// 저축 데드라인 구하기
+/// 저축 데드라인 구하기. firstSavingDate, 현재 주차기반으로 계산
 func getRemainTime(firstSavingDate: String) -> String {
     let curretWeek: Int = getCurrentWeek(from: firstSavingDate)
     let firstSavingDate: Date = stringToDate(date: firstSavingDate)
@@ -107,11 +115,26 @@ func getRemainTime(firstSavingDate: String) -> String {
     let now = Date()
     let dateGap = Calendar.current.dateComponents([.day, .hour, .minute, .second], from: now, to: deadLine)
     
+    // TODO: 초 제거 필요.디버깅용
     if case let (d?, h?, m?, s?) = (dateGap.day, dateGap.hour, dateGap.minute, dateGap.second) {
-        return "\(d)일 \(h)시 \(m)분 \(s)초"
+        return "\(d)일 \(h)시간 \(m)분 \(s)초"
     }
     return "error"
 }
+
+//struct TimeLogicTest: View {
+//
+//    @State var remaindDate: String = getRemainTime(firstSavingDate: "20220615")
+//    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+//
+//    var body: some View {
+//        VStack {
+//            Text(remaindDate).onReceive(timer) {_ in
+//                self.remaindDate = getRemainTime(firstSavingDate: "20220615") }
+//            Text("\(getLastSavingDate(firstSavingDate: "20220601",totalWeek: 1))")
+//        }
+//    }
+//}
 
 struct TimeLogicTest: View {
 
@@ -126,6 +149,7 @@ struct TimeLogicTest: View {
         }
     }
 }
+
 
 struct TimeLogicTest_Previews: PreviewProvider {
     static var previews: some View {

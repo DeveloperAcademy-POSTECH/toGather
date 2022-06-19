@@ -72,22 +72,6 @@ struct FriendAdditionView: View {
                         text = ""
                     }
                 }
-                
-//                if status {
-//                    if let friend = isPinExistValue(inputString: result) {
-//
-//                        if (addedFriendDic[text] == nil) {
-//                            addedFriendDic.updateValue(friend, forKey: text)
-//                            addedFriendList.append(friend)
-//                        }
-//                    } else {
-//                        noFriendId = true
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-//                        text = ""
-//                    }
-//                }
-                
             })
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
             NoFriendTextView(isFriendWrong: $noFriendId)
@@ -100,6 +84,7 @@ struct FriendAdditionView: View {
                 AlreadyAddedFriendView(addedFriendDic: $addedFriendDic, addedFriendList: $addedFriendList)
             }
             Spacer()
+            if onboardingViewModel.isFirstOn {
             NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel).onAppear(perform: {
                 userViewModel.getFriendUid(friendUids: Array(addedFriendDic.keys))
                 if !addedFriendDic.isEmpty {
@@ -116,6 +101,7 @@ struct FriendAdditionView: View {
                     .padding(.horizontal, 20)
             })
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+            }
         }
         .ignoresSafeArea(.keyboard)
             

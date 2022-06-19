@@ -2,7 +2,7 @@
 //  StartView.swift
 //  ToGather
 //
-//  Created by yudonlee on 2022/06/19.
+//  Created by yudonlee on 2022/06/16.
 //
 
 import SwiftUI
@@ -24,4 +24,3 @@ struct StartView_Previews: PreviewProvider {
         StartView()
     }
 }
-

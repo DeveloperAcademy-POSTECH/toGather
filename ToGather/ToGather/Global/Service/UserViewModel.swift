@@ -10,12 +10,16 @@ import SwiftUI
 import UIKit
 
 final class UserViewModel: ObservableObject {
-    @Published var userData = User(id: "", nickname: "", creationDate: "", isAlarmOn: true,
-                                   saveInfo: Saving(goalProduct: Product(productName: "airpodsPro", productPrice: 30, imageUrl: "airpodsPro"),
-                                                    goalWeeks: 1, startDate: "", savingDayOfTheWeek: "", weekInfo: [ThisWeek]()))
-    @Published var friendUids: [String] = []
-    
     @Published var friendNickname: [String]  = []
+    @Published var mode : DisplayMode = .light
+
+    @Published var userData = User(id: "31SF29", nickname: "miller", creationDate: "", isAlarmOn: true,
+                                   saveInfo: Saving(goalProduct: Product(productName: "", productPrice: 0, imageUrl: ""),
+                                                    goalWeeks: 1, savingDayOfTheWeek: "", weekInfo: [ThisWeek]()))    
+    @Published var dummyUserData = dummyFriend1
+ 
+     @Published var friendUids: [String] = []
+    
     
     /// goal-setting 뷰에서 사용, savingData 인스턴스에 목표 product 추가
     func addProduct(product: Product) {

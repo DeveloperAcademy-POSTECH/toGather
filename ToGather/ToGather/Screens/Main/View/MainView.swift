@@ -7,9 +7,45 @@
 
 import SwiftUI
 
+let userViewModel = UserViewModel()
+
 struct MainView: View {
     @State var friendsCount  = 0
     @StateObject var viewModel = MainViewModel()
+    
+    @EnvironmentObject var userViewModel: UserViewModel
+    var user: User {userViewModel.userData}
+    
+    var saving: Saving {user.saveInfo}
+   
+    // product
+    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
+    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    
+    // time
+    var lastDate: String {user.saveInfo.lastDate}
+    var startDate: String {user.saveInfo.startDate}
+    var savingDay: String {user.saveInfo.savingDayOfTheWeek}
+    var savingAmountOfWeek: Double {user.saveInfo.savingAmountOfWeek}
+    var currentWeek: Int {user.saveInfo.currentWeek}
+    @State var deadLine = ""
+    
+    // money
+    var totalSavingAmount: Double {user.saveInfo.totalSavingAmount}
+    var goalSavingAmount: Double {user.saveInfo.goalSavingAmount}
+    
+    // progress
+    var totalFailedNum: Int {user.saveInfo.totalFailedNum}
+    var totalSavedNum: Int {user.saveInfo.totalSavedNum}
+    var progressPercent: Double {user.saveInfo.progressPercent}
+
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    init() {
+        // 네비게이션 타이틀 사이즈 조절
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont.systemFont(ofSize: 24,weight: .bold)]
+        }
+  
     var body: some View {
         NavigationView {
             VStack {
@@ -18,6 +54,7 @@ struct MainView: View {
                 Divider()
                     .padding(.horizontal)
                     .padding(.bottom, 25)
+               
                 mySavingsView
                 Spacer(minLength: 68)
                 bottomView
@@ -38,7 +75,7 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView().environmentObject(userViewModel)
     }
 }
 
@@ -56,8 +93,10 @@ extension MainView {
                     .foregroundStyle( .red, Color.basicBlack.opacity(0.4))
             }
             .foregroundColor(.basicBlack.opacity(0.4))
-            Button {
-                //
+         
+            NavigationLink {
+                SettingView()
+                    .navigationBarHidden(true)
             } label: {
                 Image(systemName: "gear")
             }
@@ -70,6 +109,7 @@ extension MainView {
             ForEach(viewModel.getFriendList()) { friendSaving in
                 friendSaving
             }
+            
             // MARK: - 추후 코드변경이 필요.
             if viewModel.getFriendList().isEmpty {
                 VStack(spacing: 4) { // 하드코딩 수정필요
@@ -115,25 +155,34 @@ extension MainView {
             }
         }
     }
+    
     var mySavingsView: some View {
         VStack {
             HStack {
                 Text("나의 저축현황")
                     .font(.system(size: 22, weight: .bold))
                 Spacer()
+
+                NavigationLink(destination: SavingStatusNavigationView()
+                .navigationTitle("알림")
+                .navigationBarHidden(true)){
+                Text("상세보기")
+                    .font(.system(size: 14))
+                    .foregroundColor(.basicBlack.opacity(0.6))
+                    .offset(y:20)
+                }
             }
             .padding(.horizontal)
-            MyProgressCircle(user: dummyMy)
+            MyProgressCircle(user: user)
                 .padding(.horizontal)
         }
     }
-    var bottomView: some View {
-        
-//        @State var
     
+
+    var bottomView: some View {
         VStack {
             HStack {
-                Text("13회")
+                Text("\(currentWeek)회")
                     .font(.callout)
                     .foregroundColor(.pointColor)
                     .bold()
@@ -145,9 +194,11 @@ extension MainView {
                 //
             } label: {
                 Label {
-                    Text("6일 20시간 40분")
+                    Text("\(deadLine)")
                         .font(.callout)
                         .foregroundColor(.white)
+                        .onReceive(timer) {_ in
+                            deadLine = getRemainTime(firstSavingDate: startDate) }
                 } icon: {
                     Image(systemName: "clock")
                         .foregroundColor(.white)
