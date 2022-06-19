@@ -5,11 +5,11 @@ struct Shake: GeometryEffect {
     var amount: CGFloat = 10
     var shakesPerUnit = 3
     var animatableData: CGFloat
-
+    
     func effectValue(size: CGSize) -> ProjectionTransform {
         ProjectionTransform(CGAffineTransform(translationX:
-            amount * sin(animatableData * .pi * CGFloat(shakesPerUnit)),
-            y: 0))
+                                                amount * sin(animatableData * .pi * CGFloat(shakesPerUnit)),
+                                              y: 0))
     }
 }
 
@@ -46,13 +46,13 @@ struct PinStackView: View {
                                         .strokeBorder(.blue, lineWidth: 1.5)
                                         .frame(width: 46, height: 46)
                                         .foregroundColor(.pointColor)
-
+                                    
                                 )
                         } else {
                             RoundedRectangle(cornerRadius: 8)
                                 .frame(width: 46, height: 46)
                                 .foregroundColor(.basicBlack.opacity(0.1))
-
+                            
                         }
                     }
                 }
@@ -66,19 +66,22 @@ struct PinStackView: View {
         let boundPin = Binding<String>(
             get: { self.pin },
             set: { newValue in
-            self.pin = newValue
-            
-            if newValue.count == 1 {
-                wrongFriendInput = false
-            }
-            if newValue.count == self.maxDigits {
-                if !isPinExist(inputString: newValue) {
-                    self.shake()
+                self.pin = newValue
+                
+                if newValue.count == 1 {
+                    wrongFriendInput = false
                 }
-                self.isKeyboardHide.wrappedValue.toggle()
-            }
+                
+                if newValue.count == self.maxDigits {
+                    FirebaseManager.shared.isFriendUidExist(friendUid: newValue) { nickName in
+                        if nickName == nil {
+                            self.shake()
+                        }
+                    }
+                    self.isKeyboardHide.wrappedValue.toggle()
+                }
                 self.handler(newValue, newValue.count == self.maxDigits)
-            
+                
             })
         return TextField("", text: boundPin).introspectTextField { textField in
             textField.isHidden = true
@@ -93,7 +96,7 @@ struct PinStackView: View {
 }
 
 extension PinStackView {
-   
+    
     func getPinNumber(_ index: Int) -> String {
         
         let pin = Array(self.pin)
