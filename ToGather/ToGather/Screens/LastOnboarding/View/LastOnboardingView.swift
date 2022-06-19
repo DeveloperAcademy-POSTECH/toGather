@@ -13,16 +13,8 @@ struct LastOnboardingView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @ObservedObject var lastOnboardingViewModel: LastOnboardingViewModel = LastOnboardingViewModel()
     @StateObject var onboardingViewModel: OnBoardingViewModel
-
-    var friendUids: [String]? = ["AcBafb", "DYYGUP"] // dummy data
     
-//    init(onboardingViewModel: OnBoardingViewModel) {
-//
-////        if !userViewModel.friendUids.isEmpty {
-////            FirebaseManager.shared.fetchFriendNickname(friendUids: userViewModel.friendUids)
-////        }
-//        self._onboardingViewModel = StateObject(wrappedValue: onboardingViewModel)
-//    }
+//    var friendUids: [String]? = ["AcBafb", "DYYGUP"] // dummy data
     
     var body: some View {
         VStack(spacing: 0) {
@@ -36,6 +28,9 @@ struct LastOnboardingView: View {
                     .stroke().fill(ColorStyle.blue.color)
                     .frame(width: 230, height: 230)
                 Image(userViewModel.userData.saveInfo.goalProduct.imageUrl)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 110, height: 110)
             }
             .padding(.bottom, 16)
             
@@ -45,7 +40,8 @@ struct LastOnboardingView: View {
                 Text("주간")
                     .font(.system(size: 20, weight: .regular))
                     .padding(.trailing, 4)
-                Text(String(userViewModel.userData.saveInfo.goalProduct.productPrice))
+                Text(String(Int(userViewModel.userData.saveInfo.goalProduct.productPrice * 10000)))
+                    .font(.system(size: 20, weight: .bold))
             }
             .foregroundColor(ColorStyle.blackHundred.color)
             .padding(.bottom, 50)
@@ -62,9 +58,10 @@ struct LastOnboardingView: View {
             .padding(.bottom, 8)
             
             HStack {
-                Text(userViewModel.userData.saveInfo.startDate)
+                Text(lastOnboardingViewModel.changeDateFormat(date: stringToDate(date: userViewModel.userData.saveInfo.startDate)))
                 Text("-")
-                Text("2022.10.31") // 추후 계산, 현재 하드 코딩
+                Text(lastOnboardingViewModel.calculateDate(date: stringToDate(date: userViewModel.userData.saveInfo.startDate),
+                                                           goalWeeks: userViewModel.userData.saveInfo.goalWeeks))
             }
             .foregroundColor(ColorStyle.blackSixty.color)
             .font(.system(size: 16, weight: .regular))

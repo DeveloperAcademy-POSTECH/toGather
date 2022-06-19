@@ -15,7 +15,7 @@ final class UserViewModel: ObservableObject {
 
     @Published var userData = User(id: "31SF29", nickname: "miller", creationDate: "", isAlarmOn: true,
                                    saveInfo: Saving(goalProduct: Product(productName: "", productPrice: 0, imageUrl: ""),
-                                                    goalWeeks: 1, savingDayOfTheWeek: "", weekInfo: [ThisWeek]()))    
+                                                    goalWeeks: 1, savingDayOfTheWeek: "", weekInfo: [ThisWeek(presentWeek: 1, didSave: false)]))    
     @Published var dummyUserData = dummyFriend1
  
      @Published var friendUids: [String] = []
@@ -34,6 +34,7 @@ final class UserViewModel: ObservableObject {
     func addGoalWeekAndDayOfTheWeek(goalWeeks: Int, dayOfTheWeek: String) {
         userData.saveInfo.goalWeeks = goalWeeks
         userData.saveInfo.savingDayOfTheWeek = dayOfTheWeek
+        userData.saveInfo.startDate = getFirstSavingDate(setDay: dayOfTheWeek, appStartDate: dateToString(date: Date()))
     }
     
     /// friend-addition 뷰에서 사용, friendUids array에 친구 uid 추가
@@ -46,6 +47,7 @@ final class UserViewModel: ObservableObject {
         let uuid = UIDevice.current.identifierForVendor!.uuidString
         let uidIndex = uuid.index(uuid.startIndex, offsetBy: 5)
         userData.id = String(uuid[...uidIndex])
+        UserDefaults.standard.set(userData.id,forKey: "User")
     }
     
     func nicknameUpgrade(str : [String]) {
