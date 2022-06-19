@@ -72,8 +72,7 @@ struct LastOnboardingView: View {
             
             if !userViewModel.friendNickname.isEmpty {
                 HStack(spacing: 10) {
-                    ForEach(FirebaseManager.shared.nicknameArray, id:\.self) { nickName in
-//                    ForEach(userViewModel.friendNickname, id:\.self) { nickName in
+                    ForEach(userViewModel.friendNickname, id:\.self) { nickName in
                         VStack(spacing: 0) {
                             ZStack {
                                 Image(systemName: "person.fill")
