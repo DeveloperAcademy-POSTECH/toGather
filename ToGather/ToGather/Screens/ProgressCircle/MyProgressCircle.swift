@@ -17,7 +17,7 @@ struct MyProgressCircle: View {
     var progressPercent: Double {user.saveInfo.progressPercent}
     var lastDate: String {user.saveInfo.lastDate}
     var goalWeeks: Int {user.saveInfo.goalWeeks}
-    var totalFailedNum: Int = 1 // {user.saveInfo.totalFailedNum}
+    var totalFailedNum: Int {user.saveInfo.totalFailedNum}
 
     let lineStyle = StrokeStyle(lineWidth: 330 * 0.03, lineCap: .round, lineJoin: .round)
     

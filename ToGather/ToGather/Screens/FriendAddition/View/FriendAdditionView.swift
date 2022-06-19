@@ -48,6 +48,9 @@ struct FriendAdditionView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @FocusState var isKeyboardHide: Bool
     
+
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     var body: some View {
         VStack {
             TitleView()
@@ -96,22 +99,35 @@ struct FriendAdditionView: View {
             }
             Spacer()
             if onboardingViewModel.isFirstOn {
-            NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel).onAppear(perform: {
-                userViewModel.getFriendUid(friendUids: Array(addedFriendDic.keys))
-                if !addedFriendDic.isEmpty {
-                    FirebaseManager.shared.fetchFriendNickname(friendUids: Array(addedFriendDic.keys))
-                    userViewModel.nicknameUpgrade(str: Array(addedFriendDic.values))
+                NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel).onAppear(perform: {
+                    userViewModel.getFriendUid(friendUids: Array(addedFriendDic.keys))
+                    if !addedFriendDic.isEmpty {
+                        FirebaseManager.shared.fetchFriendNickname(friendUids: Array(addedFriendDic.keys))
+                        userViewModel.nicknameUpgrade(str: Array(addedFriendDic.values))
+                    }
+                }), label: {
+                    Text("다음")
+                        .fontWeight(.bold)
+                        .frame(width: UIScreen.main.bounds.width - 40, height: 46)
+                        .foregroundColor(.white)
+                        .background(Color.pointColor)
+                        .cornerRadius(30)
+                        .padding(.horizontal, 20)
+                })
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+            } else {
+                Button {
+                    // 친구 추가 코드 필요.
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("완료")
+                        .fontWeight(.bold)
+                        .frame(width: UIScreen.main.bounds.width - 40, height: 46)
+                        .foregroundColor(.white)
+                        .background(Color.pointColor)
+                        .cornerRadius(30)
+                        .padding(.horizontal, 20)
                 }
-            }), label: {
-                Text("다음")
-                    .fontWeight(.bold)
-                    .frame(width: UIScreen.main.bounds.width - 40, height: 46)
-                    .foregroundColor(.white)
-                    .background(Color.pointColor)
-                    .cornerRadius(30)
-                    .padding(.horizontal, 20)
-            })
-            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
             }
         }
         .ignoresSafeArea(.keyboard)
