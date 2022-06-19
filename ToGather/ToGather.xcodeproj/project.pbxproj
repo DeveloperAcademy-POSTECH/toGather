@@ -34,6 +34,7 @@
 		3D87D9F928520B6100C36346 /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D9F828520B6100C36346 /* LastOnboardingView.swift */; };
 		3DC6AEF8285B165F004FA4DB /* SavingStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6AEF7285B165F004FA4DB /* SavingStatusView.swift */; };
 		43621E85285B448000E59CEB /* SavingRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43621E84285B448000E59CEB /* SavingRecordView.swift */; };
+		43621E87285B4C2300E59CEB /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43621E86285B4C2300E59CEB /* ImagePicker.swift */; };
 		4377C1CA28597DD7007DF255 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377C1C628597DD7007DF255 /* ItemData.swift */; };
 		764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72C28518CC8007A7415 /* ToGatherApp.swift */; };
 		764FC72F28518CC8007A7415 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72E28518CC8007A7415 /* ContentView.swift */; };
@@ -90,6 +91,7 @@
 		3D87D9F828520B6100C36346 /* LastOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingView.swift; sourceTree = "<group>"; };
 		3DC6AEF7285B165F004FA4DB /* SavingStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingStatusView.swift; sourceTree = "<group>"; };
 		43621E84285B448000E59CEB /* SavingRecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingRecordView.swift; sourceTree = "<group>"; };
+		43621E86285B4C2300E59CEB /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4377C1C628597DD7007DF255 /* ItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		764FC72928518CC8007A7415 /* ToGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		764FC72C28518CC8007A7415 /* ToGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGatherApp.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				43621E84285B448000E59CEB /* SavingRecordView.swift */,
+				43621E86285B4C2300E59CEB /* ImagePicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				3D48A6E3285782E500FE6BE8 /* LastOnboardingViewModel.swift in Sources */,
 				3D87D9F928520B6100C36346 /* LastOnboardingView.swift in Sources */,
 				7669F5F52855A33F001DDA0D /* PinStackView.swift in Sources */,
+				43621E87285B4C2300E59CEB /* ImagePicker.swift in Sources */,
 				76A0389F285A1462009C9A02 /* TestLogic.swift in Sources */,
 				E2DDBABB285AA95600E376D0 /* MoneyLogic.swift in Sources */,
 				43621E85285B448000E59CEB /* SavingRecordView.swift in Sources */,
