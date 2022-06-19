@@ -10,7 +10,7 @@ import Firebase
 
 // 더미데이터 만들기
 
-let mySavingDate = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1]
+let mySavingDate = [1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1]
 let friendSavingDate1 = [1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1]
 let friendSavingDate2 = [1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1]
 let friendSavingDate3 = [1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1]
@@ -33,8 +33,8 @@ let friendSavingList3 = makeSaveList(data: friendSavingDate3)
 let mySaving = Saving(goalProduct: Product.sampleData[0],
                       goalWeeks: 25,
                       savingDayOfTheWeek: "월",
-                      weekInfo: mySavingList)
-
+                      weekInfo: mySavingList,
+                      appStartDate: "20220501")
 
 let friendSaving1 =  Saving(goalProduct: Product.sampleData[1],
                             goalWeeks: 18,
@@ -54,6 +54,6 @@ let friendSaving3 = Saving(goalProduct: Product.sampleData[3],
                            appStartDate: "20220517")
 
 let dummyMy = User(id: "0", nickname: "Miller", creationDate: "", isAlarmOn: false, saveInfo: mySaving)
-let dummyFriend1 = User(id: "1", nickname: "Lance", creationDate: "", isAlarmOn: false, saveInfo: friendSaving1)
-let dummyFriend2 = User(id: "2", nickname: "Neal", creationDate: "", isAlarmOn: false, saveInfo: friendSaving2)
+let dummyFriend1 = User(id: "1", nickname: "Max", creationDate: "", isAlarmOn: false, saveInfo: friendSaving1)
+let dummyFriend2 = User(id: "2", nickname: "Bit", creationDate: "", isAlarmOn: false, saveInfo: friendSaving2)
 let dummyFriend3 = User(id: "3", nickname: "Eve", creationDate: "", isAlarmOn: false, saveInfo: friendSaving3)

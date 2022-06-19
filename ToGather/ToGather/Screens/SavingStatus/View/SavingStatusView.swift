@@ -12,11 +12,11 @@ struct SavingStatusNavigationView: View {
     
     var body: some View {
         let backButton = Button {presentationMode.wrappedValue.dismiss()} label: {
-                                Image(systemName: "arrow.backward")
-                                    .font(.system(size: 22, weight: .medium))
-                                    .foregroundColor(Color.basicBlack)
-                        }
-
+            Image(systemName: "arrow.backward")
+                .font(.system(size: 22, weight: .medium))
+                .foregroundColor(Color.basicBlack)
+        }
+        
         return NavigationView {
             SavingStatusView()
                 .navigationBarItems(leading: backButton)
@@ -28,8 +28,9 @@ struct SavingStatusNavigationView: View {
 struct SavingStatusView: View {
     
     @EnvironmentObject var userViewModel: UserViewModel
+    @State var isPhotoEdited: Bool = false
     var user: User {userViewModel.userData}
-
+    
     var saving: Saving {user.saveInfo}
     var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
     var productPrice: Double {user.saveInfo.goalProduct.productPrice}
@@ -45,8 +46,8 @@ struct SavingStatusView: View {
     var totalSavedNum: Int {user.saveInfo.totalSavedNum}
     var isDueExtended: Bool {totalFailedNum != 0 ? true : false}
     
-  
-   
+    
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -148,9 +149,15 @@ extension SavingStatusView {
                 .font(.system(size: 16))
                 .foregroundColor(.red)
             Spacer()
-            Text("사진 편집")
-                .font(.system(size: 14))
-                .foregroundColor(.basicBlack.opacity(0.6))
+            
+            Button {
+                isPhotoEdited.toggle()
+            } label: {
+                Text( isPhotoEdited ? "편집 완료" : "사진 편집")
+                    .font(.system(size: 14))
+                    .foregroundColor(isPhotoEdited ? .black02 : .pointColor)
+            }
+            
         }
     }
     //    저축사진에 관한 Grid
@@ -165,7 +172,9 @@ extension SavingStatusView {
                                 .frame(width: 149, height: 239)
                                 .foregroundColor(.pointColor)
                                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 10))
-                            Badge(name: .constant("오늘"), addedFriendDic: .constant(["ss":"ss", "aa":"aa"]), addedFriendList: .constant(["name", "cafe"]))
+                            if isPhotoEdited {
+                                Badge(name: .constant("오늘"), addedFriendDic: .constant(["ss":"ss", "aa":"aa"]), addedFriendList: .constant(["name", "cafe"]))
+                            }
                         }
                         Text("오늘").foregroundColor(.basicBlack.opacity(0.6)).padding(EdgeInsets(top: 6, leading: 0, bottom: 0, trailing: 10))
                     }
