@@ -59,7 +59,7 @@ struct FrSavingStatusView: View {
                 fRsavingSuccess
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 4, trailing: 20))
                 fRSuccessPictureGrid
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 99, trailing: 20))
+                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 60, trailing: 20))
                 
                 fRtwoButtons
                     .padding(EdgeInsets(top: 80, leading: 64, bottom: 64, trailing: 40))
@@ -155,7 +155,7 @@ extension FrSavingStatusView {
             } label: {
                 Text( isPhotoEdited ? "편집 완료" : "사진 편집")
                     .font(.system(size: 14))
-                    .foregroundColor(isPhotoEdited ? .black02 : color)
+                    .foregroundColor(isPhotoEdited ? .black02 : .alertRed)
             }
             
         }
