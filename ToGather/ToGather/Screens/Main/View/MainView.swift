@@ -136,7 +136,7 @@ extension MainView {
                 NavigationLink(destination: SavingStatusNavigationView()
                 .navigationTitle("알림")
                 .navigationBarHidden(true)){
-                Text("상세보기")
+                Text("상세보기 􀯻")
                     .font(.system(size: 14))
                     .foregroundColor(.basicBlack.opacity(0.6))
                     .offset(y:20)
@@ -151,15 +151,13 @@ extension MainView {
 
     var bottomView: some View {
         VStack {
-            HStack {
-                Text("\(currentWeek)회")
+                Text("\(currentWeek)회 ")
                     .font(.callout)
                     .foregroundColor(.pointColor)
                     .bold()
-                Text("저축까지 남은 시간")
+                 + Text("저축까지 남은 시간")
                     .font(.system(size: 14))
                     .foregroundColor(.basicBlack.opacity(0.6))
-            }
             
             NavigationLink(destination: SavingRecordView().navigationBarBackButtonHidden(true).navigationBarHidden(true)) {
                 Label {
