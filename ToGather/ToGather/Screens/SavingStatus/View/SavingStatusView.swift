@@ -7,22 +7,19 @@
 
 import SwiftUI
 
-
-struct SavingStatusNavigationView: View {
-    
+struct SavingStatusNavigationView: View {    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     var body: some View {
-        NavigationView {
-            SavingStatusView()
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            presentationMode.wrappedValue.dismiss()
-                        } label: {
-                            Image(systemName: "arrow.backward")
+        let backButton = Button {presentationMode.wrappedValue.dismiss()} label: {
+                                Image(systemName: "arrow.backward")
+                                    .font(.system(size: 22, weight: .medium))
+                                    .foregroundColor(Color.basicBlack)
                         }
-                    }
-                }
+
+        return NavigationView {
+            SavingStatusView()
+                .navigationBarItems(leading: backButton)
                 .navigationTitle("상세 저축현황")
         }
     }
