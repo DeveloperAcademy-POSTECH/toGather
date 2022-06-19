@@ -124,7 +124,7 @@ extension SavingStatusView {
             VStack(alignment: .leading, spacing: 6) {
                 Text("저축 기간").font(.system(size: 16)).foregroundColor(.basicBlack.opacity(0.6))
                 HStack(alignment: .center, spacing: 6) {
-                    Text("\(startDate) - \(lastDate) ")
+                    Text("\(dateFormatter(date: startDate)) - \(dateFormatter(date:lastDate))")
                         .font(.system(size: 18))
                         .foregroundColor(.basicBlack)
                         .fontWeight(.semibold)
