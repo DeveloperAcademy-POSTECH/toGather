@@ -153,7 +153,7 @@ struct SettingPeriodView: View {
 
     private var nextButton: some View {
             return VStack {
-                NavigationLink(destination: FriendAdditionView(onboardingViewModel: onboardingViewModel).navigationTitle("").navigationBarHidden(true).onAppear(perform: {
+                NavigationLink(destination: FriendAdditionView(onboardingViewModel: onboardingViewModel).navigationTitle("").navigationBarTitleDisplayMode(.inline).onAppear(perform: {
                     guard let selectedDay = selectedDay else {
                         return
                     }
@@ -188,3 +188,4 @@ struct SettingPeriodView: View {
 ////        }
 //    }
 //}
+
