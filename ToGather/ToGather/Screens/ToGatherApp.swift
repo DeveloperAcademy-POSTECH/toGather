@@ -26,10 +26,11 @@ struct ToGatherApp: App {
         }
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .environmentObject(UserViewModel())
-                
-            //MainView()
+//            LastOnboardingView()
+//                .environmentObject(UserViewModel())
+            let userViewModel = UserViewModel()
+            MainView().environmentObject(userViewModel)
+
         }
     }
 }

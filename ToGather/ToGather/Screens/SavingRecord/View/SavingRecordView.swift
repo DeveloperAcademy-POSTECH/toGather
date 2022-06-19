@@ -8,7 +8,36 @@
 import SwiftUI
 
 struct SavingRecordView: View {
-    @State var imageTitle: String?
+    
+    @EnvironmentObject var userViewModel: UserViewModel
+    var user: User {userViewModel.dummyUserData}
+    
+    var saving: Saving {user.saveInfo}
+   
+    // product
+    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
+    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    
+    // time
+    var lastDate: String {user.saveInfo.lastDate}
+    var startDate: String {user.saveInfo.startDate}
+    var savingDay: String {user.saveInfo.savingDayOfTheWeek}
+    var currentWeek: Int {user.saveInfo.currentWeek}
+    @State var deadLine = ""
+    
+    // money
+    var savingAmountOfWeek: Double {user.saveInfo.savingAmountOfWeek}
+    var totalSavingAmount: Double {user.saveInfo.totalSavingAmount}
+    var goalSavingAmount: Double {user.saveInfo.goalSavingAmount}
+    
+    // progress
+    var totalFailedNum: Int {user.saveInfo.totalFailedNum}
+    var totalSavedNum: Int {user.saveInfo.totalSavedNum}
+    var progressPercent: Double {user.saveInfo.progressPercent}
+
+    @State var showImagePicker: Bool = false
+    @State var uiImage: UIImage? = nil
+    
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             HStack(alignment: .center, spacing: 0) {
@@ -26,39 +55,51 @@ struct SavingRecordView: View {
                 .frame(height: 44)
             VStack(alignment: .center, spacing: 0) {
                 HStack(alignment: .center, spacing: 6) {
-                    Text("7월 31일 목요일")
+                    Text("\(getToday()) \(savingDay)요일")
                         .font(.system(size: 20))
-                    Text("13회차")
+                    Text("\(currentWeek)회차")
                         .font(.system(size: 24))
-                        .fontWeight(.medium)
+                        .fontWeight(.bold)
                         .foregroundColor(.pointColor)
-                        
                 }
                 Spacer()
                     .frame(height: 50)
                 Text("이번주 저축할 돈")
-                Text("100,000")
+                Text("\(numberFormatUnitOfManwon(value : savingAmountOfWeek))")
                     .font(.system(size: 40))
                     .fontWeight(.bold)
             }
-            
-            if let imageTitle = imageTitle {
-                Image(imageTitle)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 180, height: 260)
-                    .clipShape(Rectangle())
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 10)
-                            .strokeBorder(lineWidth: 1)
-                            .foregroundColor(.pointColor)
+            if let uiImage = uiImage, let image = Image(uiImage: uiImage){
+                
+                ZStack(alignment: .topTrailing) {
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 180, height: 260)
+                        .clipShape(Rectangle())
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 10)
+                                .strokeBorder(lineWidth: 1)
+                                .foregroundColor(.clear)
+                        }
+                        .background(.clear)
+                        .cornerRadius(10)
+                        .padding(20)
+                    Circle()
+                        .fill(.white)
+                        .frame(width: 20, height: 20)
+                        .padding(10)
+                    Button {
+                        self.uiImage = nil
+                    } label: {
+                        Image(systemName: "minus.circle.fill")
+                            .frame(width: 20, height: 20)
+                            .clipShape(Circle())
+                            .foregroundColor(.alertRed)
                     }
-                    .background(.clear)
-                    .cornerRadius(10)
-                    .padding(20)
-                    .onTapGesture {
-                        self.imageTitle = nil
-                    }
+                    .padding(10)
+                    
+                }
             } else {
                 Rectangle()
                     .frame(width: 180, height: 260)
@@ -78,7 +119,12 @@ struct SavingRecordView: View {
                     }
                     .padding(20)
                     .onTapGesture {
-                        self.imageTitle = "imac"
+                        self.showImagePicker.toggle()
+                    }
+                    .sheet(isPresented: $showImagePicker) {
+                        ImagePicker(sourceType: .photoLibrary) { image in
+                            self.uiImage = image
+                        }
                     }
             }
             HStack(alignment: .center, spacing: 6) {
@@ -90,29 +136,34 @@ struct SavingRecordView: View {
             HStack(alignment: .bottom, spacing: 6) {
                 Text("지금까지 모은 돈")
                     .font(.system(size: 14))
-                Text("1,300,000")
+                Text("\(numberFormatUnitOfManwon(value : totalSavingAmount))")
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                     .foregroundColor(.pointColor)
             }
             .padding(.bottom, 16)
             Button(action: {
+                guard let _ = uiImage else {
+                    return
+                }
+                // image 파일이 존재할 때 Firebase에 쓰는 기능
                 print("이번주 저축 완료하기")
             }, label: {
                 Text("이번주 저축 완료하기")
                     .fontWeight(.bold)
-                    .frame(width: UIScreen.main.bounds.width - 40, height: 46)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
                     .foregroundColor(.white)
-                    .background(Color.pointColor)
+                    .background(uiImage != nil ? Color.pointColor : Color.black03)
                     .cornerRadius(30)
                     .padding(.horizontal, 20)
             })
+            .disabled(uiImage == nil ? true : false)
         } // VStack
     }
 }
 
 struct SavingRecordView_Previews: PreviewProvider {
     static var previews: some View {
-        SavingRecordView(imageTitle: nil)
+        SavingRecordView(showImagePicker: false, uiImage: nil).environmentObject(userViewModel)
     }
 }
