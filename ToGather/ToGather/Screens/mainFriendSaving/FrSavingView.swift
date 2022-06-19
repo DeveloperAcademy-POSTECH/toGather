@@ -1,14 +1,10 @@
-//  SavingStatusView.swift
-//  ToGather
-//
-//  Created by yudonlee on 2022/06/15.
-//
-
 import SwiftUI
 
-struct SavingStatusNavigationView: View {
+struct FrSavingStatusNavigationView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+    var user: User
+    var colorRGB: RGBColorInProgressCircle
+    var color: Color {colorRGB.start}
     var body: some View {
         let backButton = Button {presentationMode.wrappedValue.dismiss()} label: {
             Image(systemName: "arrow.backward")
@@ -17,19 +13,20 @@ struct SavingStatusNavigationView: View {
         }
         
         return NavigationView {
-            SavingStatusView()
+            FrSavingStatusView(user: user, colorRGB: colorRGB)
                 .navigationBarItems(leading: backButton)
-                .navigationTitle("상세 저축현황")
+                .navigationTitle("\(user.nickname) 저축현황")
         }
     }
 }
 
-struct SavingStatusView: View {
+struct FrSavingStatusView: View {
     
-    @EnvironmentObject var userViewModel: UserViewModel
     @State var isPhotoEdited: Bool = false
     @State var dummyImage: [(String, String)] = [("6:13", "1주전"), ("6:6", "2주전"), ("5:30", "3주전")]
-    var user: User {userViewModel.userData}
+    var user: User
+    var colorRGB: RGBColorInProgressCircle
+    var color: Color {colorRGB.start}
     
     var saving: Saving {user.saveInfo}
     var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
@@ -51,72 +48,56 @@ struct SavingStatusView: View {
     var body: some View {
         ScrollView {
             VStack {
-                savingRate
+                fRsavingRate
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 50, trailing: 0))
-                currentSavingMoney
+                fRcurrentSavingMoney
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 40, trailing: 0))
-                successCount
+                fRsuccessCount
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 40, trailing: 0))
-                dueDate
+                fRdueDate
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 80, trailing: 0))
-                savingSuccess
+                fRsavingSuccess
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 4, trailing: 20))
-                SuccessPictureGrid
+                fRSuccessPictureGrid
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 99, trailing: 20))
                 
-                if isMine {
-                    Button {
-                        print("onemoretime")
-                    } label: {
-                        Text("저축 다시하기")
-                            .foregroundColor(.basicBlack)
-                            .fontWeight(.semibold)
-                            .font(.system(size: 16))
-                            .padding(10)
-                            .background(.black.opacity(0.05))
-                            .cornerRadius(10)
-                        
-                    }
-
-                } else {
-                    twoButtons
-                        .padding(EdgeInsets(top: 80, leading: 64, bottom: 64, trailing: 40))
-                }
-                
+                fRtwoButtons
+                    .padding(EdgeInsets(top: 80, leading: 64, bottom: 64, trailing: 40))
             }
         }
     }
 }
 
-extension SavingStatusView {
+extension FrSavingStatusView {
     //  현재 저축 progress bar 및 저축 달성률
-    var savingRate: some View {
+    var fRsavingRate: some View {
         HStack {
-            ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 130, saving: mySaving)
+            
+            ProgressCircle(color: colorRGB, frameSize: 130, saving: mySaving)
                 .overlay(Image(user.saveInfo.goalProduct.imageUrl))
-            savingText.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+            fRsavingText.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
         }.padding(EdgeInsets(top: 28, leading: 19, bottom: 0, trailing: 0))
             .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity,
                    minHeight: 0, idealHeight: 122, maxHeight: 122, alignment: .topLeading)
     }
     //    저축 달성률에 관한 Text
-    var savingText: some View {
+    var fRsavingText: some View {
         VStack(alignment: .leading, spacing: 2) {
             Text("저축완료일")
                 .foregroundColor(.basicBlack.opacity(0.6))
                 .font(.system(size: 14))
             Text("\(progressPercent, specifier: "%.f")%")
-                .foregroundColor(.pointColor)
+                .foregroundColor(color)
                 .font(.system(size: 40))
                 .fontWeight(.bold)
             Spacer(minLength: 5)
             Text("매주 \(savingDay)요일 ").font(.system(size: 18)).fontWeight(.bold) +
-            Text("\(savingAmountOfWeek, specifier: "%3.1f")만원").foregroundColor(.pointColor)
+            Text("\(savingAmountOfWeek, specifier: "%3.1f")만원").foregroundColor(color)
                 .font(.system(size: 18))
         }
     }
     //    현재까지 저축한 금액
-    var currentSavingMoney: some View {
+    var fRcurrentSavingMoney: some View {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
                 Text("지금까지 모은돈").foregroundColor(.basicBlack.opacity(0.6)).font(.system(size: 16))
@@ -127,7 +108,7 @@ extension SavingStatusView {
         }
     }
     //    저축 성공 횟수
-    var successCount: some View {
+    var fRsuccessCount: some View {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
                 Text("저금 성공").font(.system(size: 16)).foregroundColor(.basicBlack.opacity(0.6))
@@ -139,7 +120,7 @@ extension SavingStatusView {
         }
     }
     //    원하는 금액까지 저축기간
-    var dueDate: some View {
+    var fRdueDate: some View {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
                 Text("저축 기간").font(.system(size: 16)).foregroundColor(.basicBlack.opacity(0.6))
@@ -162,11 +143,11 @@ extension SavingStatusView {
         }
     }
     
-    var savingSuccess: some View {
+    var fRsavingSuccess: some View {
         HStack {
             Text("저축 성공 사진")
                 .font(.system(size: 16))
-                .foregroundColor(.pointColor)
+                .foregroundColor(color)
             Spacer()
             
             Button {
@@ -174,13 +155,13 @@ extension SavingStatusView {
             } label: {
                 Text( isPhotoEdited ? "편집 완료" : "사진 편집")
                     .font(.system(size: 14))
-                    .foregroundColor(isPhotoEdited ? .black02 : .pointColor)
+                    .foregroundColor(isPhotoEdited ? .black02 : color)
             }
             
         }
     }
     //    저축사진에 관한 Grid
-    var SuccessPictureGrid: some View {
+    var fRSuccessPictureGrid: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(0..<dummyImage.count) { i in
@@ -221,7 +202,7 @@ extension SavingStatusView {
     }
     
     
-    var twoButtons: some View {
+    var fRtwoButtons: some View {
         HStack {
             Button {
                 print("친구를 삭제합니다")
@@ -238,21 +219,21 @@ extension SavingStatusView {
             Button {
                 print("친구를 삭제합니다")
             } label: {
-                Text("Tim 알림 끄기")
-                    .foregroundColor(.basicBlack)
-                    .fontWeight(.semibold)
-                    .font(.system(size: 16))
+                HStack {
+                    Image(systemName: "bell.slash")
+                        .foregroundColor(.basicBlack)
+                    Text("\(user.nickname) 알림 끄기")
+                        .fontWeight(.semibold)
+                        .font(.system(size: 16))
+                        .foregroundColor(.basicBlack)
+                }
                     .padding(10)
                     .background(.black.opacity(0.05))
                     .cornerRadius(10)
+                    
             }
             
         }
     }
 }
 
-struct SavingStatusView_Previews: PreviewProvider {
-    static var previews: some View {
-        SavingStatusNavigationView().environmentObject(userViewModel)
-    }
-}

@@ -109,7 +109,9 @@ extension MainView {
     var friendsSavingsView: some View {
         HStack(spacing: 26) {
             ForEach(viewModel.getFriendList()) { friendSaving in
-                NavigationLink(destination: SavingStatusView()) {
+                NavigationLink(destination: FrSavingStatusNavigationView(user: friendSaving.user, colorRGB: RGBColorInProgressCircle.colorList[Int(friendSaving.id)])) {
+                    
+//                NavigationLink(destination: EmptyView()) {
                     friendSaving
                 }
                 .buttonStyle(PlainButtonStyle())
