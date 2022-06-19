@@ -66,13 +66,12 @@ struct Saving : Codable {
     /// 저축 성공 횟수
     var totalSavedNum: Int {
         var currentTotal = 0
-        for week in weekInfo {
+        for week in weekInfo[0..<currentWeek] {
             currentTotal += week.didSave ? 1 : 0
         }
         return currentTotal
     }
     
-        
     /// %에서 100을 곱한 값. 값이 30이면 30%라는 의미
     var progressPercent: Double { Double(totalSavedNum) / Double(goalWeeks) * 100 }
 }
