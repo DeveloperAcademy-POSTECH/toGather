@@ -12,15 +12,17 @@ struct LastOnboardingView: View {
     
     @EnvironmentObject var userViewModel: UserViewModel
     @ObservedObject var lastOnboardingViewModel: LastOnboardingViewModel = LastOnboardingViewModel()
+    @StateObject var onboardingViewModel: OnBoardingViewModel
 
     var friendUids: [String]? = ["AcBafb", "DYYGUP"] // dummy data
     
-    init() {
-        
-        if let friendUids = friendUids {
-            FirebaseManager.shared.fetchFriendNickname(friendUids: friendUids)
-        }
-    }
+//    init(onboardingViewModel: OnBoardingViewModel) {
+//
+////        if !userViewModel.friendUids.isEmpty {
+////            FirebaseManager.shared.fetchFriendNickname(friendUids: userViewModel.friendUids)
+////        }
+//        self._onboardingViewModel = StateObject(wrappedValue: onboardingViewModel)
+//    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -68,9 +70,9 @@ struct LastOnboardingView: View {
             .font(.system(size: 16, weight: .regular))
             .padding(.bottom, 30)
             
-            if friendUids != nil {
+            if !userViewModel.friendNickname.isEmpty {
                 HStack(spacing: 10) {
-                    ForEach(FirebaseManager.shared.nicknameArray, id:\.self) { nickName in
+                    ForEach(userViewModel.friendNickname, id:\.self) { nickName in
                         VStack(spacing: 0) {
                             ZStack {
                                 Image(systemName: "person.fill")
@@ -106,7 +108,9 @@ struct LastOnboardingView: View {
             
             Button {
                 userViewModel.addUid()
+                FirebaseManager.shared.changeViewModel(userViewModel: userViewModel)
                 FirebaseManager.shared.uploadSavingDataAndUserData()
+                onboardingViewModel.setNotFirstOn()
             } label: {
                 Text("저축 시작하기")
                     .foregroundColor(.white)
@@ -121,9 +125,9 @@ struct LastOnboardingView: View {
         .padding(.horizontal, 20)
     }
 }
-
-struct LastOnboardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        LastOnboardingView()
-    }
-}
+// committ시 주의
+//struct LastOnboardingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LastOnboardingView()
+//    }
+//}

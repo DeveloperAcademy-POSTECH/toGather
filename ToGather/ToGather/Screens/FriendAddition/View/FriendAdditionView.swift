@@ -10,8 +10,7 @@ import SwiftUI
 struct FriendNavigationViewTest: View {
     var body: some View {
         NavigationView {
-            
-            FriendAdditionView()
+            FriendAdditionView(onboardingViewModel: OnBoardingViewModel())
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
@@ -38,11 +37,16 @@ struct NoFriendTextView: View {
     }
 }
 
+/// 친구추가 페이지 뷰
 struct FriendAdditionView: View {
     @State var text = ""
     @State var noFriendId: Bool = false
     @State var attemps: Int = 0
     @State var addedFriendList: [String] = []
+    @State var addedFriendDic: [String: String] = [:]
+    @StateObject var onboardingViewModel: OnBoardingViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
+    @FocusState var isKeyboardHide: Bool
     
     var body: some View {
         VStack {
@@ -50,46 +54,80 @@ struct FriendAdditionView: View {
                 .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
             ApplyFriendIdTextView()
                 .padding(EdgeInsets(top: 40, leading: 21, bottom: 0, trailing: 0))
-            PinStackView(attempts: $attemps, pin: $text, wrongFriendInput: $noFriendId, handler: { result, status in
+            PinStackView(attempts: $attemps, pin: $text, wrongFriendInput: $noFriendId, isKeyboardHide: $isKeyboardHide, handler: { result, status in
                 if status {
-                    if isPinExist(inputString: result) {
-                        pinFriendAdd()
-                    } else {
+
+                    FirebaseManager.shared.isFriendUidExist(friendUid: result) { nickName in
+                        if let nickName = nickName {
+                            if (addedFriendDic[result] == nil) {
+                                addedFriendDic.updateValue(nickName, forKey: result)
+                                addedFriendList.append(nickName)
+                            }
+                        }
+                         else {
                         noFriendId = true
+                         }
                     }
-                    text = ""
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        text = ""
+                    }
                 }
             })
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
             NoFriendTextView(isFriendWrong: $noFriendId)
-            
-            if addedFriendList.isEmpty {
+            if addedFriendDic.isEmpty {
                 HStack {
                     LaterAddButtonView()
                     Spacer()
                 }.padding(EdgeInsets(top: 31, leading: 20, bottom: 0, trailing: 0))
             } else {
-                AlreadyAddedFriendView(addedFriendList: $addedFriendList)
+                AlreadyAddedFriendView(addedFriendDic: $addedFriendDic, addedFriendList: $addedFriendList)
             }
             Spacer()
+            if onboardingViewModel.isFirstOn {
+            NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel).onAppear(perform: {
+                userViewModel.getFriendUid(friendUids: Array(addedFriendDic.keys))
+                if !addedFriendDic.isEmpty {
+                    FirebaseManager.shared.fetchFriendNickname(friendUids: Array(addedFriendDic.keys))
+                    userViewModel.nicknameUpgrade(str: Array(addedFriendDic.values))
+                }
+            }), label: {
+                Text("다음")
+                    .fontWeight(.bold)
+                    .frame(width: UIScreen.main.bounds.width - 40, height: 46)
+                    .foregroundColor(.white)
+                    .background(Color.pointColor)
+                    .cornerRadius(30)
+                    .padding(.horizontal, 20)
+            })
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+            }
         }
+        .ignoresSafeArea(.keyboard)
+            
     }
 
 }
 
-extension FriendAdditionView {
-    func isPinExist(inputString: String) -> Bool {
-        guard let value = testPin[inputString] else {
-            return false
-        }
-        addedFriendList.append(value)
-        return true
+func isPinExistValue(inputString: String) -> String?{
+    guard let value = testPin[inputString] else {
+        return nil
     }
+    return value
+}
+
+func isPinExist(inputString: String) -> Bool {
+    guard let value = testPin[inputString] else {
+        return false
+    }
+    return true
+}
+extension FriendAdditionView {
 }
 
 struct AddingFriend_Previews: PreviewProvider {
     static var previews: some View {
-        FriendAdditionView()
+        FriendAdditionView(onboardingViewModel: OnBoardingViewModel())
             .previewInterfaceOrientation(.portrait)
     }
 }
