@@ -107,6 +107,7 @@ struct LastOnboardingView: View {
                 userViewModel.addUid()
                 FirebaseManager.shared.changeViewModel(userViewModel: userViewModel)
                 FirebaseManager.shared.uploadSavingDataAndUserData()
+                FirebaseManager.shared.setUploadImageStructure(userData: userViewModel.userData)
                 onboardingViewModel.setNotFirstOn()
             } label: {
                 Text("저축 시작하기")

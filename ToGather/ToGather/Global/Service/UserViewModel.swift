@@ -18,7 +18,7 @@ final class UserViewModel: ObservableObject {
                                                     goalWeeks: 1, savingDayOfTheWeek: "", weekInfo: [ThisWeek(presentWeek: 1, didSave: false)]))    
     @Published var dummyUserData = dummyFriend1
  
-     @Published var friendUids: [String] = []
+    @Published var friendUids: [String] = []
     
     
     /// goal-setting 뷰에서 사용, savingData 인스턴스에 목표 product 추가
@@ -55,4 +55,5 @@ final class UserViewModel: ObservableObject {
             friendNickname = str
         }
     }
+
 }

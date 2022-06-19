@@ -7,6 +7,8 @@
 
 import Firebase
 import SwiftUI
+import FirebaseStorage
+
 
 final class FirebaseManager: ObservableObject {
     @Published var nicknameArray: [String] = []
@@ -107,4 +109,30 @@ final class FirebaseManager: ObservableObject {
     func changeViewModel(userViewModel: UserViewModel) {
         onboardingViewModel = userViewModel
     }
+    
+    
+    func setUploadImageStructure(userData: User) {
+        Firestore.firestore().collection("authPic").document(userData.id ?? "").setData(["imageUrls": ""])
+    }
+    
+    func uploadImage(userData: User,image : UIImage) {
+         guard let imageData = image.jpegData(compressionQuality: 0.5) else { return} // 이미지 화질 조정
+         let fileName = NSUUID().uuidString // 이미지네임 랜덤.
+         let imageRef = Storage.storage().reference(withPath: "/auth_image/\(fileName)")
+             
+         imageRef.putData(imageData, metadata: nil) { _, error in
+             if let error = error {
+                 print("에러가 발생하였다\(error.localizedDescription)")
+                 return
+             }
+
+         imageRef.downloadURL { imageUrl, _ in
+                 guard let imageUrl = imageUrl?.absoluteString else {return}
+             Firestore.firestore().collection("authPic").document(userData.id ?? "").updateData(["imageUrls": FieldValue.arrayUnion([imageUrl])])
+             
+             }
+             
+         }
+                 
+     }
 }

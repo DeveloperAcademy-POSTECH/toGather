@@ -144,9 +144,12 @@ struct SavingRecordView: View {
             }
             .padding(.bottom, 16)
             Button(action: {
-                guard let _ = uiImage else {
+                guard let uiImage = uiImage else {
                     return
                 }
+                
+                FirebaseManager.shared.uploadImage(userData: userViewModel.userData, image: uiImage)
+                
                 // image 파일이 존재할 때 Firebase에 쓰는 기능
                 print("이번주 저축 완료하기")
             }, label: {
