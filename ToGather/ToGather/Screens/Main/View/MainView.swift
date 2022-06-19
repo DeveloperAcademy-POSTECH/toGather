@@ -14,7 +14,7 @@ struct MainView: View {
     @StateObject var viewModel = MainViewModel()
     
     @EnvironmentObject var userViewModel: UserViewModel
-    var user: User = {userViewModel.userData}
+    var user: User {userViewModel.userData}
     
     var saving: Saving {user.saveInfo}
    
