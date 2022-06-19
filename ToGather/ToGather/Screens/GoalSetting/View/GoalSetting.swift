@@ -9,6 +9,9 @@ import SwiftUI
 
 struct GoalSetting: View {
     @State var isSelectedItem: String?
+    @StateObject var onboardingViewModel: OnBoardingViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 0) {
@@ -113,7 +116,12 @@ struct GoalSetting: View {
                 }
                 .padding(.vertical, 22)
                 Spacer()
-                NavigationLink(destination: Text("다음뷰"), label: {
+                NavigationLink(destination: SettingPeriodView(onboardingViewModel: onboardingViewModel).onAppear {
+                    guard let Item = isSelectedItem, let product = Product.productDictionary[Item] else {
+                        return
+                    }
+                    userViewModel.addProduct(product: product)
+                }, label: {
                     Text("다음")
                         .fontWeight(.bold)
                         .frame(width: UIScreen.main.bounds.width - 40, height: 46)
@@ -121,6 +129,7 @@ struct GoalSetting: View {
                         .background(isSelectedItem != nil ? Color.pointColor : Color.basicBlack.opacity(0.3))
                         .cornerRadius(30)
                         .padding(.horizontal, 20)
+                        
                 })
             } // VStack
             .navigationBarHidden(true)
@@ -128,8 +137,9 @@ struct GoalSetting: View {
     }
 }
 
-struct GoalSetting_Previews: PreviewProvider {
-    static var previews: some View {
-        GoalSetting()
-    }
-}
+// commit 살릴부분
+//struct GoalSetting_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GoalSetting()
+//    }
+//}

@@ -27,6 +27,8 @@ struct PinStackView: View {
     @Binding var attempts: Int
     @Binding var pin: String
     @Binding var wrongFriendInput: Bool
+    var isKeyboardHide: FocusState<Bool>.Binding
+    
     // String is the pin code, bool is completed or not
     var handler: ((String, Bool) -> Void)
     var body: some View {
@@ -55,27 +57,38 @@ struct PinStackView: View {
                     }
                 }
                 .modifier(Shake(animatableData: CGFloat(attempts)))
+        }.onTapGesture {
+            isKeyboardHide.wrappedValue.toggle()
         }
-
     }
+    
     private var backgroundField: some View {
-        let boundPin = Binding<String>(get: { self.pin }, set: { newValue in
+        let boundPin = Binding<String>(
+            get: { self.pin },
+            set: { newValue in
             self.pin = newValue
             
             if newValue.count == 1 {
                 wrongFriendInput = false
             }
             if newValue.count == self.maxDigits {
-                self.shake()
+                if !isPinExist(inputString: newValue) {
+                    self.shake()
+                }
+                self.isKeyboardHide.wrappedValue.toggle()
             }
-            self.handler(newValue, newValue.count == self.maxDigits)
-        })
-
+                self.handler(newValue, newValue.count == self.maxDigits)
+            
+            })
         return TextField("", text: boundPin).introspectTextField { textField in
-            textField.becomeFirstResponder()
             textField.isHidden = true
-        }
-        .keyboardType(.numberPad)
+        } .focused(isKeyboardHide)
+            .onAppear(perform: {
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                    isKeyboardHide.wrappedValue = true
+                }
+                
+            })
     }
 }
 

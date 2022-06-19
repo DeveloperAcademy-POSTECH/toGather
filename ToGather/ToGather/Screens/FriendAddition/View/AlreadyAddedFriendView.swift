@@ -19,13 +19,16 @@ struct FriendSavingWithMe: View {
 
 struct Badge: View {
     @Binding var name: String
+    @Binding var addedFriendDic: [String: String]
     @Binding var addedFriendList: [String]
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Button {
+                addedFriendDic.removeValue(forKey: name)
                 addedFriendList.removeAll(where: { $0 == name })
 
+                
             } label: {
                 Image(systemName: "minus.circle.fill")
                     .foregroundColor(.red)
@@ -38,6 +41,7 @@ struct Badge: View {
 
 struct PersonView: View {
     @Binding var name: String
+    @Binding var addedFriendDic: [String: String]
     @Binding var addedFriendList: [String]
 
     var body: some View {
@@ -48,7 +52,7 @@ struct PersonView: View {
                         .strokeBorder(lineWidth: 1)
                         .foregroundColor(ColorStyle.blue.color)
                         .frame(width: 80, height: 80, alignment: .center)
-                    Badge(name: $name, addedFriendList: $addedFriendList)
+                    Badge(name: $name, addedFriendDic: $addedFriendDic, addedFriendList: $addedFriendList)
                         .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 1))
                     
                 }
@@ -65,13 +69,15 @@ struct PersonView: View {
     }
 }
 struct AlreadyAddedFriendView: View {
+    @Binding var addedFriendDic: [String: String]
     @Binding var addedFriendList: [String]
+    
     var body: some View {
         FriendSavingWithMe()
             .padding(EdgeInsets(top: 11, leading: 21, bottom: 0, trailing: 0))
         HStack(spacing: 36) {
             ForEach(addedFriendList, id: \.self) { item in
-                PersonView(name: .constant(item), addedFriendList: $addedFriendList)
+                PersonView(name: .constant(item), addedFriendDic: $addedFriendDic, addedFriendList: $addedFriendList)
             }
             Spacer()
         }    .padding(EdgeInsets(top: 12, leading: 20, bottom: 0, trailing: 0))

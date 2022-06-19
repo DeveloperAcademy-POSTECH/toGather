@@ -10,6 +10,7 @@ import FirebaseCore
 
 @main
 struct ToGatherApp: App {
+    @StateObject var userViewModel = UserViewModel()
     init() {
         FirebaseApp.configure()
         
@@ -28,9 +29,9 @@ struct ToGatherApp: App {
         WindowGroup {
 //            LastOnboardingView()
 //                .environmentObject(UserViewModel())
-            let userViewModel = UserViewModel()
-            MainView().environmentObject(userViewModel)
-
+            //MainView()
+            StartView()
+                .environmentObject(userViewModel)
         }
     }
 }

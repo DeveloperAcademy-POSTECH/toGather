@@ -14,7 +14,7 @@ struct MainView: View {
     @StateObject var viewModel = MainViewModel()
     
     @EnvironmentObject var userViewModel: UserViewModel
-    var user: User {userViewModel.dummyUserData}
+    var user: User {userViewModel.userData}
     
     var saving: Saving {user.saveInfo}
    
@@ -116,7 +116,7 @@ extension MainView {
             }
 
             VStack(spacing: 4) {
-                NavigationLink(destination: FriendAdditionView()) {
+                NavigationLink(destination: FriendAdditionView(onboardingViewModel: OnBoardingViewModel())) {
                     AddedCircleView(color: addFriendsColor[viewModel.getFriendList().count])
                 }
                 Text(viewModel.getFriendList().isEmpty ? "친구랑 같이 저축하기" : "친구 추가")
