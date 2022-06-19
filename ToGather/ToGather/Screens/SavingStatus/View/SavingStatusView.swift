@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SavingStatusNavigationView: View {    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     var body: some View {
         let backButton = Button {presentationMode.wrappedValue.dismiss()} label: {
                                 Image(systemName: "arrow.backward")
@@ -45,7 +45,7 @@ struct SavingStatusView: View {
     var totalSavedNum: Int {user.saveInfo.totalSavedNum}
     var isDueExtended: Bool {totalFailedNum != 0 ? true : false}
     
-    
+  
    
     var body: some View {
         ScrollView {

@@ -135,4 +135,18 @@ final class FirebaseManager: ObservableObject {
          }
                  
      }
+    
+    func fetchAuthPics(userData: User, completion : @escaping ([String]) -> (Void)) {
+        
+        Firestore.firestore().collection("authPic").document("280292").getDocument { snapshot, _ in
+            print("ddd")
+            guard let authPics = try? snapshot?.get("imageUrls") as? [String] else {return}
+                
+            completion(authPics)
+
+        }
+
+        }
+        
+    
 }
