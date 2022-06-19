@@ -46,6 +46,8 @@ struct MainView: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont.systemFont(ofSize: 24,weight: .bold)]
         }
   
+    let addFriendsColor: [Color] = [.friendRed01, .friendPurple01, .friendGreen01]
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -103,55 +105,23 @@ extension MainView {
             .foregroundColor(.basicBlack.opacity(0.4))
         }
     }
-    
+
     var friendsSavingsView: some View {
         HStack(spacing: 26) {
             ForEach(viewModel.getFriendList()) { friendSaving in
-                friendSaving
+                NavigationLink(destination: SavingStatusView()) {
+                    friendSaving
+                }
+                .buttonStyle(PlainButtonStyle())
             }
-            
-            // MARK: - 추후 코드변경이 필요.
-            if viewModel.getFriendList().isEmpty {
-                VStack(spacing: 4) { // 하드코딩 수정필요
-                    Button {
-                        viewModel.addFriend(friend:
-                            FriendsProgressCircle(id: 1, user: dummyFriend1, color: RGBColorInProgressCircle.friendColor1)
-                        )
-                    } label: {
-                        AddedCircleView(color: .friendRed01)
-                    }
-                    Text("친구랑 같이 저축하기")
-                        .font(.callout) // 16px
-                        .fontWeight(.semibold)
+
+            VStack(spacing: 4) {
+                NavigationLink(destination: FriendAdditionView()) {
+                    AddedCircleView(color: addFriendsColor[viewModel.getFriendList().count])
                 }
-            } else if viewModel.getFriendList().count == 1 {
-                VStack(spacing: 4) {
-                    Button {
-                        // TODO: - 인자에 toUid 업데이트 예정
-                        NotificationsViewModel.uploadNotification(type: .mySavingDay)
-                         viewModel.addFriend(friend:
-                            FriendsProgressCircle(id: 2, user: dummyFriend2, color: RGBColorInProgressCircle.friendColor2)
-                        )
-                    } label: {
-                        AddedCircleView(color: .friendPurple01)
-                    }
-                    Text("친구 추가")
-                        .font(.callout) // 16px
-                        .fontWeight(.semibold)
-                }
-            } else if viewModel.getFriendList().count == 2 {
-                VStack(spacing: 4) {
-                    Button {
-                        viewModel.addFriend(friend:
-                            FriendsProgressCircle(id: 3, user: dummyFriend3, color: RGBColorInProgressCircle.friendColor3)
-                        )    
-                    } label: {
-                        AddedCircleView(color: .friendGreen01)
-                    }
-                    Text("친구 추가")
-                        .font(.callout) // 16px
-                        .fontWeight(.semibold)
-                }
+                Text(viewModel.getFriendList().isEmpty ? "친구랑 같이 저축하기" : "친구 추가")
+                    .font(.callout) // 16px
+                    .fontWeight(.semibold)
             }
         }
     }
@@ -190,9 +160,8 @@ extension MainView {
                     .font(.system(size: 14))
                     .foregroundColor(.basicBlack.opacity(0.6))
             }
-            Button {
-                //
-            } label: {
+            
+            NavigationLink(destination: SavingRecordView().navigationBarBackButtonHidden(true).navigationBarHidden(true)) {
                 Label {
                     Text("\(deadLine)")
                         .font(.callout)
@@ -203,12 +172,11 @@ extension MainView {
                     Image(systemName: "clock")
                         .foregroundColor(.white)
                 }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
+                .background(Color.basicBlack.opacity(0.3))
+                .cornerRadius(30)
+                .padding(.horizontal)
             }
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
-            .background(Color.basicBlack.opacity(0.3))
-            .cornerRadius(30)
-            .padding(.horizontal)
-            // .padding(.bottom, 40)
         }
     }
 }

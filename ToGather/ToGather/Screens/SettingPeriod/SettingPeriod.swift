@@ -38,7 +38,7 @@ struct SettingPeriodView: View {
             slider
             Spacer(minLength: 15)
             selectDay
-            Spacer(minLength: 70)
+            Spacer(minLength: 57)
             nextButton
         }.ignoresSafeArea()
     }
@@ -74,14 +74,14 @@ struct SettingPeriodView: View {
     }
 
     private var slider: some View {
-        let priceAndPeriod: some View = Text("매주   ")
+        let priceAndPeriod: some View = Text("매주  ")
                                         + Text("\(saveAmountOfWeek, specifier: "%4.1f")")
                                             .foregroundColor(ColorStyle.blue.color)
                                             .font(.system(size: 26, weight: .bold))
                                         + Text("만원")
                                             .foregroundColor(ColorStyle.blue.color)
                                             .font(.system(size: 26, weight: .bold))
-                                        + Text("    기간 ")
+                                        + Text("   기간 ")
                                         + Text("\(goalWeek, specifier: "%2.d")")
                                             .foregroundColor(ColorStyle.blue.color)
                                             .font(.system(size: 26, weight: .bold))
@@ -124,8 +124,7 @@ struct SettingPeriodView: View {
             HStack {
                 Text("저축할 요일").font(.system(size: 24, weight: .bold))
                 Spacer()
-            }.padding(.horizontal, 20)
-            Spacer(minLength: 34)
+            }.padding(.horizontal, 26)
             HStack {
                 ForEach(days, id: \.self) { day in
                     if day == selectedDay {
@@ -148,7 +147,7 @@ struct SettingPeriodView: View {
                         }
                     }
                 }
-            }.padding(.horizontal, 10)
+            }
         }
     }
 
@@ -161,19 +160,11 @@ struct SettingPeriodView: View {
                     userViewModel.addGoalWeekAndDayOfTheWeek(goalWeeks: goalWeek, dayOfTheWeek: selectedDay)
                 })) {
                 ZStack {
-                    if selectedDay != nil {
-                        RoundedRectangle(cornerRadius: 30)
-                                .foregroundColor(ColorStyle.blue.color)
-                                .frame(width: 350, height: 46, alignment: .center)
-                        Text("다음").foregroundColor(.white)
-                            .fontWeight(.semibold)
-                    } else {
-                        RoundedRectangle(cornerRadius: 30)
-                                .foregroundColor(ColorStyle.blackTen.color)
-                                .frame(width: 350, height: 46, alignment: .center)
-                        Text("다음").foregroundColor(.white)
-                            .fontWeight(.semibold)
-                    }
+                    RoundedRectangle(cornerRadius: 30)
+                        .foregroundColor(selectedDay != nil ? Color.pointColor : Color.black03)
+                            .frame(width: 350, height: 46, alignment: .center)
+                    Text("다음").foregroundColor(.white)
+                        .fontWeight(.semibold)
                 }
             }
             Spacer(minLength: 36)
