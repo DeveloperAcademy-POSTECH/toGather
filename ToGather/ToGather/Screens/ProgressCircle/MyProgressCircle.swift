@@ -64,7 +64,7 @@ extension MyProgressCircle {
             Text("저축 완료일")
                 .font(.system(size: 14, weight: .medium))
                 .foregroundColor(.basicBlack.opacity(0.4))
-            Text("\(lastDate)")
+            Text("\(dateFormatter(date: lastDate))")
                 .font(.system(size: 16, weight: .bold))
                 .foregroundColor(.basicBlack)
         }

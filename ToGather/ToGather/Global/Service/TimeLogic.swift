@@ -33,6 +33,17 @@ func stringToDate(date: String) -> Date {
     return formatter.date(from: date) ?? Date()
 }
 
+/// 20220602 -> 2022.06.02
+func dateFormatter(date: String) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "YYYYMMdd"
+    formatter.locale = Locale(identifier: "ko_KR")
+    
+    let date = formatter.date(from: date) ?? Date()
+    formatter.dateFormat = "YYYY.MM.dd"
+    return formatter.string(from: date)
+}
+
 /// 요일 구하기
 func getToday(date: Date = Date()) -> String {
     let formatter = DateFormatter()

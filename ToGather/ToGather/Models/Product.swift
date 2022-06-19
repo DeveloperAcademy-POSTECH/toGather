@@ -16,9 +16,9 @@ struct Product : Codable {
 extension Product {
     static let sampleData: [Product] = [
         Product(productName: "imac", productPrice: 180, imageUrl: "imac"),
-        Product(productName: "ipad", productPrice: 70, imageUrl: "ipad"),
-        Product(productName: "iphone", productPrice: 100, imageUrl: "iphone"),
-        Product(productName: "macbook", productPrice: 200, imageUrl: "macbook")
+        Product(productName: "iPadmini", productPrice: 70, imageUrl: "iPadmini"),
+        Product(productName: "iphone13", productPrice: 100, imageUrl: "iphone13"),
+        Product(productName: "macbookPro", productPrice: 200, imageUrl: "macbookPro")
     ]
     static let productDictionary: [String:Product] = [
         "airpodsPro" : Product(productName: "airpodsPro", productPrice: 30, imageUrl: "airpodsPro"),
