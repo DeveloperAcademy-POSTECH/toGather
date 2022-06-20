@@ -118,17 +118,30 @@ func getLastSavingDate(firstSavingDate: String, totalWeek: Int) -> String {
     return dateToString(date: lastSavingDate)
 }
 
-/// 저축 데드라인 구하기. firstSavingDate, 현재 주차기반으로 계산
-func getRemainTime(firstSavingDate: String) -> String {
+func isUnderOneDay(firstSavingDate: String) -> Bool {
     let curretWeek: Int = getCurrentWeek(from: firstSavingDate)
     let firstSavingDate: Date = stringToDate(date: firstSavingDate)
     let deadLine = Calendar.current.date(byAdding: .day, value: (curretWeek - 1) * 7 + 1, to: firstSavingDate) ?? Date()
     let now = Date()
+    let dateGap = Calendar.current.dateComponents([.day], from: now, to: deadLine)
+    
+    return dateGap.day! % 7 == 0 ? true : false
+}
+
+/// 저축 데드라인 구하기. firstSavingDate, 현재 주차기반으로 계산
+func getRemainTime(firstSavingDate: String) -> String {
+    let curretWeek: Int = getCurrentWeek(from: firstSavingDate)
+    let firstSavingDate: Date = stringToDate(date: firstSavingDate)
+    
+    let deadLine = Calendar.current.date(byAdding: .day, value: (curretWeek - 1) * 7 + 1, to: firstSavingDate) ?? Date()
+    
+    let now = Date()
+    
     let dateGap = Calendar.current.dateComponents([.day, .hour, .minute, .second], from: now, to: deadLine)
     
     // TODO: 초 제거 필요.디버깅용
     if case let (d?, h?, m?, s?) = (dateGap.day, dateGap.hour, dateGap.minute, dateGap.second) {
-        return "\(d)일 \(h)시간 \(m)분 \(s)초"
+        return "\(d % 7)일 \(h)시간 \(m)분 \(s)초"
     }
     return "error"
 }

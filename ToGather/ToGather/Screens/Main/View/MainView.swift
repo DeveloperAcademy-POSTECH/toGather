@@ -172,8 +172,17 @@ extension MainView {
                  + Text("저축까지 남은 시간")
                     .font(.system(size: 14))
                     .foregroundColor(.basicBlack.opacity(0.6))
-            
-            NavigationLink(destination: SavingRecordView().navigationBarBackButtonHidden(true).navigationBarHidden(true)) {
+            if isUnderOneDay(firstSavingDate: startDate) {
+                NavigationLink(destination: SavingRecordView().navigationBarBackButtonHidden(true).navigationBarHidden(true)) {
+                    Text("오늘은 저축하는 날이에요")
+                        .font(.callout)
+                        .foregroundColor(.white)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
+                        .background(Color.pointColor)
+                        .cornerRadius(30)
+                        .padding(.horizontal)
+                }
+            } else {
                 Label {
                     Text("\(deadLine)")
                         .font(.callout)
@@ -185,7 +194,7 @@ extension MainView {
                         .foregroundColor(.white)
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
-                .background(Color.basicBlack.opacity(0.3))
+                .background(Color.black03)
                 .cornerRadius(30)
                 .padding(.horizontal)
             }
