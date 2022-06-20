@@ -21,7 +21,8 @@ final class UserViewModel: ObservableObject {
  
     @Published var friendUids: [String] = []
     
-    
+    @Published var completedSaved: Bool = false
+
     /// goal-setting 뷰에서 사용, savingData 인스턴스에 목표 product 추가
     func addProduct(product: Product) {
         userData.saveInfo.goalProduct = product

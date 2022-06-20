@@ -27,7 +27,7 @@ struct MainView: View {
     var startDate: String {user.saveInfo.startDate}
     var savingDay: String {user.saveInfo.savingDayOfTheWeek}
     var savingAmountOfWeek: Double {user.saveInfo.savingAmountOfWeek}
-    var currentWeek: Int {user.saveInfo.currentWeek}
+    var currentWeek: Int {user.saveInfo.currentWeek + (userViewModel.completedSaved == true ? 1 : 0)}
     @State var deadLine = ""
     
     // money
@@ -172,7 +172,7 @@ extension MainView {
                  + Text("저축까지 남은 시간")
                     .font(.system(size: 14))
                     .foregroundColor(.basicBlack.opacity(0.6))
-            if isUnderOneDay(firstSavingDate: startDate) {
+            if isUnderOneDay(firstSavingDate: startDate) && userViewModel.completedSaved == false {
                 NavigationLink(destination: SavingRecordView().navigationBarBackButtonHidden(true).navigationBarHidden(true)) {
                     Text("오늘은 저축하는 날이에요")
                         .font(.callout)

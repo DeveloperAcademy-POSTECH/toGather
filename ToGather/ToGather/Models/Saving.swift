@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 
 struct Saving : Codable {
+    
     var goalProduct: Product
 //    let uid: String
     var goalWeeks: Int // 처음 설정한 목표 저축 기간. ~주
@@ -40,7 +41,7 @@ struct Saving : Codable {
         self.startDate = getFirstSavingDate(setDay: savingDayOfTheWeek, appStartDate: appStartDate)
         self.weekInfo = weekInfo
     }
-    
+        
     var deadLine: String {getRemainTime(firstSavingDate: startDate)}
     
     var lastDate: String {getLastSavingDate(firstSavingDate: startDate, totalWeek: totalWeek)}
@@ -55,7 +56,7 @@ struct Saving : Codable {
     var totalSavingAmount: Double {savingAmountOfWeek * Double(totalSavedNum)}
     
     //    var currentWeek: Int = 14 // 저축 회차 << 핵심 변수.
-    var currentWeek: Int { getCurrentWeek(from: startDate) }
+    var currentWeek: Int { getCurrentWeek(from: startDate)}
     
     /// 전체 기간
     var totalWeek: Int {totalFailedNum + goalWeeks}
