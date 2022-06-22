@@ -19,22 +19,18 @@ struct Saving : Codable {
     var savingDayOfTheWeek: String // 저축 요일
 
     var weekInfo: [ThisWeek] // 매주 저축한 것에 대한 정보를 담고있는 배열
-
-    let uid: String
     
     /// appStartDate 받지 않을 경우 오늘날짜로 결정.
-    init(goalProduct: Product, uid: String = "", goalWeeks: Int, savingDayOfTheWeek: String, weekInfo: [ThisWeek] = []) {
+    init(goalProduct: Product, goalWeeks: Int, savingDayOfTheWeek: String, weekInfo: [ThisWeek] = []) {
         self.goalProduct = goalProduct
-        self.uid =  uid
         self.goalWeeks = goalWeeks
         self.savingDayOfTheWeek = savingDayOfTheWeek
         self.startDate = getFirstSavingDate(setDay: savingDayOfTheWeek, appStartDate: dateToString(date: Date()))
         self.weekInfo = weekInfo
     }
     
-    init(goalProduct: Product, uid: String = "", goalWeeks: Int, savingDayOfTheWeek: String, weekInfo: [ThisWeek] = [], appStartDate: String) {
+    init(goalProduct: Product, goalWeeks: Int, savingDayOfTheWeek: String, weekInfo: [ThisWeek] = [], appStartDate: String) {
         self.goalProduct = goalProduct
-        self.uid =  uid
         self.goalWeeks = goalWeeks
         self.savingDayOfTheWeek = savingDayOfTheWeek
         self.startDate = getFirstSavingDate(setDay: savingDayOfTheWeek, appStartDate: appStartDate)
