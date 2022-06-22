@@ -20,22 +20,28 @@ struct Saving : Codable {
 
     var weekInfo: [ThisWeek] // 매주 저축한 것에 대한 정보를 담고있는 배열
     
-    /// appStartDate 받지 않을 경우 오늘날짜로 결정.
-    init(goalProduct: Product, goalWeeks: Int, savingDayOfTheWeek: String, weekInfo: [ThisWeek] = []) {
+    /// 유저용
+    init(goalProduct: Product, goalWeeks: Int, savingDayOfTheWeek: String) {
         self.goalProduct = goalProduct
         self.goalWeeks = goalWeeks
         self.savingDayOfTheWeek = savingDayOfTheWeek
         self.startDate = getFirstSavingDate(setDay: savingDayOfTheWeek, appStartDate: dateToString(date: Date()))
-        self.weekInfo = weekInfo
+        
+        self.weekInfo = [ThisWeek]()
+        for week in 1...goalWeek {
+            self.weekInfo.append(ThisWeek(presentWeek: week, didSave: false))
+        }
     }
     
-    init(goalProduct: Product, goalWeeks: Int, savingDayOfTheWeek: String, weekInfo: [ThisWeek] = [], appStartDate: String) {
+    /// 더미데이터용
+    init(goalProduct: Product, goalWeeks: Int, savingDayOfTheWeek: String, weekInfo: [ThisWeek], appStartDate: String) {
         self.goalProduct = goalProduct
         self.goalWeeks = goalWeeks
         self.savingDayOfTheWeek = savingDayOfTheWeek
         self.startDate = getFirstSavingDate(setDay: savingDayOfTheWeek, appStartDate: appStartDate)
         self.weekInfo = weekInfo
     }
+    
     
     var deadLine: String {getRemainTime(firstSavingDate: startDate)}
     
@@ -50,7 +56,7 @@ struct Saving : Codable {
     /// 현재까지 전체 저축 금액
     var totalSavingAmount: Double {savingAmountOfWeek * Double(totalSavedNum)}
     
-    //    var currentWeek: Int = 14 // 저축 회차 << 핵심 변수.
+    /// 저축 회차 << 핵심 변수.
     var currentWeek: Int { getCurrentWeek(from: startDate) }
     
     /// 전체 기간
