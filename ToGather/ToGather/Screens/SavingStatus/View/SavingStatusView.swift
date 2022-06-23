@@ -31,6 +31,7 @@ struct SavingStatusView: View {
     @State var isPhotoEdited: Bool = false
     var user: User {userViewModel.userData}
     
+    var goalWeek: Int {user.saveInfo.goalWeeks}
     var saving: Saving {user.saveInfo}
     var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
     var productPrice: Double {user.saveInfo.goalProduct.productPrice}
@@ -45,8 +46,6 @@ struct SavingStatusView: View {
     var totalFailedNum: Int {user.saveInfo.totalFailedNum}
     var totalSavedNum: Int {user.saveInfo.totalSavedNum}
     var isDueExtended: Bool {totalFailedNum != 0 ? true : false}
-    
-    
     
     var body: some View {
         ScrollView {
@@ -70,16 +69,23 @@ struct SavingStatusView: View {
     }
 }
 
+struct SavingStatusView_Previews: PreviewProvider {
+    static var previews: some View {
+        SavingStatusNavigationView().environmentObject(userViewModel)
+    }
+}
+
 extension SavingStatusView {
     //  현재 저축 progress bar 및 저축 달성률
     var savingRate: some View {
         HStack {
-            ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 130, saving: mySaving)
+            ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 130, saving: user.saveInfo)
             savingText.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
         }.padding(EdgeInsets(top: 28, leading: 19, bottom: 0, trailing: 0))
             .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity,
                    minHeight: 0, idealHeight: 122, maxHeight: 122, alignment: .topLeading)
     }
+    
     //    저축 달성률에 관한 Text
     var savingText: some View {
         VStack(alignment: .leading, spacing: 2) {
@@ -112,7 +118,7 @@ extension SavingStatusView {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
                 Text("저금 성공").font(.system(size: 16)).foregroundColor(.basicBlack.opacity(0.6))
-                Text("\(currentWeek)회 ").font(.system(size: 24)).foregroundColor(.basicBlack).fontWeight(.bold)
+                Text("\(totalSavedNum)회 ").font(.system(size: 24)).foregroundColor(.basicBlack).fontWeight(.bold)
                 + Text("/ \(goalWeek)").font(.system(size: 20))
                     .foregroundColor(.basicBlack.opacity(0.6)).fontWeight(.bold)
             }
@@ -211,11 +217,5 @@ extension SavingStatusView {
             }
             
         }
-    }
-}
-
-struct SavingStatusView_Previews: PreviewProvider {
-    static var previews: some View {
-        SavingStatusNavigationView().environmentObject(userViewModel)
     }
 }
