@@ -28,7 +28,7 @@ struct Saving : Codable {
         self.startDate = getFirstSavingDate(setDay: savingDayOfTheWeek, appStartDate: dateToString(date: Date()))
         
         self.weekInfo = [ThisWeek]()
-        for week in 1...goalWeek {
+        for week in 1...goalWeeks {
             self.weekInfo.append(ThisWeek(presentWeek: week, didSave: false))
         }
     }

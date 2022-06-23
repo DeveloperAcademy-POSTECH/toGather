@@ -8,17 +8,6 @@
 import SwiftUI
 import Combine
 
-let setDay = dummyMy.saveInfo.savingDayOfTheWeek //월
-let goalWeek = dummyMy.saveInfo.goalWeeks // 25
-let appStartDay = "20220601"
-
-//goalWeeks: 25,
-//startDate: "20220603",
-//savingDayOfTheWeek: "월",
-
-// 현재날짜로부터 + 7 일 이상될 수가 없음
-let firstSavingDate: String = "20220617"
-
 func dateToString(date: Date) -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "YYYYMMdd"
