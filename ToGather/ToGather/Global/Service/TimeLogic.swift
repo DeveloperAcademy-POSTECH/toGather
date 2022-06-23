@@ -33,7 +33,7 @@ func dateFormatter(date: String) -> String {
     return formatter.string(from: date)
 }
 
-/// 요일 구하기
+/// 오늘 날짜 구하기 ~월 ~일 형식 ex) 7월 31일
 func getToday(date: Date = Date()) -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "MMM dd일"
@@ -41,7 +41,7 @@ func getToday(date: Date = Date()) -> String {
     return formatter.string(from: Date())
 }
 
-/// ~월 ~일 형식 ex) 7월 31일
+/// 요일 구하기 ex) 월, 화, 수, 목...
 func getDay(date: Date = Date()) -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "E"
@@ -60,7 +60,7 @@ func getFirstSavingDate(setDay: String, appStartDate: String) -> String {
        let nowDay = dayOfWeek[getDay(date: startDate)] {
         var addDay = setDay - nowDay
         addDay = (addDay < 0) ? addDay + 7 : addDay
-
+        
         // 현재 날짜에서 addDay를 더하기
         firstSavingDate = Date(timeInterval: TimeInterval(addDay * 60 * 60 * 24) , since: startDate)
         return dateToString(date: firstSavingDate)
@@ -69,7 +69,7 @@ func getFirstSavingDate(setDay: String, appStartDate: String) -> String {
 }
 
 /// 현재 주차 구하기, firstSavingDate, 현재시간 기반으로 계산
-func getCurrentWeek(from firstSavingDate: String) -> Int {
+func getCurrentWeek(from firstSavingDate: String, weekInfo: [ThisWeek]) -> Int {
     let firstSavingDate: Date = stringToDate(date: firstSavingDate)
     
     let now = Date()
@@ -93,8 +93,12 @@ func getCurrentWeek(from firstSavingDate: String) -> Int {
     // 오류 처리 필요
     let dateGapDay = dateGap.day ?? 0
     
-    let currentWeek: Int = dateGapDay <= 0 ? 1 : ((dateGapDay) / 7 + 2)
-   
+    var currentWeek: Int = (dateGapDay <= 0 ? 1 : ((dateGapDay) / 7 + 2))
+    
+    if weekInfo[currentWeek - 1].didSave == true {
+        currentWeek += 1
+    }
+    
     return currentWeek
 }
 
@@ -107,13 +111,25 @@ func getLastSavingDate(firstSavingDate: String, totalWeek: Int) -> String {
     return dateToString(date: lastSavingDate)
 }
 
-/// 저축 데드라인 구하기. firstSavingDate, 현재 주차기반으로 계산
-func getRemainTime(firstSavingDate: String) -> String {
-    let curretWeek: Int = getCurrentWeek(from: firstSavingDate)
+func getCurrentWeekEndDate(currentWeek: Int, firstSavingDate: String) -> Date {
     let firstSavingDate: Date = stringToDate(date: firstSavingDate)
-    let deadLine = Calendar.current.date(byAdding: .day, value: (curretWeek - 1) * 7 + 1, to: firstSavingDate) ?? Date()
+    let currentWeekEndDate = Calendar.current.date(byAdding: .day, value: (currentWeek - 1) * 7 + 1, to: firstSavingDate) ?? Date()
+    return currentWeekEndDate
+}
+
+func isSavingDay(currentWeekEndDate: Date) -> Bool {
     let now = Date()
-    let dateGap = Calendar.current.dateComponents([.day, .hour, .minute, .second], from: now, to: deadLine)
+    
+    let dateGap = Calendar.current.dateComponents([.day], from: now, to: currentWeekEndDate)
+    
+    return dateGap.day! == 0 ? true : false
+}
+
+/// 저축 데드라인 구하기. firstSavingDate, 현재 주차기반으로 계산
+func getRemainTime(currentWeekEndDate: Date) -> String {
+    let now = Date()
+    
+    let dateGap = Calendar.current.dateComponents([.day, .hour, .minute, .second], from: now, to: currentWeekEndDate)
     
     // TODO: 초 제거 필요.디버깅용
     if case let (d?, h?, m?, s?) = (dateGap.day, dateGap.hour, dateGap.minute, dateGap.second) {
@@ -122,38 +138,28 @@ func getRemainTime(firstSavingDate: String) -> String {
     return "error"
 }
 
-//struct TimeLogicTest: View {
-//
-//    @State var remaindDate: String = getRemainTime(firstSavingDate: "20220615")
-//    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-//
-//    var body: some View {
-//        VStack {
-//            Text(remaindDate).onReceive(timer) {_ in
-//                self.remaindDate = getRemainTime(firstSavingDate: "20220615") }
-//            Text("\(getLastSavingDate(firstSavingDate: "20220601",totalWeek: 1))")
-//        }
-//    }
-//}
-
 struct TimeLogicTest: View {
-
-    @State var remaindDate: String = getRemainTime(firstSavingDate: "20220615")
+    @State var remaindDate: String = getRemainTime(currentWeekEndDate : getCurrentWeekEndDate(currentWeek: getCurrentWeek(from: "20220615", weekInfo: [ThisWeek(presentWeek: 1, didSave: true)]), firstSavingDate: "20220623"))
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-
+    let setDay = dummyMy.saveInfo.savingDayOfTheWeek //월
+    let goalWeek = dummyMy.saveInfo.goalWeeks // 25
+    let appStartDay = "20220601"
+    
+    // 현재날짜로부터 + 7 일 이상될 수가 없음
+    let firstSavingDate: String = "20220617"
+    
     var body: some View {
         VStack {
-            Text(remaindDate).onReceive(timer) {_ in
-                self.remaindDate = getRemainTime(firstSavingDate: "20220615") }
+            Text(remaindDate).onReceive(timer) { _ in
+                self.remaindDate =  getRemainTime(currentWeekEndDate : getCurrentWeekEndDate(currentWeek: getCurrentWeek(from: "20220615", weekInfo: [ThisWeek(presentWeek: 1, didSave: true)]), firstSavingDate: "20220623"))
+            }
             Text("\(getLastSavingDate(firstSavingDate: "20220601",totalWeek: 1))")
         }
     }
 }
-
 
 struct TimeLogicTest_Previews: PreviewProvider {
     static var previews: some View {
         TimeLogicTest()
     }
 }
-
