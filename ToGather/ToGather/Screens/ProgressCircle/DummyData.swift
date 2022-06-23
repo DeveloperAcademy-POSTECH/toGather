@@ -51,6 +51,7 @@ let friendSaving2 =  Saving(goalProduct: Product.sampleData[2],
 let friendSaving3 = Saving(goalProduct: Product.sampleData[3],
                            goalWeeks: 24,
                            savingDayOfTheWeek: "목",
+                           weekInfo: friendSavingList3,
                            appStartDate: "20220517")
 
 let dummyMy = User(id: "0", nickname: "Miller", creationDate: "", isAlarmOn: false, saveInfo: mySaving)
