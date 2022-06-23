@@ -63,7 +63,7 @@ struct Saving : Codable {
     var totalWeek: Int {totalFailedNum + goalWeeks}
     
     /// 저축 실패 횟수
-    var totalFailedNum: Int {currentWeek - totalSavedNum}
+    var totalFailedNum: Int {currentWeek - totalSavedNum - 1}
     
     /// 저축 성공 횟수
     var totalSavedNum: Int {
