@@ -11,30 +11,16 @@ struct SavingRecordView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @EnvironmentObject var userViewModel: UserViewModel
-    var user: User {userViewModel.dummyUserData}
-    
+    var user: User {userViewModel.userData}
+
     var saving: Saving {user.saveInfo}
-   
-    // product
-    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
-    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
     
-    // time
-    var lastDate: String {user.saveInfo.lastDate}
-    var startDate: String {user.saveInfo.startDate}
     var savingDay: String {user.saveInfo.savingDayOfTheWeek}
     var currentWeek: Int {user.saveInfo.currentWeek}
-    @State var deadLine = ""
+
     
-    // money
     var savingAmountOfWeek: Double {user.saveInfo.savingAmountOfWeek}
     var totalSavingAmount: Double {user.saveInfo.totalSavingAmount}
-    var goalSavingAmount: Double {user.saveInfo.goalSavingAmount}
-    
-    // progress
-    var totalFailedNum: Int {user.saveInfo.totalFailedNum}
-    var totalSavedNum: Int {user.saveInfo.totalSavedNum}
-    var progressPercent: Double {user.saveInfo.progressPercent}
 
     @State var showImagePicker: Bool = false
     @State var uiImage: UIImage? = nil
@@ -147,7 +133,7 @@ struct SavingRecordView: View {
                 guard let uiImage = uiImage else {
                     return
                 }
-                
+                userViewModel.userData.saveInfo.weekInfo[currentWeek - 1].didSave = true
                 FirebaseManager.shared.uploadImage(userData: userViewModel.userData, image: uiImage)
                 
                 // image 파일이 존재할 때 Firebase에 쓰는 기능
