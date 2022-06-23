@@ -40,7 +40,7 @@ struct LastOnboardingView: View {
                 Text("주간")
                     .font(.system(size: 20, weight: .regular))
                     .padding(.trailing, 4)
-                Text(String(Int(userViewModel.userData.saveInfo.goalProduct.productPrice * 10000)))
+                Text("\(numberFormatUnitOfManwon(value: userViewModel.userData.saveInfo.goalSavingAmount))")
                     .font(.system(size: 20, weight: .bold))
             }
             .foregroundColor(ColorStyle.blackHundred.color)
@@ -123,9 +123,9 @@ struct LastOnboardingView: View {
         .padding(.horizontal, 20)
     }
 }
-// committ시 주의
+//// committ시 주의
 //struct LastOnboardingView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        LastOnboardingView()
+//        LastOnboardingView().environmentObject(UserViewModel())
 //    }
 //}
