@@ -44,6 +44,8 @@ struct MainView: View {
     init() {
         // 네비게이션 타이틀 사이즈 조절
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont.systemFont(ofSize: 24,weight: .bold)]
+        
+       
         }
   
     let addFriendsColor: [Color] = [.friendRed01, .friendPurple01, .friendGreen01]
@@ -138,7 +140,8 @@ extension MainView {
 
                 NavigationLink(destination: SavingStatusNavigationView()
                 .navigationTitle("알림")
-                .navigationBarHidden(true)){
+                .navigationBarHidden(true)
+                ){
                     
                     HStack(spacing: 4){
                 

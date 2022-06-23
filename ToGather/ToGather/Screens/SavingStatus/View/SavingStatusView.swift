@@ -5,11 +5,16 @@
 //
 
 import SwiftUI
-
+import Kingfisher
 struct SavingStatusNavigationView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+    @EnvironmentObject var userViewModel: UserViewModel
+
+
+ 
+        
     var body: some View {
+        
         let backButton = Button {presentationMode.wrappedValue.dismiss()} label: {
             Image(systemName: "arrow.backward")
                 .font(.system(size: 22, weight: .medium))
@@ -63,6 +68,7 @@ struct SavingStatusView: View {
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 4, trailing: 20))
                 SuccessPictureGrid
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 99, trailing: 20))
+                    
                 
                 if isMine {
                     Button {
@@ -183,10 +189,10 @@ extension SavingStatusView {
     var SuccessPictureGrid: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(0..<dummyImage.count) { i in
+                ForEach(0 ..< userViewModel.authPics.count) { index in
                     VStack(alignment: .trailing) {
                         ZStack(alignment: .topTrailing) {
-                            Image(dummyImage[i].0)
+                            KFImage(URL(string: userViewModel.authPics[0]))
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 149, height: 239)
@@ -202,7 +208,7 @@ extension SavingStatusView {
                             if isPhotoEdited {
                                 ZStack(alignment: .topTrailing) {
                                     Button {
-                                        dummyImage.remove(at: i)
+                                        dummyImage.remove(at: index)
 
                                     } label: {
                                         Image(systemName: "minus.circle.fill")
@@ -213,7 +219,7 @@ extension SavingStatusView {
                                 }
                             }
                         }
-                        Text("\(dummyImage[i].1)").foregroundColor(.basicBlack.opacity(0.6)).padding(EdgeInsets(top: 6, leading: 0, bottom: 0, trailing: 10))
+                        Text("\(dummyImage[index].1)").foregroundColor(.basicBlack.opacity(0.6)).padding(EdgeInsets(top: 6, leading: 0, bottom: 0, trailing: 10))
                     }
                 }
             }
