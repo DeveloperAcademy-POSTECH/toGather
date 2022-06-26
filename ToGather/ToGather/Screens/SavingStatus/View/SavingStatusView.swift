@@ -37,8 +37,8 @@ struct SavingStatusView: View {
     var user: User {userViewModel.userData}
     
     var saving: Saving {user.saveInfo}
-    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
-    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
+    var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
     var progressPercent: Double {user.saveInfo.progressPercent}
     var lastDate: String {user.saveInfo.lastDate}
     var startDate: String {user.saveInfo.startDate}
@@ -99,7 +99,7 @@ extension SavingStatusView {
     var savingRate: some View {
         HStack {
             ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 130, saving: mySaving)
-                .overlay(Image(user.saveInfo.goalProduct.imageUrl))
+                .overlay(Image(Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""))
             savingText.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
         }.padding(EdgeInsets(top: 28, leading: 19, bottom: 0, trailing: 0))
             .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity,

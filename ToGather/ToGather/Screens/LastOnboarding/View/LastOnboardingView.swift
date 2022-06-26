@@ -27,7 +27,7 @@ struct LastOnboardingView: View {
                 Circle()
                     .stroke().fill(ColorStyle.blue.color)
                     .frame(width: 230, height: 230)
-                Image(userViewModel.userData.saveInfo.goalProduct.imageUrl)
+                Image(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.imageUrl ?? "")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 110, height: 110)
@@ -40,7 +40,7 @@ struct LastOnboardingView: View {
                 Text("주간")
                     .font(.system(size: 20, weight: .regular))
                     .padding(.trailing, 4)
-                Text(String(Int(userViewModel.userData.saveInfo.goalProduct.productPrice * 10000)))
+                Text(String(Int(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0 * 10000)))
                     .font(.system(size: 20, weight: .bold))
             }
             .foregroundColor(ColorStyle.blackHundred.color)
@@ -107,7 +107,7 @@ struct LastOnboardingView: View {
                 userViewModel.addUid()
             //    FirebaseManager.shared.changeViewModel(userViewModel: userViewModel)
                 FirebaseManager.shared.uploadSavingDataAndUserData(userData: userViewModel.userData, friendUids: userViewModel.friendUids)
-                FirebaseManager.shared.setUploadImageStructure(userData: userViewModel.userData)
+                //FirebaseManager.shared.setUploadImageStructure(userData: userViewModel.userData)
                 onboardingViewModel.setNotFirstOn()
             } label: {
                 Text("저축 시작하기")

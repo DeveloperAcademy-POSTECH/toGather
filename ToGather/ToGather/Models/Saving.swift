@@ -10,7 +10,7 @@ import Firebase
 
 struct Saving : Codable {
     
-    var goalProduct: Product
+    var goalProduct: String
 //    let uid: String
     var goalWeeks: Int // 처음 설정한 목표 저축 기간. ~주
     
@@ -24,7 +24,7 @@ struct Saving : Codable {
     let uid: String
     
     /// appStartDate 받지 않을 경우 오늘날짜로 결정.
-    init(goalProduct: Product, uid: String = "", goalWeeks: Int, savingDayOfTheWeek: String, weekInfo: [ThisWeek] = []) {
+    init(goalProduct: String, uid: String = "", goalWeeks: Int, savingDayOfTheWeek: String, weekInfo: [ThisWeek] = []) {
         self.goalProduct = goalProduct
         self.uid =  uid
         self.goalWeeks = goalWeeks
@@ -33,7 +33,7 @@ struct Saving : Codable {
         self.weekInfo = weekInfo
     }
     
-    init(goalProduct: Product, uid: String = "", goalWeeks: Int, savingDayOfTheWeek: String, weekInfo: [ThisWeek] = [], appStartDate: String) {
+    init(goalProduct: String, uid: String = "", goalWeeks: Int, savingDayOfTheWeek: String, weekInfo: [ThisWeek] = [], appStartDate: String) {
         self.goalProduct = goalProduct
         self.uid =  uid
         self.goalWeeks = goalWeeks
@@ -47,7 +47,7 @@ struct Saving : Codable {
     var lastDate: String {getLastSavingDate(firstSavingDate: startDate, totalWeek: totalWeek)}
         
     /// 매주 저축해야하는 금액
-    var savingAmountOfWeek: Double {getSaveAmountOfWeek(productPrice: goalProduct.productPrice, goalWeek: goalWeek)}
+    var savingAmountOfWeek: Double {getSaveAmountOfWeek(productPrice:  Product.productDictionary[ goalProduct]?.productPrice ?? 0, goalWeek: goalWeek)}
     
     /// 목표 저축 금액(전체)
     var goalSavingAmount: Double {savingAmountOfWeek * Double(goalWeeks)}

@@ -11,9 +11,9 @@ struct MyProgressCircle: View {
     
     let user: User
 
-    var saving: Saving {user.saveInfo}
-    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
-    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    var saving: Saving {user.saveInfo }
+    var productImageUrl: String {Product.productDictionary[ user.saveInfo.goalProduct]?.imageUrl ?? ""}
+    var productPrice: Double {Product.productDictionary[ user.saveInfo.goalProduct]?.productPrice ?? 0}
     var progressPercent: Double {user.saveInfo.progressPercent}
     var lastDate: String {user.saveInfo.lastDate}
     var goalWeeks: Int {user.saveInfo.goalWeeks}

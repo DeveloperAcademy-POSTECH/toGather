@@ -19,8 +19,8 @@ struct MainView: View {
     var saving: Saving {user.saveInfo}
    
     // product
-    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
-    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
+    var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
     
     // time
     var lastDate: String {user.saveInfo.lastDate}
@@ -45,7 +45,6 @@ struct MainView: View {
         // 네비게이션 타이틀 사이즈 조절
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont.systemFont(ofSize: 24,weight: .bold)]
         
-       
         }
   
     let addFriendsColor: [Color] = [.friendRed01, .friendPurple01, .friendGreen01]

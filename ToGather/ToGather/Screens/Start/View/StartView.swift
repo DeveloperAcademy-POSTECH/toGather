@@ -16,6 +16,16 @@ struct StartView: View {
             .fullScreenCover(isPresented: self.$onboardingViewModel.isFirstOn) {
                 GoalSetting(onboardingViewModel: onboardingViewModel)
             }
+            .onAppear{
+                if !onboardingViewModel.isFirstOn {
+                    
+                    FirebaseManager.shared.fetchUser(userId: "85726A") { user in
+                        userViewModel.userData = user
+
+                        print("hiroo:\(user.saveInfo.goalProduct)")
+                    }
+                }
+            }
     }
 }
 

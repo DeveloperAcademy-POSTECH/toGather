@@ -17,8 +17,8 @@ struct SavingRecordView: View {
     var saving: Saving {user.saveInfo}
    
     // product
-    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
-    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
+    var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
     
     // time
     var lastDate: String {user.saveInfo.lastDate}
