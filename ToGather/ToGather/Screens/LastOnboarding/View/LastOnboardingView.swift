@@ -105,10 +105,9 @@ struct LastOnboardingView: View {
             
             Button {
                 userViewModel.addUid()
-            //    FirebaseManager.shared.changeViewModel(userViewModel: userViewModel)
                 FirebaseManager.shared.uploadSavingDataAndUserData(userData: userViewModel.userData, friendUids: userViewModel.friendUids)
-                //FirebaseManager.shared.setUploadImageStructure(userData: userViewModel.userData)
                 onboardingViewModel.setNotFirstOn()
+           
             } label: {
                 Text("저축 시작하기")
                     .foregroundColor(.white)
@@ -123,9 +122,4 @@ struct LastOnboardingView: View {
         .padding(.horizontal, 20)
     }
 }
-// committ시 주의
-//struct LastOnboardingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LastOnboardingView()
-//    }
-//}
+

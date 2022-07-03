@@ -61,6 +61,7 @@ struct MainView: View {
                 mySavingsView
                 Spacer(minLength: 68)
                 bottomView
+                   
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -140,11 +141,10 @@ extension MainView {
                 NavigationLink(destination: SavingStatusNavigationView()
                 .navigationTitle("알림")
                 .navigationBarHidden(true)
-                ){
+                ) {
                     
-                    HStack(spacing: 4){
-                
-                
+                    HStack(spacing: 4) {
+                                
                 Text("상세보기")
                     .font(.system(size: 14))
                     .foregroundColor(.basicBlack.opacity(0.6))
@@ -152,12 +152,12 @@ extension MainView {
                             .resizable()
                             .frame(width: 6, height: 10)
                             .foregroundColor(.basicBlack.opacity(0.6))
-
                             
                     }
                     .offset(y:20)
-
+                   
                 }
+                
             }
             .padding(.horizontal)
             MyProgressCircle(user: user)

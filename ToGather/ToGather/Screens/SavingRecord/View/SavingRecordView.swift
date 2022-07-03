@@ -151,7 +151,7 @@ struct SavingRecordView: View {
                 }
                 userViewModel.completedSaved = true
                 FirebaseManager.shared.uploadImage(userData: userViewModel.userData, image: uiImage)
-            
+                userViewModel.fetchAuthPics()
                 // image 파일이 존재할 때 Firebase에 쓰는 기능
                 presentationMode.wrappedValue.dismiss()
                 print("이번주 저축 완료하기")

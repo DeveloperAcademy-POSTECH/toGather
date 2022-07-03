@@ -12,40 +12,36 @@ import FirebaseDatabase
 import FirebaseCore
 
 final class FirebaseManager: ObservableObject {
-   // @Published var onboardingViewModel = UserViewModel()
+    // MARK: - Properties
     static let shared = FirebaseManager()
     
     private init() {}
     
+
+
+    // MARK: - Functions
     /// user 컬렉션에서 friend의 uid로 검색하여 친구 닉네임 가져오기
     func fetchFriendNickname(friendUids: [String], completion : @escaping ([String]) -> Void) {
         let db = Database.database().reference()
         var friendNames =  [String]()
         for friendUid in friendUids {
             let docRef = db.child("users/\(friendUid)")
-                
-            
+                            
             docRef.observe(.value) { snapshot in
-                
+        
                 let nickName = snapshot.value(forKey: "nickName") as? String ?? ""
-                
                 friendNames.append(nickName)
             }
-            
         }
     
         completion(friendNames)
 
     }
     
-        
-    func isFriendUidExist(friendUid: String, completion: @escaping (String?) -> (Void)) {
+
+    func isFriendUidExist(friendUid: String, completion: @escaping (String?) -> Void) {
         let db = Database.database().reference()
         let docRef = db.child("users/\(friendUid)")
-      //  let docRef = db.collection("user").document(friendUid)
-        
-        var nickName: String?
-
         
         docRef.observe(.value) { snapshot in
             let nickName = snapshot.value(forKey: "nickName") as? String ?? ""
@@ -74,8 +70,6 @@ final class FirebaseManager: ObservableObject {
             }
         }
         
-        
-        
         let savingData : [String: Any] = [
             "uid": "0",
             "goalProduct": userData.saveInfo.goalProduct,
@@ -98,9 +92,8 @@ final class FirebaseManager: ObservableObject {
             weekInfo.append(thisweek)
         }
         
-        
-        db.child("users/\(userData.id ?? "")/saveInfo/weekInfo").setValue(weekInfo){
-            error, ref in
+        db.child("users/\(userData.id ?? "")/saveInfo/weekInfo").setValue(weekInfo) {
+            error, _ in
                 if let error = error {
                     print("Error writing user document: \(error)")
                 } else {
@@ -109,15 +102,7 @@ final class FirebaseManager: ObservableObject {
         }
 
     }
-
-    
-//    func setUploadImageStructure(userData: User) {
-//        print(userData.id)
-//        let db = Database.database().reference()
-//
-//        db.child("users/\(userData.id)/authPics").setValue(["imageUrls": ""])
-//    }
-    
+    /// 이미지 파베에 업로드하기
     func uploadImage(userData: User,image : UIImage) {
          guard let imageData = image.jpegData(compressionQuality: 0.5) else { return} // 이미지 화질 조정
          let fileName = NSUUID().uuidString // 이미지네임 랜덤.
@@ -128,35 +113,59 @@ final class FirebaseManager: ObservableObject {
                  print("에러가 발생하였다\(error.localizedDescription)")
                  return
              }
+         imageRef.downloadURL { imageUrl, _ in
+                 guard let imageUrl = imageUrl?.absoluteString else {return}
 
-//         imageRef.downloadURL { imageUrl, _ in
-//                 guard let imageUrl = imageUrl?.absoluteString else {return}
-//
-//             let db = Database.database().reference()
-//
-//             db.child("users/\(userData.id ?? "")/authPics").updateChildValues(imageUrl)
-//             Firestore.firestore().collection("authPic").document(userData.id ?? "").updateData(["imageUrls": FieldValue.arrayUnion([imageUrl])])
-//
-//             }
+             let db = Database.database().reference()
+             
+             db.child("users/\(userData.id ?? "")/saveInfo/weekInfo/\(userData.saveInfo.currentWeek - 1)")
+                 .updateChildValues(["imageUrl":imageUrl])
+                 
+             }
              
          }
                  
      }
     
-    
-    func fetchAuthPics(userData: User, completion : @escaping ([String]) -> (Void)) {
+    /// 인증사진들 가져오기
+    func fetchAuthPics(userData: User, completion : @escaping ([String]) -> Void) {
             
-            Firestore.firestore().collection("authPic").document("8E64B9").getDocument { snapshot, _ in
+        let db = Database.database().reference()
 
-                guard let authPics = try? snapshot?.get("imageUrls") as? [String] else {return}
+        db.child("users/\(userData.id ?? "")/saveInfo/weekInfo").observe(.value) { snapshot in
+            
+            guard let value = snapshot.value else { return}
+            do {
 
+            let data = try JSONSerialization.data(withJSONObject: value, options: [])
+            let decoder = JSONDecoder()
+            let weekInfo = try decoder.decode([ThisWeek].self, from: data)
+
+                var authPics : [String] = []
+                for week in weekInfo {
+                    if let imageUrl = week.imageUrl {
+                    authPics.append(imageUrl)
+                    }
+                }
                 completion(authPics)
-
+            } catch let DecodingError.dataCorrupted(context) {
+                print(context)
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.typeMismatch(type, context) {
+                print("Type '\(type)' mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch {
+                print("error: ", error)
             }
-
+        }
             }
     
-    
+    /// 유저정보 가져오기
     func fetchUser(userId:String,completion: @escaping((User) -> Void)) {
         
         let db = Database.database().reference()
@@ -164,7 +173,7 @@ final class FirebaseManager: ObservableObject {
         db.child("users/\(userId)").observe(.value) { snapshot in
             guard let value = snapshot.value else { return}
             
-            print(value)
+         //   print(value)
             do {
 
                 let userData = try JSONSerialization.data(withJSONObject: value, options: [])
@@ -179,7 +188,7 @@ final class FirebaseManager: ObservableObject {
             } catch let DecodingError.valueNotFound(value, context) {
                 print("Value '\(value)' not found:", context.debugDescription)
                 print("codingPath:", context.codingPath)
-            } catch let DecodingError.typeMismatch(type, context)  {
+            } catch let DecodingError.typeMismatch(type, context) {
                 print("Type '\(type)' mismatch:", context.debugDescription)
                 print("codingPath:", context.codingPath)
             } catch {
