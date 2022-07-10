@@ -61,7 +61,6 @@ struct MainView: View {
                 mySavingsView
                 Spacer(minLength: 68)
                 bottomView
-                   
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -132,7 +131,7 @@ extension MainView {
     }
     
     var mySavingsView: some View {
-        VStack {
+        VStack(spacing: 0){
             HStack {
                 Text("나의 저축현황")
                     .font(.system(size: 22, weight: .bold))
@@ -175,7 +174,7 @@ extension MainView {
                  + Text("저축까지 남은 시간")
                     .font(.system(size: 14))
                     .foregroundColor(.basicBlack.opacity(0.6))
-            if isUnderOneDay(firstSavingDate: startDate) && userViewModel.completedSaved == false {
+          //  if isUnderOneDay(firstSavingDate: startDate) && userViewModel.completedSaved == false {
                 NavigationLink(destination: SavingRecordView().navigationBarBackButtonHidden(true).navigationBarHidden(true)) {
                     Text("오늘은 저축하는 날이에요")
                         .font(.callout)
@@ -184,23 +183,24 @@ extension MainView {
                         .background(Color.pointColor)
                         .cornerRadius(30)
                         .padding(.horizontal)
+                        
                 }
-            } else {
-                Label {
-                    Text("\(deadLine)")
-                        .font(.callout)
-                        .foregroundColor(.white)
-                        .onReceive(timer) {_ in
-                            deadLine = getRemainTime(firstSavingDate: startDate) }
-                } icon: {
-                    Image(systemName: "clock")
-                        .foregroundColor(.white)
-                }
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
-                .background(Color.black03)
-                .cornerRadius(30)
-                .padding(.horizontal)
-            }
+         //   } else {
+//                Label {
+//                    Text("\(deadLine)")
+//                        .font(.callout)
+//                        .foregroundColor(.white)
+//                        .onReceive(timer) {_ in
+//                            deadLine = getRemainTime(firstSavingDate: startDate) }
+//                } icon: {
+//                    Image(systemName: "clock")
+//                        .foregroundColor(.white)
+//                }
+//                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
+//                .background(Color.black03)
+//                .cornerRadius(30)
+//                .padding(.horizontal)
+         //   }
         }
     }
 }

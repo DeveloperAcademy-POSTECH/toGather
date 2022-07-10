@@ -43,6 +43,8 @@ final class FirebaseManager: ObservableObject {
         let db = Database.database().reference()
         let docRef = db.child("users/\(friendUid)")
         
+    
+        
         docRef.observe(.value) { snapshot in
             let nickName = snapshot.value(forKey: "nickName") as? String ?? ""
             completion(nickName)
@@ -104,7 +106,7 @@ final class FirebaseManager: ObservableObject {
     }
     /// 이미지 파베에 업로드하기
     func uploadImage(userData: User,image : UIImage) {
-         guard let imageData = image.jpegData(compressionQuality: 0.5) else { return} // 이미지 화질 조정
+         guard let imageData = image.jpegData(compressionQuality: 0.5) else { return } // 이미지 화질 조정
          let fileName = NSUUID().uuidString // 이미지네임 랜덤.
          let imageRef = Storage.storage().reference(withPath: "/auth_image/\(fileName)")
              
@@ -114,7 +116,7 @@ final class FirebaseManager: ObservableObject {
                  return
              }
          imageRef.downloadURL { imageUrl, _ in
-                 guard let imageUrl = imageUrl?.absoluteString else {return}
+                 guard let imageUrl = imageUrl?.absoluteString else { return }
 
              let db = Database.database().reference()
              
@@ -131,6 +133,7 @@ final class FirebaseManager: ObservableObject {
     func fetchAuthPics(userData: User, completion : @escaping ([String]) -> Void) {
             
         let db = Database.database().reference()
+        print(db)
 
         db.child("users/\(userData.id ?? "")/saveInfo/weekInfo").observe(.value) { snapshot in
             

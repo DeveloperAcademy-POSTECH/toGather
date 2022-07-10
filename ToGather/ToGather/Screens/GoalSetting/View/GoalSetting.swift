@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GoalSetting: View {
+    
+    // MARK: - Properties
     @State var isSelectedItem: String?
     @StateObject var onboardingViewModel: OnBoardingViewModel
     @EnvironmentObject var userViewModel: UserViewModel

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct StartView: View {
     @EnvironmentObject var userViewModel: UserViewModel

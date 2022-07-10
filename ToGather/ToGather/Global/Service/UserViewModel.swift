@@ -48,7 +48,7 @@ final class UserViewModel: ObservableObject {
         let uuid = UIDevice.current.identifierForVendor!.uuidString
         let uidIndex = uuid.index(uuid.startIndex, offsetBy: 5)
         userData.id = String(uuid[...uidIndex])
-        print("addUid: \(userData.id ?? "")")
+ //       print("addUid: \(userData.id ?? "")")
         UserDefaults.standard.set(userData.id,forKey: "User")
     }
     
