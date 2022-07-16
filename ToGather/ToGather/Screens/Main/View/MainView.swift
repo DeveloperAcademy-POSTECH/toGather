@@ -44,7 +44,9 @@ struct MainView: View {
     init() {
         // 네비게이션 타이틀 사이즈 조절
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont.systemFont(ofSize: 24,weight: .bold)]
-        }
+        
+   
+    }
   
     let addFriendsColor: [Color] = [.friendRed01, .friendPurple01, .friendGreen01]
     
