@@ -102,7 +102,11 @@ struct FriendAdditionView: View {
                 NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel).onAppear(perform: {
                     userViewModel.getFriendUid(friendUids: Array(addedFriendDic.keys))
                     if !addedFriendDic.isEmpty {
-                        FirebaseManager.shared.fetchFriendNickname(friendUids: Array(addedFriendDic.keys))
+                        FirebaseManager.shared.fetchFriendNickname(friendUids: Array(addedFriendDic.keys)){ friendNicknames in
+                            userViewModel.friendNicknames = friendNicknames
+                            
+                           // print("아야\(friendNickname)")
+                        }
                         userViewModel.nicknameUpgrade(str: Array(addedFriendDic.values))
                     }
                 }), label: {

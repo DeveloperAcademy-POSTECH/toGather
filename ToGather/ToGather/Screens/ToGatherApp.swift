@@ -14,6 +14,8 @@ struct ToGatherApp: App {
     init() {
         FirebaseApp.configure()
         
+    
+            }
         // TODO: - 파이어베이스 연동과정에서 제거예정
 //        do {
 //        try UserDefaults.standard.setObject(User(id: "125",
@@ -24,7 +26,7 @@ struct ToGatherApp: App {
 //            print(error.localizedDescription)
 //
 //        }
-        }
+        
     var body: some Scene {
         WindowGroup {
 //            LastOnboardingView()

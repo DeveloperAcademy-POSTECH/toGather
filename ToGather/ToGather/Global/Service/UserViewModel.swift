@@ -10,9 +10,9 @@ import SwiftUI
 import UIKit
 
 final class UserViewModel: ObservableObject {
-    @Published var friendNickname: [String]  = []
+    @Published var friendNicknames: [String]  = []
     @Published var mode : DisplayMode = .light
-
+  //  @Published var nicknameArray: [String] = []
     @Published var userData = dummyMy
 //    User(id: "31SF29", nickname: "miller", creationDate: "", isAlarmOn: true,
 //                                   saveInfo: Saving(goalProduct: Product(productName: "", productPrice: 0, imageUrl: ""),
@@ -21,7 +21,9 @@ final class UserViewModel: ObservableObject {
  
     @Published var friendUids: [String] = []
     
-    
+    @Published var authPics : [String] = []
+    @Published var completedSaved: Bool = false
+
     /// goal-setting 뷰에서 사용, savingData 인스턴스에 목표 product 추가
     func addProduct(product: Product) {
         userData.saveInfo.goalProduct = product
@@ -48,12 +50,13 @@ final class UserViewModel: ObservableObject {
         let uuid = UIDevice.current.identifierForVendor!.uuidString
         let uidIndex = uuid.index(uuid.startIndex, offsetBy: 5)
         userData.id = String(uuid[...uidIndex])
+        print("addUid: \(userData.id)")
         UserDefaults.standard.set(userData.id,forKey: "User")
     }
     
     func nicknameUpgrade(str : [String]) {
         if !str.isEmpty {
-            friendNickname = str
+            friendNicknames = str
         }
     }
 

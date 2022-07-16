@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct SavingRecordView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -35,6 +36,7 @@ struct SavingRecordView: View {
     var totalFailedNum: Int {user.saveInfo.totalFailedNum}
     var totalSavedNum: Int {user.saveInfo.totalSavedNum}
     var progressPercent: Double {user.saveInfo.progressPercent}
+    
 
     @State var showImagePicker: Bool = false
     @State var uiImage: UIImage? = nil
@@ -147,11 +149,13 @@ struct SavingRecordView: View {
                 guard let uiImage = uiImage else {
                     return
                 }
-                
+                userViewModel.completedSaved = true
                 FirebaseManager.shared.uploadImage(userData: userViewModel.userData, image: uiImage)
-                
+            
                 // image 파일이 존재할 때 Firebase에 쓰는 기능
+                presentationMode.wrappedValue.dismiss()
                 print("이번주 저축 완료하기")
+                
             }, label: {
                 Text("이번주 저축 완료하기")
                     .fontWeight(.bold)
