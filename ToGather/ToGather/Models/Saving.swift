@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 
 struct Saving : Codable {
+    
     var goalProduct: Product
 
     var goalWeeks: Int // 처음 설정한 목표 저축 기간. ~주

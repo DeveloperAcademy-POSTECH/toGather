@@ -36,6 +36,7 @@ struct RGBColorInProgressCircle {
     }
 }
 extension RGBColorInProgressCircle {
+    static let colorList: [RGBColorInProgressCircle] = [friendColor1, friendColor1, friendColor2, friendColor3]
     static var friendColor1 = RGBColorInProgressCircle(red: 0.91, green: 0.43, blue: 0.54)
     static var friendColor2 = RGBColorInProgressCircle(red: 0.74, green: 0.58, blue: 0.91)
     static var friendColor3 = RGBColorInProgressCircle(red: 0.47, green: 0.83, blue: 0.32)

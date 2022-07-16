@@ -67,9 +67,9 @@ struct LastOnboardingView: View {
             .font(.system(size: 16, weight: .regular))
             .padding(.bottom, 30)
             
-            if !userViewModel.friendNickname.isEmpty {
+            if !userViewModel.friendNicknames.isEmpty {
                 HStack(spacing: 10) {
-                    ForEach(userViewModel.friendNickname, id:\.self) { nickName in
+                    ForEach(userViewModel.friendNicknames, id:\.self) { nickName in
                         VStack(spacing: 0) {
                             ZStack {
                                 Image(systemName: "person.fill")
@@ -105,8 +105,8 @@ struct LastOnboardingView: View {
             
             Button {
                 userViewModel.addUid()
-                FirebaseManager.shared.changeViewModel(userViewModel: userViewModel)
-                FirebaseManager.shared.uploadSavingDataAndUserData()
+            //    FirebaseManager.shared.changeViewModel(userViewModel: userViewModel)
+                FirebaseManager.shared.uploadSavingDataAndUserData(userData: userViewModel.userData, friendUids: userViewModel.friendUids)
                 FirebaseManager.shared.setUploadImageStructure(userData: userViewModel.userData)
                 onboardingViewModel.setNotFirstOn()
             } label: {

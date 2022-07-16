@@ -112,7 +112,10 @@ extension MainView {
     var friendsSavingsView: some View {
         HStack(spacing: 26) {
             ForEach(viewModel.getFriendList()) { friendSaving in
-                NavigationLink(destination: SavingStatusView()) {
+                NavigationLink(destination: FrSavingStatusNavigationView(user: friendSaving.user, colorRGB: RGBColorInProgressCircle.colorList[Int(friendSaving.id)]).navigationTitle("알림")
+                    .navigationBarHidden(true)) {
+                    
+//                NavigationLink(destination: EmptyView()) {
                     friendSaving
                 }
                 .buttonStyle(PlainButtonStyle())
