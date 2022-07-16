@@ -47,6 +47,7 @@ struct MainView: View {
         
        
         }
+
   
     let addFriendsColor: [Color] = [.friendRed01, .friendPurple01, .friendGreen01]
     
