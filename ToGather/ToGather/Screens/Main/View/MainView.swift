@@ -122,7 +122,7 @@ extension MainView {
             }
 
             VStack(spacing: 4) {
-                NavigationLink(destination: FriendAdditionView(onboardingViewModel: OnBoardingViewModel())) {
+                NavigationLink(destination: FriendAdditionView(onboardingViewModel: OnBoardingViewModel(), isPresentationMode: .constant(true))) {
                     AddedCircleView(color: addFriendsColor[viewModel.getFriendList().count])
                 }
                 Text(viewModel.getFriendList().isEmpty ? "친구랑 같이 저축하기" : "친구 추가")

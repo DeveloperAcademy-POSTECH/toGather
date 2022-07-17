@@ -27,8 +27,6 @@ struct Badge: View {
             Button {
                 addedFriendDic.removeValue(forKey: name)
                 addedFriendList.removeAll(where: { $0 == name })
-
-                
             } label: {
                 Image(systemName: "minus.circle.fill")
                     .foregroundColor(.red)

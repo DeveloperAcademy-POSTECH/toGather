@@ -10,7 +10,7 @@ import SwiftUI
 struct FriendNavigationViewTest: View {
     var body: some View {
         NavigationView {
-            FriendAdditionView(onboardingViewModel: OnBoardingViewModel())
+            FriendAdditionView(onboardingViewModel: OnBoardingViewModel(), isPresentationMode: .constant(true))
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
@@ -48,6 +48,7 @@ struct FriendAdditionView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @FocusState var isKeyboardHide: Bool
     
+    @Binding var isPresentationMode: Bool
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
@@ -66,10 +67,9 @@ struct FriendAdditionView: View {
                                 addedFriendDic.updateValue(nickName, forKey: result)
                                 addedFriendList.append(nickName)
                             }
+                        } else {
+                            noFriendId = true
                         }
-                         else {
-                        noFriendId = true
-                         }
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         text = ""
@@ -80,7 +80,7 @@ struct FriendAdditionView: View {
             NoFriendTextView(isFriendWrong: $noFriendId)
             if addedFriendDic.isEmpty {
                 HStack {
-                    NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel), label: {
+                    NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode), label: {
                         ZStack {
                             Text("나중에 추가하기")
                                 .font(.system(size: 16))
@@ -99,10 +99,10 @@ struct FriendAdditionView: View {
             }
             Spacer()
             if onboardingViewModel.isFirstOn {
-                NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel).onAppear(perform: {
+                NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
                     userViewModel.getFriendUid(friendUids: Array(addedFriendDic.keys))
                     if !addedFriendDic.isEmpty {
-                        FirebaseManager.shared.fetchFriendNickname(friendUids: Array(addedFriendDic.keys)){ friendNicknames in
+                        FirebaseManager.shared.fetchFriendNickname(friendUids: Array(addedFriendDic.keys)) { friendNicknames in
                             userViewModel.friendNicknames = friendNicknames
                             
                            // print("아야\(friendNickname)")
@@ -140,7 +140,7 @@ struct FriendAdditionView: View {
 
 }
 
-func isPinExistValue(inputString: String) -> String?{
+func isPinExistValue(inputString: String) -> String? {
     guard let value = testPin[inputString] else {
         return nil
     }
@@ -158,7 +158,7 @@ extension FriendAdditionView {
 
 struct AddingFriend_Previews: PreviewProvider {
     static var previews: some View {
-        FriendAdditionView(onboardingViewModel: OnBoardingViewModel())
+        FriendAdditionView(onboardingViewModel: OnBoardingViewModel(), isPresentationMode: .constant(true))
             .previewInterfaceOrientation(.portrait)
     }
 }

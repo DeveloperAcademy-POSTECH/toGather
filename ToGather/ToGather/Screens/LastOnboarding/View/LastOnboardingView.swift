@@ -15,6 +15,7 @@ struct LastOnboardingView: View {
     @StateObject var onboardingViewModel: OnBoardingViewModel
     
 //    var friendUids: [String]? = ["AcBafb", "DYYGUP"] // dummy data
+    @Binding var isPresentationMode: Bool
     
     var body: some View {
         VStack(spacing: 0) {
@@ -96,7 +97,7 @@ struct LastOnboardingView: View {
             
             Spacer()
             Button {
-                // 나중에 onboarding 첫페이지로 이동하는 코드 추가
+                isPresentationMode = false
             } label: {
                 Text("저축내용을 수정할게요")
                     .foregroundColor(ColorStyle.blackSixty.color)
