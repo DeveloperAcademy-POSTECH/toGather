@@ -94,6 +94,7 @@ struct LastOnboardingView: View {
                     .padding(.bottom, 124)
             }
             
+            Spacer()
             Button {
                 // 나중에 onboarding 첫페이지로 이동하는 코드 추가
             } label: {
