@@ -19,8 +19,8 @@ struct MainView: View {
     var saving: Saving {user.saveInfo}
    
     // product
-    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
-    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
+    var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
     
     // time
     var lastDate: String {user.saveInfo.lastDate}
@@ -45,7 +45,6 @@ struct MainView: View {
         // 네비게이션 타이틀 사이즈 조절
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont.systemFont(ofSize: 24,weight: .bold)]
         
-       
         }
 
   
@@ -133,7 +132,7 @@ extension MainView {
     }
     
     var mySavingsView: some View {
-        VStack {
+        VStack(spacing: 0){
             HStack {
                 Text("나의 저축현황")
                     .font(.system(size: 22, weight: .bold))
@@ -142,11 +141,10 @@ extension MainView {
                 NavigationLink(destination: SavingStatusNavigationView()
                 .navigationTitle("알림")
                 .navigationBarHidden(true)
-                ){
+                ) {
                     
-                    HStack(spacing: 4){
-                
-                
+                    HStack(spacing: 4) {
+                                
                 Text("상세보기")
                     .font(.system(size: 14))
                     .foregroundColor(.basicBlack.opacity(0.6))
@@ -154,12 +152,12 @@ extension MainView {
                             .resizable()
                             .frame(width: 6, height: 10)
                             .foregroundColor(.basicBlack.opacity(0.6))
-
                             
                     }
                     .offset(y:20)
-
+                   
                 }
+                
             }
             .padding(.horizontal)
             MyProgressCircle(user: user)
@@ -177,7 +175,7 @@ extension MainView {
                  + Text("저축까지 남은 시간")
                     .font(.system(size: 14))
                     .foregroundColor(.basicBlack.opacity(0.6))
-            if isUnderOneDay(firstSavingDate: startDate) && userViewModel.completedSaved == false {
+          //  if isUnderOneDay(firstSavingDate: startDate) && userViewModel.completedSaved == false {
                 NavigationLink(destination: SavingRecordView().navigationBarBackButtonHidden(true).navigationBarHidden(true)) {
                     Text("오늘은 저축하는 날이에요")
                         .font(.callout)
@@ -186,23 +184,24 @@ extension MainView {
                         .background(Color.pointColor)
                         .cornerRadius(30)
                         .padding(.horizontal)
+                        
                 }
-            } else {
-                Label {
-                    Text("\(deadLine)")
-                        .font(.callout)
-                        .foregroundColor(.white)
-                        .onReceive(timer) {_ in
-                            deadLine = getRemainTime(firstSavingDate: startDate) }
-                } icon: {
-                    Image(systemName: "clock")
-                        .foregroundColor(.white)
-                }
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
-                .background(Color.black03)
-                .cornerRadius(30)
-                .padding(.horizontal)
-            }
+         //   } else {
+//                Label {
+//                    Text("\(deadLine)")
+//                        .font(.callout)
+//                        .foregroundColor(.white)
+//                        .onReceive(timer) {_ in
+//                            deadLine = getRemainTime(firstSavingDate: startDate) }
+//                } icon: {
+//                    Image(systemName: "clock")
+//                        .foregroundColor(.white)
+//                }
+//                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 46)
+//                .background(Color.black03)
+//                .cornerRadius(30)
+//                .padding(.horizontal)
+         //   }
         }
     }
 }

@@ -17,8 +17,8 @@ struct SavingRecordView: View {
     var saving: Saving {user.saveInfo}
    
     // product
-    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
-    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
+    var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
     
     // time
     var lastDate: String {user.saveInfo.lastDate}
@@ -151,7 +151,7 @@ struct SavingRecordView: View {
                 }
                 userViewModel.completedSaved = true
                 FirebaseManager.shared.uploadImage(userData: userViewModel.userData, image: uiImage)
-            
+                userViewModel.fetchAuthPics()
                 // image 파일이 존재할 때 Firebase에 쓰는 기능
                 presentationMode.wrappedValue.dismiss()
                 print("이번주 저축 완료하기")

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		352C21D12875B84A0078A2AB /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C21D02875B84A0078A2AB /* ButtonView.swift */; };
+		3534AA352865E31E0094D7B9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3534AA342865E31E0094D7B9 /* FirebaseDatabase */; };
 		354ED94B2858471B001C726D /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94A2858471B001C726D /* NotificationsView.swift */; };
 		354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94C2858488C001C726D /* NotificaionCell.swift */; };
 		354ED94F285849E9001C726D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94E285849E9001C726D /* Notification.swift */; };
@@ -72,6 +74,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		352C21D02875B84A0078A2AB /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		354ED94A2858471B001C726D /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		354ED94C2858488C001C726D /* NotificaionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificaionCell.swift; sourceTree = "<group>"; };
 		354ED94E285849E9001C726D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3534AA352865E31E0094D7B9 /* FirebaseDatabase in Frameworks */,
 				3D4383AB28519DA700AD1885 /* FirebaseAuth in Frameworks */,
 				7669F5FC2855A46C001DDA0D /* FirebaseAuth in Frameworks */,
 				764FC79328544F17007A7415 /* Introspect in Frameworks */,
@@ -319,17 +323,17 @@
 		764FC73D28518DCE007A7415 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				7656A822285FE4E90014CFAB /* mainFriendSaving */,
-				7656A814285EEDB60014CFAB /* Start */,
-				43621E82285B448000E59CEB /* SavingRecord */,
 				E2513673285B3217008DD9C3 /* GoalSetting */,
-				3DC6AEF5285B165E004FA4DB /* SavingStatus */,
-				3D87D9F728520B2700C36346 /* LastOnboarding */,
-				354ED947285846E6001C726D /* Notifications */,
-				7669F5EE2855A2ED001DDA0D /* FriendAddition */,
 				E20551AA2856C3AF00C210DA /* SettingPeriod */,
+				7669F5EE2855A2ED001DDA0D /* FriendAddition */,
+				3D87D9F728520B2700C36346 /* LastOnboarding */,
+				7656A814285EEDB60014CFAB /* Start */,
+				7656A822285FE4E90014CFAB /* mainFriendSaving */,
 				E205519328557E4500C210DA /* ProgressCircle */,
 				35AD2D182851D4730089E1C3 /* Main */,
+				3DC6AEF5285B165E004FA4DB /* SavingStatus */,
+				354ED947285846E6001C726D /* Notifications */,
+				43621E82285B448000E59CEB /* SavingRecord */,
 				764FC72C28518CC8007A7415 /* ToGatherApp.swift */,
 				764FC72E28518CC8007A7415 /* ContentView.swift */,
 				354ED958285C4489001C726D /* Setting */,
@@ -416,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				7656A820285F48C50014CFAB /* StartView.swift */,
+				352C21D02875B84A0078A2AB /* ButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 				7669F5FD2855A46C001DDA0D /* FirebaseFirestore */,
 				7669F5FF2855A46C001DDA0D /* FirebaseStorage */,
 				3578230E28605D8F002FFE51 /* Kingfisher */,
+				3534AA342865E31E0094D7B9 /* FirebaseDatabase */,
 			);
 			productName = ToGather;
 			productReference = 764FC72928518CC8007A7415 /* ToGather.app */;
@@ -564,6 +570,7 @@
 				3D4383A928519DA700AD1885 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				764FC79128544F17007A7415 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				3578230D28605D8F002FFE51 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				3534AA332865E31E0094D7B9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 764FC72A28518CC8007A7415 /* Products */;
 			projectDirPath = "";
@@ -623,6 +630,7 @@
 				E2239AFD285A810500839197 /* SettingPeriod.swift in Sources */,
 				7656A821285F48C50014CFAB /* StartView.swift in Sources */,
 				E2239AFB28596E6500839197 /* TimeLogic.swift in Sources */,
+				352C21D12875B84A0078A2AB /* ButtonView.swift in Sources */,
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				E251367D285B322C008DD9C3 /* NotificationsViewModel.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
@@ -870,6 +878,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3534AA332865E31E0094D7B9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		3578230D28605D8F002FFE51 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -897,6 +913,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3534AA342865E31E0094D7B9 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3534AA332865E31E0094D7B9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
 		3578230E28605D8F002FFE51 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3578230D28605D8F002FFE51 /* XCRemoteSwiftPackageReference "Kingfisher" */;
