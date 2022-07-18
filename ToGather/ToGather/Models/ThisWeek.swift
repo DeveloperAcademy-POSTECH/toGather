@@ -10,7 +10,7 @@ import Foundation
 struct ThisWeek: Identifiable, Codable {
     
     let presentWeek: Int
-    let didSave: Bool
-    var imageUrl : String? = ""
+    var didSave: Bool
+    var imageUrl: String?
     var id: Int {presentWeek}
 }

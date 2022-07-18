@@ -18,7 +18,6 @@ final class UserViewModel: ObservableObject {
     @Published var dummyUserData = dummyFriend1
     @Published var friendUids: [String] = []
     @Published var authPics : [String] = []
-    @Published var completedSaved: Bool = false
 
     // MARK: - Functions
 

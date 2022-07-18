@@ -29,6 +29,7 @@ struct FrSavingStatusView: View {
     var color: Color {colorRGB.start}
     
     var saving: Saving {user.saveInfo}
+    var goalWeek: Int {user.saveInfo.goalWeeks}
     var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
     var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
     var progressPercent: Double {user.saveInfo.progressPercent}

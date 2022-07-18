@@ -122,4 +122,3 @@ struct LastOnboardingView: View {
         .padding(.horizontal, 20)
     }
 }
-

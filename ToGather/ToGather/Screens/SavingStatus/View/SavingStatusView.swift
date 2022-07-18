@@ -34,6 +34,7 @@ struct SavingStatusView: View {
 
     var user: User {userViewModel.userData}
     
+    var goalWeek: Int {user.saveInfo.goalWeeks}
     var saving: Saving {user.saveInfo}
     var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
     var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
@@ -94,6 +95,12 @@ struct SavingStatusView: View {
     }
 }
 
+struct SavingStatusView_Previews: PreviewProvider {
+    static var previews: some View {
+        SavingStatusNavigationView().environmentObject(userViewModel)
+    }
+}
+
 extension SavingStatusView {
     //  현재 저축 progress bar 및 저축 달성률
     var savingRate: some View {
@@ -105,6 +112,7 @@ extension SavingStatusView {
             .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity,
                    minHeight: 0, idealHeight: 122, maxHeight: 122, alignment: .topLeading)
     }
+    
     //    저축 달성률에 관한 Text
     var savingText: some View {
         VStack(alignment: .leading, spacing: 2) {
@@ -137,7 +145,7 @@ extension SavingStatusView {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
                 Text("저금 성공").font(.system(size: 16)).foregroundColor(.basicBlack.opacity(0.6))
-                Text("\(currentWeek)회 ").font(.system(size: 24)).foregroundColor(.basicBlack).fontWeight(.bold)
+                Text("\(totalSavedNum)회 ").font(.system(size: 24)).foregroundColor(.basicBlack).fontWeight(.bold)
                 + Text("/ \(goalWeek)").font(.system(size: 20))
                     .foregroundColor(.basicBlack.opacity(0.6)).fontWeight(.bold)
             }
@@ -254,11 +262,5 @@ extension SavingStatusView {
             }
             
         }
-    }
-}
-
-struct SavingStatusView_Previews: PreviewProvider {
-    static var previews: some View {
-        SavingStatusNavigationView().environmentObject(userViewModel)
     }
 }
