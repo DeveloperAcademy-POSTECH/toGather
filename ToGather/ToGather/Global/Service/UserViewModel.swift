@@ -10,22 +10,23 @@ import SwiftUI
 import UIKit
 
 final class UserViewModel: ObservableObject {
+    
+    // MARK: - Properties
     @Published var friendNicknames: [String]  = []
     @Published var mode : DisplayMode = .light
-
-    @Published var userData = User(id: "31SF29", nickname: "miller", creationDate: "", isAlarmOn: true,
-                                   saveInfo: Saving(goalProduct: Product(productName: "", productPrice: 0, imageUrl: ""),
-                                                    goalWeeks: 24, savingDayOfTheWeek: "월"))
-     
+    @Published var userData = dummyMy
+    @Published var dummyUserData = dummyFriend1
     @Published var friendUids: [String] = []
     @Published var authPics : [String] = []
 
+    // MARK: - Functions
+
     /// goal-setting 뷰에서 사용, savingData 인스턴스에 목표 product 추가
-    func addProduct(product: Product) {
+    func addProduct(product: String) {
         userData.saveInfo.goalProduct = product
     }
     
-    func getProduct() -> Product {
+    func getProduct() -> String {
         return userData.saveInfo.goalProduct
     }
     
@@ -46,13 +47,28 @@ final class UserViewModel: ObservableObject {
         let uuid = UIDevice.current.identifierForVendor!.uuidString
         let uidIndex = uuid.index(uuid.startIndex, offsetBy: 5)
         userData.id = String(uuid[...uidIndex])
-        print("addUid: \(userData.id)")
+ //       print("addUid: \(userData.id ?? "")")
         UserDefaults.standard.set(userData.id,forKey: "User")
     }
     
     func nicknameUpgrade(str : [String]) {
         if !str.isEmpty {
             friendNicknames = str
+        }
+    }
+    ///유저 인증사진들 가져오기
+    func fetchAuthPics() {
+            FirebaseManager.shared.fetchAuthPics(userData: userData) { authPics in
+                    self.authPics = authPics
+                print(authPics)
+
+            }
+        
+    }
+    /// 유저정보가져오기
+    func fetchUser(userId : String) {
+        FirebaseManager.shared.fetchUser(userId: userId) { user in
+           userViewModel.userData = user
         }
     }
 

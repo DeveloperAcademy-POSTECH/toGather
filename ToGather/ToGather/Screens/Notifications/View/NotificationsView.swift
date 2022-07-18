@@ -2,7 +2,7 @@
 //  NotificationsView.swift
 //  ToGather
 //
-//  Created by DaeSeong on 2022/06/14.
+//  Created by DaeSeong on 2022/06/14
 //
 
 import SwiftUI

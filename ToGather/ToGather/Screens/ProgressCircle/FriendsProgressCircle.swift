@@ -13,10 +13,10 @@ struct FriendsProgressCircle: View, Identifiable {
     var color: RGBColorInProgressCircle
 
     var saving: Saving {user.saveInfo}
-    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
-    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
+    var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
     var progressPercent: Double {user.saveInfo.progressPercent}
-    var friendProduct: Product {user.saveInfo.goalProduct}
+    var friendProduct: String {user.saveInfo.goalProduct}
     var friendName: String {user.nickname}
 
     var body: some View {
@@ -35,7 +35,7 @@ struct FriendsProgressCircle: View, Identifiable {
 extension FriendsProgressCircle {
     var itemInfo: some View {
         VStack {
-            Image(friendProduct.productName)
+            Image(friendProduct)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 53, height: 53)

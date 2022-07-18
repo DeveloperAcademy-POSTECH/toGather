@@ -21,8 +21,8 @@ struct MainView: View {
     var currentDidSave: Bool {saving.weekInfo[currentWeek - 1].didSave}
     
     // product
-    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
-    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
+    var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
     
     // time
     var lastDate: String {user.saveInfo.lastDate}
@@ -133,7 +133,7 @@ extension MainView {
     }
     
     var mySavingsView: some View {
-        VStack {
+        VStack(spacing: 0){
             HStack {
                 Text("나의 저축현황")
                     .font(.system(size: 22, weight: .bold))
@@ -149,6 +149,7 @@ extension MainView {
                             .foregroundColor(.basicBlack.opacity(0.6))
                     } .offset(y:20)
                 }
+                
             }
             .padding(.horizontal)
             MyProgressCircle(user: user)
@@ -176,6 +177,7 @@ extension MainView {
                         .background(Color.pointColor)
                         .cornerRadius(30)
                         .padding(.horizontal)
+                        
                 }
             } else {
                 Label {
