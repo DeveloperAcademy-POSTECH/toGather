@@ -10,15 +10,16 @@ import SwiftUI
 struct CustomNavigationLink<DestinationView, ContentView>: View where ContentView: View, DestinationView: View {
     
     var destination: DestinationView
-    var content: () -> ContentView
+    var isActvie: Binding<Bool> = .constant(true)
+    var label: () -> ContentView
     
     var body: some View {
-        NavigationLink {
+        NavigationLink(isActive: isActvie, destination: {
             destination
                 .navigationBarItems(leading: ArrowBackButton())
                 .navigationBarBackButtonHidden(true)
-        } label : {
-            content()
+        }){
+            label()
         }
     }
     
@@ -58,7 +59,7 @@ struct CustomNavigationLink_Previews: PreviewProvider {
     
     static var previews: some View {
         NavigationView {
-            CustomNavigationLink(destination: TempSecondPage()) {
+            CustomNavigationLink(destination: TempSecondPage(), isActvie: .constant(false)) {
                 Text("첫번째 페이지")
             }
         }
