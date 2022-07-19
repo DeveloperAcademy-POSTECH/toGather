@@ -183,7 +183,7 @@ struct SettingPeriodView: View {
 struct SettingPeriodView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SettingPeriodView(onboardingViewModel: OnBoardingViewModel())
+            SettingPeriodView(onboardingViewModel: OnBoardingViewModel(), isPresentationMode: .constant(true))
         }
         .environmentObject(UserViewModel())
     }
