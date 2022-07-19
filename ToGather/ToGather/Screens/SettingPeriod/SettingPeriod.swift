@@ -25,8 +25,7 @@ struct SettingPeriodView: View {
     private var goalWeek: Int { Int(savePeriodMonth) * 4}
     
     /// 매주 넣어야할 저축금액
-    private var saveAmountOfWeek: Double {getSaveAmountOfWeek(productPrice: Product.productDictionary[  userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0
-                    , goalWeek: goalWeek)}
+    private var saveAmountOfWeek: Double {getSaveAmountOfWeek(productPrice: Product.productDictionary[  userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0, goalWeek: goalWeek)}
 
     var body: some View {
         VStack {
@@ -58,8 +57,7 @@ struct SettingPeriodView: View {
     }
 
     private var itemInfo: some View {
-        return
-        VStack {
+        return VStack {
             ZStack {
                 // 바닥부터 시작
                 Image(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.imageUrl ?? "").resizable()
@@ -172,20 +170,18 @@ struct SettingPeriodView: View {
     }
 }
 
-// commit주의
+//// commit주의
 //var temp : some View = ZStack {
-//        SettingPeriodView()
+//        SettingPeriodView().environmentObject(userViewModel())
+//
 ////        Image("저축기간").opacity(0.9)
 //}
 
-//struct SettingPeriodView_Previews: PreviewProvider {
-//    static var previews: some View {
-//         temp
-////        NavigationView {
-////            NavigationLink(destination: temp) {
-////                Text("링크 확인")
-////            }
-////        }
-//    }
-//}
-
+struct SettingPeriodView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            SettingPeriodView(onboardingViewModel: OnBoardingViewModel())
+        }
+        .environmentObject(UserViewModel())
+    }
+}
