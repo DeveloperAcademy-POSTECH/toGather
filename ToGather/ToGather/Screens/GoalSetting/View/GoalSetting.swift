@@ -140,8 +140,8 @@ struct GoalSetting: View {
 }
 
 // commit 살릴부분
-//struct GoalSetting_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GoalSetting()
-//    }
-//}
+struct GoalSetting_Previews: PreviewProvider {
+    static var previews: some View {
+        GoalSetting(onboardingViewModel: OnBoardingViewModel())
+    }
+}
