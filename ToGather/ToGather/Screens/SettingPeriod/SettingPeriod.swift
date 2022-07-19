@@ -27,6 +27,9 @@ struct SettingPeriodView: View {
     /// 매주 넣어야할 저축금액
     private var saveAmountOfWeek: Double {getSaveAmountOfWeek(productPrice: Product.productDictionary[  userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0, goalWeek: goalWeek)}
 
+    @Binding var isPresentationMode: Bool
+
+
     var body: some View {
         VStack {
             Spacer(minLength: 90)
@@ -151,7 +154,7 @@ struct SettingPeriodView: View {
 
     private var nextButton: some View {
             return VStack {
-                NavigationLink(destination: FriendAdditionView(onboardingViewModel: onboardingViewModel).navigationTitle("").navigationBarTitleDisplayMode(.inline).onAppear(perform: {
+                NavigationLink(destination: FriendAdditionView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).navigationTitle("").navigationBarTitleDisplayMode(.inline).onAppear(perform: {
                     guard let selectedDay = selectedDay else {
                         return
                     }

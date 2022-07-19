@@ -14,6 +14,7 @@ struct GoalSetting: View {
     @StateObject var onboardingViewModel: OnBoardingViewModel
     @EnvironmentObject var userViewModel: UserViewModel
     
+    @State var isPresentationMode: Bool = false
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 0) {
@@ -118,12 +119,12 @@ struct GoalSetting: View {
                 }
                 .padding(.vertical, 22)
                 Spacer()
-                NavigationLink(destination: SettingPeriodView(onboardingViewModel: onboardingViewModel).onAppear {
+                NavigationLink(destination: SettingPeriodView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear {
                     guard let Item = isSelectedItem, let product = Product.productDictionary[Item]?.productName else {
                         return
                     }
                     userViewModel.addProduct(product: product)
-                }, label: {
+                },isActive: $isPresentationMode, label: {
                     Text("다음")
                         .fontWeight(.bold)
                         .frame(width: UIScreen.main.bounds.width - 40, height: 46)
