@@ -47,7 +47,6 @@ struct SettingPeriodView: View {
 
     private let title: some View = HStack {
         VStack(alignment: .leading) {
-
             HStack {
                 Text("매주 저축할 금액").foregroundColor(ColorStyle.blue.color) + Text("과 ")
                 Text("요일").foregroundColor(ColorStyle.blue.color) + Text("을")
@@ -155,7 +154,7 @@ struct SettingPeriodView: View {
 
     private var nextButton: some View {
             return VStack {
-                NavigationLink(destination: FriendAdditionView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).navigationTitle("").navigationBarTitleDisplayMode(.inline).onAppear(perform: {
+                CustomNavigationLink(destination: FriendAdditionView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
                     guard let selectedDay = selectedDay else {
                         return
                     }
