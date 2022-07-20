@@ -35,6 +35,7 @@
 		3D48A6E3285782E500FE6BE8 /* LastOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D48A6E2285782E500FE6BE8 /* LastOnboardingViewModel.swift */; };
 		3D87D9F62852046100C36346 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3D87D9F52852046100C36346 /* FirebaseStorage */; };
 		3D87D9F928520B6100C36346 /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D9F828520B6100C36346 /* LastOnboardingView.swift */; };
+		3DA86E012887CEF700F34D69 /* AddingFriendProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA86E002887CEF700F34D69 /* AddingFriendProgressCircle.swift */; };
 		3DC6AEF8285B165F004FA4DB /* SavingStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6AEF7285B165F004FA4DB /* SavingStatusView.swift */; };
 		43621E85285B448000E59CEB /* SavingRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43621E84285B448000E59CEB /* SavingRecordView.swift */; };
 		43621E87285B4C2300E59CEB /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43621E86285B4C2300E59CEB /* ImagePicker.swift */; };
@@ -96,6 +97,7 @@
 		3D48A6E0285774CD00FE6BE8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3D48A6E2285782E500FE6BE8 /* LastOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingViewModel.swift; sourceTree = "<group>"; };
 		3D87D9F828520B6100C36346 /* LastOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingView.swift; sourceTree = "<group>"; };
+		3DA86E002887CEF700F34D69 /* AddingFriendProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingFriendProgressCircle.swift; sourceTree = "<group>"; };
 		3DC6AEF7285B165F004FA4DB /* SavingStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingStatusView.swift; sourceTree = "<group>"; };
 		43621E84285B448000E59CEB /* SavingRecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingRecordView.swift; sourceTree = "<group>"; };
 		43621E86285B4C2300E59CEB /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -237,6 +239,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		3DA86DFF2887A97900F34D69 /* FriendModal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FriendModal;
+			sourceTree = "<group>";
+		};
 		3DC6AEF5285B165E004FA4DB /* SavingStatus */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +332,7 @@
 		764FC73D28518DCE007A7415 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3DA86DFF2887A97900F34D69 /* FriendModal */,
 				E2513673285B3217008DD9C3 /* GoalSetting */,
 				E20551AA2856C3AF00C210DA /* SettingPeriod */,
 				7669F5EE2855A2ED001DDA0D /* FriendAddition */,
@@ -471,6 +481,7 @@
 				E20551982855812B00C210DA /* FriendsProgressCircle.swift */,
 				E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */,
 				35E7789A2856091C0015122A /* AddedCircleView.swift */,
+				3DA86E002887CEF700F34D69 /* AddingFriendProgressCircle.swift */,
 			);
 			path = ProgressCircle;
 			sourceTree = "<group>";
@@ -651,6 +662,7 @@
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				3DC6AEF8285B165F004FA4DB /* SavingStatusView.swift in Sources */,
 				7656A824285FE4F70014CFAB /* FrSavingView.swift in Sources */,
+				3DA86E012887CEF700F34D69 /* AddingFriendProgressCircle.swift in Sources */,
 				354ED94B2858471B001C726D /* NotificationsView.swift in Sources */,
 				E205519728557EEB00C210DA /* DummyData.swift in Sources */,
 				7656A819285EEDB60014CFAB /* OnboardingViewModel.swift in Sources */,
