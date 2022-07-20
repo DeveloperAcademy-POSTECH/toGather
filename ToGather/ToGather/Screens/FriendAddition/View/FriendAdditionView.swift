@@ -99,7 +99,7 @@ struct FriendAdditionView: View {
             }
             Spacer()
             if onboardingViewModel.isFirstOn {
-                NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
+                CustomNavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
                     userViewModel.getFriendUid(friendUids: Array(addedFriendDic.keys))
                     if !addedFriendDic.isEmpty {
                         FirebaseManager.shared.fetchFriendNickname(friendUids: Array(addedFriendDic.keys)) { friendNicknames in
@@ -135,7 +135,7 @@ struct FriendAdditionView: View {
             }
         }
         .ignoresSafeArea(.keyboard)
-            
+        
     }
 
 }
