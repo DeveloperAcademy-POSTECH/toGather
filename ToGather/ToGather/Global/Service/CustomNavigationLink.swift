@@ -29,9 +29,10 @@ struct CustomNavigationLink<DestinationView, ContentView>: View where ContentVie
     }
     
     var body: some View {
-        if hasIsActive{
+        if hasIsActive {
             NavigationLink(isActive: $isActive, destination: {
                 destination
+                    .navigationBarTitleDisplayMode(.inline)
                     .navigationBarItems(leading: ArrowBackButton())
                     .navigationBarBackButtonHidden(true)
             }){
@@ -40,6 +41,7 @@ struct CustomNavigationLink<DestinationView, ContentView>: View where ContentVie
         } else {
             NavigationLink(destination: {
                 destination
+                    .navigationBarTitleDisplayMode(.inline)
                     .navigationBarItems(leading: ArrowBackButton())
                     .navigationBarBackButtonHidden(true)
             }){
