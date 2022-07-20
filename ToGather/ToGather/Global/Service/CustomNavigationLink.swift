@@ -59,7 +59,7 @@ struct CustomNavigationLink<DestinationView, ContentView>: View where ContentVie
             } label: {
                 Image(systemName: "arrow.backward")
                     .font(.system(size: 22, weight: .medium))
-                    .foregroundColor(Color.red)
+                    .foregroundColor(Color.basicBlack)
             }
         }
     }
