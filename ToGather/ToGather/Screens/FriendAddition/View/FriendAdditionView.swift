@@ -80,7 +80,7 @@ struct FriendAdditionView: View {
             NoFriendTextView(isFriendWrong: $noFriendId)
             if addedFriendDic.isEmpty {
                 HStack {
-                    NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode), label: {
+                    CustomNavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode), label: {
                         ZStack {
                             Text("나중에 추가하기")
                                 .font(.system(size: 16))
