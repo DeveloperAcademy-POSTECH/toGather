@@ -51,6 +51,8 @@ struct FriendAdditionView: View {
     @Binding var isPresentationMode: Bool
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @StateObject var friendAdditionViewModel =  FriendAdditionViewModel()
 
     var body: some View {
         VStack {
@@ -61,24 +63,19 @@ struct FriendAdditionView: View {
             PinStackView(attempts: $attemps, pin: $text, wrongFriendInput: $noFriendId, isKeyboardHide: $isKeyboardHide, handler: { result, status in
                 if status {
 
-                    FirebaseManager.shared.isFriendUidExist(friendUid: result) { nickName in
-                        if let nickName = nickName {
-                            if (addedFriendDic[result] == nil) {
-                                addedFriendDic.updateValue(nickName, forKey: result)
-                                addedFriendList.append(nickName)
-                            }
-                        } else {
-                            noFriendId = true
-                        }
+                    if friendAdditionViewModel.insertFriendUids(uid: result) {
+                        noFriendId = true
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        text = ""
-                    }
+                    text = ""
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//                        text = ""
+//                    }
                 }
             })
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
             NoFriendTextView(isFriendWrong: $noFriendId)
-            if addedFriendDic.isEmpty {
+        
+            if friendAdditionViewModel.isFriendEmpty() {
                 HStack {
                     NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode), label: {
                         ZStack {
@@ -95,19 +92,15 @@ struct FriendAdditionView: View {
                     Spacer()
                 }.padding(EdgeInsets(top: 31, leading: 20, bottom: 0, trailing: 0))
             } else {
-                AlreadyAddedFriendView(addedFriendDic: $addedFriendDic, addedFriendList: $addedFriendList)
+                AlreadyAddedFriendView(friendAdditionViewModel: friendAdditionViewModel)
             }
             Spacer()
             if onboardingViewModel.isFirstOn {
                 NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
-                    userViewModel.getFriendUid(friendUids: Array(addedFriendDic.keys))
-                    if !addedFriendDic.isEmpty {
-                        FirebaseManager.shared.fetchFriendNickname(friendUids: Array(addedFriendDic.keys)) { friendNicknames in
-                            userViewModel.friendNicknames = friendNicknames
-                            
-                           // print("아야\(friendNickname)")
-                        }
-                        userViewModel.nicknameUpgrade(str: Array(addedFriendDic.values))
+                    
+                    if let friendNicknames = friendAdditionViewModel.getFriendNickname(), let friendUids = friendAdditionViewModel.getFriendUids() {
+                        userViewModel.setFriendUid(friendUids: friendUids)
+                        userViewModel.setFriendNickname(friendNicknames: friendNicknames)
                     }
                 }), label: {
                     Text("다음")
