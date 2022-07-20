@@ -40,6 +40,7 @@ struct PinStackView: View {
                         if self.getPinNumber(digit) != "-1" {
                             Text("\(self.getPinNumber(digit))")
                                 .frame(width: 46, height: 46)
+                                .font(.system(size: 22, weight: .bold))
                                 .foregroundColor(.pointColor)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 8)
