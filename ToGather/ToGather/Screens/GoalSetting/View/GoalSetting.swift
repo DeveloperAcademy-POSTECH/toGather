@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GoalSetting: View {
+    
+    // MARK: - Properties
     @State var isSelectedItem: String?
     @StateObject var onboardingViewModel: OnBoardingViewModel
     @EnvironmentObject var userViewModel: UserViewModel
@@ -119,6 +121,7 @@ struct GoalSetting: View {
                 Spacer()
                 NavigationLink(destination: SettingPeriodView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear {
                     guard let Item = isSelectedItem, let product = Product.productDictionary[Item] else {
+
                         return
                     }
                     userViewModel.addProduct(product: product)

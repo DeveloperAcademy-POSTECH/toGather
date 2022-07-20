@@ -12,31 +12,20 @@ struct SavingRecordView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @EnvironmentObject var userViewModel: UserViewModel
-    var user: User {userViewModel.dummyUserData}
-    
+    var user: User {userViewModel.userData}
+
     var saving: Saving {user.saveInfo}
    
     // product
-    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
-    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
+    var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
     
-    // time
-    var lastDate: String {user.saveInfo.lastDate}
-    var startDate: String {user.saveInfo.startDate}
     var savingDay: String {user.saveInfo.savingDayOfTheWeek}
     var currentWeek: Int {user.saveInfo.currentWeek}
-    @State var deadLine = ""
+
     
-    // money
     var savingAmountOfWeek: Double {user.saveInfo.savingAmountOfWeek}
     var totalSavingAmount: Double {user.saveInfo.totalSavingAmount}
-    var goalSavingAmount: Double {user.saveInfo.goalSavingAmount}
-    
-    // progress
-    var totalFailedNum: Int {user.saveInfo.totalFailedNum}
-    var totalSavedNum: Int {user.saveInfo.totalSavedNum}
-    var progressPercent: Double {user.saveInfo.progressPercent}
-    
 
     @State var showImagePicker: Bool = false
     @State var uiImage: UIImage? = nil
@@ -149,9 +138,9 @@ struct SavingRecordView: View {
                 guard let uiImage = uiImage else {
                     return
                 }
-                userViewModel.completedSaved = true
+                userViewModel.userData.saveInfo.weekInfo[currentWeek - 1].didSave = true
                 FirebaseManager.shared.uploadImage(userData: userViewModel.userData, image: uiImage)
-            
+                userViewModel.fetchAuthPics()
                 // image 파일이 존재할 때 Firebase에 쓰는 기능
                 presentationMode.wrappedValue.dismiss()
                 print("이번주 저축 완료하기")

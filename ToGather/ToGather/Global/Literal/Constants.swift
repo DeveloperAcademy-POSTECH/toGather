@@ -12,10 +12,6 @@ import SwiftUI
 let COLLECTION_NOTIFICATIONS = Firestore.firestore().collection("notifications")
 
 
-
-
-
-
 // MARK: - 디스플레이모드 enumer
 enum DisplayMode: Int {
     case system, dark, light

@@ -11,6 +11,7 @@ import SwiftUI
 let start: Double = 0
 let end: Double = 0.8
 let length = end - start
+
 let rotationDegree = (360 * (1 - length))/2 + 90
 
 struct ProgressCircle: View {
