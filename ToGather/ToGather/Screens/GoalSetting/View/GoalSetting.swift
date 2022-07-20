@@ -119,7 +119,7 @@ struct GoalSetting: View {
                 }
                 .padding(.vertical, 22)
                 Spacer()
-                NavigationLink(destination: SettingPeriodView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear {
+                CustomNavigationLink(destination: SettingPeriodView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear {
                     guard let Item = isSelectedItem, let product = Product.productDictionary[Item]?.productName else {
                         return
                     }
