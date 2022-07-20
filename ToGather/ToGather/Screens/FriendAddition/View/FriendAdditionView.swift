@@ -7,24 +7,6 @@
 
 import SwiftUI
 
-struct FriendNavigationViewTest: View {
-    var body: some View {
-        NavigationView {
-            FriendAdditionView(onboardingViewModel: OnBoardingViewModel(), isPresentationMode: .constant(true))
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            print("Edit button was tapped")
-                        } label: {
-                            Image(systemName: "arrow.backward")
-                        }
-
-                        }
-                }
-                .navigationBarTitleDisplayMode(.inline)
-        }
-    }
-}
 
 struct NoFriendTextView: View {
     @Binding var isFriendWrong: Bool
@@ -61,15 +43,13 @@ struct FriendAdditionView: View {
             ApplyFriendIdTextView()
                 .padding(EdgeInsets(top: 40, leading: 21, bottom: 0, trailing: 0))
             PinStackView(attempts: $attemps, pin: $text, wrongFriendInput: $noFriendId, isKeyboardHide: $isKeyboardHide, handler: { result, status in
-                if status {
-
-                    if friendAdditionViewModel.insertFriendUids(uid: result) {
-                        noFriendId = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    if status {
+                        if !friendAdditionViewModel.insertFriendUids(uid: result) {
+                            noFriendId = true
+                        }
+                        text = ""
                     }
-                    text = ""
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-//                        text = ""
-//                    }
                 }
             })
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
