@@ -25,7 +25,7 @@ struct SettingPeriodView: View {
     private var goalWeek: Int { Int(savePeriodMonth) * 4}
     
     /// 매주 넣어야할 저축금액
-    private var saveAmountOfWeek: Double {getSaveAmountOfWeek(productPrice: userViewModel.userData.saveInfo.goalProduct.productPrice
+    private var saveAmountOfWeek: Double {getSaveAmountOfWeek(productPrice: Product.productDictionary[  userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0
                     , goalWeek: goalWeek)}
     
     @Binding var isPresentationMode: Bool
@@ -64,14 +64,14 @@ struct SettingPeriodView: View {
         VStack {
             ZStack {
                 // 바닥부터 시작
-                Image(userViewModel.userData.saveInfo.goalProduct.imageUrl).resizable()
+                Image(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.imageUrl ?? "").resizable()
                     .scaledToFit()
                     .frame(width: 101, height: 91)
                 Circle().stroke().fill(ColorStyle.blue.color)
                     .frame(width: 170, height: 170, alignment: .center)
                 
             }.padding(EdgeInsets(top: 0, leading: 0, bottom: 13, trailing: 0))
-            Text("총 \(userViewModel.userData.saveInfo.goalProduct.productPrice, specifier: "%3.f")만원").font(.system(size: 16, weight: .medium))
+            Text("총 \(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0, specifier: "%3.f")만원").font(.system(size: 16, weight: .medium))
         }
     }
 

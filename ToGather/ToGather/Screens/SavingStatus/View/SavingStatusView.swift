@@ -6,13 +6,12 @@
 
 import SwiftUI
 import Kingfisher
+
 struct SavingStatusNavigationView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @EnvironmentObject var userViewModel: UserViewModel
-
-
- 
-        
+    
+    
+   
     var body: some View {
         
         let backButton = Button {presentationMode.wrappedValue.dismiss()} label: {
@@ -24,21 +23,21 @@ struct SavingStatusNavigationView: View {
         return NavigationView {
             SavingStatusView()
                 .navigationBarItems(leading: backButton)
-                .navigationTitle("상세 저축현황")
-        }
+                .navigationTitle("상세 저축현황") }
     }
 }
 
 struct SavingStatusView: View {
-    
-    @EnvironmentObject var userViewModel: UserViewModel
     @State var isPhotoEdited: Bool = false
     @State var dummyImage: [(String, String)] = [("6:13", "1주전"), ("6:6", "2주전"), ("5:30", "3주전")]
+    @EnvironmentObject var userViewModel: UserViewModel
+
     var user: User {userViewModel.userData}
     
+    var goalWeek: Int {user.saveInfo.goalWeeks}
     var saving: Saving {user.saveInfo}
-    var productImageUrl: String {user.saveInfo.goalProduct.imageUrl}
-    var productPrice: Double {user.saveInfo.goalProduct.productPrice}
+    var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
+    var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
     var progressPercent: Double {user.saveInfo.progressPercent}
     var lastDate: String {user.saveInfo.lastDate}
     var startDate: String {user.saveInfo.startDate}
@@ -68,11 +67,12 @@ struct SavingStatusView: View {
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 4, trailing: 20))
                 SuccessPictureGrid
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 99, trailing: 20))
-                    
+                
                 
                 if isMine {
                     Button {
                         print("onemoretime")
+
                     } label: {
                         Text("저축 다시하기")
                             .foregroundColor(.basicBlack)
@@ -83,14 +83,21 @@ struct SavingStatusView: View {
                             .cornerRadius(10)
                         
                     }
-
+                    
                 } else {
                     twoButtons
                         .padding(EdgeInsets(top: 80, leading: 64, bottom: 64, trailing: 40))
                 }
                 
             }
+            
         }
+    }
+}
+
+struct SavingStatusView_Previews: PreviewProvider {
+    static var previews: some View {
+        SavingStatusNavigationView().environmentObject(userViewModel)
     }
 }
 
@@ -99,12 +106,13 @@ extension SavingStatusView {
     var savingRate: some View {
         HStack {
             ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 130, saving: mySaving)
-                .overlay(Image(user.saveInfo.goalProduct.imageUrl))
+                .overlay(Image(Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""))
             savingText.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
         }.padding(EdgeInsets(top: 28, leading: 19, bottom: 0, trailing: 0))
             .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity,
                    minHeight: 0, idealHeight: 122, maxHeight: 122, alignment: .topLeading)
     }
+    
     //    저축 달성률에 관한 Text
     var savingText: some View {
         VStack(alignment: .leading, spacing: 2) {
@@ -137,7 +145,7 @@ extension SavingStatusView {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
                 Text("저금 성공").font(.system(size: 16)).foregroundColor(.basicBlack.opacity(0.6))
-                Text("\(currentWeek)회 ").font(.system(size: 24)).foregroundColor(.basicBlack).fontWeight(.bold)
+                Text("\(totalSavedNum)회 ").font(.system(size: 24)).foregroundColor(.basicBlack).fontWeight(.bold)
                 + Text("/ \(goalWeek)").font(.system(size: 20))
                     .foregroundColor(.basicBlack.opacity(0.6)).fontWeight(.bold)
             }
@@ -192,7 +200,7 @@ extension SavingStatusView {
                 ForEach(0 ..< userViewModel.authPics.count) { index in
                     VStack(alignment: .trailing) {
                         ZStack(alignment: .topTrailing) {
-                            KFImage(URL(string: userViewModel.authPics[0]))
+                            KFImage(URL(string: userViewModel.authPics[index]))
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 149, height: 239)
@@ -209,7 +217,7 @@ extension SavingStatusView {
                                 ZStack(alignment: .topTrailing) {
                                     Button {
                                         dummyImage.remove(at: index)
-
+                                        
                                     } label: {
                                         Image(systemName: "minus.circle.fill")
                                             .foregroundColor(.red)
@@ -254,11 +262,5 @@ extension SavingStatusView {
             }
             
         }
-    }
-}
-
-struct SavingStatusView_Previews: PreviewProvider {
-    static var previews: some View {
-        SavingStatusNavigationView().environmentObject(userViewModel)
     }
 }

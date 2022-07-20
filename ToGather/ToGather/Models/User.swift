@@ -13,8 +13,9 @@ struct User : Codable {
     let nickname: String
     let creationDate: String
     //let uuid: String  // UUID획득코드 : UIDevice.current.identifierForVendor!.uuidString
-    
+
     var isAlarmOn: Bool?
     // 친구목록은 파이어베이스에 docoument 만들어서 그안에 친구uid넣으면 될거 같습니다.
     var saveInfo: Saving
 }
+

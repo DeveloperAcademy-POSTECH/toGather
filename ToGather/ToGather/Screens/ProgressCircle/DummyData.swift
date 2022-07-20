@@ -30,27 +30,28 @@ let friendSavingList1 = makeSaveList(data: friendSavingDate1)
 let friendSavingList2 = makeSaveList(data: friendSavingDate2)
 let friendSavingList3 = makeSaveList(data: friendSavingDate3)
 
-let mySaving = Saving(goalProduct: Product.sampleData[0],
+let mySaving = Saving(goalProduct: Product.sampleData[0].productName,
                       goalWeeks: 25,
                       savingDayOfTheWeek: "월",
                       weekInfo: mySavingList,
                       appStartDate: "20220501")
 
-let friendSaving1 =  Saving(goalProduct: Product.sampleData[1],
+let friendSaving1 =  Saving(goalProduct: Product.sampleData[1].productName,
                             goalWeeks: 18,
                             savingDayOfTheWeek: "화",
                             weekInfo: friendSavingList1,
                             appStartDate: "20220601")
 
-let friendSaving2 =  Saving(goalProduct: Product.sampleData[2],
+let friendSaving2 =  Saving(goalProduct: Product.sampleData[2].productName,
                             goalWeeks: 23,
                             savingDayOfTheWeek: "수",
                             weekInfo: friendSavingList2,
                             appStartDate: "20220503")
 
-let friendSaving3 = Saving(goalProduct: Product.sampleData[3],
+let friendSaving3 = Saving(goalProduct: Product.sampleData[3].productName,
                            goalWeeks: 24,
                            savingDayOfTheWeek: "목",
+                           weekInfo: friendSavingList3,
                            appStartDate: "20220517")
 
 let dummyMy = User(id: "0", nickname: "Miller", creationDate: "", isAlarmOn: false, saveInfo: mySaving)
