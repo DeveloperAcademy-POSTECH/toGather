@@ -9,7 +9,7 @@ import Foundation
 
 final class FriendAdditionViewModel: ObservableObject {
     @Published private var friendUids: [String] = []
-    @Published private var friendNickname: [String] = []
+    @Published private var friendNicknames: [String] = []
     
     func isFriendEmpty() -> Bool {
         if friendUids.isEmpty {
@@ -18,10 +18,10 @@ final class FriendAdditionViewModel: ObservableObject {
         return false
     }
     func getFriendNickname() -> [String]? {
-        if friendNickname.isEmpty {
+        if friendNicknames.isEmpty {
             return nil
         }
-        return friendNickname
+        return friendNicknames
     }
     
     func getFriendUids() -> [String]? {
@@ -33,11 +33,11 @@ final class FriendAdditionViewModel: ObservableObject {
     
     private func appendList(uid: String, nickname: String) {
         
-        if let _ = friendNickname.firstIndex(of: nickname) {
+        if let _ = friendNicknames.firstIndex(of: nickname) {
             return
         }
         friendUids.append(uid)
-        friendNickname.append(nickname)
+        friendNicknames.append(nickname)
     }
     
     func insertFriendUids(uid: String) -> Bool {
@@ -55,12 +55,12 @@ final class FriendAdditionViewModel: ObservableObject {
     }
     
     func removeFriendNickname(nickname: String) {
-        guard let index = friendNickname.firstIndex(of: nickname) else {
+        guard let index = friendNicknames.firstIndex(of: nickname) else {
             return
         }
         if index < friendUids.count {
             friendUids.remove(at: index)
-            friendNickname.remove(at: index)
+            friendNicknames.remove(at: index)
         }
     }
 }
