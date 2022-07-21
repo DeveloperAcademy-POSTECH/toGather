@@ -27,6 +27,7 @@
 		35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D1C2851D4730089E1C3 /* MainView.swift */; };
 		35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AD2D292854F8550089E1C3 /* Color+Extension.swift */; };
 		35E7789B2856091C0015122A /* AddedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7789A2856091C0015122A /* AddedCircleView.swift */; };
+		3D231C8328892568009B96A3 /* FriendModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D231C8228892568009B96A3 /* FriendModalView.swift */; };
 		3D4134572852EC44009E7953 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4134562852EC44009E7953 /* FirebaseFirestoreSwift */; };
 		3D4383A828519BD100AD1885 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4383A728519BD100AD1885 /* GoogleService-Info.plist */; };
 		3D4383AB28519DA700AD1885 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AA28519DA700AD1885 /* FirebaseAuth */; };
@@ -93,6 +94,7 @@
 		35AD2D1C2851D4730089E1C3 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		35AD2D292854F8550089E1C3 /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		35E7789A2856091C0015122A /* AddedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedCircleView.swift; sourceTree = "<group>"; };
+		3D231C8228892568009B96A3 /* FriendModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModalView.swift; sourceTree = "<group>"; };
 		3D4383A728519BD100AD1885 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D48A6E0285774CD00FE6BE8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3D48A6E2285782E500FE6BE8 /* LastOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingViewModel.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 		3DA86DFF2887A97900F34D69 /* FriendModal */ = {
 			isa = PBXGroup;
 			children = (
+				3D231C8228892568009B96A3 /* FriendModalView.swift */,
 			);
 			path = FriendModal;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				E20551892851E80F00C210DA /* ProgressCircle.swift in Sources */,
 				354ED95D285C73AF001C726D /* CheckboxToggleStyle.swift in Sources */,
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
+				3D231C8328892568009B96A3 /* FriendModalView.swift in Sources */,
 				354ED95A285C449B001C726D /* SettingView.swift in Sources */,
 				354ED9552859D4DE001C726D /* Constants.swift in Sources */,
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
