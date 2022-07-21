@@ -38,7 +38,7 @@ final class UserViewModel: ObservableObject {
     }
      
     /// friend-addition 뷰에서 사용, friendUids array에 친구 uid 추가
-    func setFriendUid(friendUids str: [String]) {
+    func setFriendUids(friendUids str: [String]) {
         self.friendUids = str
     }
     

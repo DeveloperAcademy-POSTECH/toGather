@@ -79,7 +79,7 @@ struct FriendAdditionView: View {
                 NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
                     
                     if let friendNicknames = friendAdditionViewModel.getFriendNicknames(), let friendUids = friendAdditionViewModel.getFriendUids() {
-                        userViewModel.setFriendUid(friendUids: friendUids)
+                        userViewModel.setFriendUids(friendUids: friendUids)
                         userViewModel.setFriendNicknames(friendNicknames: friendNicknames)
                     }
                 }), label: {
