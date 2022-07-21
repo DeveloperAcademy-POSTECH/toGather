@@ -42,7 +42,7 @@ final class UserViewModel: ObservableObject {
         self.friendUids = str
     }
     
-    func setFriendNickname(friendNicknames str: [String]) {
+    func setFriendNicknames(friendNicknames str: [String]) {
         self.friendNicknames = str
     }
     

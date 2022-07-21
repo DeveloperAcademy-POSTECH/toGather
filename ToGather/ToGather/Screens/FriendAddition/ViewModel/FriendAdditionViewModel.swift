@@ -17,7 +17,7 @@ final class FriendAdditionViewModel: ObservableObject {
         }
         return false
     }
-    func getFriendNickname() -> [String]? {
+    func getFriendNicknames() -> [String]? {
         if friendNicknames.isEmpty {
             return nil
         }

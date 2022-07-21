@@ -78,9 +78,9 @@ struct FriendAdditionView: View {
             if onboardingViewModel.isFirstOn {
                 NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
                     
-                    if let friendNicknames = friendAdditionViewModel.getFriendNickname(), let friendUids = friendAdditionViewModel.getFriendUids() {
+                    if let friendNicknames = friendAdditionViewModel.getFriendNicknames(), let friendUids = friendAdditionViewModel.getFriendUids() {
                         userViewModel.setFriendUid(friendUids: friendUids)
-                        userViewModel.setFriendNickname(friendNicknames: friendNicknames)
+                        userViewModel.setFriendNicknames(friendNicknames: friendNicknames)
                     }
                 }), label: {
                     Text("다음")

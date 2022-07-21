@@ -25,7 +25,7 @@ struct AlreadyAddedFriendView: View {
         FriendSavingWithMe()
             .padding(EdgeInsets(top: 11, leading: 21, bottom: 0, trailing: 0))
         HStack(spacing: 36) {
-            if let friendNicknames = friendAdditionViewModel.getFriendNickname() {
+            if let friendNicknames = friendAdditionViewModel.getFriendNicknames() {
                 ForEach(friendNicknames, id: \.self) { item in
                     PersonView(friendAdditionViewModel: friendAdditionViewModel, nickname: .constant(item))
                 }
