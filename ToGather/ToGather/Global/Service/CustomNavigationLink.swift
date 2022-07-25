@@ -50,7 +50,6 @@ struct CustomNavigationLink<DestinationView, ContentView>: View where Destinatio
       
     }
     
-    // let button = Button {~} 할때는 빌드는 되지만 뒤로가기가 되지 않았음. 아마도 초기화 시점이 문제지 않을까 싶다.
     struct ArrowBackButton: View {
         @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
         
