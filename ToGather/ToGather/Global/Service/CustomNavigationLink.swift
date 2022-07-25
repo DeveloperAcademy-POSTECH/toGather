@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct CustomNavigationLink<DestinationView, ContentView>: View where ContentView: View, DestinationView: View {
-    
+struct CustomNavigationLink<DestinationView, ContentView>: View where DestinationView: View, ContentView: View {
     var destination: DestinationView
     @Binding var isActive: Bool
     var label: () -> ContentView
