@@ -17,5 +17,7 @@ struct User : Codable {
     var isAlarmOn: Bool?
     // 친구목록은 파이어베이스에 docoument 만들어서 그안에 친구uid넣으면 될거 같습니다.
     var saveInfo: Saving
+    
+    var friendUids : [String]?
 }
 

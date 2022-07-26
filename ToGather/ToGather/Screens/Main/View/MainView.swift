@@ -10,8 +10,9 @@ import SwiftUI
 let userViewModel = UserViewModel()
 
 struct MainView: View {
+    // MARK: - Properties
     @State var friendsCount  = 0
-    @StateObject var viewModel = MainViewModel()
+    //@StateObject var viewModel = MainViewModel()
     
     @EnvironmentObject var userViewModel: UserViewModel
     var user: User {userViewModel.userData}
@@ -44,13 +45,15 @@ struct MainView: View {
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
+    let addFriendsColor: [Color] = [.friendRed01, .friendPurple01, .friendGreen01]
+
+    // MARK: - Init
     init() {
         // 네비게이션 타이틀 사이즈 조절
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont.systemFont(ofSize: 24,weight: .bold)]
     }
     
-    let addFriendsColor: [Color] = [.friendRed01, .friendPurple01, .friendGreen01]
-    
+    // MARK: - Body
     var body: some View {
         NavigationView {
             VStack {
@@ -77,13 +80,14 @@ struct MainView: View {
         }
     }
 }
-
+    // MARK: - Previews
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView().environmentObject(userViewModel)
     }
 }
 
+    // MARK: - Extensions
 extension MainView {
     
     var toolbarButtonsView: some View {
@@ -111,7 +115,7 @@ extension MainView {
     
     var friendsSavingsView: some View {
         HStack(spacing: 26) {
-            ForEach(viewModel.getFriendList()) { friendSaving in
+            ForEach(userViewModel.friendsList) { friendSaving in
                 NavigationLink(destination: FrSavingStatusNavigationView(user: friendSaving.user, colorRGB: RGBColorInProgressCircle.colorList[Int(friendSaving.id)]).navigationTitle("알림")
                     .navigationBarHidden(true)) {
                     
@@ -123,9 +127,9 @@ extension MainView {
             
             VStack(spacing: 4) {
                 NavigationLink(destination: FriendAdditionView(onboardingViewModel: OnBoardingViewModel(), isPresentationMode: .constant(true))) {
-                    AddedCircleView(color: addFriendsColor[viewModel.getFriendList().count])
+                    AddedCircleView(color: addFriendsColor[userViewModel.friendsList.count])
                 }
-                Text(viewModel.getFriendList().isEmpty ? "친구랑 같이 저축하기" : "친구 추가")
+                Text(userViewModel.friendsList.isEmpty ? "친구랑 같이 저축하기" : "친구 추가")
                     .font(.callout) // 16px
                     .fontWeight(.semibold)
             }
