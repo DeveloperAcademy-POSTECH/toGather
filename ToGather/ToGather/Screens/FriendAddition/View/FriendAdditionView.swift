@@ -7,24 +7,6 @@
 
 import SwiftUI
 
-struct FriendNavigationViewTest: View {
-    var body: some View {
-        NavigationView {
-            FriendAdditionView(onboardingViewModel: OnBoardingViewModel(), isPresentationMode: .constant(true))
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            print("Edit button was tapped")
-                        } label: {
-                            Image(systemName: "arrow.backward")
-                        }
-
-                        }
-                }
-                .navigationBarTitleDisplayMode(.inline)
-        }
-    }
-}
 
 struct NoFriendTextView: View {
     @Binding var isFriendWrong: Bool
@@ -42,8 +24,7 @@ struct FriendAdditionView: View {
     @State var text = ""
     @State var noFriendId: Bool = false
     @State var attemps: Int = 0
-    @State var addedFriendList: [String] = []
-    @State var addedFriendDic: [String: String] = [:]
+    
     @StateObject var onboardingViewModel: OnBoardingViewModel
     @EnvironmentObject var userViewModel: UserViewModel
     @FocusState var isKeyboardHide: Bool
@@ -51,6 +32,8 @@ struct FriendAdditionView: View {
     @Binding var isPresentationMode: Bool
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @StateObject var friendAdditionViewModel =  FriendAdditionViewModel()
 
     var body: some View {
         VStack {
@@ -59,26 +42,19 @@ struct FriendAdditionView: View {
             ApplyFriendIdTextView()
                 .padding(EdgeInsets(top: 40, leading: 21, bottom: 0, trailing: 0))
             PinStackView(attempts: $attemps, pin: $text, wrongFriendInput: $noFriendId, isKeyboardHide: $isKeyboardHide, handler: { result, status in
-                if status {
-
-                    FirebaseManager.shared.isFriendUidExist(friendUid: result) { nickName in
-                        if let nickName = nickName {
-                            if (addedFriendDic[result] == nil) {
-                                addedFriendDic.updateValue(nickName, forKey: result)
-                                addedFriendList.append(nickName)
-                            }
-                        } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    if status {
+                        if !friendAdditionViewModel.insertFriendUids(uid: result) {
                             noFriendId = true
                         }
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         text = ""
                     }
                 }
             })
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
             NoFriendTextView(isFriendWrong: $noFriendId)
-            if addedFriendDic.isEmpty {
+        
+            if friendAdditionViewModel.isFriendEmpty() {
                 HStack {
                     CustomNavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode), label: {
                         ZStack {
@@ -95,19 +71,14 @@ struct FriendAdditionView: View {
                     Spacer()
                 }.padding(EdgeInsets(top: 31, leading: 20, bottom: 0, trailing: 0))
             } else {
-                AlreadyAddedFriendView(addedFriendDic: $addedFriendDic, addedFriendList: $addedFriendList)
+                AlreadyAddedFriendView(friendAdditionViewModel: friendAdditionViewModel)
             }
             Spacer()
             if onboardingViewModel.isFirstOn {
                 CustomNavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
-                    userViewModel.getFriendUid(friendUids: Array(addedFriendDic.keys))
-                    if !addedFriendDic.isEmpty {
-                        FirebaseManager.shared.fetchFriendNickname(friendUids: Array(addedFriendDic.keys)) { friendNicknames in
-                            userViewModel.friendNicknames = friendNicknames
-                            
-                           // print("아야\(friendNickname)")
-                        }
-                        userViewModel.nicknameUpgrade(str: Array(addedFriendDic.values))
+                    if let friendNicknames = friendAdditionViewModel.getFriendNicknames(), let friendUids = friendAdditionViewModel.getFriendUids() {
+                        userViewModel.setFriendUids(friendUids: friendUids)
+                        userViewModel.setFriendNicknames(friendNicknames: friendNicknames)
                     }
                 }), label: {
                     Text("다음")
@@ -135,25 +106,7 @@ struct FriendAdditionView: View {
             }
         }
         .ignoresSafeArea(.keyboard)
-        
     }
-
-}
-
-func isPinExistValue(inputString: String) -> String? {
-    guard let value = testPin[inputString] else {
-        return nil
-    }
-    return value
-}
-
-func isPinExist(inputString: String) -> Bool {
-    guard let value = testPin[inputString] else {
-        return false
-    }
-    return true
-}
-extension FriendAdditionView {
 }
 
 struct AddingFriend_Previews: PreviewProvider {

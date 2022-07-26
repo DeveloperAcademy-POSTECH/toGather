@@ -36,10 +36,14 @@ final class UserViewModel: ObservableObject {
         userData.saveInfo.savingDayOfTheWeek = dayOfTheWeek
         userData.saveInfo.startDate = getFirstSavingDate(setDay: dayOfTheWeek, appStartDate: dateToString(date: Date()))
     }
-    
+     
     /// friend-addition 뷰에서 사용, friendUids array에 친구 uid 추가
-    func getFriendUid(friendUids: [String]) {
-        self.friendUids = friendUids
+    func setFriendUids(friendUids str: [String]) {
+        self.friendUids = str
+    }
+    
+    func setFriendNicknames(friendNicknames str: [String]) {
+        self.friendNicknames = str
     }
     
     /// 장비의 uuid를 userData 인스턴스와 savingData 인스턴스에 각각 추가
@@ -51,11 +55,6 @@ final class UserViewModel: ObservableObject {
         UserDefaults.standard.set(userData.id,forKey: "User")
     }
     
-    func nicknameUpgrade(str : [String]) {
-        if !str.isEmpty {
-            friendNicknames = str
-        }
-    }
     ///유저 인증사진들 가져오기
     func fetchAuthPics() {
             FirebaseManager.shared.fetchAuthPics(userData: userData) { authPics in
