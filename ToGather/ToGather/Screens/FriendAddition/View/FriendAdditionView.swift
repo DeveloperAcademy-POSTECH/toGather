@@ -24,8 +24,7 @@ struct FriendAdditionView: View {
     @State var text = ""
     @State var noFriendId: Bool = false
     @State var attemps: Int = 0
-    @State var addedFriendList: [String] = []
-    @State var addedFriendDic: [String: String] = [:]
+    
     @StateObject var onboardingViewModel: OnBoardingViewModel
     @EnvironmentObject var userViewModel: UserViewModel
     @FocusState var isKeyboardHide: Bool
@@ -108,25 +107,7 @@ struct FriendAdditionView: View {
             }
         }
         .ignoresSafeArea(.keyboard)
-            
     }
-
-}
-
-func isPinExistValue(inputString: String) -> String? {
-    guard let value = testPin[inputString] else {
-        return nil
-    }
-    return value
-}
-
-func isPinExist(inputString: String) -> Bool {
-    guard let value = testPin[inputString] else {
-        return false
-    }
-    return true
-}
-extension FriendAdditionView {
 }
 
 struct AddingFriend_Previews: PreviewProvider {

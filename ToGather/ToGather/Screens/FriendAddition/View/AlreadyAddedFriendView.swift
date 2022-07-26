@@ -17,7 +17,6 @@ struct FriendSavingWithMe: View {
     }
 }
 
-
 struct AlreadyAddedFriendView: View {
     @StateObject var friendAdditionViewModel: FriendAdditionViewModel
     
@@ -47,14 +46,12 @@ struct PersonView: View {
                         .strokeBorder(lineWidth: 1)
                         .foregroundColor(ColorStyle.blue.color)
                         .frame(width: 80, height: 80, alignment: .center)
-//                    Badge(nickname: $nickname)
                     ZStack(alignment: .topTrailing) {
                         Button {
                             friendAdditionViewModel.removeFriendNickname(nickname: nickname)
                         } label: {
                             Image(systemName: "minus.circle.fill")
                                 .foregroundColor(.red)
-                            //                    .background()
                                 .font(.system(size: 16))
                         }
                     }.padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 1))
