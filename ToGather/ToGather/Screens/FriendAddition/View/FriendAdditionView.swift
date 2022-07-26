@@ -56,7 +56,7 @@ struct FriendAdditionView: View {
         
             if friendAdditionViewModel.isFriendEmpty() {
                 HStack {
-                    NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode), label: {
+                    CustomNavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode), label: {
                         ZStack {
                             Text("나중에 추가하기")
                                 .font(.system(size: 16))
@@ -75,8 +75,7 @@ struct FriendAdditionView: View {
             }
             Spacer()
             if onboardingViewModel.isFirstOn {
-                NavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
-                    
+                CustomNavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
                     if let friendNicknames = friendAdditionViewModel.getFriendNicknames(), let friendUids = friendAdditionViewModel.getFriendUids() {
                         userViewModel.setFriendUids(friendUids: friendUids)
                         userViewModel.setFriendNicknames(friendNicknames: friendNicknames)

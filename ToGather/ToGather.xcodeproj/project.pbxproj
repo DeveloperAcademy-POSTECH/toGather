@@ -71,6 +71,7 @@
 		E251367D285B322C008DD9C3 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251367C285B322C008DD9C3 /* NotificationsViewModel.swift */; };
 		E2513680285B3796008DD9C3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251367E285B3795008DD9C3 /* UserViewModel.swift */; };
 		E2513681285B3796008DD9C3 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251367F285B3795008DD9C3 /* FirebaseManager.swift */; };
+		E26D58802886E6480073D40C /* CustomNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26D587F2886E6480073D40C /* CustomNavigationLink.swift */; };
 		E2DDBABB285AA95600E376D0 /* MoneyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,7 @@
 		E251367C285B322C008DD9C3 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		E251367E285B3795008DD9C3 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		E251367F285B3795008DD9C3 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		E26D587F2886E6480073D40C /* CustomNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationLink.swift; sourceTree = "<group>"; };
 		E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -397,6 +399,7 @@
 				E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */,
 				E251367F285B3795008DD9C3 /* FirebaseManager.swift */,
 				E251367E285B3795008DD9C3 /* UserViewModel.swift */,
+				E26D587F2886E6480073D40C /* CustomNavigationLink.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				E251367D285B322C008DD9C3 /* NotificationsViewModel.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
+				E26D58802886E6480073D40C /* CustomNavigationLink.swift in Sources */,
 				E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */,
 				35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */,
 				3D48A6E3285782E500FE6BE8 /* LastOnboardingViewModel.swift in Sources */,
