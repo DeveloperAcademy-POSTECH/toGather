@@ -17,6 +17,7 @@ final class FriendAdditionViewModel: ObservableObject {
         }
         return false
     }
+    
     func getFriendNicknames() -> [String]? {
         if friendNicknames.isEmpty {
             return nil
@@ -33,7 +34,7 @@ final class FriendAdditionViewModel: ObservableObject {
     
     private func appendList(uid: String, nickname: String) {
         
-        if let _ = friendNicknames.firstIndex(of: nickname) {
+        if friendNicknames.firstIndex(of: nickname) != nil {
             return
         }
         friendUids.append(uid)
