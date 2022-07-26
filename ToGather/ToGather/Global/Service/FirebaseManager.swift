@@ -47,7 +47,10 @@ final class FirebaseManager: ObservableObject {
         
         docRef.observe(.value) { snapshot in
             
-            guard let nickNameDict = snapshot.value as? [String : AnyObject] else {return}
+            guard let nickNameDict = snapshot.value as? [String : AnyObject] else {
+                completion(nil)
+              return
+            }
             let nickName = nickNameDict["nickname"] as? String
    
             completion(nickName)

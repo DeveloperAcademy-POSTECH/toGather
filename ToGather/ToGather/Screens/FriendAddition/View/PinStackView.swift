@@ -73,15 +73,11 @@ struct PinStackView: View {
                     wrongFriendInput = false
                 }
                 
-                if newValue.count == self.maxDigits {
-                    FirebaseManager.shared.isFriendUidExist(friendUid: newValue) { nickName in
-                        if nickName == nil {
-                            self.shake()
-                        }
-                    }
-                    self.isKeyboardHide.wrappedValue.toggle()
-                }
                 self.handler(newValue, newValue.count == self.maxDigits)
+                // 핸들로 호출후, 잘못된 친구 ID라면 Grid가 shake
+                if wrongFriendInput {
+                    self.shake()
+                }
                 
             })
         return TextField("", text: boundPin).introspectTextField { textField in
@@ -108,7 +104,7 @@ extension PinStackView {
     private func closeKeyboard() {
         UIApplication.shared.endEditing() // Closing keyboard does not exist for swiftui yet
     }
-    private func shake() {
+    func shake() {
         withAnimation(.default) {
             self.attempts += 1
         }

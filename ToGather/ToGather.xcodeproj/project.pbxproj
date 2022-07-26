@@ -39,6 +39,7 @@
 		43621E85285B448000E59CEB /* SavingRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43621E84285B448000E59CEB /* SavingRecordView.swift */; };
 		43621E87285B4C2300E59CEB /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43621E86285B4C2300E59CEB /* ImagePicker.swift */; };
 		4377C1CA28597DD7007DF255 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377C1C628597DD7007DF255 /* ItemData.swift */; };
+		7605A01E2887D89800D66F41 /* FriendAdditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605A01D2887D89700D66F41 /* FriendAdditionViewModel.swift */; };
 		764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72C28518CC8007A7415 /* ToGatherApp.swift */; };
 		764FC72F28518CC8007A7415 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72E28518CC8007A7415 /* ContentView.swift */; };
 		764FC73128518CC9007A7415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73028518CC9007A7415 /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		E251367D285B322C008DD9C3 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251367C285B322C008DD9C3 /* NotificationsViewModel.swift */; };
 		E2513680285B3796008DD9C3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251367E285B3795008DD9C3 /* UserViewModel.swift */; };
 		E2513681285B3796008DD9C3 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251367F285B3795008DD9C3 /* FirebaseManager.swift */; };
+		E26D58802886E6480073D40C /* CustomNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26D587F2886E6480073D40C /* CustomNavigationLink.swift */; };
 		E2DDBABB285AA95600E376D0 /* MoneyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,7 @@
 		43621E84285B448000E59CEB /* SavingRecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingRecordView.swift; sourceTree = "<group>"; };
 		43621E86285B4C2300E59CEB /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4377C1C628597DD7007DF255 /* ItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
+		7605A01D2887D89700D66F41 /* FriendAdditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAdditionViewModel.swift; sourceTree = "<group>"; };
 		764FC72928518CC8007A7415 /* ToGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		764FC72C28518CC8007A7415 /* ToGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGatherApp.swift; sourceTree = "<group>"; };
 		764FC72E28518CC8007A7415 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -128,6 +131,7 @@
 		E251367C285B322C008DD9C3 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		E251367E285B3795008DD9C3 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		E251367F285B3795008DD9C3 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		E26D587F2886E6480073D40C /* CustomNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationLink.swift; sourceTree = "<group>"; };
 		E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -395,6 +399,7 @@
 				E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */,
 				E251367F285B3795008DD9C3 /* FirebaseManager.swift */,
 				E251367E285B3795008DD9C3 /* UserViewModel.swift */,
+				E26D587F2886E6480073D40C /* CustomNavigationLink.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -458,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				76A0389E285A1462009C9A02 /* TestLogic.swift */,
+				7605A01D2887D89700D66F41 /* FriendAdditionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -634,6 +640,7 @@
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				E251367D285B322C008DD9C3 /* NotificationsViewModel.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
+				E26D58802886E6480073D40C /* CustomNavigationLink.swift in Sources */,
 				E20551992855812B00C210DA /* FriendsProgressCircle.swift in Sources */,
 				35AD2D0C28519C520089E1C3 /* Saving.swift in Sources */,
 				3D48A6E3285782E500FE6BE8 /* LastOnboardingViewModel.swift in Sources */,
@@ -662,6 +669,7 @@
 				354ED968285D91AB001C726D /* DisplayModeView.swift in Sources */,
 				7669F5F92855A33F001DDA0D /* AlreadyAddedFriendView.swift in Sources */,
 				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
+				7605A01E2887D89800D66F41 /* FriendAdditionViewModel.swift in Sources */,
 				E2513680285B3796008DD9C3 /* UserViewModel.swift in Sources */,
 				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
 				E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */,
