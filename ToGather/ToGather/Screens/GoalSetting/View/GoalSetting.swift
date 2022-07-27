@@ -133,7 +133,7 @@ struct GoalSetting: View {
                         .cornerRadius(30)
                         .padding(.horizontal, 20)
                         
-                })
+                }).disabled(isSelectedItem == nil ? true : false)
             } // VStack
             .navigationBarHidden(true)
         } // NavigationView
