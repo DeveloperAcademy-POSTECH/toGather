@@ -167,7 +167,7 @@ struct SettingPeriodView: View {
                     Text("다음").foregroundColor(.white)
                         .fontWeight(.semibold)
                 }
-            }
+            }.disabled(selectedDay == nil ? true : false)
             Spacer(minLength: 36)
         }
     }
