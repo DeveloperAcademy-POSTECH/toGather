@@ -153,17 +153,17 @@ struct SettingPeriodView: View {
     }
 
     private var nextButton: some View {
-            return VStack {
-                CustomNavigationLink(destination: FriendAdditionView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
-                    guard let selectedDay = selectedDay else {
-                        return
-                    }
-                    userViewModel.addGoalWeekAndDayOfTheWeek(goalWeeks: goalWeek, dayOfTheWeek: selectedDay)
-                })) {
+        return VStack {
+            CustomNavigationLink(destination: FriendAdditionView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
+                guard let selectedDay = selectedDay else {
+                    return
+                }
+                userViewModel.addGoalWeekAndDayOfTheWeek(goalWeeks: goalWeek, dayOfTheWeek: selectedDay)
+            })) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(selectedDay != nil ? Color.pointColor : Color.black03)
-                            .frame(width: 350, height: 46, alignment: .center)
+                        .frame(width: 350, height: 46, alignment: .center)
                     Text("다음").foregroundColor(.white)
                         .fontWeight(.semibold)
                 }
