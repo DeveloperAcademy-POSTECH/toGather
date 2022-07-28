@@ -358,6 +358,7 @@
 		764FC74128518DEC007A7415 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				E26D587F2886E6480073D40C /* CustomNavigationLink.swift */,
 				354ED95028587BC8001C726D /* CustomProgressBar.swift */,
 				354ED95C285C73AE001C726D /* CheckboxToggleStyle.swift */,
 			);
@@ -389,7 +390,6 @@
 				E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */,
 				E251367F285B3795008DD9C3 /* FirebaseManager.swift */,
 				E251367E285B3795008DD9C3 /* UserViewModel.swift */,
-				E26D587F2886E6480073D40C /* CustomNavigationLink.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
