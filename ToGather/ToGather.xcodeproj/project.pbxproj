@@ -297,6 +297,7 @@
 				764FC73E28518DD5007A7415 /* Global */,
 				764FC73D28518DCE007A7415 /* Screens */,
 				764FC73A28518D82007A7415 /* Models */,
+				E2BF10622892633500408B8C /* ViewModels */,
 				764FC73228518CC9007A7415 /* Preview Content */,
 			);
 			path = ToGather;
@@ -389,7 +390,6 @@
 				E2239AFA28596E6400839197 /* TimeLogic.swift */,
 				E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */,
 				E251367F285B3795008DD9C3 /* FirebaseManager.swift */,
-				E251367E285B3795008DD9C3 /* UserViewModel.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -534,6 +534,14 @@
 				E205519328557E4500C210DA /* ProgressCircle */,
 			);
 			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		E2BF10622892633500408B8C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E251367E285B3795008DD9C3 /* UserViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
