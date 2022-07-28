@@ -40,7 +40,6 @@
 		4377C1CA28597DD7007DF255 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377C1C628597DD7007DF255 /* ItemData.swift */; };
 		7605A01E2887D89800D66F41 /* FriendAdditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605A01D2887D89700D66F41 /* FriendAdditionViewModel.swift */; };
 		764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72C28518CC8007A7415 /* ToGatherApp.swift */; };
-		764FC72F28518CC8007A7415 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72E28518CC8007A7415 /* ContentView.swift */; };
 		764FC73128518CC9007A7415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73028518CC9007A7415 /* Assets.xcassets */; };
 		764FC73428518CC9007A7415 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73328518CC9007A7415 /* Preview Assets.xcassets */; };
 		764FC74828518E07007A7415 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74728518E07007A7415 /* ColorAsset.swift */; };
@@ -103,7 +102,6 @@
 		7605A01D2887D89700D66F41 /* FriendAdditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAdditionViewModel.swift; sourceTree = "<group>"; };
 		764FC72928518CC8007A7415 /* ToGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		764FC72C28518CC8007A7415 /* ToGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGatherApp.swift; sourceTree = "<group>"; };
-		764FC72E28518CC8007A7415 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		764FC73028518CC9007A7415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		764FC73328518CC9007A7415 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		764FC74728518E07007A7415 /* ColorAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 				E2BF105E289260F200408B8C /* Onboarding */,
 				E2BF105F2892616500408B8C /* Core */,
 				764FC72C28518CC8007A7415 /* ToGatherApp.swift */,
-				764FC72E28518CC8007A7415 /* ContentView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -673,7 +670,6 @@
 				E2239AFD285A810500839197 /* SettingPeriod.swift in Sources */,
 				7656A821285F48C50014CFAB /* StartView.swift in Sources */,
 				E2239AFB28596E6500839197 /* TimeLogic.swift in Sources */,
-				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				E251367D285B322C008DD9C3 /* NotificationsViewModel.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
 				E26D58802886E6480073D40C /* CustomNavigationLink.swift in Sources */,
