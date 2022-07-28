@@ -325,10 +325,7 @@
 		764FC73D28518DCE007A7415 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				E2513673285B3217008DD9C3 /* GoalSetting */,
-				E20551AA2856C3AF00C210DA /* SettingPeriod */,
-				7669F5EE2855A2ED001DDA0D /* FriendAddition */,
-				3D87D9F728520B2700C36346 /* LastOnboarding */,
+				E2BF105E289260F200408B8C /* Onboarding */,
 				7656A814285EEDB60014CFAB /* Start */,
 				7656A822285FE4E90014CFAB /* mainFriendSaving */,
 				E205519328557E4500C210DA /* ProgressCircle */,
@@ -510,6 +507,17 @@
 				E251367C285B322C008DD9C3 /* NotificationsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E2BF105E289260F200408B8C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E2513673285B3217008DD9C3 /* GoalSetting */,
+				E20551AA2856C3AF00C210DA /* SettingPeriod */,
+				7669F5EE2855A2ED001DDA0D /* FriendAddition */,
+				3D87D9F728520B2700C36346 /* LastOnboarding */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
