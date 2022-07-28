@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		352C21D12875B84A0078A2AB /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C21D02875B84A0078A2AB /* ButtonView.swift */; };
 		3534AA352865E31E0094D7B9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3534AA342865E31E0094D7B9 /* FirebaseDatabase */; };
 		354ED94B2858471B001C726D /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94A2858471B001C726D /* NotificationsView.swift */; };
 		354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94C2858488C001C726D /* NotificaionCell.swift */; };
@@ -41,7 +40,6 @@
 		4377C1CA28597DD7007DF255 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377C1C628597DD7007DF255 /* ItemData.swift */; };
 		7605A01E2887D89800D66F41 /* FriendAdditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605A01D2887D89700D66F41 /* FriendAdditionViewModel.swift */; };
 		764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72C28518CC8007A7415 /* ToGatherApp.swift */; };
-		764FC72F28518CC8007A7415 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72E28518CC8007A7415 /* ContentView.swift */; };
 		764FC73128518CC9007A7415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73028518CC9007A7415 /* Assets.xcassets */; };
 		764FC73428518CC9007A7415 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73328518CC9007A7415 /* Preview Assets.xcassets */; };
 		764FC74828518E07007A7415 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74728518E07007A7415 /* ColorAsset.swift */; };
@@ -76,7 +74,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		352C21D02875B84A0078A2AB /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		354ED94A2858471B001C726D /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		354ED94C2858488C001C726D /* NotificaionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificaionCell.swift; sourceTree = "<group>"; };
 		354ED94E285849E9001C726D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -105,7 +102,6 @@
 		7605A01D2887D89700D66F41 /* FriendAdditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAdditionViewModel.swift; sourceTree = "<group>"; };
 		764FC72928518CC8007A7415 /* ToGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		764FC72C28518CC8007A7415 /* ToGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGatherApp.swift; sourceTree = "<group>"; };
-		764FC72E28518CC8007A7415 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		764FC73028518CC9007A7415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		764FC73328518CC9007A7415 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		764FC74728518E07007A7415 /* ColorAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
@@ -194,6 +190,7 @@
 		35AD2D182851D4730089E1C3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E2BF10612892622F00408B8C /* UIComponent */,
 				35AD2D192851D4730089E1C3 /* ViewModel */,
 				35AD2D1B2851D4730089E1C3 /* View */,
 			);
@@ -298,6 +295,7 @@
 				764FC73E28518DD5007A7415 /* Global */,
 				764FC73D28518DCE007A7415 /* Screens */,
 				764FC73A28518D82007A7415 /* Models */,
+				E2BF10622892633500408B8C /* ViewModels */,
 				764FC73228518CC9007A7415 /* Preview Content */,
 			);
 			path = ToGather;
@@ -314,6 +312,7 @@
 		764FC73A28518D82007A7415 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E205519628557EEB00C210DA /* DummyData.swift */,
 				4377C1C628597DD7007DF255 /* ItemData.swift */,
 				35AD2D0A28519C520089E1C3 /* Product.swift */,
 				35AD2D0828519C520089E1C3 /* Saving.swift */,
@@ -327,20 +326,9 @@
 		764FC73D28518DCE007A7415 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				E2513673285B3217008DD9C3 /* GoalSetting */,
-				E20551AA2856C3AF00C210DA /* SettingPeriod */,
-				7669F5EE2855A2ED001DDA0D /* FriendAddition */,
-				3D87D9F728520B2700C36346 /* LastOnboarding */,
-				7656A814285EEDB60014CFAB /* Start */,
-				7656A822285FE4E90014CFAB /* mainFriendSaving */,
-				E205519328557E4500C210DA /* ProgressCircle */,
-				35AD2D182851D4730089E1C3 /* Main */,
-				3DC6AEF5285B165E004FA4DB /* SavingStatus */,
-				354ED947285846E6001C726D /* Notifications */,
-				43621E82285B448000E59CEB /* SavingRecord */,
+				E2BF105E289260F200408B8C /* Onboarding */,
+				E2BF105F2892616500408B8C /* Core */,
 				764FC72C28518CC8007A7415 /* ToGatherApp.swift */,
-				764FC72E28518CC8007A7415 /* ContentView.swift */,
-				354ED958285C4489001C726D /* Setting */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -348,6 +336,7 @@
 		764FC73E28518DD5007A7415 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				E2BF10632892638600408B8C /* Logic */,
 				764FC74428518DFB007A7415 /* Service */,
 				764FC74328518DF7007A7415 /* Literal */,
 				764FC74228518DF2007A7415 /* Extension */,
@@ -368,6 +357,7 @@
 		764FC74128518DEC007A7415 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				E26D587F2886E6480073D40C /* CustomNavigationLink.swift */,
 				354ED95028587BC8001C726D /* CustomProgressBar.swift */,
 				354ED95C285C73AE001C726D /* CheckboxToggleStyle.swift */,
 			);
@@ -395,11 +385,7 @@
 		764FC74428518DFB007A7415 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				E2239AFA28596E6400839197 /* TimeLogic.swift */,
-				E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */,
 				E251367F285B3795008DD9C3 /* FirebaseManager.swift */,
-				E251367E285B3795008DD9C3 /* UserViewModel.swift */,
-				E26D587F2886E6480073D40C /* CustomNavigationLink.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -425,7 +411,6 @@
 			isa = PBXGroup;
 			children = (
 				7656A820285F48C50014CFAB /* StartView.swift */,
-				352C21D02875B84A0078A2AB /* ButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -473,7 +458,6 @@
 			children = (
 				E20551882851E80F00C210DA /* ProgressCircle.swift */,
 				E205519428557E6D00C210DA /* MyProgressCircle.swift */,
-				E205519628557EEB00C210DA /* DummyData.swift */,
 				E20551982855812B00C210DA /* FriendsProgressCircle.swift */,
 				E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */,
 				35E7789A2856091C0015122A /* AddedCircleView.swift */,
@@ -513,6 +497,56 @@
 				E251367C285B322C008DD9C3 /* NotificationsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E2BF105E289260F200408B8C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E2513673285B3217008DD9C3 /* GoalSetting */,
+				E20551AA2856C3AF00C210DA /* SettingPeriod */,
+				7669F5EE2855A2ED001DDA0D /* FriendAddition */,
+				3D87D9F728520B2700C36346 /* LastOnboarding */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		E2BF105F2892616500408B8C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				354ED958285C4489001C726D /* Setting */,
+				7656A814285EEDB60014CFAB /* Start */,
+				35AD2D182851D4730089E1C3 /* Main */,
+				7656A822285FE4E90014CFAB /* mainFriendSaving */,
+				3DC6AEF5285B165E004FA4DB /* SavingStatus */,
+				43621E82285B448000E59CEB /* SavingRecord */,
+				354ED947285846E6001C726D /* Notifications */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E2BF10612892622F00408B8C /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				E205519328557E4500C210DA /* ProgressCircle */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		E2BF10622892633500408B8C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E251367E285B3795008DD9C3 /* UserViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E2BF10632892638600408B8C /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				E2239AFA28596E6400839197 /* TimeLogic.swift */,
+				E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -636,8 +670,6 @@
 				E2239AFD285A810500839197 /* SettingPeriod.swift in Sources */,
 				7656A821285F48C50014CFAB /* StartView.swift in Sources */,
 				E2239AFB28596E6500839197 /* TimeLogic.swift in Sources */,
-				352C21D12875B84A0078A2AB /* ButtonView.swift in Sources */,
-				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				E251367D285B322C008DD9C3 /* NotificationsViewModel.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
 				E26D58802886E6480073D40C /* CustomNavigationLink.swift in Sources */,
