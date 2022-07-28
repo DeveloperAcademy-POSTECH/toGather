@@ -339,6 +339,7 @@
 		764FC73E28518DD5007A7415 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				E2BF10632892638600408B8C /* Logic */,
 				764FC74428518DFB007A7415 /* Service */,
 				764FC74328518DF7007A7415 /* Literal */,
 				764FC74228518DF2007A7415 /* Extension */,
@@ -387,8 +388,6 @@
 		764FC74428518DFB007A7415 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				E2239AFA28596E6400839197 /* TimeLogic.swift */,
-				E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */,
 				E251367F285B3795008DD9C3 /* FirebaseManager.swift */,
 			);
 			path = Service;
@@ -542,6 +541,15 @@
 				E251367E285B3795008DD9C3 /* UserViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E2BF10632892638600408B8C /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				E2239AFA28596E6400839197 /* TimeLogic.swift */,
+				E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
