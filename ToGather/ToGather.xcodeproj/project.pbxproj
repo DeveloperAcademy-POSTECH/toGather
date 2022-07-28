@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		352C21D12875B84A0078A2AB /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C21D02875B84A0078A2AB /* ButtonView.swift */; };
 		3534AA352865E31E0094D7B9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3534AA342865E31E0094D7B9 /* FirebaseDatabase */; };
 		354ED94B2858471B001C726D /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94A2858471B001C726D /* NotificationsView.swift */; };
 		354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94C2858488C001C726D /* NotificaionCell.swift */; };
@@ -76,7 +75,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		352C21D02875B84A0078A2AB /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		354ED94A2858471B001C726D /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		354ED94C2858488C001C726D /* NotificaionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificaionCell.swift; sourceTree = "<group>"; };
 		354ED94E285849E9001C726D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -425,7 +423,6 @@
 			isa = PBXGroup;
 			children = (
 				7656A820285F48C50014CFAB /* StartView.swift */,
-				352C21D02875B84A0078A2AB /* ButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -636,7 +633,6 @@
 				E2239AFD285A810500839197 /* SettingPeriod.swift in Sources */,
 				7656A821285F48C50014CFAB /* StartView.swift in Sources */,
 				E2239AFB28596E6500839197 /* TimeLogic.swift in Sources */,
-				352C21D12875B84A0078A2AB /* ButtonView.swift in Sources */,
 				764FC72F28518CC8007A7415 /* ContentView.swift in Sources */,
 				E251367D285B322C008DD9C3 /* NotificationsViewModel.swift in Sources */,
 				35AD2D0E28519C520089E1C3 /* Product.swift in Sources */,
