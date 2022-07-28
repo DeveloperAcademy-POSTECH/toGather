@@ -313,6 +313,7 @@
 		764FC73A28518D82007A7415 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E205519628557EEB00C210DA /* DummyData.swift */,
 				4377C1C628597DD7007DF255 /* ItemData.swift */,
 				35AD2D0A28519C520089E1C3 /* Product.swift */,
 				35AD2D0828519C520089E1C3 /* Saving.swift */,
@@ -461,7 +462,6 @@
 			children = (
 				E20551882851E80F00C210DA /* ProgressCircle.swift */,
 				E205519428557E6D00C210DA /* MyProgressCircle.swift */,
-				E205519628557EEB00C210DA /* DummyData.swift */,
 				E20551982855812B00C210DA /* FriendsProgressCircle.swift */,
 				E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */,
 				35E7789A2856091C0015122A /* AddedCircleView.swift */,
