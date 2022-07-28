@@ -89,7 +89,6 @@ struct FriendAdditionView: View {
                         .cornerRadius(30)
                         .padding(.horizontal, 20)
                 })
-                .disabled(friendAdditionViewModel.isFriendEmpty())
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             } else {
                 Button {
