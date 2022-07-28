@@ -326,16 +326,10 @@
 			isa = PBXGroup;
 			children = (
 				E2BF105E289260F200408B8C /* Onboarding */,
-				7656A814285EEDB60014CFAB /* Start */,
-				7656A822285FE4E90014CFAB /* mainFriendSaving */,
+				E2BF105F2892616500408B8C /* Core */,
 				E205519328557E4500C210DA /* ProgressCircle */,
-				35AD2D182851D4730089E1C3 /* Main */,
-				3DC6AEF5285B165E004FA4DB /* SavingStatus */,
-				354ED947285846E6001C726D /* Notifications */,
-				43621E82285B448000E59CEB /* SavingRecord */,
 				764FC72C28518CC8007A7415 /* ToGatherApp.swift */,
 				764FC72E28518CC8007A7415 /* ContentView.swift */,
-				354ED958285C4489001C726D /* Setting */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -518,6 +512,20 @@
 				3D87D9F728520B2700C36346 /* LastOnboarding */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		E2BF105F2892616500408B8C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				354ED958285C4489001C726D /* Setting */,
+				7656A814285EEDB60014CFAB /* Start */,
+				35AD2D182851D4730089E1C3 /* Main */,
+				7656A822285FE4E90014CFAB /* mainFriendSaving */,
+				3DC6AEF5285B165E004FA4DB /* SavingStatus */,
+				43621E82285B448000E59CEB /* SavingRecord */,
+				354ED947285846E6001C726D /* Notifications */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
