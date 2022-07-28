@@ -192,6 +192,7 @@
 		35AD2D182851D4730089E1C3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E2BF10612892622F00408B8C /* UIComponent */,
 				35AD2D192851D4730089E1C3 /* ViewModel */,
 				35AD2D1B2851D4730089E1C3 /* View */,
 			);
@@ -327,7 +328,6 @@
 			children = (
 				E2BF105E289260F200408B8C /* Onboarding */,
 				E2BF105F2892616500408B8C /* Core */,
-				E205519328557E4500C210DA /* ProgressCircle */,
 				764FC72C28518CC8007A7415 /* ToGatherApp.swift */,
 				764FC72E28518CC8007A7415 /* ContentView.swift */,
 			);
@@ -526,6 +526,14 @@
 				354ED947285846E6001C726D /* Notifications */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		E2BF10612892622F00408B8C /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				E205519328557E4500C210DA /* ProgressCircle */,
+			);
+			path = UIComponent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
