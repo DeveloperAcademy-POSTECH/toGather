@@ -22,3 +22,15 @@
 | 목표 설정 | Home | 저축 기록하기 | 알림 |
 |:---:|:---:|:---:|:---:|
 |<img width="285" alt="image" src="https://user-images.githubusercontent.com/59302419/182025494-e520cab7-a344-488b-87f2-0dc0720b76eb.png">|<img width="285" alt="image" src="https://user-images.githubusercontent.com/59302419/182025512-0f823384-ae93-4539-b712-e3f76203256f.png">|<img width="285" alt="image" src="https://user-images.githubusercontent.com/59302419/182025537-2868ae84-9034-4649-a931-0120bf305ae9.png">|<img width="285" alt="image" src="https://user-images.githubusercontent.com/59302419/182025561-3ff4084d-2fc4-4203-b185-ba8445e22af0.png">|
+
+<br/>
+<br/>
+
+### 🚀 KeyNote
+[🍏 ToGather-7standard 🍏](https://github.com/DeveloperAcademy-POSTECH/toGather/files/9229074/ToGather.-.7standard.pdf)
+<br/>
+<br/>
+### :sparkles: Skills & Tech Stack
+* SwiftUI
+* Firebase
+
