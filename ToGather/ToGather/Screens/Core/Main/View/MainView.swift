@@ -10,6 +10,8 @@ import SwiftUI
 let userViewModel = UserViewModel()
 
 struct MainView: View {
+    @State var flag: Bool = false
+    
     @State var friendsCount  = 0
     @StateObject var viewModel = MainViewModel()
     
@@ -132,12 +134,28 @@ extension MainView {
         }
     }
     
+    var onboardingSwitchButton: some View {
+        Button {
+            flag = true
+        } label : {
+            if flag {
+                Text("onboardingd")
+                    .fullScreenCover(isPresented: $flag) {
+                        GoalSetting(onboardingViewModel: OnBoardingViewModel())
+                    }
+            } else {
+                Text("onboarding")
+            }
+        }.buttonStyle(.plain)
+    }
+    
     var mySavingsView: some View {
-        VStack(spacing: 0){
+        VStack(spacing: 0) {
             HStack {
                 Text("나의 저축현황")
                     .font(.system(size: 22, weight: .bold))
                 Spacer()
+                onboardingSwitchButton
                 NavigationLink(destination: SavingStatusNavigationView().navigationBarHidden(true)){
                     HStack(spacing: 4){
                         Text("상세보기")
