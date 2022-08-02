@@ -34,7 +34,7 @@
 * SwiftUI
 * Firebase
 
-###people_hugging: Authors
+### :people_hugging: Authors
 [@Neal](https://github.com/yudonlee) | [@Miller](https://github.com/KimDaeSeong8721) |   [@Lance](https://github.com/limhyoseok) |  [@Max](https://github.com/Sungwooo) | [@Eve](https://github.com/unuhqueen) | [@Bit](https://github.com/yeongwooCho) |
 :---|:---|:---|:---|:---|:---
 Tech|Tech|Design|Tech|Tech|Tech 
