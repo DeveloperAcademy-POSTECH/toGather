@@ -37,7 +37,7 @@
 ### :people_hugging: Authors
 [@Neal](https://github.com/yudonlee) | [@Miller](https://github.com/KimDaeSeong8721) |   [@Lance](https://github.com/limhyoseok) |  [@Max](https://github.com/Sungwooo) | [@Eve](https://github.com/unuhqueen) | [@Bit](https://github.com/yeongwooCho) |
 :---|:---|:---|:---|:---|:---
-Tech|Tech|Design|Tech|Tech|Tech 
+Tech|Tech|Tech|Design|Tech|Tech 
 |<img width="150" src="https://user-images.githubusercontent.com/39371835/182309545-ec4271f3-98a6-4246-ae66-7d6207d74f07.png">|<img width="150" src="https://user-images.githubusercontent.com/39371835/182309685-2f4f406d-2e0b-4d59-af2f-6b0b47c659bf.png">|<img width="150" src="https://user-images.githubusercontent.com/39371835/182309701-9ba4da6e-539c-4a3c-8c0a-a6826efd3b94.jpeg">|<img width="150" src="https://user-images.githubusercontent.com/39371835/182310928-66367938-3eae-4865-b549-a8f820fb872e.png">|<img width="150" src="https://user-images.githubusercontent.com/39371835/182310289-281888fd-f9ec-461b-99ac-0dcef0ecf2f7.png">|<img width="150" src="https://user-images.githubusercontent.com/39371835/182310746-3a02a438-7417-4888-91fb-6f65d9547ea7.png">|
 
 
