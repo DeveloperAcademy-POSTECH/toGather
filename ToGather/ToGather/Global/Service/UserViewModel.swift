@@ -49,7 +49,7 @@ final class UserViewModel: ObservableObject {
         for i in 0..<friendDatas.count {
             friendsList.append(FriendsProgressCircle(id: i, user: friendDatas[i], color: RGBColorInProgressCircle.colorList[i]))
         }
-            }
+    }
     
     
     /// 장비의 uuid를 userData 인스턴스와 savingData 인스턴스에 각각 추가

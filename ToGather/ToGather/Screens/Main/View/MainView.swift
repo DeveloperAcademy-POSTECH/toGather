@@ -12,8 +12,6 @@ let userViewModel = UserViewModel()
 struct MainView: View {
     // MARK: - Properties
     @State var friendsCount  = 0
-    //@StateObject var viewModel = MainViewModel()
-    
     @EnvironmentObject var userViewModel: UserViewModel
     var user: User {userViewModel.userData}
     
