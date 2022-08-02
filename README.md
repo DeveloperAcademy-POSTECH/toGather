@@ -33,10 +33,8 @@
 ### :sparkles: Skills & Tech Stack
 * SwiftUI
 * Firebase
-https://user-images.githubusercontent.com/39371835/182309701-9ba4da6e-539c-4a3c-8c0a-a6826efd3b94.jpeg
-###people_hugging: Authors
-https://user-images.githubusercontent.com/39371835/182309701-9ba4da6e-539c-4a3c-8c0a-a6826efd3b94.jpeg
 
+###people_hugging: Authors
 [@Neal](https://github.com/yudonlee) | [@Miller](https://github.com/KimDaeSeong8721) |   [@Lance](https://github.com/limhyoseok) |  [@Max](https://github.com/Sungwooo) | [@Eve](https://github.com/unuhqueen) | [@Bit](https://github.com/yeongwooCho) |
 :---|:---|:---|:---|:---|:---
 Tech|Tech|Design|Tech|Tech|Tech 
