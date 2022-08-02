@@ -8,17 +8,6 @@
 import SwiftUI
 
 
-struct NoFriendTextView: View {
-    @Binding var isFriendWrong: Bool
-    var body: some View {
-        Text("없는 ID에요")
-            .foregroundColor(isFriendWrong ? .red: .white)
-            .font(.system(size: 14, weight: .bold))
-            .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: 17, maxHeight: 17, alignment: .topLeading)
-            .padding(EdgeInsets(top: 12, leading: 20, bottom: 0, trailing: 0))
-    }
-}
-
 /// 친구추가 페이지 뷰
 struct FriendAdditionView: View {
     @State var text = ""
@@ -44,16 +33,36 @@ struct FriendAdditionView: View {
             PinStackView(attempts: $attemps, pin: $text, wrongFriendInput: $noFriendId, isKeyboardHide: $isKeyboardHide, handler: { result, status in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     if status {
-                        if !friendAdditionViewModel.insertFriendUids(uid: result) {
-                            noFriendId = true
+                        friendAdditionViewModel.insertFriendUids(uid: result) { isFriendIdExist in
+                            if !isFriendIdExist {
+                                noFriendId = true
+                            }
+                            text = ""
                         }
-                        text = ""
                     }
                 }
             })
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
-            NoFriendTextView(isFriendWrong: $noFriendId)
-        
+            isFriendIdInvalid
+            isFriendAlreadyExistOrNot
+            Spacer()
+            completeButton
+        }
+        .ignoresSafeArea(.keyboard)
+    }
+    
+    private var isFriendIdInvalid: some View {
+        return VStack {
+            Text("없는 ID에요")
+                .foregroundColor(noFriendId ? .red: .white)
+                .font(.system(size: 14, weight: .bold))
+                .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: 17, maxHeight: 17, alignment: .topLeading)
+                .padding(EdgeInsets(top: 12, leading: 20, bottom: 0, trailing: 0))
+        }
+    }
+    
+    private var isFriendAlreadyExistOrNot: some View {
+        return VStack {
             if friendAdditionViewModel.isFriendEmpty() {
                 HStack {
                     CustomNavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode), label: {
@@ -73,7 +82,11 @@ struct FriendAdditionView: View {
             } else {
                 AlreadyAddedFriendView(friendAdditionViewModel: friendAdditionViewModel)
             }
-            Spacer()
+        }
+    }
+    
+    private var completeButton: some View {
+        return VStack {
             if onboardingViewModel.isFirstOn {
                 CustomNavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
                     if let friendNicknames = friendAdditionViewModel.getFriendNicknames(), let friendUids = friendAdditionViewModel.getFriendUids() {
@@ -105,7 +118,6 @@ struct FriendAdditionView: View {
                 }
             }
         }
-        .ignoresSafeArea(.keyboard)
     }
 }
 
