@@ -14,7 +14,8 @@ import FirebaseCore
 final class FirebaseManager: ObservableObject {
     // MARK: - Properties
     static let shared = FirebaseManager()
-    
+    private let db = Database.database().reference()
+
     private init() {}
     
 
@@ -79,6 +80,7 @@ final class FirebaseManager: ObservableObject {
             "startDate": userData.saveInfo.startDate, // startDate 계산법 현재 미구현
             "savingDayOfTheWeek": userData.saveInfo.savingDayOfTheWeek,
         ]
+        
         db.child("users/\(userData.id ?? "" )/saveInfo").setValue(savingData) { error, _ in
             if let error = error {
                 print("Error writing user document: \(error)")
@@ -199,6 +201,11 @@ final class FirebaseManager: ObservableObject {
             }
         }
         
+    }
+    
+    func resetUserData(uid:String) {
+        db.child("users/\(uid)")
+            .removeValue()
     }
     
 }

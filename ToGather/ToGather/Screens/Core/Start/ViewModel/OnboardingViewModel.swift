@@ -26,4 +26,7 @@ class OnBoardingViewModel: ObservableObject {
     func setNotFirstOn() {
         self.isFirstOn = false
     }
+    func setFirstOn() {
+        self.isFirstOn = true
+    }
 }

@@ -14,7 +14,7 @@ struct MainView: View {
     
     @State var friendsCount  = 0
     @StateObject var viewModel = MainViewModel()
-    
+    @StateObject var onboardingViewModel = OnBoardingViewModel()
     @EnvironmentObject var userViewModel: UserViewModel
     var user: User {userViewModel.userData}
     
@@ -137,15 +137,22 @@ extension MainView {
     var onboardingSwitchButton: some View {
         Button {
             flag = true
+            FirebaseManager.shared.resetUserData(uid: userViewModel.userData.id!)
+            UserDefaults.standard.set(false, forKey: "isNotFirstOn")
+            onboardingViewModel.setFirstOn() 
+            userViewModel.userData = dummyMy
+            userViewModel.friendUids = []
+            
+     
         } label : {
-            if flag {
+//            if flag {
                 Text("onboardingd")
-                    .fullScreenCover(isPresented: $flag) {
-                        GoalSetting(onboardingViewModel: OnBoardingViewModel())
+                .fullScreenCover(isPresented: self.$onboardingViewModel.isFirstOn) {
+                        GoalSetting(onboardingViewModel: onboardingViewModel)
                     }
-            } else {
-                Text("onboarding")
-            }
+//            } else {
+//                Text("onboarding")
+//            }
         }.buttonStyle(.plain)
     }
     
