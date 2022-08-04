@@ -20,12 +20,12 @@ struct StartView: View {
             .onAppear{
                 print("파베호출")
                 if !onboardingViewModel.isFirstOn {
-                     FirebaseManager.shared.requestUser(userId: userId ?? "") { user in
+                    FirebaseManager.shared.requestUser(userId: userId ?? "") { user in
                         userViewModel.userData = user
-                        userViewModel.fetchAuthPics()
-                         userViewModel.fetchfriends()
-                          
-                     }
+                        userViewModel.requestAuthPics()
+                        userViewModel.requestFriendProgressCircles()
+                        
+                    }
                 }
             }
     }
