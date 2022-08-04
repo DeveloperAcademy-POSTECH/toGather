@@ -183,7 +183,7 @@ final class FirebaseManager: ObservableObject {
     }
     /// 유저정보들 가져오기
 
-    func fetchUsers(userIds:[String],completion: @escaping (([User]) -> Void)) {
+    func requestUsers(userIds:[String],completion: @escaping (([User]) -> Void)) {
         
         let db = Database.database().reference()
         var friendDatas: [User] = []
@@ -218,7 +218,5 @@ final class FirebaseManager: ObservableObject {
 
         }
         completion(friendDatas)
-
-        
     }
 }
