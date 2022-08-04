@@ -34,7 +34,7 @@ final class FirebaseManager: ObservableObject {
         }
     }
     /// firebase에 savingData 인스턴스와 userData 인스턴스 업로드
-    func uploadSavingDataAndUserData(userData: User, friendUids : [String]) {
+    func uploadUserData(userData: User, friendUids : [String]) {
         let db = Database.database().reference()
         
         let data : [String: Any] = [

@@ -88,7 +88,7 @@ final class UserViewModel: ObservableObject {
     }
     
     func uploadUser() {
-        FirebaseManager.shared.uploadSavingDataAndUserData(userData: userData, friendUids: friendUids)
+        FirebaseManager.shared.uploadUserData(userData: userData, friendUids: friendUids)
     }
 
 }
