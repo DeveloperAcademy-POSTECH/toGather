@@ -23,6 +23,7 @@ struct StartView: View {
                      FirebaseManager.shared.fetchUser(userId: userId ?? "") { user in
                         userViewModel.userData = user
                         userViewModel.fetchAuthPics()
+                         userViewModel.fetchfriends()
                           
                      }
                 }

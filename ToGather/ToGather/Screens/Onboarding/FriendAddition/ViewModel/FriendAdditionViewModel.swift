@@ -41,18 +41,15 @@ final class FriendAdditionViewModel: ObservableObject {
         friendNicknames.append(nickname)
     }
     
-    func insertFriendUids(uid: String) -> Bool {
-        var isFriendExist: Bool = true
-        
+    func insertFriendUids(uid: String, completion: @escaping (Bool) -> Void) {
         FirebaseManager.shared.isFriendUidExist(friendUid: uid) { nickName in
             if let nickName = nickName {
                 self.appendList(uid: uid, nickname: nickName)
-                isFriendExist = true
+                completion(true)
             } else {
-                isFriendExist = false
+                completion(false)
             }
         }
-        return isFriendExist
     }
     
     func removeFriendNickname(nickname: String) {

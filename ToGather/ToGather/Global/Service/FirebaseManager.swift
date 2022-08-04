@@ -21,20 +21,20 @@ final class FirebaseManager: ObservableObject {
 
     // MARK: - Functions
     /// user 컬렉션에서 friend의 uid로 검색하여 친구 닉네임 가져오기
-    func fetchFriendNickname(friendUids: [String], completion : @escaping ([String]) -> Void) {
+    func fetchFriendNickname(friendUids: [String], completion : @escaping ([String],[String]) -> Void) {
         let db = Database.database().reference()
         var friendNames =  [String]()
         for friendUid in friendUids {
             let docRef = db.child("users/\(friendUid)")
                             
             docRef.observe(.value) { snapshot in
-        
-                let nickName = snapshot.value(forKey: "nickName") as? String ?? ""
+                guard let nickNameDict = snapshot.value as? [String : AnyObject] else {return}
+                let nickName = nickNameDict["nickname"] as! String
                 friendNames.append(nickName)
             }
         }
     
-        completion(friendNames)
+        completion(friendNames,friendUids)
 
     }
     
@@ -46,7 +46,13 @@ final class FirebaseManager: ObservableObject {
     
         
         docRef.observe(.value) { snapshot in
-            let nickName = snapshot.value(forKey: "nickName") as? String ?? ""
+            
+            guard let nickNameDict = snapshot.value as? [String : AnyObject] else {
+                completion(nil)
+              return
+            }
+            let nickName = nickNameDict["nickname"] as? String
+   
             completion(nickName)
 
         }
@@ -60,7 +66,7 @@ final class FirebaseManager: ObservableObject {
             "id": userData.id ?? "",
             "creationDate": dateToString(date: Date()) ,
             "isAlarmOn": true,
-            "friends": friendUids,
+            "friendUids": friendUids,
             "nickname" : userData.nickname
         ]
         
@@ -200,5 +206,44 @@ final class FirebaseManager: ObservableObject {
         }
         
     }
-    
+    /// 유저정보들 가져오기
+
+    func fetchUsers(userIds:[String],completion: @escaping (([User]) -> Void)) {
+        
+        let db = Database.database().reference()
+        var friendDatas: [User] = []
+        
+        for userId in userIds {
+            db.child("users/\(userId)").observe(.value) { snapshot in
+                guard let value = snapshot.value else { return}
+                
+             //   print(value)
+                do {
+
+                    let userData = try JSONSerialization.data(withJSONObject: value, options: [])
+                    let decoder = JSONDecoder()
+                    let user = try decoder.decode(User.self, from: userData)
+                    friendDatas.append(user)
+
+                } catch let DecodingError.dataCorrupted(context) {
+                    print(context)
+                } catch let DecodingError.keyNotFound(key, context) {
+                    print("Key '\(key)' not found:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch let DecodingError.valueNotFound(value, context) {
+                    print("Value '\(value)' not found:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch let DecodingError.typeMismatch(type, context) {
+                    print("Type '\(type)' mismatch:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch {
+                    print("error: ", error)
+                }
+            }
+
+        }
+        completion(friendDatas)
+
+        
+    }
 }

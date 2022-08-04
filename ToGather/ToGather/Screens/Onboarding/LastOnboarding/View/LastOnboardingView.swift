@@ -107,8 +107,9 @@ struct LastOnboardingView: View {
             
             Button {
                 userViewModel.addUid()
-                FirebaseManager.shared.uploadSavingDataAndUserData(userData: userViewModel.userData, friendUids: userViewModel.friendUids)
+                userViewModel.uploadUser()
                 onboardingViewModel.setNotFirstOn()
+                userViewModel.fetchfriends()
            
             } label: {
                 Text("저축 시작하기")
