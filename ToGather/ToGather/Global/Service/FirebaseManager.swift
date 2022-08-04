@@ -17,33 +17,10 @@ final class FirebaseManager: ObservableObject {
     
     private init() {}
     
-
-
     // MARK: - Functions
-    /// user 컬렉션에서 friend의 uid로 검색하여 친구 닉네임 가져오기
-    func fetchFriendNickname(friendUids: [String], completion : @escaping ([String],[String]) -> Void) {
-        let db = Database.database().reference()
-        var friendNames =  [String]()
-        for friendUid in friendUids {
-            let docRef = db.child("users/\(friendUid)")
-                            
-            docRef.observe(.value) { snapshot in
-                guard let nickNameDict = snapshot.value as? [String : AnyObject] else {return}
-                let nickName = nickNameDict["nickname"] as! String
-                friendNames.append(nickName)
-            }
-        }
-    
-        completion(friendNames,friendUids)
-
-    }
-    
-
-    func isFriendUidExist(friendUid: String, completion: @escaping (String?) -> Void) {
+    func fetchFriendNickname(friendUid: String, completion: @escaping (String?) -> Void) {
         let db = Database.database().reference()
         let docRef = db.child("users/\(friendUid)")
-        
-    
         
         docRef.observe(.value) { snapshot in
             
@@ -54,9 +31,7 @@ final class FirebaseManager: ObservableObject {
             let nickName = nickNameDict["nickname"] as? String
    
             completion(nickName)
-
         }
-        
     }
     /// firebase에 savingData 인스턴스와 userData 인스턴스 업로드
     func uploadSavingDataAndUserData(userData: User, friendUids : [String]) {
