@@ -63,7 +63,7 @@ final class UserViewModel: ObservableObject {
     
     ///유저 인증사진들 가져오기
     func fetchAuthPics() {
-            FirebaseManager.shared.fetchAuthPics(userData: userData) { authPics in
+            FirebaseManager.shared.requestAuthPics(userData: userData) { authPics in
                     self.authPics = authPics
                 print(authPics)
 
