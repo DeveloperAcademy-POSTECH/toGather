@@ -139,7 +139,7 @@ struct SavingRecordView: View {
                     return
                 }
                 userViewModel.userData.saveInfo.weekInfo[currentWeek - 1].didSave = true
-                FirebaseManager.shared.uploadImage(userData: userViewModel.userData, image: uiImage)
+                FirebaseManager.shared.requestAuthPic(uiImage, to: userViewModel.userData)
                 userViewModel.fetchAuthPics()
                 // image 파일이 존재할 때 Firebase에 쓰는 기능
                 presentationMode.wrappedValue.dismiss()
