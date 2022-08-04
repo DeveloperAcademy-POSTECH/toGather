@@ -42,7 +42,7 @@ final class FriendAdditionViewModel: ObservableObject {
     }
     
     func insertFriendUids(uid: String, completion: @escaping (Bool) -> Void) {
-        FirebaseManager.shared.fetchFriendNickname(friendUid: uid) { nickName in
+        FirebaseManager.shared.requestFriendNickname(friendUid: uid) { nickName in
             if let nickName = nickName {
                 self.appendList(uid: uid, nickname: nickName)
                 completion(true)

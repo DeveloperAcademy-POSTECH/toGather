@@ -18,7 +18,7 @@ final class FirebaseManager: ObservableObject {
     private init() {}
     
     // MARK: - Functions
-    func fetchFriendNickname(friendUid: String, completion: @escaping (String?) -> Void) {
+    func requestFriendNickname(friendUid: String, completion: @escaping (String?) -> Void) {
         let db = Database.database().reference()
         let docRef = db.child("users/\(friendUid)")
         
