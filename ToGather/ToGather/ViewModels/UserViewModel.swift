@@ -71,7 +71,7 @@ final class UserViewModel: ObservableObject {
     }
     /// 유저정보가져오기
     func fetchUser(userId : String) {
-        FirebaseManager.shared.fetchUser(userId: userId) { user in
+        FirebaseManager.shared.requestUser(userId: userId) { user in
            userViewModel.userData = user
         }
     }

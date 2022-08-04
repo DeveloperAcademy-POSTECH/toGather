@@ -150,7 +150,7 @@ final class FirebaseManager: ObservableObject {
             }
     
     /// 유저정보 가져오기
-    func fetchUser(userId:String,completion: @escaping((User) -> Void)) {
+    func requestUser(userId:String,completion: @escaping((User) -> Void)) {
         
         let db = Database.database().reference()
         
