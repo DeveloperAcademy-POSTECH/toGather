@@ -90,6 +90,13 @@ final class UserViewModel: ObservableObject {
     func uploadUser() {
         FirebaseManager.shared.uploadSavingDataAndUserData(userData: userData, friendUids: friendUids)
     }
-
+    
+    func makeUserEmpty() {
+        friendNicknames = []
+        friendUids = []
+        authPics = []
+        friendDatas = []
+        friendsList = []
+    }
 }
 

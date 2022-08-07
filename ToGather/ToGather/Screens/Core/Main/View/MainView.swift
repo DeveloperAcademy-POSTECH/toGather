@@ -13,6 +13,7 @@ struct MainView: View {
     // MARK: - Properties
     @State var friendsCount  = 0
     @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var onboardingViewModel: OnBoardingViewModel
     var user: User {userViewModel.userData}
     
     var saving: Saving {user.saveInfo}
@@ -35,7 +36,7 @@ struct MainView: View {
     // money
     var totalSavingAmount: Double {user.saveInfo.totalSavingAmount}
     var goalSavingAmount: Double {user.saveInfo.goalSavingAmount}
-    
+        
     // progress
     var totalFailedNum: Int {user.saveInfo.totalFailedNum}
     var totalSavedNum: Int {user.saveInfo.totalSavedNum}
@@ -124,7 +125,7 @@ extension MainView {
             }
             
             VStack(spacing: 4) {
-                NavigationLink(destination: FriendAdditionView(onboardingViewModel: OnBoardingViewModel(), isPresentationMode: .constant(true))) {
+                NavigationLink(destination: FriendAdditionView(isPresentationMode: .constant(true))) {
                     AddedCircleView(color: addFriendsColor[userViewModel.friendsList.count])
                 }
                 Text(userViewModel.friendsList.isEmpty ? "친구랑 같이 저축하기" : "친구 추가")

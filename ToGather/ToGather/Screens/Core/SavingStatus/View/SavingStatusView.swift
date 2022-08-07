@@ -9,8 +9,8 @@ import Kingfisher
 
 struct SavingStatusNavigationView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    
+//
+//
    
     var body: some View {
         
@@ -52,6 +52,10 @@ struct SavingStatusView: View {
     
     var isMine: Bool = true
     
+    @EnvironmentObject var onboardingViewModel: OnBoardingViewModel
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     var body: some View {
         ScrollView {
             VStack {
@@ -71,7 +75,9 @@ struct SavingStatusView: View {
                 
                 if isMine {
                     Button {
-                        print("onemoretime")
+                        userViewModel.makeUserEmpty()
+                        presentationMode.wrappedValue.dismiss()
+                        onboardingViewModel.isFirstOn = true
 
                     } label: {
                         Text("저축 다시하기")

@@ -14,7 +14,7 @@ struct FriendAdditionView: View {
     @State var noFriendId: Bool = false
     @State var attemps: Int = 0
     
-    @StateObject var onboardingViewModel: OnBoardingViewModel
+    @EnvironmentObject var onboardingViewModel: OnBoardingViewModel
     @EnvironmentObject var userViewModel: UserViewModel
     @FocusState var isKeyboardHide: Bool
     
@@ -65,7 +65,7 @@ struct FriendAdditionView: View {
         return VStack {
             if friendAdditionViewModel.isFriendEmpty() {
                 HStack {
-                    CustomNavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode), label: {
+                    CustomNavigationLink(destination: LastOnboardingView(isPresentationMode: $isPresentationMode), label: {
                         ZStack {
                             Text("나중에 추가하기")
                                 .font(.system(size: 16))
@@ -88,7 +88,7 @@ struct FriendAdditionView: View {
     private var completeButton: some View {
         return VStack {
             if onboardingViewModel.isFirstOn {
-                CustomNavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
+                CustomNavigationLink(destination: LastOnboardingView(isPresentationMode: $isPresentationMode).onAppear(perform: {
                     if let friendNicknames = friendAdditionViewModel.getFriendNicknames(), let friendUids = friendAdditionViewModel.getFriendUids() {
                         userViewModel.setFriendUids(friendUids: friendUids)
                         userViewModel.setFriendNicknames(friendNicknames: friendNicknames)
@@ -123,7 +123,7 @@ struct FriendAdditionView: View {
 
 struct AddingFriend_Previews: PreviewProvider {
     static var previews: some View {
-        FriendAdditionView(onboardingViewModel: OnBoardingViewModel(), isPresentationMode: .constant(true))
+        FriendAdditionView(isPresentationMode: .constant(true))
             .previewInterfaceOrientation(.portrait)
     }
 }

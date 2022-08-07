@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// 앱의 처음 여부 실행만 관련된 뷰모델.
-class OnBoardingViewModel: ObservableObject {
+final class OnBoardingViewModel: ObservableObject {
     @Published var isFirstOn = false
     init() {
         self.checkIsFirstOn()
@@ -19,11 +19,14 @@ class OnBoardingViewModel: ObservableObject {
             UserDefaults.standard.set(true, forKey: "isNotFirstOn")
             self.isFirstOn = true
         } else {
-            self.isFirstOn = true
+            self.isFirstOn = false
         }
     }
     /// 앱이 처음 구동되어 온보딩페이지에서 작동되다가,
     func setNotFirstOn() {
         self.isFirstOn = false
     }
+    
+//    func 
+    
 }

@@ -11,15 +11,17 @@ import FirebaseCore
 @main
 struct ToGatherApp: App {
     @StateObject var userViewModel = UserViewModel()
+    @StateObject var onboardingViewModel = OnBoardingViewModel()
     init() {
         FirebaseApp.configure()
-        }
-        
+    }
+    
     var body: some Scene {
         WindowGroup {
             StartView()
-            .environmentObject(userViewModel)
+                .environmentObject(userViewModel)
+                .environmentObject(onboardingViewModel)
             
         }
     }
-}
+}   

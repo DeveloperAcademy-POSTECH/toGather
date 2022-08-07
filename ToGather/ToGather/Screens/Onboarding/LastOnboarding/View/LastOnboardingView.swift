@@ -12,7 +12,7 @@ struct LastOnboardingView: View {
     
     @EnvironmentObject var userViewModel: UserViewModel
     @ObservedObject var lastOnboardingViewModel: LastOnboardingViewModel = LastOnboardingViewModel()
-    @StateObject var onboardingViewModel: OnBoardingViewModel
+    @EnvironmentObject var onboardingViewModel: OnBoardingViewModel
     
 //    var friendUids: [String]? = ["AcBafb", "DYYGUP"] // dummy data
     @Binding var isPresentationMode: Bool

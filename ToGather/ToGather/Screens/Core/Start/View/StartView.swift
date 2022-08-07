@@ -9,13 +9,14 @@ import SwiftUI
 import Firebase
 
 struct StartView: View {
+    @EnvironmentObject var onboardingViewModel:OnBoardingViewModel
     @EnvironmentObject var userViewModel: UserViewModel
-    @StateObject var onboardingViewModel = OnBoardingViewModel()
+    
     var userId : String? = UserDefaults.standard.string(forKey: "User")
     var body: some View {
         MainView()
             .fullScreenCover(isPresented: self.$onboardingViewModel.isFirstOn) {
-                GoalSetting(onboardingViewModel: onboardingViewModel)
+                GoalSetting()
             }
             .onAppear{
                 print("파베호출")
