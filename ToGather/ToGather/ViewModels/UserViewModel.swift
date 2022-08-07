@@ -67,9 +67,11 @@ final class UserViewModel: ObservableObject {
         if friendUids.isEmpty {
             self.friendUids = userData.friendUids ?? []
         }
-        FirebaseManager.shared.requestUsers(userIds: friendUids) { [weak self] friendDatas in
-            for i in 0..<friendDatas.count {
-                self?.friendProgressCircles.append(FriendProgressCircle(id: i, user: friendDatas[i], color: RGBColorInProgressCircle.colorList[i]))
+        FirebaseManager.shared.requestUsers(userIds: friendUids) { friendDatas in
+            DispatchQueue.main.async { [weak self] in
+                for i in 0..<friendDatas.count {
+                    self?.friendProgressCircles.append(FriendProgressCircle(id: i, user: friendDatas[i], color: RGBColorInProgressCircle.colorList[i]))
+                }
             }
         }
     }

@@ -183,40 +183,80 @@ final class FirebaseManager: ObservableObject {
     }
     /// 유저정보들 가져오기
 
+//    func requestUsers(userIds:[String],completion: @escaping (([User]) -> Void)) {
+//
+//        let db = Database.database().reference()
+//        var friendDatas: [User] = []
+//
+//        for userId in userIds {
+//            db.child("users/\(userId)").observe(.value) { snapshot in
+//                guard let value = snapshot.value else { return}
+//
+//             //   print(value)
+//                do {
+//
+//                    let userData = try JSONSerialization.data(withJSONObject: value, options: [])
+//                    let decoder = JSONDecoder()
+//                    let user = try decoder.decode(User.self, from: userData)
+//                    friendDatas.append(user)
+//
+//                } catch let DecodingError.dataCorrupted(context) {
+//                    print(context)
+//                } catch let DecodingError.keyNotFound(key, context) {
+//                    print("Key '\(key)' not found:", context.debugDescription)
+//                    print("codingPath:", context.codingPath)
+//                } catch let DecodingError.valueNotFound(value, context) {
+//                    print("Value '\(value)' not found:", context.debugDescription)
+//                    print("codingPath:", context.codingPath)
+//                } catch let DecodingError.typeMismatch(type, context) {
+//                    print("Type '\(type)' mismatch:", context.debugDescription)
+//                    print("codingPath:", context.codingPath)
+//                } catch {
+//                    print("error: ", error)
+//                }
+//            }
+//
+//        }
+//        completion(friendDatas)
+//    }
+//
+    
+    
+    /// 친구 ID들 입력해서 User 데이터 한번에 가져오기
+    /// - Parameters:
+    ///   - userIds: <#userIds description#>
+    ///   - completion: <#completion description#>
     func requestUsers(userIds:[String],completion: @escaping (([User]) -> Void)) {
         
         let db = Database.database().reference()
-        var friendDatas: [User] = []
         
-        for userId in userIds {
-            db.child("users/\(userId)").observe(.value) { snapshot in
-                guard let value = snapshot.value else { return}
-                
-             //   print(value)
-                do {
-
-                    let userData = try JSONSerialization.data(withJSONObject: value, options: [])
-                    let decoder = JSONDecoder()
-                    let user = try decoder.decode(User.self, from: userData)
+        Task {
+            var friendDatas: [User] = []
+            try await userIds.asyncForEach { userId in
+                let user = try await requestFriendUser(friendId: userId)
+                if let user = user {
                     friendDatas.append(user)
-
-                } catch let DecodingError.dataCorrupted(context) {
-                    print(context)
-                } catch let DecodingError.keyNotFound(key, context) {
-                    print("Key '\(key)' not found:", context.debugDescription)
-                    print("codingPath:", context.codingPath)
-                } catch let DecodingError.valueNotFound(value, context) {
-                    print("Value '\(value)' not found:", context.debugDescription)
-                    print("codingPath:", context.codingPath)
-                } catch let DecodingError.typeMismatch(type, context) {
-                    print("Type '\(type)' mismatch:", context.debugDescription)
-                    print("codingPath:", context.codingPath)
-                } catch {
-                    print("error: ", error)
                 }
             }
-
+            completion(friendDatas)
         }
-        completion(friendDatas)
     }
+    
+    func requestFriendUser(friendId: String) async -> User? {
+        let db = Database.database().reference()
+        do {
+            let snapshot = try await db.child("users/\(friendId)").getData()
+            guard let value = snapshot.value else { return nil }
+            let userData = try JSONSerialization.data(withJSONObject: value, options: [])
+            let decoder = JSONDecoder()
+            let user = try decoder.decode(User.self, from: userData)
+            return user
+        }
+        catch {
+            print("error")
+        }
+        
+        return nil
+    }
+    
 }
