@@ -17,33 +17,10 @@ final class FirebaseManager: ObservableObject {
     
     private init() {}
     
-
-
     // MARK: - Functions
-    /// user 컬렉션에서 friend의 uid로 검색하여 친구 닉네임 가져오기
-    func fetchFriendNickname(friendUids: [String], completion : @escaping ([String],[String]) -> Void) {
-        let db = Database.database().reference()
-        var friendNames =  [String]()
-        for friendUid in friendUids {
-            let docRef = db.child("users/\(friendUid)")
-                            
-            docRef.observe(.value) { snapshot in
-                guard let nickNameDict = snapshot.value as? [String : AnyObject] else {return}
-                let nickName = nickNameDict["nickname"] as! String
-                friendNames.append(nickName)
-            }
-        }
-    
-        completion(friendNames,friendUids)
-
-    }
-    
-
-    func isFriendUidExist(friendUid: String, completion: @escaping (String?) -> Void) {
+    func requestFriendNickname(friendUid: String, completion: @escaping (String?) -> Void) {
         let db = Database.database().reference()
         let docRef = db.child("users/\(friendUid)")
-        
-    
         
         docRef.observe(.value) { snapshot in
             
@@ -54,12 +31,10 @@ final class FirebaseManager: ObservableObject {
             let nickName = nickNameDict["nickname"] as? String
    
             completion(nickName)
-
         }
-        
     }
     /// firebase에 savingData 인스턴스와 userData 인스턴스 업로드
-    func uploadSavingDataAndUserData(userData: User, friendUids : [String]) {
+    func uploadUserData(userData: User, friendUids : [String]) {
         let db = Database.database().reference()
         
         let data : [String: Any] = [
@@ -111,7 +86,7 @@ final class FirebaseManager: ObservableObject {
 
     }
     /// 이미지 파베에 업로드하기
-    func uploadImage(userData: User,image : UIImage) {
+    func uploadAuthPic(_ image : UIImage, to userData: User) {
          guard let imageData = image.jpegData(compressionQuality: 0.5) else { return } // 이미지 화질 조정
          let fileName = NSUUID().uuidString // 이미지네임 랜덤.
          let imageRef = Storage.storage().reference(withPath: "/auth_image/\(fileName)")
@@ -136,7 +111,7 @@ final class FirebaseManager: ObservableObject {
      }
     
     /// 인증사진들 가져오기
-    func fetchAuthPics(userData: User, completion : @escaping ([String]) -> Void) {
+    func requestAuthPics(userData: User, completion : @escaping ([String]) -> Void) {
             
         let db = Database.database().reference()
         print(db)
@@ -175,7 +150,7 @@ final class FirebaseManager: ObservableObject {
             }
     
     /// 유저정보 가져오기
-    func fetchUser(userId:String,completion: @escaping((User) -> Void)) {
+    func requestUser(userId:String,completion: @escaping((User) -> Void)) {
         
         let db = Database.database().reference()
         
@@ -208,7 +183,7 @@ final class FirebaseManager: ObservableObject {
     }
     /// 유저정보들 가져오기
 
-    func fetchUsers(userIds:[String],completion: @escaping (([User]) -> Void)) {
+    func requestUsers(userIds:[String],completion: @escaping (([User]) -> Void)) {
         
         let db = Database.database().reference()
         var friendDatas: [User] = []
@@ -243,7 +218,5 @@ final class FirebaseManager: ObservableObject {
 
         }
         completion(friendDatas)
-
-        
     }
 }

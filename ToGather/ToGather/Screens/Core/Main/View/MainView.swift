@@ -113,7 +113,7 @@ extension MainView {
     
     var friendsSavingsView: some View {
         HStack(spacing: 26) {
-            ForEach(userViewModel.friendsList) { friendSaving in
+            ForEach(userViewModel.friendProgressCircles) { friendSaving in
                 NavigationLink(destination: FrSavingStatusNavigationView(user: friendSaving.user, colorRGB: RGBColorInProgressCircle.colorList[Int(friendSaving.id)]).navigationTitle("알림")
                     .navigationBarHidden(true)) {
                     
@@ -125,9 +125,9 @@ extension MainView {
             
             VStack(spacing: 4) {
                 NavigationLink(destination: FriendAdditionView(onboardingViewModel: OnBoardingViewModel(), isPresentationMode: .constant(true))) {
-                    AddedCircleView(color: addFriendsColor[userViewModel.friendsList.count])
+                    AddedCircleView(color: addFriendsColor[userViewModel.friendProgressCircles.count])
                 }
-                Text(userViewModel.friendsList.isEmpty ? "친구랑 같이 저축하기" : "친구 추가")
+                Text(userViewModel.friendProgressCircles.isEmpty ? "친구랑 같이 저축하기" : "친구 추가")
                     .font(.callout) // 16px
                     .fontWeight(.semibold)
             }

@@ -104,13 +104,9 @@ struct LastOnboardingView: View {
                     .font(.system(size: 18, weight: .regular))
             }
             .padding(.bottom, 18)
-            
             Button {
-                userViewModel.addUid()
-                userViewModel.uploadUser()
+                userViewModel.launch()
                 onboardingViewModel.setNotFirstOn()
-                userViewModel.fetchfriends()
-           
             } label: {
                 Text("저축 시작하기")
                     .foregroundColor(.white)

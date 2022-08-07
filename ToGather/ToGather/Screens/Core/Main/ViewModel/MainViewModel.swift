@@ -9,15 +9,15 @@ import SwiftUI
 
 class MainViewModel: ObservableObject {
    
-    @Published private var friendsList: [FriendsProgressCircle] = [
-        FriendsProgressCircle(id: 1, user: dummyFriend1, color: RGBColorInProgressCircle.friendColor1),
-        FriendsProgressCircle(id: 2, user: dummyFriend2, color: RGBColorInProgressCircle.friendColor2)]
+    @Published private var friendsList: [FriendProgressCircle] = [
+        FriendProgressCircle(id: 1, user: dummyFriend1, color: RGBColorInProgressCircle.friendColor1),
+        FriendProgressCircle(id: 2, user: dummyFriend2, color: RGBColorInProgressCircle.friendColor2)]
  
-    func addFriend(friend : FriendsProgressCircle) {
+    func addFriend(friend : FriendProgressCircle) {
         friendsList.append(friend)
     }
     
-    func getFriendList() -> [FriendsProgressCircle] {
+    func getFriendList() -> [FriendProgressCircle] {
         
         return friendsList
     }

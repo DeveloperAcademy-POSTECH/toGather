@@ -158,7 +158,7 @@ struct SettingPeriodView: View {
                 guard let selectedDay = selectedDay else {
                     return
                 }
-                userViewModel.addGoalWeekAndDayOfTheWeek(goalWeeks: goalWeek, dayOfTheWeek: selectedDay)
+                userViewModel.setGoalPeriod(goalWeeks: goalWeek, dayOfTheWeek: selectedDay)
             })) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 30)

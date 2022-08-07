@@ -123,7 +123,7 @@ struct GoalSetting: View {
                     guard let Item = isSelectedItem, let product = Product.productDictionary[Item]?.productName else {
                         return
                     }
-                    userViewModel.addProduct(product: product)
+                    userViewModel.setGoalProduct(product: product)
                 },isActive: $isPresentationMode, label: {
                     Text("다음")
                         .fontWeight(.bold)
