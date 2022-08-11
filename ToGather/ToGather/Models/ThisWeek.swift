@@ -12,5 +12,6 @@ struct ThisWeek: Identifiable, Codable {
     let presentWeek: Int
     var didSave: Bool
     var imageUrl: String?
+    var date: String?
     var id: Int {presentWeek}
 }
