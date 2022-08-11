@@ -15,7 +15,6 @@ struct FriendAdditionView: View {
     @State var noFriendId: Bool = false
     @State var attemps: Int = 0
     
-    @StateObject var onboardingViewModel: OnBoardingViewModel
     @EnvironmentObject var userViewModel: UserViewModel
     @StateObject var friendAdditionViewModel =  FriendAdditionViewModel()
 
@@ -23,6 +22,11 @@ struct FriendAdditionView: View {
     @Binding var isPresentationMode: Bool
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @StateObject var friendAdditionViewModel =  FriendAdditionViewModel()
+
+    @AppStorage("isVisited") var isFirstOn = !UserDefaults.standard.bool(forKey: "isVisited")
+
+
     // MARK: - Body
     var body: some View {
         VStack {
@@ -72,7 +76,7 @@ extension FriendAdditionView {
         return VStack {
             if friendAdditionViewModel.isFriendEmpty() {
                 HStack {
-                    CustomNavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode), label: {
+                    CustomNavigationLink(destination: LastOnboardingView( isPresentationMode: $isPresentationMode), label: {
                         ZStack {
                             Text("나중에 추가하기")
                                 .font(.system(size: 16))
@@ -94,8 +98,8 @@ extension FriendAdditionView {
     
     private var completeButton: some View {
         return VStack {
-            if onboardingViewModel.isFirstOn {
-                CustomNavigationLink(destination: LastOnboardingView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
+            if isFirstOn {
+                CustomNavigationLink(destination: LastOnboardingView( isPresentationMode: $isPresentationMode).onAppear(perform: {
                     if let friendNicknames = friendAdditionViewModel.getFriendNicknames(), let friendUids = friendAdditionViewModel.getFriendUids() {
                         userViewModel.setFriendUids(friendUids: friendUids)
                         userViewModel.setFriendNicknames(friendNicknames: friendNicknames)
@@ -130,7 +134,7 @@ extension FriendAdditionView {
 // MARK: - Previews
 struct AddingFriend_Previews: PreviewProvider {
     static var previews: some View {
-        FriendAdditionView(onboardingViewModel: OnBoardingViewModel(), isPresentationMode: .constant(true))
+        FriendAdditionView(isPresentationMode: .constant(true))
             .previewInterfaceOrientation(.portrait)
     }
 }
