@@ -19,7 +19,7 @@ struct PersonView: View {
                 ZStack(alignment: .topTrailing) {
                     Circle()
                         .strokeBorder(lineWidth: 1)
-                        .foregroundColor(ColorStyle.blue.color)
+                        .foregroundColor(Color.pointColor)
                         .frame(width: 80, height: 80, alignment: .center)
                     ZStack(alignment: .topTrailing) {
                         Button {

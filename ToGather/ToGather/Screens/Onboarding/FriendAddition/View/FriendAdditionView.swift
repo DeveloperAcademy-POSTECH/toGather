@@ -16,7 +16,6 @@ struct FriendAdditionView: View {
     @State var attemps: Int = 0
     
     @EnvironmentObject var userViewModel: UserViewModel
-    @StateObject var friendAdditionViewModel =  FriendAdditionViewModel()
 
     @FocusState var isKeyboardHide: Bool
     @Binding var isPresentationMode: Bool
