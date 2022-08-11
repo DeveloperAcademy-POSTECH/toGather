@@ -74,7 +74,7 @@ extension FrSavingStatusView {
     var fRsavingRate: some View {
         HStack {
             
-            ProgressCircle(color: colorRGB, frameSize: 130, saving: mySaving)
+            ProgressCircle(color: colorRGB, frameSize: 130, saving: user.saveInfo)
                 .overlay(Image(Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""))
             fRsavingText.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
         }.padding(EdgeInsets(top: 28, leading: 19, bottom: 0, trailing: 0))
