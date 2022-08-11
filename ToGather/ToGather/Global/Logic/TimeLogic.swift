@@ -141,8 +141,8 @@ func getRemainTime(currentWeekEndDate: Date) -> String {
 struct TimeLogicTest: View {
     @State var remaindDate: String = getRemainTime(currentWeekEndDate : getCurrentWeekEndDate(currentWeek: getCurrentWeek(from: "20220615", weekInfo: [ThisWeek(presentWeek: 1, didSave: true)]), firstSavingDate: "20220623"))
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    let setDay = dummyMy.saveInfo.savingDayOfTheWeek //월
-    let goalWeek = dummyMy.saveInfo.goalWeeks // 25
+    let setDay = DummyData.my.saveInfo.savingDayOfTheWeek //월
+    let goalWeek = DummyData.my.saveInfo.goalWeeks // 25
     let appStartDay = "20220601"
     
     // 현재날짜로부터 + 7 일 이상될 수가 없음

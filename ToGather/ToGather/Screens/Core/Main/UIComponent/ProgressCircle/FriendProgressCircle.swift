@@ -50,7 +50,7 @@ extension FriendProgressCircle {
 struct FriendsProgressCircle_Previews: PreviewProvider {
     static var previews: some View {
         HStack {
-            FriendProgressCircle(id: 1, user: dummyFriend1, color: RGBColorInProgressCircle.friendColor1)
+            FriendProgressCircle(id: 1, user: DummyData.friend1, color: RGBColorInProgressCircle.friendColor1)
         }
     }
 }

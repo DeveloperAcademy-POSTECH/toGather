@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350787AE28A4A3AA00A4C3CF /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350787AD28A4A3AA00A4C3CF /* PersonView.swift */; };
 		3534AA352865E31E0094D7B9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3534AA342865E31E0094D7B9 /* FirebaseDatabase */; };
 		354ED94B2858471B001C726D /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94A2858471B001C726D /* NotificationsView.swift */; };
 		354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94C2858488C001C726D /* NotificaionCell.swift */; };
@@ -42,9 +43,7 @@
 		764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC72C28518CC8007A7415 /* ToGatherApp.swift */; };
 		764FC73128518CC9007A7415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73028518CC9007A7415 /* Assets.xcassets */; };
 		764FC73428518CC9007A7415 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764FC73328518CC9007A7415 /* Preview Assets.xcassets */; };
-		764FC74828518E07007A7415 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764FC74728518E07007A7415 /* ColorAsset.swift */; };
 		764FC79328544F17007A7415 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 764FC79228544F17007A7415 /* Introspect */; };
-		7656A819285EEDB60014CFAB /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7656A816285EEDB60014CFAB /* OnboardingViewModel.swift */; };
 		7656A821285F48C50014CFAB /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7656A820285F48C50014CFAB /* StartView.swift */; };
 		7656A824285FE4F70014CFAB /* FrSavingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7656A823285FE4F70014CFAB /* FrSavingView.swift */; };
 		7669F5F52855A33F001DDA0D /* PinStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7669F5F02855A33F001DDA0D /* PinStackView.swift */; };
@@ -75,6 +74,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		350787AD28A4A3AA00A4C3CF /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		354ED94A2858471B001C726D /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		354ED94C2858488C001C726D /* NotificaionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificaionCell.swift; sourceTree = "<group>"; };
 		354ED94E285849E9001C726D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -105,8 +105,6 @@
 		764FC72C28518CC8007A7415 /* ToGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGatherApp.swift; sourceTree = "<group>"; };
 		764FC73028518CC9007A7415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		764FC73328518CC9007A7415 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		764FC74728518E07007A7415 /* ColorAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
-		7656A816285EEDB60014CFAB /* OnboardingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		7656A820285F48C50014CFAB /* StartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		7656A823285FE4F70014CFAB /* FrSavingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrSavingView.swift; sourceTree = "<group>"; };
 		7669F5F02855A33F001DDA0D /* PinStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinStackView.swift; sourceTree = "<group>"; };
@@ -154,6 +152,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		350787AC28A4A39C00A4C3CF /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				350787AD28A4A3AA00A4C3CF /* PersonView.swift */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
 		354ED947285846E6001C726D /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,7 +385,6 @@
 		764FC74328518DF7007A7415 /* Literal */ = {
 			isa = PBXGroup;
 			children = (
-				764FC74728518E07007A7415 /* ColorAsset.swift */,
 				354ED9542859D4DE001C726D /* Constants.swift */,
 			);
 			path = Literal;
@@ -405,7 +410,6 @@
 		7656A815285EEDB60014CFAB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				7656A816285EEDB60014CFAB /* OnboardingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -429,6 +433,7 @@
 		7669F5EE2855A2ED001DDA0D /* FriendAddition */ = {
 			isa = PBXGroup;
 			children = (
+				350787AC28A4A39C00A4C3CF /* UIComponent */,
 				76A0389D285A1462009C9A02 /* ViewModel */,
 				7669F5EF2855A310001DDA0D /* View */,
 			);
@@ -691,26 +696,23 @@
 				764FC72D28518CC8007A7415 /* ToGatherApp.swift in Sources */,
 				354ED95A285C449B001C726D /* SettingView.swift in Sources */,
 				354ED9552859D4DE001C726D /* Constants.swift in Sources */,
-				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				3DC6AEF8285B165F004FA4DB /* SavingStatusView.swift in Sources */,
 				7656A824285FE4F70014CFAB /* FrSavingView.swift in Sources */,
 				354ED94B2858471B001C726D /* NotificationsView.swift in Sources */,
 				E205519728557EEB00C210DA /* DummyData.swift in Sources */,
-				7656A819285EEDB60014CFAB /* OnboardingViewModel.swift in Sources */,
-				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				7669F5F62855A33F001DDA0D /* FriendAdditionView.swift in Sources */,
 				354ED957285A396B001C726D /* UserDefaults+Extension.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
 				7669F5F82855A33F001DDA0D /* TitleView.swift in Sources */,
 				354ED968285D91AB001C726D /* DisplayModeView.swift in Sources */,
 				7669F5F92855A33F001DDA0D /* AlreadyAddedFriendView.swift in Sources */,
+				350787AE28A4A3AA00A4C3CF /* PersonView.swift in Sources */,
 				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
 				7605A01E2887D89800D66F41 /* FriendAdditionViewModel.swift in Sources */,
 				E2513680285B3796008DD9C3 /* UserViewModel.swift in Sources */,
 				7669F5F72855A33F001DDA0D /* ApplyFriendIdTextView.swift in Sources */,
 				E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */,
 				354ED94F285849E9001C726D /* Notification.swift in Sources */,
-				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
 				354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */,
 				E2513678285B3217008DD9C3 /* GoalSettingTitleView.swift in Sources */,

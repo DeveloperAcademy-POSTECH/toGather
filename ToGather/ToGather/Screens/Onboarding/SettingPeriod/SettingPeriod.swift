@@ -12,7 +12,6 @@ let product = Product(productName: "imac", productPrice: 180, imageUrl: "imac")
 
 struct SettingPeriodView: View {
     /// onboarding시 사용할 View
-    @StateObject var onboardingViewModel: OnBoardingViewModel
 
     @EnvironmentObject var userViewModel: UserViewModel
     
@@ -48,8 +47,8 @@ struct SettingPeriodView: View {
     private let title: some View = HStack {
         VStack(alignment: .leading) {
             HStack {
-                Text("매주 저축할 금액").foregroundColor(ColorStyle.blue.color) + Text("과 ")
-                Text("요일").foregroundColor(ColorStyle.blue.color) + Text("을")
+                Text("매주 저축할 금액").foregroundColor(Color.pointColor) + Text("과 ")
+                Text("요일").foregroundColor(Color.pointColor) + Text("을")
             }
             Text("골라주세요")
         }.font(.system(size: 24, weight: .bold))
@@ -66,27 +65,27 @@ struct SettingPeriodView: View {
                 Image(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.imageUrl ?? "").resizable()
                     .scaledToFit()
                     .frame(width: 101, height: 91)
-                Circle().stroke().fill(ColorStyle.blue.color)
+                Circle().stroke().fill(Color.pointColor)
                     .frame(width: 170, height: 170, alignment: .center)
                 
             }.padding(EdgeInsets(top: 0, leading: 0, bottom: 13, trailing: 0))
-            Text("총 \(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0, specifier: "%3.f")만원").font(.system(size: 16, weight: .medium))
+            Text("약 \(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0, specifier: "%3.f")만원").font(.system(size: 16, weight: .medium))
         }
     }
 
     private var slider: some View {
         let priceAndPeriod: some View = Text("매주  ")
                                         + Text("\(saveAmountOfWeek, specifier: "%4.1f")")
-                                            .foregroundColor(ColorStyle.blue.color)
+                                            .foregroundColor(Color.pointColor)
                                             .font(.system(size: 26, weight: .bold))
                                         + Text("만원")
-                                            .foregroundColor(ColorStyle.blue.color)
+                                            .foregroundColor(Color.pointColor)
                                             .font(.system(size: 26, weight: .bold))
                                         + Text("   기간 ")
                                         + Text("\(goalWeek, specifier: "%2.d")")
-                                            .foregroundColor(ColorStyle.blue.color)
+                                            .foregroundColor(Color.pointColor)
                                             .font(.system(size: 26, weight: .bold))
-                                        + Text("주").foregroundColor(ColorStyle.blue.color)
+                                        + Text("주").foregroundColor(Color.pointColor)
                                             .font(.system(size: 26, weight: .bold))
 
         let sliderInfo: some View = VStack {
@@ -100,7 +99,7 @@ struct SettingPeriodView: View {
             HStack {
                 Spacer()
                 Text("48주")
-                    .foregroundColor(ColorStyle.blue.color)
+                    .foregroundColor(Color.pointColor)
                     .padding(EdgeInsets(top: 3, leading: 10, bottom: 0, trailing: 10))
             }
         }
@@ -110,10 +109,10 @@ struct SettingPeriodView: View {
             Spacer(minLength: 30)
             Text("약 \(savePeriodMonth, specifier: "%2.f")개월")
                 .font(.system(size: 14, weight: .medium))
-                .foregroundColor(ColorStyle.blackSixty.color)
+                .foregroundColor(Color.black02)
             Slider(value: $savePeriodMonth, in: 1...12, step: 1)
                 .padding(.horizontal, 17)
-                .accentColor(ColorStyle.blue.color)
+                .accentColor(Color.pointColor)
             sliderInfo
         }.font(.system(size: 16, weight: .bold))
     }
@@ -130,11 +129,11 @@ struct SettingPeriodView: View {
                 ForEach(days, id: \.self) { day in
                     if day == selectedDay {
                         ZStack {
-                            Circle().stroke().fill(ColorStyle.blue.color)
+                            Circle().stroke().fill(Color.pointColor)
                                 .frame(width: 40, height: 40, alignment: .center)
                             Text("\(day)")
                                 .font(.system(size: 20, weight: .medium))
-                                .foregroundColor(ColorStyle.blue.color)
+                                .foregroundColor(Color.pointColor)
                                 .padding(EdgeInsets(top: 10, leading: 13, bottom: 13, trailing: 13))
                         }
                     } else {
@@ -154,7 +153,7 @@ struct SettingPeriodView: View {
 
     private var nextButton: some View {
         return VStack {
-            CustomNavigationLink(destination: FriendAdditionView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
+            CustomNavigationLink(destination: FriendAdditionView(isPresentationMode: $isPresentationMode).onAppear(perform: {
                 guard let selectedDay = selectedDay else {
                     return
                 }

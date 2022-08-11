@@ -11,10 +11,10 @@ struct GoalSetting: View {
     
     // MARK: - Properties
     @State var isSelectedItem: String?
-    @StateObject var onboardingViewModel: OnBoardingViewModel
     @EnvironmentObject var userViewModel: UserViewModel
-    
     @State var isPresentationMode: Bool = false
+    
+    // MARK: - Body
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 0) {
@@ -119,7 +119,7 @@ struct GoalSetting: View {
                 }
                 .padding(.vertical, 22)
                 Spacer()
-                CustomNavigationLink(destination: SettingPeriodView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear {
+                CustomNavigationLink(destination: SettingPeriodView(isPresentationMode: $isPresentationMode).onAppear {
                     guard let Item = isSelectedItem, let product = Product.productDictionary[Item]?.productName else {
                         return
                     }

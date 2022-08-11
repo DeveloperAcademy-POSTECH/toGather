@@ -8,9 +8,12 @@
 import Foundation
 
 final class FriendAdditionViewModel: ObservableObject {
+    
+    // MARK: - Properties
     @Published private var friendUids: [String] = []
     @Published private var friendNicknames: [String] = []
     
+    // MARK: - Funcs
     func isFriendEmpty() -> Bool {
         if friendUids.isEmpty {
             return true
@@ -25,6 +28,7 @@ final class FriendAdditionViewModel: ObservableObject {
         return friendNicknames
     }
     
+    /// 친구의 Uid 얻어오기
     func getFriendUids() -> [String]? {
         if friendUids.isEmpty {
             return nil
@@ -61,4 +65,5 @@ final class FriendAdditionViewModel: ObservableObject {
             friendNicknames.remove(at: index)
         }
     }
+
 }

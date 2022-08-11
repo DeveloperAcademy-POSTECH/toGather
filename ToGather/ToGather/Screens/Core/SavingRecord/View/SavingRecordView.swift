@@ -119,11 +119,6 @@ struct SavingRecordView: View {
                         }
                     }
             }
-            HStack(alignment: .center, spacing: 6) {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundColor(.pointColor)
-                Text("친구한테 알리기")
-            }
             Spacer()
             HStack(alignment: .bottom, spacing: 6) {
                 Text("지금까지 모은 돈")
