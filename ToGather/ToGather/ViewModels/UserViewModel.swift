@@ -36,6 +36,7 @@ final class UserViewModel: ObservableObject {
     func setGoalPeriod(goalWeeks: Int, dayOfTheWeek: String) {
         userData.saveInfo.goalWeeks = goalWeeks
         userData.saveInfo.savingDayOfTheWeek = dayOfTheWeek
+        userData.saveInfo.startDate = getFirstSavingDate(setDay: dayOfTheWeek, appStartDate: dateToString(date: Date()))
     }
     /// friend-addition 뷰에서 사용, friendUids array에 친구 uid 추가
     func setFriendUids(friendUids: [String]) {
