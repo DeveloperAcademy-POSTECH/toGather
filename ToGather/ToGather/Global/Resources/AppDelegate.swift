@@ -16,7 +16,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
         Messaging.messaging().delegate = self
           UNUserNotificationCenter.current().delegate = self
-
           UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, _ in
               guard success else {
                   return
@@ -42,7 +41,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,willPresent notification: UNNotification,withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.badge, .sound])
+        completionHandler([.banner,.badge, .sound]) //배너가 포그라운드에서 알림가능케 해줌.
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter,didReceive response: UNNotificationResponse,withCompletionHandler completionHandler: @escaping () -> Void) {

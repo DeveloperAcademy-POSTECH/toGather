@@ -26,6 +26,8 @@ struct StartView: View {
                         
                     }
                 }
+            
+                PushNotificationManager.sendPushNotification(to: "cojwLBbZUkKInoDD5uA_5f:APA91bEasMAIVrxaFxpRsUrr_BO4kjOMbxmHzoB5ygILWgL_OkC2Gjc9OxoomNKqAA8njtstdUsdYYtHoH8d24RJxkNqczQMM1YFzCWzQmIMC3F6TNfTrQxlUcOlxcxGoO9PTi7pidoA", title: "바보", body: "바보")
             }
     }
 }

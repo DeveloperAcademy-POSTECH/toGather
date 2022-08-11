@@ -7,23 +7,10 @@
 
 import Foundation
 
-//struct PushNotificationManager {
-//    func sendPushNotification(to token: String, title: String, body: String) {
-//        let server_key = ""
-//        let urlString = "https://fcm.googleapis.com/fcm/send"
-//        let url = NSURL(string: urlString)!
-//        let paramString: [String : Any] = ["to" : token,
-//                                           "notification" : ["title" : title, "body" : body],
-//                                           "data" : ["user" : "test_id"]
-//        ]
-//
-//
-//    }
-//
-//}
 
 class PushNotificationManager {
-    func sendPushNotification(to token: String, title: String, body: String) {
+    // MARK: - Funcs
+    static func sendPushNotification(to token: String, title: String, body: String) {
         let server_key = "AAAA4DyC34g:APA91bFrJPkuapSLQXN92-ry6UDIhULukpP_nsRJyfnI_-zgGVIcuisReSdHjav520_sKVe37G7UibBmdFNunRtNaWbac3A72Sb30ZaGgDC4MhSbGQKv51t_mfmVInHOhD_Yv4PrHy4r"
         let urlString = "https://fcm.googleapis.com/fcm/send"
         let url = NSURL(string: urlString)!
