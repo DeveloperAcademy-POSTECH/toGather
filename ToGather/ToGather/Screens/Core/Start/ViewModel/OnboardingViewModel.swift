@@ -19,7 +19,8 @@ class OnBoardingViewModel: ObservableObject {
             UserDefaults.standard.set(true, forKey: "isNotFirstOn")
             self.isFirstOn = true
         } else {
-            self.isFirstOn = true
+            self.isFirstOn = false
+            
         }
     }
     /// 앱이 처음 구동되어 온보딩페이지에서 작동되다가,
