@@ -48,9 +48,17 @@ final class UserViewModel: ObservableObject {
         self.friendUids = friendUids
     }
     
+    func appendFriendUids(friendUids: [String]) {
+        friendUids.forEach({self.friendUids.append($0)})
+    }
+    
     /// friend-addition 뷰에서 사용, friendUids array에 친구들 닉네임추가
     func setFriendNicknames(friendNicknames: [String]) {
         self.friendNicknames = friendNicknames
+    }
+    
+    func appendFriendNicknames(friendNicknames: [String]) {
+        friendNicknames.forEach({self.friendNicknames.append($0)})
     }
     
     /// 장비의 uuid를 userData 인스턴스와 savingData 인스턴스에 각각 추가
@@ -90,6 +98,9 @@ final class UserViewModel: ObservableObject {
         FirebaseManager.shared.uploadUserData(userData: userData, friendUids: friendUids)
     }
     
+    func uploadFriendsData() {
+        FirebaseManager.shared.uploadFriendsData(userData: userData, friendUids: friendUids)
+    }
     /// 초기세팅하기
     func launch() {
         self.initUid()

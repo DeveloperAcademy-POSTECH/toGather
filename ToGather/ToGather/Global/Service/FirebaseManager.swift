@@ -33,6 +33,20 @@ final class FirebaseManager: ObservableObject {
             completion(nickName)
         }
     }
+    
+    func uploadFriendsData(userData: User, friendUids : [String]) {
+        let db = Database.database().reference()
+        
+        print("userData.id \(userData.id ?? "")")
+        db.child("users/\(userData.id ?? "")/friendUids").setValue(friendUids) { error, _ in
+            if let error = error {
+                print("Error writing user document: \(error)")
+            } else {
+                print("User document successfully written!")
+            }
+        }
+    }
+    
     /// firebase에 savingData 인스턴스와 userData 인스턴스 업로드
     func uploadUserData(userData: User, friendUids : [String]) {
         

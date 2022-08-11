@@ -70,6 +70,7 @@
 		E2513680285B3796008DD9C3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251367E285B3795008DD9C3 /* UserViewModel.swift */; };
 		E2513681285B3796008DD9C3 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251367F285B3795008DD9C3 /* FirebaseManager.swift */; };
 		E26D58802886E6480073D40C /* CustomNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26D587F2886E6480073D40C /* CustomNavigationLink.swift */; };
+		E2C9C18728A4DCA300D64701 /* FriendsAdditionViewFromMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9C18628A4DCA300D64701 /* FriendsAdditionViewFromMain.swift */; };
 		E2DDBABB285AA95600E376D0 /* MoneyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,7 @@
 		E251367E285B3795008DD9C3 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		E251367F285B3795008DD9C3 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		E26D587F2886E6480073D40C /* CustomNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationLink.swift; sourceTree = "<group>"; };
+		E2C9C18628A4DCA300D64701 /* FriendsAdditionViewFromMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAdditionViewFromMain.swift; sourceTree = "<group>"; };
 		E2DDBABA285AA95600E376D0 /* MoneyLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				35AD2D1C2851D4730089E1C3 /* MainView.swift */,
+				E2C9C18628A4DCA300D64701 /* FriendsAdditionViewFromMain.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -700,6 +703,9 @@
 				7656A824285FE4F70014CFAB /* FrSavingView.swift in Sources */,
 				354ED94B2858471B001C726D /* NotificationsView.swift in Sources */,
 				E205519728557EEB00C210DA /* DummyData.swift in Sources */,
+				7656A819285EEDB60014CFAB /* OnboardingViewModel.swift in Sources */,
+				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
+				E2C9C18728A4DCA300D64701 /* FriendsAdditionViewFromMain.swift in Sources */,
 				7669F5F62855A33F001DDA0D /* FriendAdditionView.swift in Sources */,
 				354ED957285A396B001C726D /* UserDefaults+Extension.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
