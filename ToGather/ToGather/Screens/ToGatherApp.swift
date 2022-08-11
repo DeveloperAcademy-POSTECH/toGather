@@ -10,7 +10,9 @@ import FirebaseCore
 
 @main
 struct ToGatherApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var userViewModel = UserViewModel()
+
     init() {
         FirebaseApp.configure()
         }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		350787AE28A4A3AA00A4C3CF /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350787AD28A4A3AA00A4C3CF /* PersonView.swift */; };
+		350787B228A524E300A4C3CF /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350787B128A524E300A4C3CF /* PushNotificationManager.swift */; };
+		350787B728A526A300A4C3CF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 350787B628A526A300A4C3CF /* FirebaseMessaging */; };
+		350787B928A5277800A4C3CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350787B828A5277800A4C3CF /* AppDelegate.swift */; };
 		3534AA352865E31E0094D7B9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3534AA342865E31E0094D7B9 /* FirebaseDatabase */; };
 		354ED94B2858471B001C726D /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94A2858471B001C726D /* NotificationsView.swift */; };
 		354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354ED94C2858488C001C726D /* NotificaionCell.swift */; };
@@ -75,6 +78,10 @@
 
 /* Begin PBXFileReference section */
 		350787AD28A4A3AA00A4C3CF /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		350787B128A524E300A4C3CF /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
+		350787B328A5260100A4C3CF /* ToGather.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToGather.entitlements; sourceTree = "<group>"; };
+		350787B428A5261000A4C3CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		350787B828A5277800A4C3CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		354ED94A2858471B001C726D /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		354ED94C2858488C001C726D /* NotificaionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificaionCell.swift; sourceTree = "<group>"; };
 		354ED94E285849E9001C726D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -145,6 +152,7 @@
 				7669F6002855A46C001DDA0D /* FirebaseStorage in Frameworks */,
 				3D87D9F62852046100C36346 /* FirebaseStorage in Frameworks */,
 				7669F5FE2855A46C001DDA0D /* FirebaseFirestore in Frameworks */,
+				350787B728A526A300A4C3CF /* FirebaseMessaging in Frameworks */,
 				3D4134572852EC44009E7953 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +307,8 @@
 		764FC72B28518CC8007A7415 /* ToGather */ = {
 			isa = PBXGroup;
 			children = (
+				350787B428A5261000A4C3CF /* Info.plist */,
+				350787B328A5260100A4C3CF /* ToGather.entitlements */,
 				3D4383A728519BD100AD1885 /* GoogleService-Info.plist */,
 				764FC73E28518DD5007A7415 /* Global */,
 				764FC73D28518DCE007A7415 /* Screens */,
@@ -358,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				764FC73028518CC9007A7415 /* Assets.xcassets */,
+				350787B828A5277800A4C3CF /* AppDelegate.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -394,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				E251367F285B3795008DD9C3 /* FirebaseManager.swift */,
+				350787B128A524E300A4C3CF /* PushNotificationManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -585,6 +597,7 @@
 				7669F5FF2855A46C001DDA0D /* FirebaseStorage */,
 				3578230E28605D8F002FFE51 /* Kingfisher */,
 				3534AA342865E31E0094D7B9 /* FirebaseDatabase */,
+				350787B628A526A300A4C3CF /* FirebaseMessaging */,
 			);
 			productName = ToGather;
 			productReference = 764FC72928518CC8007A7415 /* ToGather.app */;
@@ -619,6 +632,7 @@
 				764FC79128544F17007A7415 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				3578230D28605D8F002FFE51 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				3534AA332865E31E0094D7B9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				350787B528A526A300A4C3CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 764FC72A28518CC8007A7415 /* Products */;
 			projectDirPath = "";
@@ -675,6 +689,7 @@
 				767D1CA7289F8D7E006DF76F /* Sequence+Extension.swift in Sources */,
 				35AD2D2A2854F8550089E1C3 /* Color+Extension.swift in Sources */,
 				35AD2D0B28519C520089E1C3 /* ThisWeek.swift in Sources */,
+				350787B228A524E300A4C3CF /* PushNotificationManager.swift in Sources */,
 				4377C1CA28597DD7007DF255 /* ItemData.swift in Sources */,
 				E2239AFD285A810500839197 /* SettingPeriod.swift in Sources */,
 				7656A821285F48C50014CFAB /* StartView.swift in Sources */,
@@ -699,6 +714,7 @@
 				3DC6AEF8285B165F004FA4DB /* SavingStatusView.swift in Sources */,
 				7656A824285FE4F70014CFAB /* FrSavingView.swift in Sources */,
 				354ED94B2858471B001C726D /* NotificationsView.swift in Sources */,
+				350787B928A5277800A4C3CF /* AppDelegate.swift in Sources */,
 				E205519728557EEB00C210DA /* DummyData.swift in Sources */,
 				7669F5F62855A33F001DDA0D /* FriendAdditionView.swift in Sources */,
 				354ED957285A396B001C726D /* UserDefaults+Extension.swift in Sources */,
@@ -847,12 +863,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ToGather/ToGather.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToGather/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J85NQ6YL4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToGather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -876,12 +894,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ToGather/ToGather.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ToGather/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J85NQ6YL4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToGather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -924,6 +944,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		350787B528A526A300A4C3CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		3534AA332865E31E0094D7B9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -959,6 +987,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		350787B628A526A300A4C3CF /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D4383A928519DA700AD1885 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
 		3534AA342865E31E0094D7B9 /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3534AA332865E31E0094D7B9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

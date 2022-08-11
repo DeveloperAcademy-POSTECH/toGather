@@ -22,8 +22,6 @@ struct FriendAdditionView: View {
     @Binding var isPresentationMode: Bool
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @StateObject var friendAdditionViewModel =  FriendAdditionViewModel()
-
     @AppStorage("isVisited") var isFirstOn = !UserDefaults.standard.bool(forKey: "isVisited")
 
 
