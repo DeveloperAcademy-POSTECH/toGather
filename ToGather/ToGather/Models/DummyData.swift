@@ -30,31 +30,31 @@ let friendSavingList1 = makeSaveList(data: friendSavingDate1)
 let friendSavingList2 = makeSaveList(data: friendSavingDate2)
 let friendSavingList3 = makeSaveList(data: friendSavingDate3)
 
-let mySaving = Saving(goalProduct: Product.sampleData[0].productName,
+let dummyMySaving = Saving(goalProduct: Product.sampleData[0].productName,
                       goalWeeks: 25,
                       savingDayOfTheWeek: "월",
                       weekInfo: mySavingList,
                       appStartDate: "20220501")
 
-let friendSaving1 =  Saving(goalProduct: Product.sampleData[1].productName,
+let dummyFriendSaving1 =  Saving(goalProduct: Product.sampleData[1].productName,
                             goalWeeks: 18,
                             savingDayOfTheWeek: "화",
                             weekInfo: friendSavingList1,
                             appStartDate: "20220601")
 
-let friendSaving2 =  Saving(goalProduct: Product.sampleData[2].productName,
+let dummyFriendSaving2 =  Saving(goalProduct: Product.sampleData[2].productName,
                             goalWeeks: 23,
                             savingDayOfTheWeek: "수",
                             weekInfo: friendSavingList2,
                             appStartDate: "20220503")
 
-let friendSaving3 = Saving(goalProduct: Product.sampleData[3].productName,
+let dummyFriendSaving3 = Saving(goalProduct: Product.sampleData[3].productName,
                            goalWeeks: 24,
                            savingDayOfTheWeek: "목",
                            weekInfo: friendSavingList3,
                            appStartDate: "20220517")
 
-let dummyMy = User(id: "0", nickname: "Miller", creationDate: "", isAlarmOn: false, saveInfo: mySaving)
-let dummyFriend1 = User(id: "1", nickname: "Max", creationDate: "", isAlarmOn: false, saveInfo: friendSaving1)
-let dummyFriend2 = User(id: "2", nickname: "Bit", creationDate: "", isAlarmOn: false, saveInfo: friendSaving2)
-let dummyFriend3 = User(id: "3", nickname: "Eve", creationDate: "", isAlarmOn: false, saveInfo: friendSaving3)
+let dummyMy = User(id: "0", nickname: "Miller", creationDate: "", isAlarmOn: false, saveInfo: dummyMySaving)
+let dummyFriend1 = User(id: "1", nickname: "Max", creationDate: "", isAlarmOn: false, saveInfo: dummyFriendSaving1)
+let dummyFriend2 = User(id: "2", nickname: "Bit", creationDate: "", isAlarmOn: false, saveInfo: dummyFriendSaving2)
+let dummyFriend3 = User(id: "3", nickname: "Eve", creationDate: "", isAlarmOn: false, saveInfo: dummyFriendSaving3)
