@@ -91,11 +91,7 @@ struct SavingStatusView: View {
                         Button("취소",role: .cancel){}
                         Button("확인",role: .destructive) {
                             FirebaseManager.shared.resetUserData(uid: userViewModel.userData.id!)
-                            userViewModel.friendUids = []
-                            userViewModel.friendDatas = []
-                            userViewModel.friendNicknames = []
-                            userViewModel.friendProgressCircles = []
-                            userViewModel.userData = dummyMy
+                            userViewModel.resetData()
                             isFirstOn = true
                             exit(0)
                         }

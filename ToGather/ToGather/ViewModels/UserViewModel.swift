@@ -86,5 +86,13 @@ final class UserViewModel: ObservableObject {
         self.uploadUserData()
         self.requestFriendProgressCircles()
     }
+    
+    func resetData() {
+        userViewModel.friendUids = []
+        userViewModel.friendDatas = []
+        userViewModel.friendNicknames = []
+        userViewModel.friendProgressCircles = []
+        userViewModel.userData = dummyMy
+    }
 }
 
