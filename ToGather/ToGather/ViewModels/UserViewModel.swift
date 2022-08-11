@@ -56,6 +56,7 @@ final class UserViewModel: ObservableObject {
         let uuid = UIDevice.current.identifierForVendor!.uuidString
         let uidIndex = uuid.index(uuid.startIndex, offsetBy: 5)
         userData.id = String(uuid[...uidIndex])
+        userData.nickname = String(uuid[...uidIndex]) // FIXME: - 이후 수정
         UserDefaults.standard.set(userData.id, forKey: "User")
     }
     
