@@ -17,6 +17,8 @@ final class UserViewModel: ObservableObject {
     @Published var userData = User(id: "0", nickname: "Miller", creationDate: "", isAlarmOn: false)
     
     @Published var authPics : [String] = []
+    @Published var authPicsDate: [String] = []
+    @Published var authPicsDateDiff: [String] = []
     
     @Published var friendNicknames: [String]  = []
     @Published var friendUids: [String] = []
@@ -62,8 +64,10 @@ final class UserViewModel: ObservableObject {
     
     ///유저 인증사진들 가져오기
     func requestAuthPics() {
-        FirebaseManager.shared.requestAuthPics(userData: userData) { authPics in
-            self.authPics = authPics
+        FirebaseManager.shared.requestAuthPics(userData: userData) { [weak self] result in
+            self?.authPics = result.pics
+            self?.authPicsDate = result.picsDate
+            self?.calculateImageDate()
         }
     }
 
@@ -91,6 +95,29 @@ final class UserViewModel: ObservableObject {
         self.initUid()
         self.uploadUserData()
         self.requestFriendProgressCircles()
+    }
+    
+    func calculateImageDate() {
+        let nowStr = dateToString(date: Date())
+        let currentDate = stringToDate(date: nowStr)
+        
+        var dateDiff: [String] = []
+        authPicsDate.forEach { element in
+            let created = stringToDate(date: element)
+            let diff = Calendar.current.dateComponents([.day, .weekOfYear], from: created, to: currentDate)
+            
+            if let week = diff.weekOfYear, let day = diff.day {
+                if week != 0 {
+                    dateDiff.append("\(week)주전")
+                } else {
+                    dateDiff.append(day == 0 ? "오늘" : "\(day)일전")
+                }
+            }
+            
+        }
+        
+        authPicsDateDiff = dateDiff
+        
     }
 }
 

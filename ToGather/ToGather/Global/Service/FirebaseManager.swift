@@ -111,8 +111,8 @@ final class FirebaseManager: ObservableObject {
      }
     
     /// 인증사진들 가져오기
-    func requestAuthPics(userData: User, completion : @escaping ([String]) -> Void) {
-            
+    func requestAuthPics(userData: User, completion : @escaping ((pics: [String], picsDate: [String])) -> Void) {
+        
         let db = Database.database().reference()
         print(db)
 
@@ -126,12 +126,14 @@ final class FirebaseManager: ObservableObject {
             let weekInfo = try decoder.decode([ThisWeek].self, from: data)
 
                 var authPics : [String] = []
+                var authPicsDate : [String] = []
                 for week in weekInfo {
-                    if let imageUrl = week.imageUrl {
-                    authPics.append(imageUrl)
+                    if let imageUrl = week.imageUrl, let date = week.date {
+                        authPics.append(imageUrl)
+                        authPicsDate.append(date)
                     }
                 }
-                completion(authPics)
+                completion((authPics, authPicsDate))
             } catch let DecodingError.dataCorrupted(context) {
                 print(context)
             } catch let DecodingError.keyNotFound(key, context) {
@@ -224,8 +226,8 @@ final class FirebaseManager: ObservableObject {
     
     /// 친구 ID들 입력해서 User 데이터 한번에 가져오기
     /// - Parameters:
-    ///   - userIds: <#userIds description#>
-    ///   - completion: <#completion description#>
+    ///   - userIds: 친구들 ID Array
+    ///   - completion: ID에대한 User정보 반환
     func requestUsers(userIds:[String],completion: @escaping (([User]) -> Void)) {
         
         let db = Database.database().reference()

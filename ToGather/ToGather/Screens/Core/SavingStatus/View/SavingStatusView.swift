@@ -227,7 +227,7 @@ extension SavingStatusView {
                                 }
                             }
                         }
-                        Text("\(dummyImage[index].1)").foregroundColor(.basicBlack.opacity(0.6)).padding(EdgeInsets(top: 6, leading: 0, bottom: 0, trailing: 10))
+                        Text("\(userViewModel.authPicsDateDiff[index])").foregroundColor(.basicBlack.opacity(0.6)).padding(EdgeInsets(top: 6, leading: 0, bottom: 0, trailing: 10))
                     }
                 }
             }
