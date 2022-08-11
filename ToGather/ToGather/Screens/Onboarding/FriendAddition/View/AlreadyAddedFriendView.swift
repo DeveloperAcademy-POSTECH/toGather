@@ -27,6 +27,7 @@ struct AlreadyAddedFriendView: View {
     }
 
 }
+
 // MARK: - Extensions
 
 extension AlreadyAddedFriendView {
