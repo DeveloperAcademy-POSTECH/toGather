@@ -10,8 +10,7 @@ import Kingfisher
 struct SavingStatusNavigationView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    
-   
+
     var body: some View {
         
         let backButton = Button {presentationMode.wrappedValue.dismiss()} label: {
@@ -31,7 +30,9 @@ struct SavingStatusView: View {
     @State var isPhotoEdited: Bool = false
     @State var dummyImage: [(String, String)] = [("6:13", "1주전"), ("6:6", "2주전"), ("5:30", "3주전")]
     @EnvironmentObject var userViewModel: UserViewModel
-
+    @AppStorage("isVisited") var isFirstOn = !UserDefaults.standard.bool(forKey: "isVisited")
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var user: User {userViewModel.userData}
     
     var goalWeek: Int {user.saveInfo.goalWeeks}
@@ -71,8 +72,9 @@ struct SavingStatusView: View {
                 
                 if isMine {
                     Button {
-                        print("onemoretime")
-
+                        isFirstOn = true
+                        presentationMode.wrappedValue.dismiss()
+                        
                     } label: {
                         Text("저축 다시하기")
                             .foregroundColor(.basicBlack)
