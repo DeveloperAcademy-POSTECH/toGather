@@ -13,7 +13,7 @@ final class UserViewModel: ObservableObject {
     
     // MARK: - Properties
     @Published var mode : DisplayMode = .light
-//    @Published var userData = dummy.my
+    //    @Published var userData = dummy.my
     @Published var userData = User(id: "0", nickname: "Miller", creationDate: "", isAlarmOn: false)
     
     @Published var authPics : [String] = []
@@ -70,7 +70,7 @@ final class UserViewModel: ObservableObject {
             self?.calculateImageDate()
         }
     }
-
+    
     /// 친구정보들 가져오기
     func requestFriendProgressCircles() {
         if friendUids.isEmpty {
@@ -102,7 +102,9 @@ final class UserViewModel: ObservableObject {
         userViewModel.friendDatas = []
         userViewModel.friendNicknames = []
         userViewModel.friendProgressCircles = []
-        userViewModel.userData = dummyMy
+        userViewModel.userData = DummyData.my
+    }
+    
     func calculateImageDate() {
         let nowStr = dateToString(date: Date())
         let currentDate = stringToDate(date: nowStr)
@@ -126,4 +128,3 @@ final class UserViewModel: ObservableObject {
         
     }
 }
-
