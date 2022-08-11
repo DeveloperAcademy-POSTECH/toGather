@@ -111,7 +111,7 @@ final class FirebaseManager: ObservableObject {
      }
     
     /// 인증사진들 가져오기
-    func requestAuthPics(userData: User, completion : @escaping (([String], [String])) -> Void) {
+    func requestAuthPics(userData: User, completion : @escaping ((pics: [String], picsDate: [String])) -> Void) {
         
         let db = Database.database().reference()
         print(db)
