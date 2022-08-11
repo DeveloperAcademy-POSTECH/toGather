@@ -41,7 +41,7 @@ struct LastOnboardingView: View {
                 Text("주간")
                     .font(.system(size: 20, weight: .regular))
                     .padding(.trailing, 4)
-                Text(String(Int(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0 * 10000)))
+                Text("약 \(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0, specifier: "%3.f")만원")
                     .font(.system(size: 20, weight: .bold))
             }
             .foregroundColor(Color.basicBlack)

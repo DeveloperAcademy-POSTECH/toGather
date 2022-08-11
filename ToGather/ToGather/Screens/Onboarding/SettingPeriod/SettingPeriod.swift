@@ -70,7 +70,7 @@ struct SettingPeriodView: View {
                     .frame(width: 170, height: 170, alignment: .center)
                 
             }.padding(EdgeInsets(top: 0, leading: 0, bottom: 13, trailing: 0))
-            Text("총 \(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0, specifier: "%3.f")만원").font(.system(size: 16, weight: .medium))
+            Text("약 \(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0, specifier: "%3.f")만원").font(.system(size: 16, weight: .medium))
         }
     }
 
