@@ -13,9 +13,8 @@ final class UserViewModel: ObservableObject {
     
     // MARK: - Properties
     @Published var mode : DisplayMode = .light
-//    @Published var userData = dummyMy
+//    @Published var userData = dummy.my
     @Published var userData = User(id: "0", nickname: "Miller", creationDate: "", isAlarmOn: false)
-    @Published var dummyUserData = dummyFriend1
     
     @Published var authPics : [String] = []
     

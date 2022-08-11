@@ -72,7 +72,7 @@ struct ProgressCircle: View {
 struct TestCode_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 330, saving: dummyMySaving)
+            ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 330, saving: DummyData.mySaving)
             Spacer()
 //            Text("현재 주차 \(currentWeek)")
         }
