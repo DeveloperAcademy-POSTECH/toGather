@@ -19,11 +19,11 @@ struct SettingView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 60) {
-                
                 profileView
-                notifiView
+                    .padding(.top,30)
+              //  notifiView //FIXME: - 임시로 주석처리
                 themaView
-                
+                Spacer()
             }
             .navigationTitle("설정")
             .navigationBarTitleDisplayMode(.large)
@@ -52,7 +52,6 @@ extension SettingView {
     
     var profileView : some View {
         VStack(spacing:0) {
-            
             HStack {
                 Text("프로필")
                     .font(.system(size: 18, weight: .bold))
@@ -76,7 +75,7 @@ extension SettingView {
             .padding(.bottom,10)
             
             HStack(spacing:14) {
-                Text("\(userViewModel.userData.id!) ")
+                Text("\(userViewModel.userData.nickname) ")
                     .font(.system(size: 20, weight: .bold))
                 
                 Button {
