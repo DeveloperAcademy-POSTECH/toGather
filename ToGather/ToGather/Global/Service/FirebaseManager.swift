@@ -226,8 +226,8 @@ final class FirebaseManager: ObservableObject {
     
     /// 친구 ID들 입력해서 User 데이터 한번에 가져오기
     /// - Parameters:
-    ///   - userIds: <#userIds description#>
-    ///   - completion: <#completion description#>
+    ///   - userIds: 친구들 ID Array
+    ///   - completion: ID에대한 User정보 반환
     func requestUsers(userIds:[String],completion: @escaping (([User]) -> Void)) {
         
         let db = Database.database().reference()
