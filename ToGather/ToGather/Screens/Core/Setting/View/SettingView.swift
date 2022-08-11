@@ -76,7 +76,7 @@ extension SettingView {
             .padding(.bottom,10)
             
             HStack(spacing:14) {
-                Text("\(userViewModel.userData.nickname) ")
+                Text("\(userViewModel.userData.id!) ")
                     .font(.system(size: 20, weight: .bold))
                 
                 Button {
