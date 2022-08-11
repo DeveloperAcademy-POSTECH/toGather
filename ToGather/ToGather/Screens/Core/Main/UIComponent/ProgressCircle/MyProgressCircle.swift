@@ -90,6 +90,6 @@ extension MyProgressCircle {
 
 struct MyProgressCircle_Previews: PreviewProvider {
     static var previews: some View {
-        MyProgressCircle(user: dummyMy)
+        MyProgressCircle(user: DummyData.my)
     }
 }
