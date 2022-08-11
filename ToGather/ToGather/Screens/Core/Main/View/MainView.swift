@@ -14,7 +14,7 @@ struct MainView: View {
     @State var friendsCount  = 0
     @EnvironmentObject var userViewModel: UserViewModel
     var user: User {userViewModel.userData}
-    
+
     var saving: Saving {user.saveInfo}
     
     var currentDidSave: Bool {saving.weekInfo[currentWeek - 1].didSave}

@@ -10,8 +10,6 @@ import Kingfisher
 struct SavingStatusNavigationView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    
-   
     var body: some View {
         
         let backButton = Button {presentationMode.wrappedValue.dismiss()} label: {
@@ -23,15 +21,21 @@ struct SavingStatusNavigationView: View {
         return NavigationView {
             SavingStatusView()
                 .navigationBarItems(leading: backButton)
-                .navigationTitle("상세 저축현황") }
+            .navigationTitle("상세 저축현황") }
     }
 }
 
 struct SavingStatusView: View {
+    
+    // MARK: - Properties
     @State var isPhotoEdited: Bool = false
     @State var dummyImage: [(String, String)] = [("6:13", "1주전"), ("6:6", "2주전"), ("5:30", "3주전")]
+    @State private var showAlert = false
+    
     @EnvironmentObject var userViewModel: UserViewModel
-
+    @AppStorage("isVisited") var isFirstOn = !UserDefaults.standard.bool(forKey: "isVisited")
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var user: User {userViewModel.userData}
     
     var goalWeek: Int {user.saveInfo.goalWeeks}
@@ -49,9 +53,9 @@ struct SavingStatusView: View {
     var totalFailedNum: Int {user.saveInfo.totalFailedNum}
     var totalSavedNum: Int {user.saveInfo.totalSavedNum}
     var isDueExtended: Bool {totalFailedNum != 0 ? true : false}
-    
     var isMine: Bool = true
     
+    // MARK: - Body
     var body: some View {
         ScrollView {
             VStack {
@@ -71,8 +75,8 @@ struct SavingStatusView: View {
                 
                 if isMine {
                     Button {
-                        print("onemoretime")
-
+                        showAlert = true
+                        
                     } label: {
                         Text("저축 다시하기")
                             .foregroundColor(.basicBlack)
@@ -81,6 +85,18 @@ struct SavingStatusView: View {
                             .padding(10)
                             .background(.black.opacity(0.05))
                             .cornerRadius(10)
+                        
+                    }
+                    .alert("저축 다시하기", isPresented: $showAlert) {
+                        Button("취소",role: .cancel){}
+                        Button("확인",role: .destructive) {
+                            FirebaseManager.shared.resetUserData(uid: userViewModel.userData.id!)
+                            userViewModel.resetData()
+                            isFirstOn = true
+                            exit(0)
+                        }
+                    } message: {
+                        Text("정말로 저축을 다시하겠습니까? \n 이전 저축기록은 사라집니다.")
                         
                     }
                     
@@ -94,13 +110,13 @@ struct SavingStatusView: View {
         }
     }
 }
-
+// MARK: - Previews
 struct SavingStatusView_Previews: PreviewProvider {
     static var previews: some View {
         SavingStatusNavigationView().environmentObject(userViewModel)
     }
 }
-
+// MARK: - Extensions
 extension SavingStatusView {
     //  현재 저축 progress bar 및 저축 달성률
     var savingRate: some View {

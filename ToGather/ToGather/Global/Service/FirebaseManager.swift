@@ -14,12 +14,12 @@ import FirebaseCore
 final class FirebaseManager: ObservableObject {
     // MARK: - Properties
     static let shared = FirebaseManager()
-    
+    let db = Database.database().reference()
+
     private init() {}
     
     // MARK: - Functions
     func requestFriendNickname(friendUid: String, completion: @escaping (String?) -> Void) {
-        let db = Database.database().reference()
         let docRef = db.child("users/\(friendUid)")
         
         docRef.observe(.value) { snapshot in
@@ -35,7 +35,6 @@ final class FirebaseManager: ObservableObject {
     }
     /// firebase에 savingData 인스턴스와 userData 인스턴스 업로드
     func uploadUserData(userData: User, friendUids : [String]) {
-        let db = Database.database().reference()
         
         let data : [String: Any] = [
             "id": userData.id ?? "",
@@ -111,10 +110,10 @@ final class FirebaseManager: ObservableObject {
      }
     
     /// 인증사진들 가져오기
+
     func requestAuthPics(userData: User, completion : @escaping ((pics: [String], picsDate: [String])) -> Void) {
         
         let db = Database.database().reference()
-        print(db)
 
         db.child("users/\(userData.id ?? "")/saveInfo/weekInfo").observe(.value) { snapshot in
             
@@ -153,9 +152,7 @@ final class FirebaseManager: ObservableObject {
     
     /// 유저정보 가져오기
     func requestUser(userId:String,completion: @escaping((User) -> Void)) {
-        
-        let db = Database.database().reference()
-        
+                
         db.child("users/\(userId)").observe(.value) { snapshot in
             guard let value = snapshot.value else { return}
             
@@ -229,9 +226,7 @@ final class FirebaseManager: ObservableObject {
     ///   - userIds: 친구들 ID Array
     ///   - completion: ID에대한 User정보 반환
     func requestUsers(userIds:[String],completion: @escaping (([User]) -> Void)) {
-        
-        let db = Database.database().reference()
-        
+                
         Task {
             var friendDatas: [User] = []
             try await userIds.asyncForEach { userId in
@@ -245,7 +240,6 @@ final class FirebaseManager: ObservableObject {
     }
     
     func requestFriendUser(friendId: String) async -> User? {
-        let db = Database.database().reference()
         do {
             let snapshot = try await db.child("users/\(friendId)").getData()
             guard let value = snapshot.value else { return nil }
@@ -261,4 +255,9 @@ final class FirebaseManager: ObservableObject {
         return nil
     }
     
+    func resetUserData(uid:String) {
+           db.child("users/\(uid)")
+               .removeValue()
+       }
+
 }

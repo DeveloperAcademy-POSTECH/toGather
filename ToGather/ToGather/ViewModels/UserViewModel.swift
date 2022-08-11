@@ -97,6 +97,12 @@ final class UserViewModel: ObservableObject {
         self.requestFriendProgressCircles()
     }
     
+    func resetData() {
+        userViewModel.friendUids = []
+        userViewModel.friendDatas = []
+        userViewModel.friendNicknames = []
+        userViewModel.friendProgressCircles = []
+        userViewModel.userData = dummyMy
     func calculateImageDate() {
         let nowStr = dateToString(date: Date())
         let currentDate = stringToDate(date: nowStr)
