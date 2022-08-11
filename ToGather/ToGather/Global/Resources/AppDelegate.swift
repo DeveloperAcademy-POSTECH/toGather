@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 import FirebaseMessaging
-class AppDelegate: NSObject, UIApplicationDelegate,MessagingDelegate,UNUserNotificationCenterDelegate {
+class AppDelegate: NSObject, UIApplicationDelegate,MessagingDelegate {
     
     var userToken: String = ""
 
@@ -24,10 +24,10 @@ class AppDelegate: NSObject, UIApplicationDelegate,MessagingDelegate,UNUserNotif
               
               print("Success in APNS registry")
           }
+        
           application.registerForRemoteNotifications()
         
         
-      
         return true
     }
     
@@ -40,6 +40,16 @@ class AppDelegate: NSObject, UIApplicationDelegate,MessagingDelegate,UNUserNotif
             print("Token: \(token)")
         }
     }
+     
 }
 
 
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter,willPresent notification: UNNotification,withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.badge, .sound])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,didReceive response: UNNotificationResponse,withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+}
