@@ -1,4 +1,5 @@
 import SwiftUI
+import Kingfisher
 
 struct FrSavingStatusNavigationView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -43,6 +44,48 @@ struct FrSavingStatusView: View {
     var totalFailedNum: Int {user.saveInfo.totalFailedNum}
     var totalSavedNum: Int {user.saveInfo.totalSavedNum}
     var isDueExtended: Bool {totalFailedNum != 0 ? true : false}
+    
+    var authPics: [String] {
+        var result: [String] = []
+        user.saveInfo.weekInfo.forEach { thisWeek in
+            if let imageUrl = thisWeek.imageUrl {
+                result.append(imageUrl)
+            }
+        }
+        return result
+    }
+    
+    var authPicsDate: [String] {
+        var result: [String] = []
+        user.saveInfo.weekInfo.forEach { thisWeek in
+            if let date = thisWeek.date {
+                result.append(date)
+            }
+        }
+        return result
+    }
+    
+    var authPicsDateDiff: [String] {
+        let nowStr = dateToString(date: Date())
+        let currentDate = stringToDate(date: nowStr)
+        
+        var dateDiff: [String] = []
+        authPicsDate.forEach { element in
+            let created = stringToDate(date: element)
+            let diff = Calendar.current.dateComponents([.day, .weekOfYear], from: created, to: currentDate)
+            
+            if let week = diff.weekOfYear, let day = diff.day {
+                if week != 0 {
+                    dateDiff.append("\(week)주전")
+                } else {
+                    dateDiff.append(day == 0 ? "오늘" : "\(day)일전")
+                }
+            }
+            
+        }
+        
+        return dateDiff
+    }
     
     var isMine: Bool = true
     
@@ -151,13 +194,13 @@ extension FrSavingStatusView {
                 .foregroundColor(color)
             Spacer()
             
-            Button {
-                isPhotoEdited.toggle()
-            } label: {
-                Text( isPhotoEdited ? "편집 완료" : "사진 편집")
-                    .font(.system(size: 14))
-                    .foregroundColor(isPhotoEdited ? .black02 : .alertRed)
-            }
+//            Button {
+//                isPhotoEdited.toggle()
+//            } label: {
+//                Text( isPhotoEdited ? "편집 완료" : "사진 편집")
+//                    .font(.system(size: 14))
+//                    .foregroundColor(isPhotoEdited ? .black02 : .alertRed)
+//            }
             
         }
     }
@@ -165,10 +208,10 @@ extension FrSavingStatusView {
     var fRSuccessPictureGrid: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(0..<dummyImage.count) { i in
+                ForEach(0..<authPics.count) { index in
                     VStack(alignment: .trailing) {
                         ZStack(alignment: .topTrailing) {
-                            Image(dummyImage[i].0)
+                            KFImage(URL(string: authPics[index]))
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 149, height: 239)
@@ -181,21 +224,21 @@ extension FrSavingStatusView {
                                 .background(.clear)
                                 .cornerRadius(8)
                                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 10))
-                            if isPhotoEdited {
-                                ZStack(alignment: .topTrailing) {
-                                    Button {
-                                        dummyImage.remove(at: i)
-
-                                    } label: {
-                                        Image(systemName: "minus.circle.fill")
-                                            .foregroundColor(.red)
-                                        //                    .background()
-                                            .font(.system(size: 16))
-                                    }
-                                }
-                            }
+//                            if isPhotoEdited {
+//                                ZStack(alignment: .topTrailing) {
+//                                    Button {
+//                                        dummyImage.remove(at: i)
+//
+//                                    } label: {
+//                                        Image(systemName: "minus.circle.fill")
+//                                            .foregroundColor(.red)
+//                                        //                    .background()
+//                                            .font(.system(size: 16))
+//                                    }
+//                                }
+//                            }
                         }
-                        Text("\(dummyImage[i].1)").foregroundColor(.basicBlack.opacity(0.6)).padding(EdgeInsets(top: 6, leading: 0, bottom: 0, trailing: 10))
+                        Text("\(authPicsDateDiff[index])").foregroundColor(.basicBlack.opacity(0.6)).padding(EdgeInsets(top: 6, leading: 0, bottom: 0, trailing: 10))
                     }
                 }
             }
