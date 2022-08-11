@@ -29,20 +29,24 @@ final class UserViewModel: ObservableObject {
     func setGoalProduct(product: String) {
         userData.saveInfo.goalProduct = product
     }
+    /// goalProduct 가져오기
     func getGoalProduct() -> String {
         return userData.saveInfo.goalProduct
     }
+    
     /// setting-period 뷰에서 사용, savingData 인스턴스에 총 주차, 요일 추가
     func setGoalPeriod(goalWeeks: Int, dayOfTheWeek: String) {
         userData.saveInfo.goalWeeks = goalWeeks
         userData.saveInfo.savingDayOfTheWeek = dayOfTheWeek
         userData.saveInfo.startDate = getFirstSavingDate(setDay: dayOfTheWeek, appStartDate: dateToString(date: Date()))
     }
-    /// friend-addition 뷰에서 사용, friendUids array에 친구 uid 추가
+    
+    /// friend-addition 뷰에서 사용, friendUids array에 친구들 uid 추가
     func setFriendUids(friendUids: [String]) {
         self.friendUids = friendUids
     }
     
+    /// friend-addition 뷰에서 사용, friendUids array에 친구들 닉네임추가
     func setFriendNicknames(friendNicknames: [String]) {
         self.friendNicknames = friendNicknames
     }
@@ -62,7 +66,7 @@ final class UserViewModel: ObservableObject {
         }
     }
 
-    /// 친구정보들가져오기
+    /// 친구정보들 가져오기
     func requestFriendProgressCircles() {
         if friendUids.isEmpty {
             self.friendUids = userData.friendUids ?? []
@@ -76,11 +80,12 @@ final class UserViewModel: ObservableObject {
         }
     }
     
+    /// 유저데이터 업로드하기
     func uploadUserData() {
         FirebaseManager.shared.uploadUserData(userData: userData, friendUids: friendUids)
     }
     
-    
+    /// 초기세팅하기
     func launch() {
         self.initUid()
         self.uploadUserData()
