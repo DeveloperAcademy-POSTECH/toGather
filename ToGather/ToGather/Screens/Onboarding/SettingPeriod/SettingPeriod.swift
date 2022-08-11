@@ -12,7 +12,6 @@ let product = Product(productName: "imac", productPrice: 180, imageUrl: "imac")
 
 struct SettingPeriodView: View {
     /// onboarding시 사용할 View
-    @StateObject var onboardingViewModel: OnBoardingViewModel
 
     @EnvironmentObject var userViewModel: UserViewModel
     
@@ -154,7 +153,7 @@ struct SettingPeriodView: View {
 
     private var nextButton: some View {
         return VStack {
-            CustomNavigationLink(destination: FriendAdditionView(onboardingViewModel: onboardingViewModel, isPresentationMode: $isPresentationMode).onAppear(perform: {
+            CustomNavigationLink(destination: FriendAdditionView(isPresentationMode: $isPresentationMode).onAppear(perform: {
                 guard let selectedDay = selectedDay else {
                     return
                 }

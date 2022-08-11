@@ -9,14 +9,13 @@ import SwiftUI
 import Firebase
 
 struct LastOnboardingView: View {
-    
+    // MARK: - Properties
     @EnvironmentObject var userViewModel: UserViewModel
     @ObservedObject var lastOnboardingViewModel: LastOnboardingViewModel = LastOnboardingViewModel()
-    @StateObject var onboardingViewModel: OnBoardingViewModel
-    
+    @AppStorage("isVisited") var isFirstOn = !UserDefaults.standard.bool(forKey: "isVisited")
 //    var friendUids: [String]? = ["AcBafb", "DYYGUP"] // dummy data
     @Binding var isPresentationMode: Bool
-    
+    // MARK: - Body
     var body: some View {
         VStack(spacing: 0) {
             Text("최종 저축내용을 확인해주세요")
@@ -106,7 +105,7 @@ struct LastOnboardingView: View {
             .padding(.bottom, 18)
             Button {
                 userViewModel.launch()
-                onboardingViewModel.setNotFirstOn()
+                isFirstOn = false
             } label: {
                 Text("저축 시작하기")
                     .foregroundColor(.white)
