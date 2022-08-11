@@ -10,7 +10,7 @@ import Firebase
 import FirebaseFirestoreSwift
 struct User : Codable {
     var id: String? // uuid인데 이후 Identifiable프로토콜 구현을 위해 id로 명명
-    let nickname: String
+    var nickname: String
     let creationDate: String
     //let uuid: String  // UUID획득코드 : UIDevice.current.identifierForVendor!.uuidString
 

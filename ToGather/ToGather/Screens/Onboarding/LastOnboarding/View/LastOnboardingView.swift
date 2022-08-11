@@ -25,7 +25,7 @@ struct LastOnboardingView: View {
             
             ZStack {
                 Circle()
-                    .stroke().fill(ColorStyle.blue.color)
+                    .stroke().fill(Color.pointColor)
                     .frame(width: 230, height: 230)
                 Image(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.imageUrl ?? "")
                     .resizable()
@@ -40,19 +40,19 @@ struct LastOnboardingView: View {
                 Text("주간")
                     .font(.system(size: 20, weight: .regular))
                     .padding(.trailing, 4)
-                Text(String(Int(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0 * 10000)))
+                Text("약 \(Product.productDictionary[userViewModel.userData.saveInfo.goalProduct]?.productPrice ?? 0, specifier: "%3.f")만원")
                     .font(.system(size: 20, weight: .bold))
             }
-            .foregroundColor(ColorStyle.blackHundred.color)
+            .foregroundColor(Color.basicBlack)
             .padding(.bottom, 50)
             
             HStack(alignment: .bottom, spacing: 0) {
                 Text("매주 \(String(userViewModel.userData.saveInfo.savingDayOfTheWeek))요일")
-                    .foregroundColor(ColorStyle.blackHundred.color)
+                    .foregroundColor(Color.basicBlack)
                     .font(.system(size: 22, weight: .bold))
                     .padding(.trailing, 10)
                 Text("\(String(userViewModel.userData.saveInfo.savingAmountOfWeek))만원")
-                    .foregroundColor(ColorStyle.blue.color)
+                    .foregroundColor(Color.pointColor)
                     .font(.system(size: 32, weight: .bold))
             }
             .padding(.bottom, 8)
@@ -63,7 +63,7 @@ struct LastOnboardingView: View {
                 Text(lastOnboardingViewModel.calculateDate(date: stringToDate(date: userViewModel.userData.saveInfo.startDate),
                                                            goalWeeks: userViewModel.userData.saveInfo.goalWeeks))
             }
-            .foregroundColor(ColorStyle.blackSixty.color)
+            .foregroundColor(Color.black02)
             .font(.system(size: 16, weight: .regular))
             .padding(.bottom, 30)
             
@@ -74,16 +74,16 @@ struct LastOnboardingView: View {
                             ZStack {
                                 Image(systemName: "person.fill")
                                     .resizable()
-                                    .foregroundColor(ColorStyle.blue.color)
+                                    .foregroundColor(Color.pointColor)
                                     .frame(width: 29, height: 31)
                                 Circle()
-                                    .stroke().fill(ColorStyle.blue.color)
+                                    .stroke().fill(Color.pointColor)
                                     .frame(width: 60, height: 60)
                             }
                             .padding(.bottom, 2)
                             
                             Text(String(nickName))
-                                .foregroundColor(ColorStyle.blackHundred.color)
+                                .foregroundColor(Color.basicBlack)
                                 .font(.system(size: 14, weight: .regular))
                         }
                     }
@@ -99,7 +99,7 @@ struct LastOnboardingView: View {
                 isPresentationMode = false
             } label: {
                 Text("저축내용을 수정할게요")
-                    .foregroundColor(ColorStyle.blackSixty.color)
+                    .foregroundColor(Color.black02)
                     .font(.system(size: 18, weight: .regular))
             }
             .padding(.bottom, 18)
@@ -114,7 +114,7 @@ struct LastOnboardingView: View {
                     .padding(.vertical, 12)
             }
             .background(
-                RoundedRectangle(cornerRadius: 30).fill(ColorStyle.blue.color)
+                RoundedRectangle(cornerRadius: 30).fill(Color.pointColor)
             )
         }
         .padding(.horizontal, 20)
