@@ -91,7 +91,7 @@ final class UserViewModel: ObservableObject {
         self.requestFriendProgressCircles()
     }
     
-    func setImageDate() {
+    func calculateImageDate() {
         let nowStr = dateToString(date: Date())
         let currentDate = stringToDate(date: nowStr)
         
