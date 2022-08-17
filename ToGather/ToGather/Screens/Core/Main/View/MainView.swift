@@ -14,33 +14,13 @@ struct MainView: View {
     @State var friendsCount  = 0
     @EnvironmentObject var userViewModel: UserViewModel
     var user: User {userViewModel.userData}
-
     var saving: Saving {user.saveInfo}
-    
     var currentDidSave: Bool {saving.weekInfo[currentWeek - 1].didSave}
-    
-    // product
-    var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
-    var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
-    
-    // time
-    var lastDate: String {user.saveInfo.lastDate}
-    var startDate: String {user.saveInfo.startDate}
-    var savingDay: String {user.saveInfo.savingDayOfTheWeek}
-    var savingAmountOfWeek: Double {user.saveInfo.savingAmountOfWeek}
+        
     var currentWeek: Int {user.saveInfo.currentWeek}
     @State var deadLine = ""
     var currentWeekEndDate: Date {user.saveInfo.currentWeekEndDate}
-    
-    // money
-    var totalSavingAmount: Double {user.saveInfo.totalSavingAmount}
-    var goalSavingAmount: Double {user.saveInfo.goalSavingAmount}
-    
-    // progress
-    var totalFailedNum: Int {user.saveInfo.totalFailedNum}
-    var totalSavedNum: Int {user.saveInfo.totalSavedNum}
-    var progressPercent: Double {user.saveInfo.progressPercent}
-    
+        
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     let addFriendsColor: [Color] = [.friendRed01, .friendPurple01, .friendGreen01]

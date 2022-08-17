@@ -29,10 +29,7 @@ struct FrSavingStatusView: View {
     var colorRGB: RGBColorInProgressCircle
     var color: Color {colorRGB.start}
     
-    var saving: Saving {user.saveInfo}
     var goalWeek: Int {user.saveInfo.goalWeeks}
-    var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
-    var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
     var progressPercent: Double {user.saveInfo.progressPercent}
     var lastDate: String {user.saveInfo.lastDate}
     var startDate: String {user.saveInfo.startDate}
@@ -42,7 +39,6 @@ struct FrSavingStatusView: View {
     var goalSavingAmount: Double {user.saveInfo.goalSavingAmount}
     var currentWeek: Int {user.saveInfo.currentWeek}
     var totalFailedNum: Int {user.saveInfo.totalFailedNum}
-    var totalSavedNum: Int {user.saveInfo.totalSavedNum}
     var isDueExtended: Bool {totalFailedNum != 0 ? true : false}
     
     var authPics: [String] {
