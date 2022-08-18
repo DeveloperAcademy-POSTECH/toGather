@@ -107,7 +107,7 @@ func getCurrentWeek(from firstSavingDate: String, weekInfo: [ThisWeek]) -> Int {
 func getLastSavingDate(firstSavingDate: String, totalWeek: Int) -> String {
     let firstSavingDate = stringToDate(date: firstSavingDate)
     
-    let lastSavingDate = Calendar.current.date(byAdding: .weekOfYear, value: totalWeek, to: firstSavingDate) ?? Date()
+    let lastSavingDate = Calendar.current.date(byAdding: .weekOfYear, value: totalWeek - 1, to: firstSavingDate) ?? Date()
     return dateToString(date: lastSavingDate)
 }
 
