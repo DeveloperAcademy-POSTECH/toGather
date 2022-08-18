@@ -60,8 +60,7 @@ struct LastOnboardingView: View {
             HStack {
                 Text(lastOnboardingViewModel.changeDateFormat(date: stringToDate(date: userViewModel.userData.saveInfo.startDate)))
                 Text("-")
-                Text(lastOnboardingViewModel.calculateDate(date: stringToDate(date: userViewModel.userData.saveInfo.startDate),
-                                                           goalWeeks: userViewModel.userData.saveInfo.goalWeeks))
+                Text(dateFormatter(date: userViewModel.userData.saveInfo.lastDate))
             }
             .foregroundColor(Color.black02)
             .font(.system(size: 16, weight: .regular))
