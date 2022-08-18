@@ -133,7 +133,7 @@ func getRemainTime(currentWeekEndDate: Date) -> String {
     
     // TODO: 초 제거 필요.디버깅용
     if case let (d?, h?, m?, s?) = (dateGap.day, dateGap.hour, dateGap.minute, dateGap.second) {
-        return "\(d % 7)일 \(h)시간 \(m)분 \(s)초"
+        return "\(d)일 \(h)시간 \(m)분 \(s)초"
     }
     return "error"
 }
