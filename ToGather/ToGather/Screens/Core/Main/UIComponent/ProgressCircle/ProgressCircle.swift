@@ -15,7 +15,7 @@ let length = end - start
 let rotationDegree = (360 * (1 - length))/2 + 90
 
 struct ProgressCircle: View {
-    let color: RGBColorInProgressCircle
+    let color: Color
     let frameSize: Double // 가장 큰 원의 Frame 사이즈    
     let saving: Saving
     
@@ -28,21 +28,18 @@ struct ProgressCircle: View {
     var currentWeek: Int {saving.currentWeek}
     var totalSavedNum: Int {saving.totalSavedNum}
 
-    var gradientIntervalRed: Double {(color.endRed - color.red)/Double(totalSavedNum)}
-    var gradientIntervalGreen: Double {(color.endGreen - color.green)/Double(totalSavedNum)}
-    var gradientIntervalBlue: Double {(color.endBlue - color.blue)/Double(totalSavedNum)}
     var progressLines: [ProgressLine] { getProgressLines(weekInfo: Array(weekInfo[0..<currentWeek - 1])) }
     var body: some View {
         ZStack {
             let lineStyle = StrokeStyle(lineWidth: frameSize * 0.03, lineCap: .round, lineJoin: .round)
             // background circle
             Circle()
-                .fill(color.background)
+                .fill(color.opacity(0.05))
                 .frame(width: frameSize, height: frameSize, alignment: .center)
 
             // background line
             Circle().trim(from: start, to: end)
-                .stroke(color.line, style: lineStyle)
+                .stroke(color.opacity(0.2), style: lineStyle)
                 .rotationEffect(.init(degrees: rotationDegree))
                 .frame(width: frameSize * 0.9, height: frameSize * 0.9, alignment: .center)
 
@@ -100,7 +97,7 @@ struct ProgressCircle: View {
 struct TestCode_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 330, saving: DummyData.mySaving)
+            ProgressCircle(color: .pointColor, frameSize: 330, saving: DummyData.mySaving)
             Spacer()
 //            Text("현재 주차 \(currentWeek)")
         }

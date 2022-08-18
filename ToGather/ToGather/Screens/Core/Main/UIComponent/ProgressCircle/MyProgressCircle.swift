@@ -27,7 +27,7 @@ struct MyProgressCircle: View {
     var body: some View {
         ZStack {
             outCircle
-            ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 330, saving: saving)
+            ProgressCircle(color: .pointColor, frameSize: 330, saving: saving)
             itemInfo
             weekInfo.offset(x: 115, y: 163)
         }

@@ -121,7 +121,7 @@ extension SavingStatusView {
     //  현재 저축 progress bar 및 저축 달성률
     var savingRate: some View {
         HStack {
-            ProgressCircle(color: RGBColorInProgressCircle.myColor, frameSize: 130, saving: userViewModel.userData.saveInfo)
+            ProgressCircle(color: .pointColor, frameSize: 130, saving: userViewModel.userData.saveInfo)
                 .overlay(Image(Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""))
             savingText.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
         }.padding(EdgeInsets(top: 28, leading: 19, bottom: 0, trailing: 0))
