@@ -73,29 +73,13 @@ func getCurrentWeek(from firstSavingDate: String, weekInfo: [ThisWeek]) -> Int {
     let firstSavingDate: Date = stringToDate(date: firstSavingDate)
     
     let now = Date()
-    
-    // to에서 from 을 빼는 형식
-    // now : 0615
-    // from : 0607 < 3 차이 8
-    // from : 0608 < 2
-    // from : 0609 < 2
-    // from : 0610 < 2
-    // from : 0611 < 2
-    // from : 0612 < 2
-    // from : 0613 < 2
-    // from : 0614 < 2 차이 1
-    // from : 0615 < 1 차이 0
-    // from : 0616 < 1 차이 -1
-    // from : 0617 < 1 차이 -2
-    
+
     let dateGap = Calendar.current.dateComponents([.day], from: firstSavingDate, to: now)
     
     // 오류 처리 필요
     let dateGapDay = dateGap.day ?? 0
-    
-    var currentWeek: Int = (dateGapDay <= 0 ? 1 : ((dateGapDay) / 7 + 2))
-    
-    if weekInfo[currentWeek - 1].didSave == true {
+    var currentWeek: Int = (dateGapDay <= 0 ? 1 : (dateGapDay / 8 + 2) )
+    if dateGapDay % 7 == 0 && weekInfo[currentWeek - 1].didSave == true {
         currentWeek += 1
     }
     
