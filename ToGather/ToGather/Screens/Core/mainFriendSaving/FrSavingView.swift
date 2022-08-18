@@ -149,7 +149,7 @@ extension FrSavingStatusView {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
                 Text("저금 성공").font(.system(size: 16)).foregroundColor(.basicBlack.opacity(0.6))
-                Text("\(currentWeek)회 ").font(.system(size: 24)).foregroundColor(.basicBlack).fontWeight(.bold)
+                Text("\(user.saveInfo.totalSavedNum)회 ").font(.system(size: 24)).foregroundColor(.basicBlack).fontWeight(.bold)
                 + Text("/ \(goalWeek)").font(.system(size: 20))
                     .foregroundColor(.basicBlack.opacity(0.6)).fontWeight(.bold)
             }
