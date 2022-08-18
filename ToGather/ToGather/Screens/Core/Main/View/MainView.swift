@@ -167,7 +167,9 @@ extension MainView {
                 Label {
                     Text("\(deadLine)")
                         .onReceive(timer) {_ in
-                            deadLine = getRemainTime(currentWeekEndDate: currentWeekEndDate)}
+                            // saving 내부의 currentWeek를 재할당.
+                            deadLine = getRemainTime(from: user.saveInfo.currentWeekEndDate)
+                        }
                 } icon: {
                     Image(systemName: "clock")
                         .foregroundColor(.white)
