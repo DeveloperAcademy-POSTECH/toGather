@@ -78,7 +78,7 @@ struct Saving : Codable {
     /// 저축 성공 횟수
     var totalSavedNum: Int {
         var currentTotal = 0
-        for week in weekInfo[0..<currentWeek] {
+        for week in weekInfo[0..<currentWeek - 1] {
             currentTotal += week.didSave ? 1 : 0
         }
         return currentTotal
