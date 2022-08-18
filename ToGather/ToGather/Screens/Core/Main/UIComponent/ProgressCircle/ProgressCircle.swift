@@ -22,7 +22,7 @@ struct ProgressCircle: View {
     var weekInfo: [ThisWeek] {saving.weekInfo}
     
     // 전체 길이 = 기존 goal + 추가 포함
-    var savePeriod: Int { saving.weekInfo.count }
+    var savePeriod: Int { saving.totalWeek}
     var interval: Double { length/Double(savePeriod) }
     
     var currentWeek: Int {saving.currentWeek}
