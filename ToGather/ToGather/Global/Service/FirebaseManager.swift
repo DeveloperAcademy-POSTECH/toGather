@@ -99,29 +99,30 @@ final class FirebaseManager: ObservableObject {
 
     }
     /// 이미지 파베에 업로드하기
-    func uploadAuthPic(_ image : UIImage, to userData: User) {
-         guard let imageData = image.jpegData(compressionQuality: 0.5) else { return } // 이미지 화질 조정
-         let fileName = NSUUID().uuidString // 이미지네임 랜덤.
-         let imageRef = Storage.storage().reference(withPath: "/auth_image/\(fileName)")
-             
-         imageRef.putData(imageData, metadata: nil) { _, error in
-             if let error = error {
-                 print("에러가 발생하였다\(error.localizedDescription)")
-                 return
-             }
-         imageRef.downloadURL { imageUrl, _ in
-                 guard let imageUrl = imageUrl?.absoluteString else { return }
-
-             let db = Database.database().reference()
-             
-             db.child("users/\(userData.id ?? "")/saveInfo/weekInfo/\(userData.saveInfo.currentWeek - 1)")
-                 .updateChildValues(["imageUrl":imageUrl])
-                 
-             }
-             
-         }
-                 
-     }
+    func uploadAuthPicAndDidSave(_ image : UIImage, to userData: User, currentWeek: Int) {
+        print("currentWeek \(currentWeek)")
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else { return } // 이미지 화질 조정
+        let fileName = NSUUID().uuidString // 이미지네임 랜덤.
+        let imageRef = Storage.storage().reference(withPath: "/auth_image/\(fileName)")
+        
+        imageRef.putData(imageData, metadata: nil) { _, error in
+            if let error = error {
+                print("에러가 발생하였다\(error.localizedDescription)")
+                return
+            }
+            imageRef.downloadURL { imageUrl, _ in
+                guard let imageUrl = imageUrl?.absoluteString else { return }
+                
+                let db = Database.database().reference()
+                
+                db.child("users/\(userData.id ?? "")/saveInfo/weekInfo/\(currentWeek - 1)")
+                    .updateChildValues(["imageUrl":imageUrl])
+                
+                db.child("users/\(userData.id ?? "")/saveInfo/weekInfo/\(currentWeek - 1)")
+                    .updateChildValues(["didSave":true])
+            }
+        }
+    }
     
     /// 인증사진들 가져오기
 
