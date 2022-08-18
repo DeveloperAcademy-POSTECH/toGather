@@ -31,6 +31,7 @@ struct ProgressCircle: View {
     var gradientIntervalRed: Double {(color.endRed - color.red)/Double(totalSavedNum)}
     var gradientIntervalGreen: Double {(color.endGreen - color.green)/Double(totalSavedNum)}
     var gradientIntervalBlue: Double {(color.endBlue - color.blue)/Double(totalSavedNum)}
+    var progressLines: [ProgressLine] { getProgressLines(weekInfo: Array(weekInfo[0..<currentWeek - 1])) }
     var body: some View {
         ZStack {
             let lineStyle = StrokeStyle(lineWidth: frameSize * 0.03, lineCap: .round, lineJoin: .round)
@@ -45,27 +46,54 @@ struct ProgressCircle: View {
                 .rotationEffect(.init(degrees: rotationDegree))
                 .frame(width: frameSize * 0.9, height: frameSize * 0.9, alignment: .center)
 
-            // progress line
-            ForEach(weekInfo[0..<currentWeek]) { week in
-                if week.didSave {
-                    let startRed: Double = color.red + gradientIntervalRed * Double(week.id - 1)
-                    let endRed: Double = startRed + gradientIntervalRed
-                    let startGreen: Double = color.green + gradientIntervalGreen * Double(week.id - 1)
-                    let endGreen: Double = startGreen + gradientIntervalGreen
-                    let startBlue: Double = color.blue + gradientIntervalBlue * Double(week.id - 1)
-                    let endBlue: Double = startBlue + gradientIntervalBlue
-                    let startColor = Color(red: startRed, green: startGreen, blue: startBlue)
-                    let endColor = Color(red: endRed, green: endGreen, blue: endBlue)
-
-                    let gradientColor = LinearGradient(gradient: Gradient(colors: [startColor, endColor]), startPoint: .bottom, endPoint: .top)
-
-                    Circle()
-                        .trim(from: interval * Double(week.id - 1), to: interval * Double(week.id))
-                        .stroke(gradientColor, style: lineStyle)
-                        .rotationEffect(.init(degrees: rotationDegree))
-                }
+            ForEach(progressLines) { progressLine in
+                Circle()
+                    .trim(from: interval * Double(progressLine.start), to: interval * Double(progressLine.end))
+                    .stroke(.red, style: lineStyle)
+                    .rotationEffect(.init(degrees: rotationDegree))
             }.frame(width: frameSize * 0.9, height: frameSize * 0.9, alignment: .center)
         }
+    }
+    
+    struct ProgressLine: Identifiable {
+        let start: Int
+        let end: Int
+        let length: Int
+        let id: Int
+    }
+
+    func getProgressLines(weekInfo: [ThisWeek]) -> [ProgressLine] {
+        var i = 0
+        var start = 0
+        var length = 0
+        var progressLines: [ProgressLine] = []
+        var id = 0
+        
+        while i < weekInfo.count {
+            if weekInfo[i].didSave == true {
+                start = i
+                while weekInfo[i].didSave == true {
+                    i += 1
+                    length += 1
+                    if i == weekInfo.count {
+                        progressLines.append(ProgressLine(start: start,  end: start + length, length: length, id: id))
+                        id += 1
+                        break
+                    }
+                }
+            } else {
+                progressLines.append(ProgressLine(start: start, end: start + length, length: length, id: id))
+                id += 1
+                length = 0
+                while weekInfo[i].didSave == false {
+                    i += 1
+                    if i == weekInfo.count {
+                        break
+                    }
+                }
+            }
+        }
+        return progressLines
     }
 }
 
