@@ -52,9 +52,7 @@ struct Saving : Codable {
     }
     
     var currentWeekEndDate: Date {getCurrentWeekEndDate(currentWeek: currentWeek, firstSavingDate: startDate)}
-    
-    var deadLine: String {getRemainTime(currentWeekEndDate: currentWeekEndDate)}
-    
+        
     var lastDate: String {getLastSavingDate(firstSavingDate: startDate, totalWeek: totalWeek)}
         
     /// 매주 저축해야하는 금액
@@ -65,9 +63,7 @@ struct Saving : Codable {
     
     /// 현재까지 전체 저축 금액
     var totalSavingAmount: Double {savingAmountOfWeek * Double(totalSavedNum)}
-    
-//    var isSavedCurrentWeek: Bool {weekInfo[currentWeek - 1].didSave == true}
-    
+            
     /// 저축 회차 << 핵심 변수.
     var currentWeek: Int { getCurrentWeek(from: startDate, weekInfo: weekInfo) }
     
