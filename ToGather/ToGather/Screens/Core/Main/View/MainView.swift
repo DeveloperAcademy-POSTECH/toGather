@@ -15,11 +15,8 @@ struct MainView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     var user: User {userViewModel.userData}
     var saving: Saving {user.saveInfo}
-    var currentDidSave: Bool {saving.weekInfo[currentWeek - 1].didSave}
         
-    var currentWeek: Int {user.saveInfo.currentWeek}
     @State var deadLine = ""
-    var currentWeekEndDate: Date {user.saveInfo.currentWeekEndDate}
         
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -42,6 +39,7 @@ struct MainView: View {
                     .padding(.bottom, 25)
                 
                 mySavingsView
+                Text("\(user.saveInfo.currentWeek)")
                 Spacer(minLength: 68)
                 bottomView
             }
@@ -144,7 +142,7 @@ extension MainView {
     
     var bottomView: some View {
         VStack {
-            Text("\(currentWeek)회 ")
+            Text("\(user.saveInfo.currentWeek)회 ")
                 .font(.callout)
                 .foregroundColor(.pointColor)
                 .bold()
@@ -152,7 +150,7 @@ extension MainView {
                 .font(.system(size: 14))
                 .foregroundColor(.basicBlack.opacity(0.6))
                         
-            if isSavingDay(currentWeekEndDate: currentWeekEndDate) && currentDidSave == false {
+            if user.saveInfo.canSaving() {
                 NavigationLink(destination: SavingRecordView().navigationBarBackButtonHidden(true).navigationBarHidden(true)) {
                     Text("오늘은 저축하는 날이에요")
                         .font(.callout)
