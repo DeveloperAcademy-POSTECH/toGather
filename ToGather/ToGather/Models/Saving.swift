@@ -33,6 +33,15 @@ struct Saving : Codable {
         }
     }
     
+//    func creatWeekInfo() {
+//        var weekInfo: [ThisWeek]
+//        let maxGoalWeeks = self.goalWeeks * 2
+//        for week in 1...maxGoalWeeks {
+//            weekInfo.append(ThisWeek(presentWeek: week, didSave: false))
+//        }
+//        self.weekInfo = weekInfo
+//    }
+    
     /// 더미데이터용
     init(goalProduct: String, goalWeeks: Int, savingDayOfTheWeek: String, weekInfo: [ThisWeek], appStartDate: String) {
         self.goalProduct = goalProduct
