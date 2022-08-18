@@ -80,3 +80,9 @@ struct Saving : Codable {
     /// %에서 100을 곱한 값. 값이 30이면 30%라는 의미
     var progressPercent: Double { Double(totalSavedNum) / Double(goalWeeks) * 100 }
 }
+
+extension Saving {
+    func canSaving() -> Bool {
+        return isSavingDay(currentWeekEndDate: self.currentWeekEndDate)
+    }
+}
