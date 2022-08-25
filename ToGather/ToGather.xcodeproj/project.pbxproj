@@ -34,6 +34,7 @@
 		3D4383AD28519DA700AD1885 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4383AC28519DA700AD1885 /* FirebaseFirestore */; };
 		3D48A6E1285774CD00FE6BE8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3D48A6E0285774CD00FE6BE8 /* .swiftlint.yml */; };
 		3D48A6E3285782E500FE6BE8 /* LastOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D48A6E2285782E500FE6BE8 /* LastOnboardingViewModel.swift */; };
+		3D4DDB4528892C9B00E77CF6 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DDB4428892C9B00E77CF6 /* View+Extension.swift */; };
 		3D87D9F62852046100C36346 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3D87D9F52852046100C36346 /* FirebaseStorage */; };
 		3D87D9F928520B6100C36346 /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D9F828520B6100C36346 /* LastOnboardingView.swift */; };
 		3DA86E012887CEF700F34D69 /* AddingFriendProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA86E002887CEF700F34D69 /* AddingFriendProgressCircle.swift */; };
@@ -98,6 +99,7 @@
 		3D4383A728519BD100AD1885 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D48A6E0285774CD00FE6BE8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3D48A6E2285782E500FE6BE8 /* LastOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingViewModel.swift; sourceTree = "<group>"; };
+		3D4DDB4428892C9B00E77CF6 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		3D87D9F828520B6100C36346 /* LastOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingView.swift; sourceTree = "<group>"; };
 		3DA86E002887CEF700F34D69 /* AddingFriendProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingFriendProgressCircle.swift; sourceTree = "<group>"; };
 		3DC6AEF7285B165F004FA4DB /* SavingStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingStatusView.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 			children = (
 				35AD2D292854F8550089E1C3 /* Color+Extension.swift */,
 				354ED956285A396B001C726D /* UserDefaults+Extension.swift */,
+				3D4DDB4428892C9B00E77CF6 /* View+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -685,6 +688,7 @@
 				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				35AD2D0D28519C520089E1C3 /* User.swift in Sources */,
 				354ED94D2858488C001C726D /* NotificaionCell.swift in Sources */,
+				3D4DDB4528892C9B00E77CF6 /* View+Extension.swift in Sources */,
 				E2513678285B3217008DD9C3 /* GoalSettingTitleView.swift in Sources */,
 				35AD2D1D2851D4730089E1C3 /* MainViewModel.swift in Sources */,
 				E2513681285B3796008DD9C3 /* FirebaseManager.swift in Sources */,

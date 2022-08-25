@@ -203,16 +203,6 @@ extension MainView {
     }
 }
 
-extension View {
-    
-    func halfsheet<SheetView: View>(showSheet: Binding<Bool>, @ViewBuilder sheetView: @escaping ()->SheetView)->some View {
-        return self
-            .background(
-                HalfSheetHelper(sheetView: sheetView(), showSheet: showSheet)
-            )
-    }
-}
-
 struct HalfSheetHelper<SheetView: View>: UIViewControllerRepresentable {
     var sheetView: SheetView
     @Binding var showSheet: Bool
@@ -240,8 +230,7 @@ class CustomHostingController<Content: View>: UIHostingController<Content> {
     override func viewDidLoad() {
         if let presentationController = presentationController as? UISheetPresentationController {
             presentationController.detents = [
-                .medium(),
-                .large()
+                .medium()
             ]
             
             presentationController.prefersGrabberVisible = true
