@@ -102,9 +102,10 @@ extension MainView {
             }
             
             if userViewModel.friendProgressCircles.count < 3 {
+                let count = userViewModel.friendProgressCircles.count
                 VStack(spacing: 4) {
                     CustomNavigationLink(destination: FriendAdditionViewFromMain()) {
-                                        AddedCircleView(color: addFriendsColor[userViewModel.friendProgressCircles.count])
+                        AddedCircleView(color: addFriendsColor[count])
                     }
                     Text(userViewModel.friendProgressCircles.isEmpty ? "친구랑 같이 저축하기" : "친구 추가")
                         .font(.callout) // 16px

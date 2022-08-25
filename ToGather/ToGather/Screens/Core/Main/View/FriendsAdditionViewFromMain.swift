@@ -70,8 +70,18 @@ struct FriendAdditionViewFromMain: View {
                 if let friendNicknames = friendAdditionViewModel.getFriendNicknames(), let friendUids = friendAdditionViewModel.getFriendUids() {
                     userViewModel.appendFriendUids(friendUids: friendUids)
                     userViewModel.appendFriendNicknames(friendNicknames: friendNicknames)
-                    userViewModel.uploadFriendsData()
-                    userViewModel.requestFriendProgressCircles()
+                    print(userViewModel.friendUids)
+                    // 이미 존재하는 상황...
+//                    userViewModel.friendProgressCircles
+                    
+                    FirebaseManager.shared.requestUsers(userIds: friendUids) { friendDates in
+                        let progressCircleCount = userViewModel.friendProgressCircles.count
+                        for i in 0..<friendDates.count {
+                            userViewModel.friendProgressCircles.append(FriendProgressCircle(id: i + progressCircleCount, user: friendDates[i], color: RGBColorInProgressCircle.colorList[i + progressCircleCount]))
+                        }
+                    }
+//                    userViewModel.uploadFriendsData()
+//                    userViewModel.requestFriendProgressCircles()
                 }
                 presentationMode.wrappedValue.dismiss()
             } label: {
