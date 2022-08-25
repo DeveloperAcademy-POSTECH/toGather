@@ -87,7 +87,7 @@ final class UserViewModel: ObservableObject {
         FirebaseManager.shared.requestUsers(userIds: friendUids) { friendDatas in
             DispatchQueue.main.async { [weak self] in
                 for i in 0..<friendDatas.count {
-                    self?.friendProgressCircles.append(FriendProgressCircle(id: i, user: friendDatas[i], color: RGBColorInProgressCircle.colorList[i]))
+                    self?.friendProgressCircles.append(FriendProgressCircle(id: i, user: friendDatas[i], color: Color.friendColors[i]))
                 }
             }
         }

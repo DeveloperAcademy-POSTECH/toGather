@@ -54,5 +54,6 @@ extension Color {
     static let alertRed = Color("alertRed")
     static let alertBg = Color("alertBg")
     
+    static let friendColors: [Color] = [.friendRed01, .friendPurple01, .friendGreen01]
 }
 
