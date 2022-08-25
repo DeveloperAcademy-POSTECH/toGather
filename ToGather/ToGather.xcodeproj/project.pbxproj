@@ -60,7 +60,6 @@
 		E205519528557E6D00C210DA /* MyProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519428557E6D00C210DA /* MyProgressCircle.swift */; };
 		E205519728557EEB00C210DA /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519628557EEB00C210DA /* DummyData.swift */; };
 		E20551992855812B00C210DA /* FriendProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20551982855812B00C210DA /* FriendProgressCircle.swift */; };
-		E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */; };
 		E2239AFB28596E6500839197 /* TimeLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2239AFA28596E6400839197 /* TimeLogic.swift */; };
 		E2239AFD285A810500839197 /* SettingPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2239AFC285A810500839197 /* SettingPeriod.swift */; };
 		E2513678285B3217008DD9C3 /* GoalSettingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2513675285B3217008DD9C3 /* GoalSettingTitleView.swift */; };
@@ -119,7 +118,6 @@
 		E205519428557E6D00C210DA /* MyProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProgressCircle.swift; sourceTree = "<group>"; };
 		E205519628557EEB00C210DA /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		E20551982855812B00C210DA /* FriendProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProgressCircle.swift; sourceTree = "<group>"; };
-		E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColorInProgressCircle.swift; sourceTree = "<group>"; };
 		E2239AFA28596E6400839197 /* TimeLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLogic.swift; sourceTree = "<group>"; };
 		E2239AFC285A810500839197 /* SettingPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPeriod.swift; sourceTree = "<group>"; };
 		E2513675285B3217008DD9C3 /* GoalSettingTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSettingTitleView.swift; sourceTree = "<group>"; };
@@ -470,7 +468,6 @@
 				E20551882851E80F00C210DA /* ProgressCircle.swift */,
 				E205519428557E6D00C210DA /* MyProgressCircle.swift */,
 				E20551982855812B00C210DA /* FriendProgressCircle.swift */,
-				E205519A2855AA4200C210DA /* RGBColorInProgressCircle.swift */,
 				35E7789A2856091C0015122A /* AddedCircleView.swift */,
 			);
 			path = ProgressCircle;
@@ -671,7 +668,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E205519B2855AA4200C210DA /* RGBColorInProgressCircle.swift in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
 				35AD2D1E2851D4730089E1C3 /* MainView.swift in Sources */,
 				354ED95128587BC8001C726D /* CustomProgressBar.swift in Sources */,
@@ -703,8 +699,6 @@
 				7656A824285FE4F70014CFAB /* FrSavingView.swift in Sources */,
 				354ED94B2858471B001C726D /* NotificationsView.swift in Sources */,
 				E205519728557EEB00C210DA /* DummyData.swift in Sources */,
-				7656A819285EEDB60014CFAB /* OnboardingViewModel.swift in Sources */,
-				764FC74828518E07007A7415 /* ColorAsset.swift in Sources */,
 				E2C9C18728A4DCA300D64701 /* FriendsAdditionViewFromMain.swift in Sources */,
 				7669F5F62855A33F001DDA0D /* FriendAdditionView.swift in Sources */,
 				354ED957285A396B001C726D /* UserDefaults+Extension.swift in Sources */,
