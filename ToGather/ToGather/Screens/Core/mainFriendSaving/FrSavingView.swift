@@ -13,7 +13,7 @@ struct FrSavingStatusNavigationView: View {
         }
         
         return NavigationView {
-            FrSavingStatusView(user: user, colorRGB: colorRGB)
+            FrSavingStatusView(user: user, color: colorRGB)
                 .navigationBarItems(leading: backButton)
                 .navigationTitle("\(user.nickname) 저축현황")
         }
@@ -25,7 +25,7 @@ struct FrSavingStatusView: View {
     @State var isPhotoEdited: Bool = false
     @State var dummyImage: [(String, String)] = [("6:13", "1주전"), ("6:6", "2주전"), ("5:30", "3주전")]
     var user: User
-    var colorRGB: Color
+    var color: Color
     
     var goalWeek: Int {user.saveInfo.goalWeeks}
     var progressPercent: Double {user.saveInfo.progressPercent}
@@ -110,7 +110,7 @@ extension FrSavingStatusView {
     //  현재 저축 progress bar 및 저축 달성률
     var fRsavingRate: some View {
         HStack {
-            ProgressCircle(color: colorRGB, frameSize: 130, saving: user.saveInfo)
+            ProgressCircle(color: color, frameSize: 130, saving: user.saveInfo)
                 .overlay(Image(Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""))
             fRsavingText.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
         }.padding(EdgeInsets(top: 28, leading: 19, bottom: 0, trailing: 0))
@@ -124,12 +124,12 @@ extension FrSavingStatusView {
                 .foregroundColor(.basicBlack.opacity(0.6))
                 .font(.system(size: 14))
             Text("\(progressPercent, specifier: "%.f")%")
-                .foregroundColor(colorRGB)
+                .foregroundColor(color)
                 .font(.system(size: 40))
                 .fontWeight(.bold)
             Spacer(minLength: 5)
             Text("매주 \(savingDay)요일 ").font(.system(size: 18)).fontWeight(.bold) +
-            Text("\(savingAmountOfWeek, specifier: "%3.1f")만원").foregroundColor(colorRGB)
+            Text("\(savingAmountOfWeek, specifier: "%3.1f")만원").foregroundColor(color)
                 .font(.system(size: 18))
         }
     }
@@ -184,7 +184,7 @@ extension FrSavingStatusView {
         HStack {
             Text("저축 성공 사진")
                 .font(.system(size: 16))
-                .foregroundColor(colorRGB)
+                .foregroundColor(color)
             Spacer()
             
 //            Button {
