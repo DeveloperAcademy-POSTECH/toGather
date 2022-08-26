@@ -100,7 +100,6 @@ final class FirebaseManager: ObservableObject {
     }
     /// 이미지 파베에 업로드하기
     func uploadAuthPicAndDidSave(_ image : UIImage, to userData: User, currentWeek: Int) {
-        print("currentWeek \(currentWeek)")
         guard let imageData = image.jpegData(compressionQuality: 0.5) else { return } // 이미지 화질 조정
         let fileName = NSUUID().uuidString // 이미지네임 랜덤.
         let imageRef = Storage.storage().reference(withPath: "/auth_image/\(fileName)")

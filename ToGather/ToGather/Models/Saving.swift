@@ -11,7 +11,7 @@ import Firebase
 struct Saving : Codable {
     
     var goalProduct: String
-//    let uid: String
+    
     var goalWeeks: Int // 처음 설정한 목표 저축 기간. ~주
     
     var startDate: String // 첫번째 저축 시작 날짜.
@@ -32,15 +32,6 @@ struct Saving : Codable {
             self.weekInfo.append(ThisWeek(presentWeek: week, didSave: false))
         }
     }
-    
-//    func creatWeekInfo() {
-//        var weekInfo: [ThisWeek]
-//        let maxGoalWeeks = self.goalWeeks * 2
-//        for week in 1...maxGoalWeeks {
-//            weekInfo.append(ThisWeek(presentWeek: week, didSave: false))
-//        }
-//        self.weekInfo = weekInfo
-//    }
     
     /// 더미데이터용
     init(goalProduct: String, goalWeeks: Int, savingDayOfTheWeek: String, weekInfo: [ThisWeek], appStartDate: String) {
