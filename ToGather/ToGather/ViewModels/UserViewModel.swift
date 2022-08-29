@@ -79,11 +79,18 @@ final class UserViewModel: ObservableObject {
         }
     }
     
+    func uploadNewFriends(uids: [String], nicknames: [String]) {
+        self.appendFriendUids(friendUids: uids)
+        self.appendFriendNicknames(friendNicknames: nicknames)
+        self.uploadFriendsData()
+    }
+    
     /// 친구정보들 가져오기
     func requestFriendProgressCircles() {
         if friendUids.isEmpty {
             self.friendUids = userData.friendUids ?? []
         }
+        friendProgressCircles = []
         FirebaseManager.shared.requestUsers(userIds: friendUids) { friendDatas in
             DispatchQueue.main.async { [weak self] in
                 for i in 0..<friendDatas.count {

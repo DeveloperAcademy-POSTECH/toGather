@@ -67,16 +67,8 @@ struct FriendAdditionViewFromMain: View {
     private var completeButton: some View {
         return VStack {
             Button {
-                if let friendNicknames = friendAdditionViewModel.getFriendNicknames(), let friendUids = friendAdditionViewModel.getFriendUids() {
-                    userViewModel.appendFriendUids(friendUids: friendUids)
-                    userViewModel.appendFriendNicknames(friendNicknames: friendNicknames)
-                    FirebaseManager.shared.requestUsers(userIds: friendUids) { friendDates in
-                        let progressCircleCount = userViewModel.friendProgressCircles.count
-                        for i in 0..<friendDates.count {
-                            userViewModel.friendProgressCircles.append(FriendProgressCircle(id: i + progressCircleCount, user: friendDates[i], color: Color.friendColors[i + progressCircleCount]))
-                        }
-                    }
-//                    userViewModel.uploadFriendsData()
+                if let newFriendNicknames = friendAdditionViewModel.getFriendNicknames(), let newFriendUids = friendAdditionViewModel.getFriendUids() {
+                    userViewModel.uploadNewFriends(uids: newFriendUids, nicknames: newFriendNicknames)
                 }
                 presentationMode.wrappedValue.dismiss()
             } label: {
