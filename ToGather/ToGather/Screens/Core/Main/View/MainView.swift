@@ -39,7 +39,6 @@ struct MainView: View {
                     .padding(.bottom, 25)
                 
                 mySavingsView
-                Text("\(user.saveInfo.currentWeek)")
                 Spacer(minLength: 68)
                 bottomView
             }
