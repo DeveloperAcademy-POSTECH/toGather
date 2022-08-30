@@ -4,8 +4,7 @@ import Kingfisher
 struct FrSavingStatusNavigationView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var user: User
-    var colorRGB: RGBColorInProgressCircle
-    var color: Color {colorRGB.start}
+    var colorRGB: Color
     var body: some View {
         let backButton = Button {presentationMode.wrappedValue.dismiss()} label: {
             Image(systemName: "arrow.backward")
@@ -14,7 +13,7 @@ struct FrSavingStatusNavigationView: View {
         }
         
         return NavigationView {
-            FrSavingStatusView(user: user, colorRGB: colorRGB)
+            FrSavingStatusView(user: user, color: colorRGB)
                 .navigationBarItems(leading: backButton)
                 .navigationTitle("\(user.nickname) 저축현황")
         }
@@ -26,13 +25,9 @@ struct FrSavingStatusView: View {
     @State var isPhotoEdited: Bool = false
     @State var dummyImage: [(String, String)] = [("6:13", "1주전"), ("6:6", "2주전"), ("5:30", "3주전")]
     var user: User
-    var colorRGB: RGBColorInProgressCircle
-    var color: Color {colorRGB.start}
+    var color: Color
     
-    var saving: Saving {user.saveInfo}
     var goalWeek: Int {user.saveInfo.goalWeeks}
-    var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
-    var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
     var progressPercent: Double {user.saveInfo.progressPercent}
     var lastDate: String {user.saveInfo.lastDate}
     var startDate: String {user.saveInfo.startDate}
@@ -42,7 +37,6 @@ struct FrSavingStatusView: View {
     var goalSavingAmount: Double {user.saveInfo.goalSavingAmount}
     var currentWeek: Int {user.saveInfo.currentWeek}
     var totalFailedNum: Int {user.saveInfo.totalFailedNum}
-    var totalSavedNum: Int {user.saveInfo.totalSavedNum}
     var isDueExtended: Bool {totalFailedNum != 0 ? true : false}
     
     var authPics: [String] {
@@ -116,8 +110,7 @@ extension FrSavingStatusView {
     //  현재 저축 progress bar 및 저축 달성률
     var fRsavingRate: some View {
         HStack {
-            
-            ProgressCircle(color: colorRGB, frameSize: 130, saving: user.saveInfo)
+            ProgressCircle(color: color, frameSize: 130, saving: user.saveInfo)
                 .overlay(Image(Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""))
             fRsavingText.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
         }.padding(EdgeInsets(top: 28, leading: 19, bottom: 0, trailing: 0))
@@ -156,7 +149,7 @@ extension FrSavingStatusView {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
                 Text("저금 성공").font(.system(size: 16)).foregroundColor(.basicBlack.opacity(0.6))
-                Text("\(currentWeek)회 ").font(.system(size: 24)).foregroundColor(.basicBlack).fontWeight(.bold)
+                Text("\(user.saveInfo.totalSavedNum)회 ").font(.system(size: 24)).foregroundColor(.basicBlack).fontWeight(.bold)
                 + Text("/ \(goalWeek)").font(.system(size: 20))
                     .foregroundColor(.basicBlack.opacity(0.6)).fontWeight(.bold)
             }

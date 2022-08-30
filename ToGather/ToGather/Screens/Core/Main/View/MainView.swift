@@ -14,33 +14,10 @@ struct MainView: View {
     @State var friendsCount  = 0
     @EnvironmentObject var userViewModel: UserViewModel
     var user: User {userViewModel.userData}
-
     var saving: Saving {user.saveInfo}
-    
-    var currentDidSave: Bool {saving.weekInfo[currentWeek - 1].didSave}
-    
-    // product
-    var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
-    var productPrice: Double {Product.productDictionary[user.saveInfo.goalProduct]?.productPrice ?? 0}
-    
-    // time
-    var lastDate: String {user.saveInfo.lastDate}
-    var startDate: String {user.saveInfo.startDate}
-    var savingDay: String {user.saveInfo.savingDayOfTheWeek}
-    var savingAmountOfWeek: Double {user.saveInfo.savingAmountOfWeek}
-    var currentWeek: Int {user.saveInfo.currentWeek}
+        
     @State var deadLine = ""
-    var currentWeekEndDate: Date {user.saveInfo.currentWeekEndDate}
-    
-    // money
-    var totalSavingAmount: Double {user.saveInfo.totalSavingAmount}
-    var goalSavingAmount: Double {user.saveInfo.goalSavingAmount}
-    
-    // progress
-    var totalFailedNum: Int {user.saveInfo.totalFailedNum}
-    var totalSavedNum: Int {user.saveInfo.totalSavedNum}
-    var progressPercent: Double {user.saveInfo.progressPercent}
-    
+        
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     let addFriendsColor: [Color] = [.friendRed01, .friendPurple01, .friendGreen01]
@@ -114,7 +91,7 @@ extension MainView {
     var friendsSavingsView: some View {
         HStack(spacing: 26) {
             ForEach(userViewModel.friendProgressCircles) { friendSaving in
-                NavigationLink(destination: FrSavingStatusNavigationView(user: friendSaving.user, colorRGB: RGBColorInProgressCircle.colorList[Int(friendSaving.id)]).navigationTitle("알림")
+                NavigationLink(destination: FrSavingStatusNavigationView(user: friendSaving.user, colorRGB: Color.friendColors[Int(friendSaving.id)]).navigationTitle("알림")
                     .navigationBarHidden(true)) {
                     
 //                NavigationLink(destination: EmptyView()) {
@@ -124,9 +101,10 @@ extension MainView {
             }
             
             if userViewModel.friendProgressCircles.count < 3 {
+                let count = userViewModel.friendProgressCircles.count
                 VStack(spacing: 4) {
-                    NavigationLink(destination: FriendAdditionView( isPresentationMode: .constant(true))) {
-                        AddedCircleView(color: addFriendsColor[userViewModel.friendProgressCircles.count])
+                    CustomNavigationLink(destination: FriendAdditionViewFromMain()) {
+                        AddedCircleView(color: addFriendsColor[count])
                     }
                     Text(userViewModel.friendProgressCircles.isEmpty ? "친구랑 같이 저축하기" : "친구 추가")
                         .font(.callout) // 16px
@@ -164,7 +142,7 @@ extension MainView {
     
     var bottomView: some View {
         VStack {
-            Text("\(currentWeek)회 ")
+            Text("\(user.saveInfo.currentWeek)회 ")
                 .font(.callout)
                 .foregroundColor(.pointColor)
                 .bold()
@@ -172,7 +150,7 @@ extension MainView {
                 .font(.system(size: 14))
                 .foregroundColor(.basicBlack.opacity(0.6))
                         
-            if isSavingDay(currentWeekEndDate: currentWeekEndDate) && currentDidSave == false {
+            if user.saveInfo.canSaving() {
                 NavigationLink(destination: SavingRecordView().navigationBarBackButtonHidden(true).navigationBarHidden(true)) {
                     Text("오늘은 저축하는 날이에요")
                         .font(.callout)
@@ -187,7 +165,9 @@ extension MainView {
                 Label {
                     Text("\(deadLine)")
                         .onReceive(timer) {_ in
-                            deadLine = getRemainTime(currentWeekEndDate: currentWeekEndDate)}
+                            // saving 내부의 currentWeek를 재할당.
+                            deadLine = getRemainTime(from: user.saveInfo.currentWeekEndDate)
+                        }
                 } icon: {
                     Image(systemName: "clock")
                         .foregroundColor(.white)

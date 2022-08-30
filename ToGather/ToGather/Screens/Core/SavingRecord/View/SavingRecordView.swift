@@ -133,9 +133,9 @@ struct SavingRecordView: View {
                 guard let uiImage = uiImage else {
                     return
                 }
-                userViewModel.userData.saveInfo.weekInfo[currentWeek - 1].didSave = true
+                FirebaseManager.shared.uploadAuthPicAndDidSave(uiImage, to: userViewModel.userData, currentWeek: currentWeek)
                 userViewModel.userData.saveInfo.weekInfo[currentWeek - 1].date = dateToString(date: Date())
-                FirebaseManager.shared.uploadAuthPic(uiImage, to: userViewModel.userData)
+                userViewModel.userData.saveInfo.weekInfo[currentWeek - 1].didSave = true
                 userViewModel.requestAuthPics()
                 // image 파일이 존재할 때 Firebase에 쓰는 기능
                 presentationMode.wrappedValue.dismiss()

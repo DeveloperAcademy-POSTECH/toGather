@@ -48,9 +48,17 @@ final class UserViewModel: ObservableObject {
         self.friendUids = friendUids
     }
     
+    func appendFriendUids(friendUids: [String]) {
+        friendUids.forEach({self.friendUids.append($0)})
+    }
+    
     /// friend-addition 뷰에서 사용, friendUids array에 친구들 닉네임추가
     func setFriendNicknames(friendNicknames: [String]) {
         self.friendNicknames = friendNicknames
+    }
+    
+    func appendFriendNicknames(friendNicknames: [String]) {
+        friendNicknames.forEach({self.friendNicknames.append($0)})
     }
     
     /// 장비의 uuid를 userData 인스턴스와 savingData 인스턴스에 각각 추가
@@ -71,15 +79,22 @@ final class UserViewModel: ObservableObject {
         }
     }
     
+    func uploadNewFriends(uids: [String], nicknames: [String]) {
+        self.appendFriendUids(friendUids: uids)
+        self.appendFriendNicknames(friendNicknames: nicknames)
+        self.uploadFriendsData()
+    }
+    
     /// 친구정보들 가져오기
     func requestFriendProgressCircles() {
         if friendUids.isEmpty {
             self.friendUids = userData.friendUids ?? []
         }
+        friendProgressCircles = []
         FirebaseManager.shared.requestUsers(userIds: friendUids) { friendDatas in
             DispatchQueue.main.async { [weak self] in
                 for i in 0..<friendDatas.count {
-                    self?.friendProgressCircles.append(FriendProgressCircle(id: i, user: friendDatas[i], color: RGBColorInProgressCircle.colorList[i]))
+                    self?.friendProgressCircles.append(FriendProgressCircle(id: i, user: friendDatas[i], color: Color.friendColors[i]))
                 }
             }
         }
@@ -90,6 +105,9 @@ final class UserViewModel: ObservableObject {
         FirebaseManager.shared.uploadUserData(userData: userData, friendUids: friendUids)
     }
     
+    func uploadFriendsData() {
+        FirebaseManager.shared.uploadFriendsData(userData: userData, friendUids: friendUids)
+    }
     /// 초기세팅하기
     func launch() {
         self.initUid()

@@ -10,7 +10,7 @@ import SwiftUI
 struct FriendProgressCircle: View, Identifiable {
     let id: Int
     let user: User
-    var color: RGBColorInProgressCircle
+    var color: Color
 
     var saving: Saving {user.saveInfo}
     var productImageUrl: String {Product.productDictionary[user.saveInfo.goalProduct]?.imageUrl ?? ""}
@@ -42,7 +42,7 @@ extension FriendProgressCircle {
                 .padding(.top)
             Text("\(progressPercent, specifier: "%3.f")%")
                 .font(.system(size: 14, weight: .bold))
-                .foregroundColor(color.start)
+                .foregroundColor(color)
         }
     }
 }
@@ -50,7 +50,7 @@ extension FriendProgressCircle {
 struct FriendsProgressCircle_Previews: PreviewProvider {
     static var previews: some View {
         HStack {
-            FriendProgressCircle(id: 1, user: DummyData.friend1, color: RGBColorInProgressCircle.friendColor1)
+            FriendProgressCircle(id: 1, user: DummyData.friend1, color: .friendRed01)
         }
     }
 }
